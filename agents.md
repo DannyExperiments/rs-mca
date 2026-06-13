@@ -325,6 +325,7 @@ Agents should prefer reproducible scripts over hand calculations.
 Planned scripts:
 
 ```text
+scripts/run_frontier.py
 scripts/entropy_margin.py
 scripts/quotient_profile.py
 scripts/restricted_sum_dp.py
@@ -334,6 +335,8 @@ scripts/extension_line_scan.py
 scripts/interleaved_budget.py
 scripts/certificate_emit.py
 ```
+
+`scripts/run_frontier.py` is an EXPERIMENTAL Paper B heuristic: it fixes `N = 32` and `l = 18`, expects primes with `32 | p-1`, splits the multiplicative subgroup, and uses meet-in-the-middle enumeration to test coverage of the `psi_2` elementary-symmetric map `(e1, e2)`. Similar frontier heuristics are useful when they isolate one exact quotient, locator, residue-line, or interleaved-list object, make all parameters explicit, and record coverage or counterexample witnesses before anyone tries to promote the pattern to a theorem.
 
 ### Script output standard
 

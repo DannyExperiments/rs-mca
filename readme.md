@@ -176,12 +176,15 @@ Good first contributions include:
 
 See `AGENTS.md` for a prioritized task list and suggested toy cases.
 
-## Planned script layer
+## Script layer
 
-Scripts are not included yet, but the intended script layer is:
+The first heuristic script is `scripts/run_frontier.py`, an **EXPERIMENTAL** Paper B frontier scanner. For each prime `p` passed on the command line, intended with `32 | p-1`, it builds the order-32 multiplicative subgroup of `F_p`, uses a meet-in-the-middle subset enumeration at fixed `l = 18`, and records which elementary-symmetric fingerprints `(e1, e2)` are realized by `l` subgroup elements. Its coverage line measures how much of `F_p^2` this restricted quotient-locator map hits and appends the result to `frontier_results.txt`; full coverage is evidence about quotient/restricted-sum frontier behavior, not a proof by itself. The script currently requires `numpy` and `sympy`.
+
+The broader intended script layer is:
 
 ```text
 scripts/
+  run_frontier.py            # EXPERIMENTAL psi_2 restricted-subset frontier scan
   entropy_margin.py          # generated-field entropy reserve
   quotient_profile.py        # active quotient scales at actual (n, k, a)
   restricted_sum_dp.py       # restricted-sum / DSH verification certificates

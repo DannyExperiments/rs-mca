@@ -46,3 +46,66 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Run verifiers and audits on the integrated material,
   review mathematical notes before promotion, and close the original PRs as
   manually integrated once the integration commit is pushed.
+
+### 2026-06-18 - Fable loop cycle 1, F1 arbitrary anchors
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT.
+- **What is being added:** Audit of an Opus 4.8 artifact-stream response on
+  balanced arbitrary anchors in `def:residue`. The bankable part is the
+  quadratic reduction from arbitrary extension anchors to a paired base
+  interpolation-residue readout modulo `Ehat=lcm(E,E^tau)`.
+- **How it is useful:** Narrows F1: arbitrary anchors do not introduce a new
+  extension-only invariant in the quadratic case, but they enlarge the base
+  object beyond the monic locator image.
+- **What to do next:** Audit or prove the resulting base-field slope-image
+  packing statement. Do not use the raw generalized per-fiber endpoint from the
+  model answer without repair, since arbitrary low-degree anchors can create
+  huge raw fibers.
+
+### 2026-06-18 - Fable loop cycle 2 first attempt hung
+
+- **Agent/model:** Codex supervising `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE2_PAIRED_BASE_READOUT_HUNG_RUN.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle2_retry_paired_base_readout_short.md`.
+- **Status:** AUDIT / HARNESS_FAILED.
+- **What is being added:** The first Cycle 2 paired-base-readout audit attempt
+  exceeded the normal answer window, ended with
+  `CLAUDE_CAPTURE_WARNING_FATAL`, and produced no final theorem classification.
+- **How it is useful:** Prevents later agents from treating the partial
+  source-reading trace as mathematics and records the shortened retry prompt.
+- **What to do next:** Retry the same target with the short prompt and a
+  20-minute external watchdog. Bank only a clean `response.md` with an explicit
+  final classification.
+
+### 2026-06-18 - Codex local paired-base-readout audit
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/audits/20260618_CODEX_LOCAL_PAIRED_BASE_READOUT_AUDIT.md`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT.
+- **What is being added:** A bounded local audit of the Cycle 1 arbitrary-anchor
+  reduction. It confirms the factor-through paired base readout, isolates slope
+  uniqueness for nonzero numerator residue, and records that shrinking to an
+  `a`-subset preserves interpolation but not necessarily noncontainment.
+- **How it is useful:** Refines the live F1 target into slope-image/bad-locus
+  packing rather than raw arbitrary-anchor fiber bounds.
+- **What to do next:** Compare against the Opus retry answer when available,
+  then package only the agreed bankable statements for PR review.
+
+### 2026-06-18 - Fable loop cycle 2 retry, paired base readout
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE2_PAIRED_BASE_READOUT_RETRY_RAW.md`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE2_PAIRED_BASE_READOUT_RETRY_AUDIT.md`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT.
+- **What is being added:** The shortened retry completed cleanly and confirmed
+  the paired base interpolation-residue factorization for quadratic balanced
+  arbitrary anchors, while sharpening the remaining target into slope-image /
+  bad-locus packing rather than raw arbitrary-anchor fiber size.
+- **How it is useful:** Refines F1: the balanced quadratic arbitrary-anchor
+  issue is now a base-field packing wall `W-F1-AA`, not an extension-only
+  invariant problem.
+- **What to do next:** Ask the next worker to attack `W-F1-AA` directly:
+  prove a slope-image packing bound, or produce a finite/source-valid
+  arbitrary-anchor counterpacket after tangent/contained separation.

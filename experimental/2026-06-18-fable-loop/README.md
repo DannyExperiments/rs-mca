@@ -61,3 +61,26 @@ Cycle 5 restored W-F1-AA audit:
 - `audits/20260618_CYCLE5_W_F1_AA_RES_EXACT_WALL_AUDIT.md`
 - Status: `EXACT_NEW_WALL` / `AUDIT`.
 - Banked conservative content: restored `W-F1-AA` is sharpened to `W-F1-AA-RES`, the reserve-indexed paired-readout rigidity/value-count wall. This is not a proof of F1, not a protocol statement, and not a new corrected-reserve counterpacket.
+
+Cycle 6 VS Code credited-terminal attempt:
+
+- `raw/20260618_CYCLE6_W_F1_AA_RES_RIGIDITY_RAW_MALFORMED.json`
+- `raw/20260618_CYCLE6_W_F1_AA_RES_RIGIDITY_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`
+- `raw/20260618_CYCLE6_W_F1_AA_RES_RIGIDITY_RUN_RESULT.json`
+- `audits/20260618_CYCLE6_W_F1_AA_RES_RIGIDITY_HARNESS_MALFORMED.md`
+- Status: `HARNESS_MALFORMED_VISIBLE_TERMINAL` / `AUDIT`.
+- No mathematics banked. The apparent rigidity lemma candidate is a retry target only because the VS Code visible-terminal artifact has missing letters/spaces and duplicated fragments; no clean `response.md` was produced.
+
+Cycle 6B clean-retry attempt:
+
+- `raw/20260618_CYCLE6B_W_F1_AA_RES_RIGIDITY_RAW_MALFORMED.json`
+- `raw/20260618_CYCLE6B_W_F1_AA_RES_RIGIDITY_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`
+- `raw/20260618_CYCLE6B_W_F1_AA_RES_RIGIDITY_RUN_RESULT.json`
+- `raw/20260618_CYCLE6B_W_F1_AA_RES_RIGIDITY_RECOVERED_CLAUDE_JSONL.md`
+- `audits/20260618_CYCLE6B_W_F1_AA_RES_RIGIDITY_RECOVERED_AUDIT.md`
+- Harness status: `HARNESS_MALFORMED_VISIBLE_TERMINAL`.
+- Mathematical audit status: `EXACT_NEW_WALL` / `AUDIT`, based on source-checking
+  the recovered structured Claude JSONL answer. Banked route clarification:
+  the same-slope kernel `E*F_{<k}[X]` is not the wall; the live wall is
+  `W-F1-AA-RES-VALUECOUNT`, a value-count / collision law for distinct slopes
+  in the paired-readout image on `F*[Bnum]_E`.

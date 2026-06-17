@@ -84,6 +84,8 @@ tex/snarks_v4.tex
 
 New material should go into `experimental/` first. Use separate files there for proof notes, audits, theorem-label maps, formalization plans, reproducible experiments, and certificate generators. After review, stable `.tex` contributions can be promoted to `tex/`, and stable `.py` scripts can be promoted to `scripts/`.
 
+Whenever you add or materially change something under `experimental/`, add an entry to `experimental/agents-log.md` with the date, agent/model, files changed, status, usefulness, and next step.
+
 ## Start here
 
 ### Minimal reading path

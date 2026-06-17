@@ -54,3 +54,10 @@ Cycle 4 balance-notation audit:
 
 - `audits/20260618_CYCLE4_BALANCE_NOTATION_ROUTE_CUT_AUDIT.md`
 - Status: `ROUTE_CUT` for `W-F1-AA-AGR` as a balanced wall; the noncontainment lemma remains banked.
+
+Cycle 5 restored W-F1-AA audit:
+
+- `raw/20260618_CYCLE5_W_F1_AA_RES_RAW.md`
+- `audits/20260618_CYCLE5_W_F1_AA_RES_EXACT_WALL_AUDIT.md`
+- Status: `EXACT_NEW_WALL` / `AUDIT`.
+- Banked conservative content: restored `W-F1-AA` is sharpened to `W-F1-AA-RES`, the reserve-indexed paired-readout rigidity/value-count wall. This is not a proof of F1, not a protocol statement, and not a new corrected-reserve counterpacket.

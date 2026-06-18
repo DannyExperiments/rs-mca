@@ -606,3 +606,30 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Audit the Cycle 26 answer conservatively and bank only
   source-valid proof, counterpacket, route cut, bankable lemma, or exact new
   wall material.
+
+### 2026-06-18 - Fable loop cycle 26, rank dichotomy audit
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE26_QZERO_RANK_CONSISTENCY_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE26_QZERO_RANK_CONSISTENCY_RECOVERED_CLAUDE_JSONL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE26_QZERO_RANK_CONSISTENCY_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE26_QZERO_RANK_CONSISTENCY_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE26_QZERO_RANK_CONSISTENCY_TUI_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE26_QZERO_RANK_CONSISTENCY_CREDIT_SURFACE_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE26_QZERO_RANK_CONSISTENCY_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle27_q4_split_gate.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT.
+- **What is being added:** Cycle 26 banks the DEP/NONDEP rank dichotomy for
+  the affine `tau` system. In the `c notin B`, `c_b != 0` branch, the columns
+  are NONDEP; then rank-drop costs only `O(p)` slopes, so `Q` not identically
+  zero gives the existing `O(p)` safe side.
+- **How it is useful:** The remaining wall is no longer vague
+  rank-consistency. It is the concrete `Q==0` obstruction, with a proposed
+  top-degree scalar `Q_4`, plus the still-separate distinct split-cubic gate.
+- **What to do next:** Run Cycle 27 against
+  `W-F1-AA-RES-T2J3-QZERO-Q4-SPLIT-GATE`: verify or refute the proposed
+  `Q_4` formula, prove or refute source-valid `Q_4 != 0`, and do not promote
+  affine `tau in B^3` consistency to actual line-incidence without the
+  distinct split-cubic gate.

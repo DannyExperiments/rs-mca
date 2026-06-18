@@ -496,3 +496,38 @@ Cycle 26 Q-zero rank-consistency prompt:
   corrected the false implication `Q==0 => every slope realized`. The prompt
   asks for an `O(p)` proof, a source-valid growing-prime counterpacket, or the
   exact rank/minor elimination certificate.
+
+Cycle 26 Q-zero rank-consistency answer:
+
+- `raw/20260618_CYCLE26_QZERO_RANK_CONSISTENCY_RECOVERED_CLAUDE_JSONL.md`
+- `raw/20260618_CYCLE26_QZERO_RANK_CONSISTENCY_RAW.json`
+- `raw/20260618_CYCLE26_QZERO_RANK_CONSISTENCY_RUN_RESULT.json`
+- `raw/20260618_CYCLE26_QZERO_RANK_CONSISTENCY_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`
+- `raw/20260618_CYCLE26_QZERO_RANK_CONSISTENCY_TUI_RUNNER_RESULT.json`
+- `raw/20260618_CYCLE26_QZERO_RANK_CONSISTENCY_CREDIT_SURFACE_RUNNER_RESULT.json`
+- `audits/20260618_CYCLE26_QZERO_RANK_CONSISTENCY_AUDIT.md`
+- Harness status: `HARNESS_MALFORMED_VISIBLE_TERMINAL`; no clean
+  `response.md` was produced. The readable structured-JSONL recovery was
+  audited conservatively and the visible-terminal scrape is not banked as
+  mathematics.
+- Mathematical audit status: `BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT`.
+- Banked content: the DEP/NONDEP rank dichotomy; `c notin B` with `c_b != 0`
+  forces NONDEP; in NONDEP, rank-drop costs only `O(p)` slopes, so
+  `Q` not identically zero gives `O(p)` affine-consistent slopes.
+- Audit correction: the proposed top-degree `Q_4` obstruction is promising but
+  remains audit-only until verified independently from the Cycle 15/16 column
+  definitions, and affine `tau in B^3` consistency must still be separated from
+  the actual distinct `D`-split cubic line-incidence gate.
+- Live wall: `W-F1-AA-RES-T2J3-QZERO-Q4-SPLIT-GATE`.
+- Not banked: any full `O(p)` proof on the `Q==0` branch, any
+  `Theta(q_line)` counterpacket, any corrected-reserve theorem, full MCA bound,
+  `q_gen` consequence, protocol/list/CA/MCA/line-decoding/curve-MCA/SNARK
+  statement, or prize solve.
+
+Cycle 27 Q4 obstruction and split-cubic gate prompt:
+
+- `prompts/20260618_cycle27_q4_split_gate.md`
+- Status: AUDIT / prompt staged.
+- Purpose: verify or refute the Cycle 26 `Q_4` formula, prove or refute
+  source-valid `Q_4 != 0` on the NONDEP `c notin B` branch, and keep the
+  distinct split-cubic gate separate from affine `tau` consistency.

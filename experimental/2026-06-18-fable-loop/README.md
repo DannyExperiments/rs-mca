@@ -114,3 +114,43 @@ Cycle 8 twisted-readout attempt:
   `theta*w1` is locator-divisible.
 - Live wall: `W-F1-AA-RES-RESIDUE-COUNT`, a direct value-count/collision theorem
   or counterpacket for `[interp_S(w0)+alpha interp_S(w1)]_E`.
+
+Cycle 9 line-incidence correction:
+
+- `prompts/20260618_cycle9_w_f1_aa_res_residue_count.md`
+- `raw/20260618_CYCLE9_W_F1_AA_RES_RESIDUE_COUNT_RECOVERED_CLAUDE_JSONL.md`
+- `local_checks/20260618_cycle9_locator_quotient_incidence_check.py`
+- `audits/20260618_CYCLE9_W_F1_AA_RES_RESIDUE_COUNT_LINE_INCIDENCE_AUDIT.md`
+- Mathematical audit status: `BANKABLE_LEMMA / EXACT_NEW_WALL`.
+- Banked content: the source MCA object is not raw residue cardinality. It is
+  the bad-line slope/incidence count
+  `#{z in F : exists S, [interp_S(w)]_E=z[Bnum]_E}`. The locator-quotient
+  identity is `W=L_S Q_S+interp_S(w)`, `deg Q_S<=n-a-1`.
+- Live wall: `W-F1-AA-RES-LINE-INCIDENCE`.
+
+Cycle 10 manual route-cut reinforcement:
+
+- `raw/20260618_CYCLE10_MANUAL_W_F1_AA_RES_RESIDUE_COUNT_RESPONSE.md`
+- `audits/20260618_CYCLE10_MANUAL_RESIDUE_COUNT_ROUTE_CUT_AUDIT.md`
+- Mathematical audit status: `ROUTE_CUT / EXACT_NEW_WALL / AUDIT`.
+- Banked content: `ONLINE-SLOPE-COUNT` and `LINE-INCIDENCE` are the same
+  source-corrected wall. Do not split them into separate targets.
+
+Cycle 11 t=2, j=2 line-incidence audit:
+
+- `prompts/20260618_cycle11_w_f1_aa_res_line_incidence.md`
+- `raw/20260618_CYCLE11_W_F1_AA_RES_LINE_INCIDENCE_RESPONSE.md`
+- `raw/20260618_CYCLE11_W_F1_AA_RES_LINE_INCIDENCE_RECOVERED_CLAUDE_JSONL.md`
+- `raw/20260618_CYCLE11_W_F1_AA_RES_LINE_INCIDENCE_RUN_RESULT.json`
+- `local_checks/20260618_cycle11_t2_j2_line_incidence_verify.py`
+- `audits/20260618_CYCLE11_T2_J2_LINE_INCIDENCE_AUDIT.md`
+- Harness note: VS Code terminal response was malformed, but clean theorem text
+  was recovered from Claude structured JSONL and written to `response.md`.
+- Mathematical audit status: `BANKABLE_LEMMA / AUDIT`.
+- Banked content: in the restricted regime `t=sigma=2`, `j=n-a=r-t=2`,
+  `Q_S=C(X-s_T)+C1`, bad-line landing is one conic `det(s_T,p_T)=0`,
+  `[p^2]det=wedge([W]_E,[Bnum]_E)`, and the nonresonant slope count is
+  `O(n)` (`C2<=6n`, generically `C2<=4`).
+- Not banked: `conj:B`, `j>=3`, `t>=3`, `q_gen` collapse, protocol/MCA/CA/
+  list-decoding consequences.
+- Next wall: `W-F1-AA-RES-T2J3`; secondary wall `W-F1-AA-RES-T3J2`.

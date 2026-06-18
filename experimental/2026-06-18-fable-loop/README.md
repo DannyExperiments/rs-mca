@@ -422,3 +422,41 @@ Cycle 24 nonsplit-c D-kernel prompt:
   `c notin B`. The prompt asks for a closed form for `[X^p-X]_E`, a bilinear
   form for `D`, and a proof/counterpacket/exact wall for the joint
   `D=0`, `Delta1==0` split-cubic slope-count problem.
+
+Cycle 24 D-kernel norm-factorization answer:
+
+- `raw/20260618_CYCLE24_NONSPLIT_C_DKERNEL_RECOVERED_CLAUDE_JSONL.md`
+- `raw/20260618_CYCLE24_NONSPLIT_C_DKERNEL_RAW.json`
+- `raw/20260618_CYCLE24_NONSPLIT_C_DKERNEL_RUN_RESULT.json`
+- `raw/20260618_CYCLE24_NONSPLIT_C_DKERNEL_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`
+- `raw/20260618_CYCLE24_NONSPLIT_C_DKERNEL_TUI_RUNNER_RESULT.json`
+- `raw/20260618_CYCLE24_NONSPLIT_C_DKERNEL_CREDIT_SURFACE_RUNNER_RESULT.json`
+- `audits/20260618_CYCLE24_NONSPLIT_C_DKERNEL_AUDIT.md`
+- `local_checks/20260618_cycle24_dkernel_norm_identity_check.py`
+- Harness status: `HARNESS_MALFORMED_VISIBLE_TERMINAL`; no clean
+  `response.md` was produced. The readable structured-JSONL recovery was
+  audited conservatively and the visible-terminal scrape is not banked as
+  mathematics.
+- Mathematical audit status: `BANKABLE_LEMMA / ROUTE_CUT / AUDIT`.
+- Banked content: in the restricted `D=F_p`, `B=F_p`, `F=F_{p^2}`,
+  `t=sigma=2`, `j=3`, off-`R0` window,
+  `ell=[X^p-X]_E=mu*(xi+c/2)+delta_c`, with
+  `mu=(c^2/4-d)^((p-1)/2)-1` and `delta_c=(c-c^p)/2`, and
+  `D=N(ell)kappa`, where `N(ell)=prod_{a in F_p}E(a)`.
+- Consequence: for source-valid residue-line denominators nonzero on
+  `D=F_p`, `N(ell)!=0`; off `R0`, `kappa!=0`; therefore the entire
+  source-valid `D=0`, off-`R0` branch is empty in this restricted window.
+- Live wall: return to the non-`D=0` determinant-split branch,
+  `W-F1-AA-RES-T2J3-QZERO-DETM-NONZERO-SPLIT`.
+- Not banked: any corrected-reserve theorem, full MCA bound, `q_gen`
+  consequence, protocol/list/CA/MCA/line-decoding/curve-MCA/SNARK statement,
+  or claim that the Proximity Prize is solved.
+
+Cycle 25 Q==0 with detM nonzero prompt:
+
+- `prompts/20260618_cycle25_qzero_detm_nonzero_split.md`
+- Status: AUDIT / prompt staged.
+- Purpose: attack the remaining `Q==0`, `D!=0`, `det M!=0` distinct
+  split-cubic branch after Cycle 24 cut the source-valid `D=0` branch.
+  The prompt asks for a proof of `O(p)` slopes, a source-valid growing-prime
+  `Theta(q_line)` counterpacket, or the exact next algebraic wall.

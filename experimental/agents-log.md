@@ -519,3 +519,48 @@ Keep entries concise and link to the relevant files.
   `D=0` branch.
 - **What to do next:** Audit the Cycle 24 answer conservatively and bank only
   source-valid proof, counterpacket, route cut, or exact new wall material.
+
+### 2026-06-18 - Fable loop cycle 24, D-kernel norm route cut
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE24_NONSPLIT_C_DKERNEL_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE24_NONSPLIT_C_DKERNEL_RECOVERED_CLAUDE_JSONL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE24_NONSPLIT_C_DKERNEL_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE24_NONSPLIT_C_DKERNEL_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE24_NONSPLIT_C_DKERNEL_TUI_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE24_NONSPLIT_C_DKERNEL_CREDIT_SURFACE_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE24_NONSPLIT_C_DKERNEL_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle24_dkernel_norm_identity_check.py`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / ROUTE_CUT / AUDIT.
+- **What is being added:** Cycle 24 banks the factorization
+  `D=N(ell)kappa`, with
+  `ell=[X^p-X]_E=mu*(xi+c/2)+delta_c` and
+  `N(ell)=prod_{a in F_p}E(a)`. Since source-valid denominators are nonzero
+  on `D=F_p`, `N(ell)!=0`; off `R0`, `kappa!=0`; hence the source-valid
+  `D=0` branch is empty in the restricted `t=2,j=3` window.
+- **How it is useful:** This cuts the nonsplit-`c` wall and subsumes Cycle 23:
+  the route can stop searching for `Theta(q_line)` counterpackets on `D=0`
+  off `R0` and return to the determinant-split `Q==0`, `D!=0` branch.
+- **What to do next:** Run Cycle 25 against
+  `W-F1-AA-RES-T2J3-QZERO-DETM-NONZERO-SPLIT`: decide whether the remaining
+  `Q==0`, `det M!=0` source-valid distinct-split branch gives only `O(p)`
+  slopes or a growing `Theta(q_line)` counterpacket.
+
+### 2026-06-18 - Fable loop cycle 25, Q==0 detM nonzero prompt
+
+- **Agent/model:** Codex directing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260618_cycle25_qzero_detm_nonzero_split.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and Packy route-board
+  source files.
+- **Status:** AUDIT.
+- **What is being added:** A no-internet homerun prompt attacks
+  `W-F1-AA-RES-T2J3-QZERO-DETM-NONZERO-SPLIT`, the remaining non-`D=0`
+  determinant-split branch after Cycle 24 cut source-valid `D=0` off `R0`.
+- **How it is useful:** This keeps the loop on the only currently live place
+  where a `Theta(q_line)` seed might still hide in the restricted `t=2,j=3`
+  toy window.
+- **What to do next:** Audit the Cycle 25 answer conservatively and bank only
+  source-valid proof, counterpacket, route cut, bankable lemma, or exact new
+  wall material.

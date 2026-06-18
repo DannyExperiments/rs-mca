@@ -455,3 +455,27 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Run Cycle 22 against the D-kernel alignment wall, with
   output files allowed if the worker can provide a finite checker/certificate
   rather than a hand proof.
+
+### 2026-06-18 - Fable loop cycle 22, decoupling and nonemptiness wall
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE22_D_KERNEL_ALIGNMENT_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE22_D_KERNEL_ALIGNMENT_RECOVERED_CLAUDE_JSONL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE22_D_KERNEL_ALIGNMENT_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE22_D_KERNEL_ALIGNMENT_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE22_D_KERNEL_ALIGNMENT_TUI_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE22_D_KERNEL_ALIGNMENT_CREDIT_SURFACE_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE22_D_KERNEL_ALIGNMENT_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle23_nonemptiness_split_count.md`,
+  and `experimental/2026-06-18-fable-loop/README.md`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT.
+- **What is being added:** Cycle 22 banks the decoupling identity
+  `Im_alpha(J_A)=2 Im_alpha(d)+Im_alpha(c) f_2` on `Delta1==0`, after
+  reducing `D=0` alignment to the single scalar gate `J_A=0`.
+- **How it is useful:** It creates a much sharper residual wall:
+  `W-F1-AA-RES-T2J3-D-KERNEL-ALIGNMENT-NONEMPTINESS`. The cleanest possible
+  off-kernel seed lives on the explicit stratum `c in B`, `d notin B`, where
+  alignment is impossible if the stratum is source-valid and nonempty.
+- **What to do next:** Run Cycle 23 to decide nonemptiness and split-cubic
+  slope count on that stratum. Do not bank a counterpacket until a growing
+  `Omega(p^2)` source-valid family is supplied.

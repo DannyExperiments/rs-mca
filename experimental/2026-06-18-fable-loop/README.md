@@ -359,3 +359,30 @@ Cycle 22 D-kernel alignment prompt:
   equations force the leading-data ratio
   `(W_{n-2}+cW_{n-1}:W_{n-1})` onto the collapse-kernel line, or whether an
   off-kernel source-valid family exists.
+
+Cycle 22 D-kernel alignment answer:
+
+- `raw/20260618_CYCLE22_D_KERNEL_ALIGNMENT_RECOVERED_CLAUDE_JSONL.md`
+- `raw/20260618_CYCLE22_D_KERNEL_ALIGNMENT_RAW.json`
+- `raw/20260618_CYCLE22_D_KERNEL_ALIGNMENT_RUN_RESULT.json`
+- `raw/20260618_CYCLE22_D_KERNEL_ALIGNMENT_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`
+- `raw/20260618_CYCLE22_D_KERNEL_ALIGNMENT_TUI_RUNNER_RESULT.json`
+- `raw/20260618_CYCLE22_D_KERNEL_ALIGNMENT_CREDIT_SURFACE_RUNNER_RESULT.json`
+- `audits/20260618_CYCLE22_D_KERNEL_ALIGNMENT_AUDIT.md`
+- Harness status: `HARNESS_MALFORMED_VISIBLE_TERMINAL`; no clean
+  `response.md` was produced and no `output_files/` deliverables were written.
+- Mathematical audit status: `BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT`.
+- Banked content: `Delta1==0` is exactly the two base-descent equations; on
+  `D=0`, alignment reduces to `J_A=0`; and on `Delta1==0`,
+  `Im_alpha(J_A)=2 Im_alpha(d)+Im_alpha(c) f_2`.
+- Rejected overclaim: no nonemptiness, slope lower bound, or counterpacket is
+  banked.
+- Live wall: `W-F1-AA-RES-T2J3-D-KERNEL-ALIGNMENT-NONEMPTINESS`.
+
+Cycle 23 nonemptiness/split-count prompt:
+
+- `prompts/20260618_cycle23_nonemptiness_split_count.md`
+- Status: AUDIT / prompt staged.
+- Purpose: settle whether the explicit `c in B`, `d notin B`, `Delta1==0`,
+  `D=0` off-kernel stratum is source-valid and nonempty, and if so whether it
+  has `Omega(p^2)` or only `O(p)` split-cubic bad slopes.

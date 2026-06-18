@@ -182,6 +182,33 @@ Keep entries concise and link to the relevant files.
   and projective map image on source-valid split cubics across growing primes,
   with `G==0` as the first exact gate for possible `Theta(p^2)` behavior.
 
+### 2026-06-18 - Cycle 18 original Fable provenance packet
+
+- **Agent/model:** Codex preserving `claude-opus-4-8` Fable loop provenance.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE18_HOMERUN_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle18_homerun_full_solve_or_big_leap.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE18_HOMERUN_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE18_HOMERUN_RECOVERED_CLAUDE_JSONL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE18_HOMERUN_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE18_HOMERUN_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE18_HOMERUN_TUI_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE18_HOMERUN_CREDIT_SURFACE_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`, and
+  `experimental/agents-log.md`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT.
+- **What is being added:** Focused provenance for the original Cycle 18
+  homerun run: submitted prompt, recovered Claude JSONL answer, malformed
+  visible-terminal scrape kept separate, run receipts, and Codex's original
+  conservative audit of the monicity lemma and resonance slope-map wall.
+- **How it is useful:** Complements the already-integrated reconstruction
+  note with the original model output and harness receipts, without editing
+  Papers A-D or promoting the restricted result beyond experimental/audit
+  status.
+- **What to do next:** Review this packet beside
+  `20260618_CYCLE18_RESONANCE_SLOPE_MAP_COLLAPSE_AUDIT.md`; if accepted,
+  keep it as provenance for the existing Cycle 18 reconstruction rather than a
+  replacement for reviewed theorem notes.
+
 ### 2026-06-18 - Paper B counterexample comparison
 
 - **Agent/model:** Codex.

@@ -154,3 +154,59 @@ Cycle 11 t=2, j=2 line-incidence audit:
 - Not banked: `conj:B`, `j>=3`, `t>=3`, `q_gen` collapse, protocol/MCA/CA/
   list-decoding consequences.
 - Next wall: `W-F1-AA-RES-T2J3`; secondary wall `W-F1-AA-RES-T3J2`.
+
+Cycle 12 t=2, j=3 quotient/quadric audit:
+
+- `prompts/20260618_cycle12_w_f1_aa_res_t2j3.md`
+- `raw/20260618_CYCLE12_W_F1_AA_RES_T2J3_RESPONSE.md`
+- `audits/20260618_CYCLE12_T2_J3_LINE_INCIDENCE_AUDIT.md`
+- `local_checks/20260618_cycle12_t2_j3_line_incidence_scan.py`
+- Mathematical audit status: `BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT`.
+- Banked content: `Q_S` depends on `tau_1,tau_2` and not `tau_3`; bad-line
+  landing is a quadric with `[tau_3^2]Delta=wedge([W]_E,[Bnum]_E)`.
+- Not banked: a `C2` slope bound. The live wall becomes slope-fiber collapse.
+
+Cycle 13 base-component complete-intersection audit:
+
+- `prompts/20260618_cycle13_base_component_complete_intersection.md`
+- `raw/20260618_CYCLE13_BASE_COMPONENT_COMPLETE_INTERSECTION_RESPONSE.md`
+- `audits/20260618_CYCLE13_BASE_COMPONENT_COMPLETE_INTERSECTION_AUDIT.md`
+- `local_checks/20260618_cycle12_base_component_rank_scan.py`
+- Mathematical audit status: `BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT`.
+- Banked content: off `R0 union Ra union Rb`, the base components
+  `Delta_0,Delta_1` are coprime, so `#landings=O(p)` and hence `C2=O(n)` for
+  `D=F_p`, `t=sigma=2`, `j=3`.
+- Live wall: resonance strata `Ra/Rb`.
+
+Cycle 14 resonance slope-map audit:
+
+- `prompts/20260618_cycle14_base_component_resonance.md`
+- `raw/20260618_CYCLE14_BASE_COMPONENT_RESONANCE_RESPONSE.md`
+- `audits/20260618_CYCLE14_BASE_COMPONENT_RESONANCE_AUDIT.md`
+- Mathematical audit status: `EXACT_NEW_WALL / AUDIT`.
+- Banked content: the resonance strata are not source-excluded by the current
+  hypotheses. The residual problem is the explicit slope map on a base surface:
+  `q1 z^2-(p1-q2)z-p2=0`, `tau_3=p1-zq1 in B`.
+- Live wall: `W-F1-AA-RES-T2J3-SURFACE-SLOPE-FIBER`.
+
+Cycle 15 surface slope-fiber rank/determinant audit:
+
+- `prompts/20260618_cycle15_surface_slope_fiber.md`
+- `raw/20260618_CYCLE15_SURFACE_SLOPE_FIBER_RESPONSE.md`
+- `raw/20260618_CYCLE15_SURFACE_SLOPE_FIBER_RECOVERED_CLAUDE_JSONL.md`
+- `raw/20260618_CYCLE15_SURFACE_SLOPE_FIBER_RUN_RESULT.json`
+- `audits/20260618_CYCLE15_SURFACE_SLOPE_FIBER_AUDIT.md`
+- `local_checks/20260618_cycle15_forced_ra_slope_scan.py`
+- `local_checks/20260618_cycle15_forced_ra_slope_scan_certificate.md`
+- Harness status: clean structured Claude JSONL was promoted to `response.md`;
+  terminal transcript is revenue/debug evidence only.
+- Mathematical audit status: `EXACT_NEW_WALL / AUDIT`.
+- Banked content: the residual surface slope problem reduces to the affine
+  equation `L_z(tau)=iota-z mu=0` in `A=F[X]/E`, with explicit `B`-columns
+  `c1(z),c2(z),c3(z)` and determinant consistency polynomial
+  `Q(z_0,z_1)`.
+- Audit correction: rank `3` alone does not imply `Theta(q_line)` slopes.
+  The safe wall is the rank/determinant pair: `Q!=0` gives a curve-sized
+  slope set, while `Q==0` identically is the possible large-slope regime.
+- Live wall:
+  `W-F1-AA-RES-T2J3-SURFACE-SLOPE-FIBER-RANK-DETERMINANT`.

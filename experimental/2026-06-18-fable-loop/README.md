@@ -272,3 +272,13 @@ Cycle 18 homerun / big-leap attempt:
 - Not banked: a full proof/disproof, the resonance slope-map collapse itself,
   a `Theta(q_line)` counterpacket, any above-reserve statement, any `q_gen`
   conclusion, or any protocol/list/CA/MCA/line-decoding conversion.
+
+Cycle 19 resonance slope-map collapse prompt:
+
+- `prompts/20260618_cycle19_resonance_slope_map_collapse.md`
+- Status: AUDIT / prompt staged.
+- Target:
+  `W-F1-AA-RES-T2J3-RESONANCE-SLOPE-MAP-COLLAPSE`.
+- Purpose: ask for a proof of the non-coprime resonance slope-map collapse, a
+  growing-prime counterpacket, a route cut, or a sharper exact wall using the
+  Cycle 18 monicity lemma as banked context.

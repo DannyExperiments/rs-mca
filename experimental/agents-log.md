@@ -338,3 +338,20 @@ Keep entries concise and link to the relevant files.
   source-valid family where `C2/p^2` stays bounded below. Do not promote this
   sub-reserve toy-window result to a corrected-reserve, `q_gen`, protocol, or
   MCA/list-decoding statement.
+
+### 2026-06-18 - Fable loop cycle 19, resonance slope-map collapse prompt
+
+- **Agent/model:** Codex directing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260618_cycle19_resonance_slope_map_collapse.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** AUDIT.
+- **What is being added:** A narrow homerun prompt attacks the Cycle 18 wall
+  `W-F1-AA-RES-T2J3-RESONANCE-SLOPE-MAP-COLLAPSE`, asking for a proof of
+  collapse, a growing-prime counterpacket, a route cut, or a strictly sharper
+  exact wall.
+- **How it is useful:** It preserves the big-leap strategy while preventing a
+  broad solve-attempt from losing the banked monicity structure.
+- **What to do next:** Audit the Cycle 19 answer conservatively and bank only
+  clean `response.md`, clean structured JSONL recovery promoted to
+  `response.md`, or explicit `output_files/` deliverables.

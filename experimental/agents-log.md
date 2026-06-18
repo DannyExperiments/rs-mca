@@ -296,3 +296,18 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Either build the scanner in a clean execution-capable
   lane or try a high-upside proof/counterpacket prompt against the live wall
   `W-F1-AA-RES-T2J3-RANK-DET-SPLIT`.
+
+### 2026-06-18 - Fable loop cycle 18, homerun prompt
+
+- **Agent/model:** Codex directing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260618_cycle18_homerun_full_solve_or_big_leap.md`.
+- **Status:** AUDIT.
+- **What is being added:** A high-upside prompt asks the worker to attempt a
+  full solve/disproof first, and otherwise produce the largest source-grounded
+  theorem, counterpacket, route cut, or exact new wall available.
+- **How it is useful:** This deliberately rotates away from the local scanner
+  lens after Cycle 17's malformed output, looking for an unexpected global
+  route or sharper obstruction.
+- **What to do next:** Audit the Cycle 18 answer conservatively. If it does not
+  produce a major result, resume the normal targeted loop at the best refined
+  wall it identifies.

@@ -686,3 +686,32 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Run Cycle 29 against
   `W-F1-AA-RES-T2J4-LOCATOR-NORM-TOP-SYMBOL`: test whether the same
   locator-norm top-symbol mechanism persists at `t=2,j=4`.
+
+### 2026-06-18 - Fable loop cycle 29, T2J4 locator top-symbol wall
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE29_T2J4_LOCATOR_NORM_TOP_SYMBOL_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE29_T2J4_LOCATOR_NORM_TOP_SYMBOL_RECOVERED_CLAUDE_JSONL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE29_T2J4_LOCATOR_NORM_TOP_SYMBOL_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE29_T2J4_LOCATOR_NORM_TOP_SYMBOL_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE29_T2J4_LOCATOR_NORM_TOP_SYMBOL_TUI_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE29_T2J4_LOCATOR_NORM_TOP_SYMBOL_CREDIT_SURFACE_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE29_T2J4_LOCATOR_NORM_TOP_SYMBOL_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle30_t2j4_split_quartic_gate.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT.
+- **What is being added:** Cycle 29 shows that the Cycle 28 determinant route
+  changes meaning at `t=2,j=4`: the bad-line affine system has four parameters
+  in a four-dimensional `B`-space, so `det_B M(z)` is an invertibility
+  determinant rather than an incidence obstruction. Its top symbol is still
+  controlled by the same source-valid locator quantity `Q_4`.
+- **How it is useful:** This prevents overextending the `j=3` proof. The live
+  wall is now the distinct split-quartic gate for the rational map
+  `z -> tau(z)`, which could either give `O(p)` or expose a sub-reserve
+  `Theta(q_line)` counterpacket seed.
+- **What to do next:** Run Cycle 30 against
+  `W-F1-AA-RES-T2J4-SPLIT-QUARTIC-GATE`: prove an `O(p)` hit bound for the
+  totally split distinct locus, produce a source-valid growing-prime
+  counterpacket, or reduce the gate to a precise curve/Frobenius/norm
+  condition.

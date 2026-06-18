@@ -613,3 +613,41 @@ Cycle 29 T2J4 locator-norm top-symbol prompt:
 - Purpose: test whether the Cycle 28 top-symbol mechanism persists at
   `t=2,j=4`, namely whether the highest-degree slope-consistency coefficient
   is a nonzero scalar times a power of `prod_{a in F_p}E(a)`.
+
+Cycle 29 T2J4 locator-norm top-symbol answer:
+
+- `raw/20260618_CYCLE29_T2J4_LOCATOR_NORM_TOP_SYMBOL_RECOVERED_CLAUDE_JSONL.md`
+- `raw/20260618_CYCLE29_T2J4_LOCATOR_NORM_TOP_SYMBOL_RAW.json`
+- `raw/20260618_CYCLE29_T2J4_LOCATOR_NORM_TOP_SYMBOL_RUN_RESULT.json`
+- `raw/20260618_CYCLE29_T2J4_LOCATOR_NORM_TOP_SYMBOL_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`
+- `raw/20260618_CYCLE29_T2J4_LOCATOR_NORM_TOP_SYMBOL_TUI_RUNNER_RESULT.json`
+- `raw/20260618_CYCLE29_T2J4_LOCATOR_NORM_TOP_SYMBOL_CREDIT_SURFACE_RUNNER_RESULT.json`
+- `audits/20260618_CYCLE29_T2J4_LOCATOR_NORM_TOP_SYMBOL_AUDIT.md`
+- Harness status: `HARNESS_MALFORMED_VISIBLE_TERMINAL`; no clean
+  `response.md` was produced. The readable structured-JSONL recovery was
+  audited conservatively and the visible-terminal scrape is not banked as
+  mathematics.
+- Mathematical audit status: `BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT`.
+- Banked content: at `t=2,j=4`, the quotient depends on
+  `tau_1,tau_2,tau_3`, while the locator residue introduces `tau_4`; the
+  affine bad-line system has four parameters in the four-dimensional
+  `B`-space `A=F[X]/E`. Thus the determinant is the square coefficient
+  determinant `det_B M(z)`, an invertibility/uniqueness determinant, not the
+  Cycle 28 incidence obstruction. The top symbol is
+  `-N(kappa)N(z)^2Q_4`, with the same source-valid nonzero Cycle 28 locator
+  quantity `Q_4`.
+- Exact new wall: because affine consistency is generically automatic at
+  `j=4`, the remaining source-correct problem is the split-quartic gate
+  `W-F1-AA-RES-T2J4-SPLIT-QUARTIC-GATE`.
+- Not banked: any `O(p)` slope bound for `j=4`, any source-valid
+  `Theta(q_line)` counterpacket, corrected-reserve theorem, full MCA bound,
+  `q_gen` consequence, protocol/list/CA/MCA/line-decoding/curve-MCA/SNARK
+  statement, or prize solve.
+
+Cycle 30 T2J4 split-quartic gate prompt:
+
+- `prompts/20260618_cycle30_t2j4_split_quartic_gate.md`
+- Status: AUDIT / prompt prepared.
+- Purpose: attack the actual `j=4` gate: bound or refute the number of slopes
+  for which `tau(z)=M(z)^(-1)(-C_0(z))` is the elementary-symmetric tuple of a
+  distinct 4-subset of `F_p`.

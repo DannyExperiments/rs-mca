@@ -159,3 +159,120 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Attack restored `W-F1-AA`: bound distinct slopes whose
   paired readout lands on `F*[Bnum]_E`, after tangent/zero-numerator and
   quotient-periodic contributions are separated.
+
+### 2026-06-18 - Fable loop cycles 5-8, restored residue slope-image wall
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260618_cycle5_restored_w_f1_aa_slope_image.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle6_w_f1_aa_res_rigidity_ads_lane.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle6b_w_f1_aa_res_rigidity_clean_retry.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle7_w_f1_aa_res_valuecount.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle8_w_f1_aa_res_twisted_readout.md`,
+  matching `raw/` receipts, `audits/20260618_CYCLE5_W_F1_AA_RES_EXACT_WALL_AUDIT.md`,
+  `audits/20260618_CYCLE6_W_F1_AA_RES_RIGIDITY_HARNESS_MALFORMED.md`,
+  `audits/20260618_CYCLE6B_W_F1_AA_RES_RIGIDITY_RECOVERED_AUDIT.md`,
+  `audits/20260618_CYCLE7_W_F1_AA_RES_VALUECOUNT_TWISTED_READOUT_AUDIT.md`,
+  `audits/20260618_CYCLE8_W_F1_AA_RES_TWISTED_READOUT_AUDIT.md`,
+  and related checks in `local_checks/`.
+- **Status:** BANKABLE_LEMMA / ROUTE_CUT / EXACT_NEW_WALL / AUDIT.
+- **What is being added:** These cycles refine `W-F1-AA` into the residue
+  slope-image wall `W-F1-AA-RES`, discard malformed visible-terminal output as
+  non-mathematical evidence, and bank only clean recovered theorem text plus
+  locally checked residue/readout reductions.
+- **How it is useful:** The work narrows F1 from arbitrary extension-line MCA
+  to a concrete base-field residue-line packing problem while preserving the
+  prompt/answer trail needed for later audit.
+- **What to do next:** Continue separating tangent, zero-numerator, quotient,
+  and twisted-readout components; use only clean `response.md` or recovered
+  structured JSONL as mathematical input.
+
+### 2026-06-18 - Fable loop cycles 9-10, residue count line-incidence route cut
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260618_cycle9_w_f1_aa_res_residue_count.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle10_manual_residue_count_packet.md`,
+  matching `raw/` receipts,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE9_W_F1_AA_RES_RESIDUE_COUNT_LINE_INCIDENCE_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE10_MANUAL_RESIDUE_COUNT_ROUTE_CUT_AUDIT.md`,
+  and `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle9_locator_quotient_incidence_check.py`.
+- **Status:** ROUTE_CUT / EXACT_NEW_WALL / AUDIT.
+- **What is being added:** The naive residue-value counting route is cut as
+  insufficient; the surviving target is a line-incidence formulation for the
+  low-slack residue image.
+- **How it is useful:** Prevents later agents from overclaiming a value-count
+  proof and forces the next attack to control slope fibers geometrically.
+- **What to do next:** Attack line-incidence directly in the smallest
+  meaningful slack strata, with explicit `q_line`, `B`, `F`, `k`, and `t`.
+
+### 2026-06-18 - Fable loop cycles 11-12, t=2 line-incidence scans
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260618_cycle11_w_f1_aa_res_line_incidence.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle12_w_f1_aa_res_t2j3.md`,
+  matching `raw/` receipts,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE11_T2_J2_LINE_INCIDENCE_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE12_T2_J3_LINE_INCIDENCE_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE12_ALT_LENS_BASE_COMPONENT_INTERSECTION.md`,
+  and related `local_checks/20260618_cycle11_*` and `local_checks/20260618_cycle12_*` scripts.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / EXPERIMENTAL / AUDIT.
+- **What is being added:** The `t=2` residue-line problem is split into
+  low-dimensional incidence subcases; local scripts give reproducible finite
+  checks while audits keep them experimental unless independently proven.
+- **How it is useful:** Moves the live wall from a broad MCA lift question into
+  concrete `t=2,j=2` and `t=2,j=3` incidence strata.
+- **What to do next:** Prove or refute the base-component intersection bounds
+  that the finite scans suggest; do not promote scan evidence to proof.
+
+### 2026-06-18 - Fable loop cycles 13-14, base-component resonance wall
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260618_cycle13_base_component_complete_intersection.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle14_base_component_resonance.md`,
+  matching `raw/` receipts,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE13_BASE_COMPONENT_COMPLETE_INTERSECTION_AUDIT.md`,
+  and `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE14_BASE_COMPONENT_RESONANCE_AUDIT.md`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT.
+- **What is being added:** The complete-intersection approach is refined to a
+  base-component resonance obstruction: the easy transverse part can be bounded,
+  but a structured resonant component remains.
+- **How it is useful:** Identifies the next precise obstruction inside
+  `W-F1-AA-RES-T2J3`, rather than leaving the wall as an undifferentiated
+  incidence problem.
+- **What to do next:** Analyze resonance by rank/determinant conditions and
+  separate forced-base components from genuinely large slope fibers.
+
+### 2026-06-18 - Fable loop cycles 15-16, rank-determinant split
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260618_cycle15_surface_slope_fiber.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle16_rank_determinant_resonance.md`,
+  matching `raw/` receipts,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE15_SURFACE_SLOPE_FIBER_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE16_RANK_DETERMINANT_RESONANCE_AUDIT.md`,
+  and `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle15_forced_ra_slope_scan.py`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / EXPERIMENTAL / AUDIT.
+- **What is being added:** Cycle 15 isolates a surface-slope fiber wall, and
+  Cycle 16 banks the safe nonzero-rank-determinant side while naming the
+  remaining `Q==0` split-distinct branch as the next exact wall.
+- **How it is useful:** The current F1 attack is now a rank-determinant split:
+  outside the resonant determinant locus the slope count is small, so progress
+  depends on certifying or refuting the `Q==0` branch.
+- **What to do next:** Build a reproducible scanner/certificate for the
+  split-distinct `Q==0` branch and classify it as proof support,
+  counterpacket, or exact wall.
+
+### 2026-06-18 - Fable loop cycle 17, rank-det split scanner prompt
+
+- **Agent/model:** Codex directing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260618_cycle17_rank_det_split_scanner.md`,
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** AUDIT / EXPERIMENTAL.
+- **What is being added:** A source-grounded prompt asks the next Fable run to
+  produce an implementable scanner and certificate schema for the `Q==0`
+  split-distinct branch of `W-F1-AA-RES-T2J3-RANK-DET-SPLIT`.
+- **How it is useful:** This preserves the next attack in the repo before the
+  model answer arrives, so other agents can reproduce the exact target and
+  constraints.
+- **What to do next:** When Cycle 17 completes, bank only clean `response.md`
+  or clean structured JSONL recovery, commit any useful scanner/certificate
+  under `experimental/`, and update this log again.

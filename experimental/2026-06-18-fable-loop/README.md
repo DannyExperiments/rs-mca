@@ -897,3 +897,36 @@ Cycle 37 single-prime S4 certificate prompt:
 - Purpose: produce a reproducible one-good-prime certificate for the explicit
   Cycle 36 family, with quartic transitivity, resolvent, discriminant, and
   source-validity gates separated.
+
+Cycle 37 single-prime S4 certificate answer:
+
+- `raw/20260618_CYCLE37_SINGLE_PRIME_S4_CERT_RECOVERED_CLAUDE_JSONL.md`
+- `raw/20260618_CYCLE37_SINGLE_PRIME_S4_CERT_RAW.json`
+- `raw/20260618_CYCLE37_SINGLE_PRIME_S4_CERT_RUN_RESULT.json`
+- `raw/20260618_CYCLE37_SINGLE_PRIME_S4_CERT_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`
+- `raw/20260618_CYCLE37_SINGLE_PRIME_S4_CERT_TUI_RUNNER_RESULT.json`
+- `raw/20260618_CYCLE37_SINGLE_PRIME_S4_CERT_CREDIT_SURFACE_RUNNER_RESULT.json`
+- `local_checks/20260618_cycle37_single_prime_s4_cert_unrun_model_checker.py`
+- `local_checks/20260618_cycle37_single_prime_s4_cert_local_result.txt`
+- `audits/20260618_CYCLE37_SINGLE_PRIME_S4_CERT_AUDIT.md`
+- Harness status: `HARNESS_MALFORMED_VISIBLE_TERMINAL`; no clean
+  `response.md` was produced. The readable structured-JSONL recovery was
+  audited conservatively and the visible-terminal scrape is not banked as
+  mathematics.
+- Mathematical audit status: `BANKABLE_LEMMA / EXACT_NEW_WALL /
+  EXPERIMENTAL / AUDIT`.
+- Banked content: Cycle 37 hand-checks the explicit family source-validity
+  gates and the `kappa != 0` normalization, but does not produce a working
+  single-prime `S_4` certificate.
+- Local Codex follow-up: the inline checker crashes with a tuple/field-element
+  type mismatch, so the checker is not bankable as written.
+- Live wall remains `W-F1-AA-RES-T2J4-A2B-SINGLE-PRIME-S4-CERT`, but the next
+  prompt is a broader homerun attempt.
+
+Cycle 38 homerun prompt:
+
+- `prompts/20260618_cycle38_homerun_full_solve_big_leap.md`
+- Status: AUDIT / prompt prepared.
+- Purpose: take a big-leap/full-solve swing after the Cycle 37 checker failure:
+  repair or bypass the certificate route, find an obstruction, or identify a
+  higher-value route toward the proximity problem.

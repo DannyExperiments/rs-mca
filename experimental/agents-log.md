@@ -915,3 +915,30 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Run Cycle 37 to build or specify a reproducible
   single-prime checker/certificate for the explicit family, keeping
   `q_gen=p` and `q_line=p^2` separate and avoiding any MCA/protocol upgrade.
+
+### 2026-06-18 - Fable loop cycle 37, single-prime checker attempt
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE37_SINGLE_PRIME_S4_CERT_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE37_SINGLE_PRIME_S4_CERT_RECOVERED_CLAUDE_JSONL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE37_SINGLE_PRIME_S4_CERT_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE37_SINGLE_PRIME_S4_CERT_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE37_SINGLE_PRIME_S4_CERT_TUI_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE37_SINGLE_PRIME_S4_CERT_CREDIT_SURFACE_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle37_single_prime_s4_cert_unrun_model_checker.py`,
+  `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle37_single_prime_s4_cert_local_result.txt`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE37_SINGLE_PRIME_S4_CERT_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle38_homerun_full_solve_big_leap.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / EXPERIMENTAL / AUDIT.
+- **What is being added:** Cycle 37 hand-checks the source-validity gates for
+  the Cycle 36 explicit family and proposes a pure-Python single-prime checker.
+  Codex ran the checker locally and found it type-malformed as written, so no
+  `S_4` certificate is banked.
+- **How it is useful:** The route is now honest: source-valid gates are fine,
+  but the finite certificate remains unproved and the model's checker cannot be
+  trusted without repair.
+- **What to do next:** Run Cycle 38 as a homerun prompt: either repair/bypass
+  the checker and produce real progress, find the obstruction, or step back to
+  the highest-value route toward the proximity problem.

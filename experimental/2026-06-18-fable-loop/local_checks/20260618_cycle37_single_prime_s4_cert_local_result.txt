@@ -1,0 +1,20 @@
+returncode=1
+Traceback (most recent call last):
+  File "/tmp/cycle37_single_prime_s4_cert.py", line 187, in <module>
+    r=run(m,e)
+  File "/tmp/cycle37_single_prime_s4_cert.py", line 165, in run
+    M,rhs=build(z)
+          ~~~~~^^^
+  File "/tmp/cycle37_single_prime_s4_cert.py", line 155, in build
+    const=b4(eqres(z,[0,0,0,0])); cols=[]
+             ~~~~~^^^^^^^^^^^^^
+  File "/tmp/cycle37_single_prime_s4_cert.py", line 153, in eqres
+    return rsub(rmul(left,lam(tau),E),rmul(ell,qres(tau),E))
+                                               ~~~~^^^^^
+  File "/tmp/cycle37_single_prime_s4_cert.py", line 148, in qres
+    q3=w1; q2=fsub(w2,fmul(w1,t1)); q1=fadd(fsub(w3,fmul(w2,t1)),fmul(w1,t2))
+                      ~~~~^^^^^^^
+  File "/tmp/cycle37_single_prime_s4_cert.py", line 12, in fmul
+    def fmul(x,y): return ((x[0]*y[0]+NR*x[1]*y[1])%P,(x[0]*y[1]+x[1]*y[0])%P)
+                           ~~~~~~~~~~~~~~~~~~~~~~~~^~
+TypeError: unsupported operand type(s) for %: 'tuple' and 'int'

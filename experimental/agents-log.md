@@ -661,3 +661,28 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Run Cycle 28 against
   `W-F1-AA-RES-T2J3-Q4-PROOF-AUDIT` to independently rederive the formula and
   decide whether this can be promoted from audit/banked lemma to a local proof.
+
+### 2026-06-18 - Fable loop cycle 28, restricted Q4 proof audit
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE28_Q4_PROOF_AUDIT_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE28_Q4_PROOF_AUDIT_RECOVERED_CLAUDE_JSONL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE28_Q4_PROOF_AUDIT_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE28_Q4_PROOF_AUDIT_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE28_Q4_PROOF_AUDIT_TUI_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE28_Q4_PROOF_AUDIT_CREDIT_SURFACE_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE28_Q4_PROOF_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle29_t2j4_locator_norm_top_symbol.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** PROOF / ROUTE_CUT / AUDIT, restricted local theorem only.
+- **What is being added:** Cycle 28 confirms the `q1/q2` closed forms from the
+  Cycle 20 wedge identities and verifies the Cycle 27 top coefficient
+  `Q_4=N(c_b)*(Im(d)^2-Im(c)*Im(conj(c)d))`. Source-validity and separatedness
+  force `Q_4!=0` in both `c notin B` and `c in B` branches.
+- **How it is useful:** The source-valid `Q==0` branch is empty in the
+  restricted `D=F_p`, `B=F_p`, `F=F_{p^2}`, `t=sigma=2`, `j=3` window, so
+  Cycle 16 gives `C2<=4p=O(p)`. This cuts the current sub-reserve toy branch.
+- **What to do next:** Run Cycle 29 against
+  `W-F1-AA-RES-T2J4-LOCATOR-NORM-TOP-SYMBOL`: test whether the same
+  locator-norm top-symbol mechanism persists at `t=2,j=4`.

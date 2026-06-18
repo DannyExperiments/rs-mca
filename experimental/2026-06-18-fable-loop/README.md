@@ -574,3 +574,42 @@ Cycle 28 Q4 proof-audit prompt:
   Cycle 15/16/20/25 definitions, verify source-valid nonvanishing, and decide
   whether the restricted `t=2,j=3` branch can be promoted to a local proof or
   must remain an audit/exact wall.
+
+Cycle 28 Q4 proof-audit answer:
+
+- `raw/20260618_CYCLE28_Q4_PROOF_AUDIT_RECOVERED_CLAUDE_JSONL.md`
+- `raw/20260618_CYCLE28_Q4_PROOF_AUDIT_RAW.json`
+- `raw/20260618_CYCLE28_Q4_PROOF_AUDIT_RUN_RESULT.json`
+- `raw/20260618_CYCLE28_Q4_PROOF_AUDIT_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`
+- `raw/20260618_CYCLE28_Q4_PROOF_AUDIT_TUI_RUNNER_RESULT.json`
+- `raw/20260618_CYCLE28_Q4_PROOF_AUDIT_CREDIT_SURFACE_RUNNER_RESULT.json`
+- `audits/20260618_CYCLE28_Q4_PROOF_AUDIT.md`
+- Harness status: `HARNESS_MALFORMED_VISIBLE_TERMINAL`; no clean
+  `response.md` was produced. The readable structured-JSONL recovery was
+  audited conservatively and the visible-terminal scrape is not banked as
+  mathematics.
+- Mathematical audit status: `PROOF / ROUTE_CUT / AUDIT` for the restricted
+  local theorem only.
+- Proved restricted statement: in the `D=F_p`, `B=F_p`, `F=F_{p^2}`,
+  `t=sigma=2`, `j=3`, off-`R0`, `c_b!=0`, source-valid separated window,
+  the determinant consistency polynomial `Q` is never identically zero. Hence
+  `C2<=4p=O(p)` by Cycle 16, and the distinct split-cubic gate only shrinks the
+  realized slope set.
+- Proof mechanism: `Q_4=N(c_b)*(Im(d)^2-Im(c)*Im(conj(c)d))`; for `c notin B`
+  this equals `N(c_b)*Im(c)^2*E(-Im(d)/Im(c))`, so vanishing is equivalent to
+  an `F_p` root of `E`; for `c in B`, it is `N(c_b)*Im(d)^2`, nonzero by
+  separatedness.
+- Route cut: do not search for source-valid `Theta(q_line)` counterpackets in
+  this restricted `t=2,j=3` branch.
+- Live wall: `W-F1-AA-RES-T2J4-LOCATOR-NORM-TOP-SYMBOL`.
+- Not banked: any corrected-reserve theorem, full MCA bound, `q_gen`
+  consequence, protocol/list/CA/MCA/line-decoding/curve-MCA/SNARK statement,
+  or prize solve.
+
+Cycle 29 T2J4 locator-norm top-symbol prompt:
+
+- `prompts/20260618_cycle29_t2j4_locator_norm_top_symbol.md`
+- Status: AUDIT / prompt prepared.
+- Purpose: test whether the Cycle 28 top-symbol mechanism persists at
+  `t=2,j=4`, namely whether the highest-degree slope-consistency coefficient
+  is a nonzero scalar times a power of `prod_{a in F_p}E(a)`.

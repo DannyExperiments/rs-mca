@@ -282,3 +282,27 @@ Cycle 19 resonance slope-map collapse prompt:
 - Purpose: ask for a proof of the non-coprime resonance slope-map collapse, a
   growing-prime counterpacket, a route cut, or a sharper exact wall using the
   Cycle 18 monicity lemma as banked context.
+
+Cycle 19 resonance collapse answer:
+
+- `raw/20260618_CYCLE19_RESONANCE_COLLAPSE_RECOVERED_CLAUDE_JSONL.md`
+- `raw/20260618_CYCLE19_RESONANCE_COLLAPSE_RAW.json`
+- `raw/20260618_CYCLE19_RESONANCE_COLLAPSE_RUN_RESULT.json`
+- `raw/20260618_CYCLE19_RESONANCE_COLLAPSE_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`
+- `raw/20260618_CYCLE19_RESONANCE_COLLAPSE_TUI_RUNNER_RESULT.json`
+- `raw/20260618_CYCLE19_RESONANCE_COLLAPSE_CREDIT_SURFACE_RUNNER_RESULT.json`
+- `audits/20260618_CYCLE19_RESONANCE_COLLAPSE_AUDIT.md`
+- Harness status: `HARNESS_MALFORMED_VISIBLE_TERMINAL`; no clean
+  `response.md` was produced.
+- Mathematical audit status: `AUDIT`; the recovered structured text proposes
+  candidate rank-one and scalar-gate formulas, but these are not yet banked as
+  theorem content.
+- Candidate next wall:
+  `W-F1-AA-RES-T2J3-RANKONE-GATE-AUDIT`.
+
+Cycle 20 rank-one/gate audit prompt:
+
+- `prompts/20260618_cycle20_rankone_gate_audit.md`
+- Status: AUDIT / prompt staged.
+- Purpose: prove or refute the Cycle 19 candidate closed forms, the rank-one
+  `q1` lemma, the quadric normal form, and the scalar gate `D`.

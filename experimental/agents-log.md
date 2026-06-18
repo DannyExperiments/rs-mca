@@ -355,3 +355,39 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Audit the Cycle 19 answer conservatively and bank only
   clean `response.md`, clean structured JSONL recovery promoted to
   `response.md`, or explicit `output_files/` deliverables.
+
+### 2026-06-18 - Fable loop cycle 19, malformed resonance-collapse answer
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE19_RESONANCE_COLLAPSE_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE19_RESONANCE_COLLAPSE_RECOVERED_CLAUDE_JSONL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE19_RESONANCE_COLLAPSE_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE19_RESONANCE_COLLAPSE_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE19_RESONANCE_COLLAPSE_TUI_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE19_RESONANCE_COLLAPSE_CREDIT_SURFACE_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE19_RESONANCE_COLLAPSE_AUDIT.md`,
+  and `experimental/2026-06-18-fable-loop/README.md`.
+- **Status:** AUDIT / HARNESS_MALFORMED_VISIBLE_TERMINAL.
+- **What is being added:** Cycle 19 produced no clean `response.md`, but the
+  recovered structured text suggests source-checkable rank-one and scalar-gate
+  formulas for the `t=2,j=3` resonance problem.
+- **How it is useful:** It gives the next precise audit target:
+  `W-F1-AA-RES-T2J3-RANKONE-GATE-AUDIT`, without promoting malformed terminal
+  capture or unverified formulas to theorem status.
+- **What to do next:** Ask the next worker to prove or refute the closed forms,
+  the rank-one `q1` lemma, the quadric normal form, and the gate scalar `D`.
+
+### 2026-06-18 - Fable loop cycle 20, rank-one/gate audit prompt
+
+- **Agent/model:** Codex directing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260618_cycle20_rankone_gate_audit.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** AUDIT.
+- **What is being added:** A narrow no-internet homerun prompt asks the worker
+  to prove, refute, or sharpen the Cycle 19 rank-one/gate claims.
+- **How it is useful:** This rotates from direct collapse proof to source-audit
+  of the algebraic mechanism that would make collapse plausible or expose a
+  counterpacket seed.
+- **What to do next:** Audit the Cycle 20 answer and bank only clean theorem
+  artifacts or explicit output files.

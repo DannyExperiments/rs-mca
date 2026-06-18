@@ -84,3 +84,19 @@ Cycle 6B clean-retry attempt:
   the same-slope kernel `E*F_{<k}[X]` is not the wall; the live wall is
   `W-F1-AA-RES-VALUECOUNT`, a value-count / collision law for distinct slopes
   in the paired-readout image on `F*[Bnum]_E`.
+
+Cycle 7 value-count attempt:
+
+- `prompts/20260618_cycle7_w_f1_aa_res_valuecount.md`
+- `raw/20260618_CYCLE7_W_F1_AA_RES_VALUECOUNT_RECOVERED_CLAUDE_JSONL.md`
+- `local_checks/20260618_cycle7_theta_multiplier_check.py`
+- `audits/20260618_CYCLE7_W_F1_AA_RES_VALUECOUNT_TWISTED_READOUT_AUDIT.md`
+- Harness note: the VS Code terminal `response.md` was visibly damaged despite
+  `run_result.json` reporting `BANKABLE_LEMMA`; the clean receipt was recovered
+  from Claude structured JSONL.
+- Mathematical audit status: `ROUTE_CUT / EXACT_NEW_WALL`.
+- Do not bank the claimed exact transfer to a base datum
+  `(Ehat,b_hat,w0+theta*w1)`. The nonconstant CRT multiplier `theta` does not
+  commute with support interpolation in general.
+- Live wall: `W-F1-AA-RES-TWISTED-READOUT`, a value-count/collision theorem or
+  counterpacket for `[interp_S(w0)]_Ehat + theta [interp_S(w1)]_Ehat`.

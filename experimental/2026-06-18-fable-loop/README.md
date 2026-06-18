@@ -330,3 +330,32 @@ Cycle 21 B-rank-one descent prompt:
 - Status: AUDIT / prompt staged.
 - Purpose: decide whether the `Delta1==0` base-descent equations force
   `dw wedge d eta == 0`, or expose a source-valid `Theta(q_line)` seed.
+
+Cycle 21 B-rank-one descent answer:
+
+- `raw/20260618_CYCLE21_B_RANKONE_DESCENT_RECOVERED_CLAUDE_JSONL.md`
+- `raw/20260618_CYCLE21_B_RANKONE_DESCENT_RAW.json`
+- `raw/20260618_CYCLE21_B_RANKONE_DESCENT_RUN_RESULT.json`
+- `raw/20260618_CYCLE21_B_RANKONE_DESCENT_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`
+- `raw/20260618_CYCLE21_B_RANKONE_DESCENT_TUI_RUNNER_RESULT.json`
+- `raw/20260618_CYCLE21_B_RANKONE_DESCENT_CREDIT_SURFACE_RUNNER_RESULT.json`
+- `audits/20260618_CYCLE21_B_RANKONE_DESCENT_AUDIT.md`
+- Harness status: `HARNESS_MALFORMED_VISIBLE_TERMINAL`; no clean
+  `response.md` was produced.
+- Mathematical audit status: `BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT`.
+- Banked content: differential gates for the two slope branches, reduction of
+  simultaneous branch collapse to `J_A=J_Aprime=0`, and the identification of
+  the Cycle 20 gate `D` as the resultant of those two collapse gates.
+- Rejected overclaim: the recovered answer did not prove that the base-descent
+  equations are independent of the collapse gate and did not give a
+  source-valid counterpacket.
+- Live wall: `W-F1-AA-RES-T2J3-D-KERNEL-ALIGNMENT`.
+
+Cycle 22 D-kernel alignment prompt:
+
+- `prompts/20260618_cycle22_d_kernel_alignment.md`
+- Status: AUDIT / prompt staged.
+- Purpose: decide whether `Delta1==0`, `D==0`, and the two base-descent
+  equations force the leading-data ratio
+  `(W_{n-2}+cW_{n-1}:W_{n-1})` onto the collapse-kernel line, or whether an
+  off-kernel source-valid family exists.

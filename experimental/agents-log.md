@@ -429,3 +429,29 @@ Keep entries concise and link to the relevant files.
   Cycle 20.
 - **What to do next:** Audit the Cycle 21 answer conservatively and continue
   with proof/counterpacket/source-audit lens rotation.
+
+### 2026-06-18 - Fable loop cycle 21, D-kernel alignment wall
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE21_B_RANKONE_DESCENT_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE21_B_RANKONE_DESCENT_RECOVERED_CLAUDE_JSONL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE21_B_RANKONE_DESCENT_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE21_B_RANKONE_DESCENT_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE21_B_RANKONE_DESCENT_TUI_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE21_B_RANKONE_DESCENT_CREDIT_SURFACE_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE21_B_RANKONE_DESCENT_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle22_d_kernel_alignment.md`,
+  and `experimental/2026-06-18-fable-loop/README.md`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT.
+- **What is being added:** Cycle 21 banks the differential collapse gates for
+  the `Delta1==0` slope branches and identifies the Cycle 20 gate `D` as the
+  `2 x 2` resultant of the two gates. The recovered answer's stronger claim
+  that base descent does not force collapse is not banked, because no
+  elimination proof or source-valid off-kernel family was supplied.
+- **How it is useful:** The live wall is sharpened to
+  `W-F1-AA-RES-T2J3-D-KERNEL-ALIGNMENT`: on `Delta1==0` and `D==0`, decide
+  whether the two base-descent equations force
+  `(W_{n-2}+cW_{n-1}:W_{n-1})` onto the collapse-kernel line.
+- **What to do next:** Run Cycle 22 against the D-kernel alignment wall, with
+  output files allowed if the worker can provide a finite checker/certificate
+  rather than a hand proof.

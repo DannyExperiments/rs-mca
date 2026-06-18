@@ -564,3 +564,45 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Audit the Cycle 25 answer conservatively and bank only
   source-valid proof, counterpacket, route cut, bankable lemma, or exact new
   wall material.
+
+### 2026-06-18 - Fable loop cycle 25, Q-zero rank correction
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE25_QZERO_DETM_NONZERO_SPLIT_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE25_QZERO_DETM_NONZERO_SPLIT_RECOVERED_CLAUDE_JSONL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE25_QZERO_DETM_NONZERO_SPLIT_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE25_QZERO_DETM_NONZERO_SPLIT_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE25_QZERO_DETM_NONZERO_SPLIT_TUI_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE25_QZERO_DETM_NONZERO_SPLIT_CREDIT_SURFACE_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE25_QZERO_DETM_NONZERO_SPLIT_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle26_qzero_rank_consistency.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT.
+- **What is being added:** Cycle 25 banks the six-term Plucker/Laplace
+  expansion for `Q(z_0,z_1)` and confirms that `det M` is a separate
+  `z`-free invariant from `Q`. The audit rejects the recovered answer's
+  overclaim that `Q==0` alone realizes every slope.
+- **How it is useful:** The live wall is now the exact rank-stratified
+  consistency problem: `Q==0` is only a necessary condition unless the three
+  coefficient columns have rank `3`; rank-drop strata need augmented-rank
+  minors. This avoids a false counterpacket route.
+- **What to do next:** Run Cycle 26 against
+  `W-F1-AA-RES-T2J3-QZERO-RANK-CONSISTENCY`: prove `O(p)`, produce a
+  source-valid growing-prime counterpacket, or isolate the rank/minor
+  elimination certificate.
+
+### 2026-06-18 - Fable loop cycle 26, Q-zero rank-consistency prompt
+
+- **Agent/model:** Codex directing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260618_cycle26_qzero_rank_consistency.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and Packy route-board
+  source files.
+- **Status:** AUDIT.
+- **What is being added:** A no-internet homerun prompt attacks the
+  rank-stratified consistency wall left by Cycle 25.
+- **How it is useful:** This asks the next worker to solve the corrected wall
+  rather than repeat the false implication `Q==0 => all slopes`.
+- **What to do next:** Audit the Cycle 26 answer conservatively and bank only
+  source-valid proof, counterpacket, route cut, bankable lemma, or exact new
+  wall material.

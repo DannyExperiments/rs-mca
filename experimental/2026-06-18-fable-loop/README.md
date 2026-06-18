@@ -460,3 +460,39 @@ Cycle 25 Q==0 with detM nonzero prompt:
   split-cubic branch after Cycle 24 cut the source-valid `D=0` branch.
   The prompt asks for a proof of `O(p)` slopes, a source-valid growing-prime
   `Theta(q_line)` counterpacket, or the exact next algebraic wall.
+
+Cycle 25 Q-zero detM-nonzero answer:
+
+- `raw/20260618_CYCLE25_QZERO_DETM_NONZERO_SPLIT_RECOVERED_CLAUDE_JSONL.md`
+- `raw/20260618_CYCLE25_QZERO_DETM_NONZERO_SPLIT_RAW.json`
+- `raw/20260618_CYCLE25_QZERO_DETM_NONZERO_SPLIT_RUN_RESULT.json`
+- `raw/20260618_CYCLE25_QZERO_DETM_NONZERO_SPLIT_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`
+- `raw/20260618_CYCLE25_QZERO_DETM_NONZERO_SPLIT_TUI_RUNNER_RESULT.json`
+- `raw/20260618_CYCLE25_QZERO_DETM_NONZERO_SPLIT_CREDIT_SURFACE_RUNNER_RESULT.json`
+- `audits/20260618_CYCLE25_QZERO_DETM_NONZERO_SPLIT_AUDIT.md`
+- Harness status: `HARNESS_MALFORMED_VISIBLE_TERMINAL`; no clean
+  `response.md` was produced. The readable structured-JSONL recovery was
+  audited conservatively and the visible-terminal scrape is not banked as
+  mathematics.
+- Mathematical audit status: `BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT`.
+- Banked content: the six-term Plucker/Laplace expansion for the determinant
+  consistency polynomial `Q(z_0,z_1)`, and the separation between the
+  `z`-free invariant `det M=(c_b/kappa^2)D` and the slope-fiber determinant
+  `Q(z)`.
+- Audit correction: the recovered answer overclaims that `Q(z)=0 iff z in C2`
+  and that `Q==0` identically gives all `p^2` slopes. In fact `Q(z)=0` is only
+  a necessary consistency condition unless the three coefficient columns have
+  rank `3`; rank-drop strata require augmented-rank minors.
+- Live wall: `W-F1-AA-RES-T2J3-QZERO-RANK-CONSISTENCY`.
+- Not banked: any `Theta(q_line)` counterpacket, any proof of `O(p)` on the
+  branch, any corrected-reserve theorem, full MCA bound, `q_gen` consequence,
+  protocol/list/CA/MCA/line-decoding/curve-MCA/SNARK statement, or prize solve.
+
+Cycle 26 Q-zero rank-consistency prompt:
+
+- `prompts/20260618_cycle26_qzero_rank_consistency.md`
+- Status: AUDIT / prompt staged.
+- Purpose: attack the rank-stratified consistency problem after Cycle 25
+  corrected the false implication `Q==0 => every slope realized`. The prompt
+  asks for an `O(p)` proof, a source-valid growing-prime counterpacket, or the
+  exact rank/minor elimination certificate.

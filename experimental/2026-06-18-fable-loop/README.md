@@ -969,3 +969,36 @@ Cycle 39 symbolic good-reduction prompt:
 - Purpose: upgrade the repaired `p=31` finite-place `S_4` evidence to a
   symbolic/good-reduction lemma for the explicit family, or identify the exact
   obstruction that prevents globalization.
+
+Cycle 39 symbolic good-reduction answer:
+
+- `raw/20260618_CYCLE39_SYMBOLIC_GOODRED_RESPONSE.md`
+- `raw/20260618_CYCLE39_SYMBOLIC_GOODRED_RAW.json`
+- `raw/20260618_CYCLE39_SYMBOLIC_GOODRED_RAW.jsonl`
+- `raw/20260618_CYCLE39_SYMBOLIC_GOODRED_RUN_RESULT.json`
+- `local_checks/20260618_cycle39_locator_collapse_verify.py`
+- `local_checks/20260618_cycle39_locator_collapse_verify_result.json`
+- `audits/20260618_CYCLE39_SYMBOLIC_GOODRED_AUDIT.md`
+- Harness status: clean `artifact_stream`; `response.md` is the theorem
+  answer and raw receipts are preserved separately.
+- Mathematical audit status: `PROOF / BANKABLE_LEMMA / EXACT_NEW_WALL /
+  AUDIT`.
+- Banked content: the locator collapses in `A=F[X]/(E)`:
+  `[X^p-X]_E=alpha` for `(-5/p)=+1` and `[X^p-X]_E=-2X` for `(-5/p)=-1`.
+  Thus the explicit `t=2,j=4` surface family is fixed within two congruence
+  subcases rather than changing freely with `p`.
+- Local Codex follow-up: the finite sanity checker confirms the collapse on
+  sample primes from both subcases with `all_ok=true`.
+- Not banked: Subcase A monodromy, a good-reduction certificate, a uniform
+  growing-prime theorem, a `COUNTERPACKET`, corrected-reserve theorem,
+  MCA/CA/list/line-decoding/curve-MCA/protocol/SNARK statement, or prize
+  solve.
+- Live wall: `W-F1-AA-RES-T2J4-A2B-S4-GOODRED-SUBCASE`.
+
+Cycle 40 subcase good-reduction prompt:
+
+- `prompts/20260618_cycle40_subcase_goodred_certificate.md`
+- Status: AUDIT / prompt prepared.
+- Purpose: prove or refute the subcase-separated good-reduction/S4 certificate
+  below the Cycle 39 locator collapse, especially Subcase A (`ell=alpha`) and
+  the explicit good-reduction bridge.

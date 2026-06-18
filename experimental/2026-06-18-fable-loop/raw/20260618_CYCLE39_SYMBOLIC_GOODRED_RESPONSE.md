@@ -1,0 +1,121 @@
+I'll start by reading the file index, then work through the required files.Let me read the core orientation files and the required audit files.Now the key audit files and the checker. Let me read them in parallel.Now the checker files and the route board / walls / banked lemmas.Let me read the remaining required files in parallel.Now the route board, walls, banked lemmas, and cuts. These are large; let me read them.Let me read the banked lemmas and cuts/false-routes files, focusing on relevant content.Let me read the cuts/false-routes file and the route board head.Let me read the Cycle 39 prompt itself and the relevant route board section.I've read the required files. Before writing up, let me confirm the exact route-board status for this wall and check the Cycle 33 top-symbol statement I'm relying on.I have enough context. Let me note the key mathematical structure I want to verify before writing deliverables: the locator `ℓ = [X^p − X]_E` and how it depends on `p`. Let me set up the output directory and a checker.The bash tool isn't available under that name. Let me check what file-writing tools work.The bash tool isn't wired up in this harness. Let me check whether file-creation tools are available.I have all required files. Note one harness constraint up front: in this environment only the `Read` tool is actually wired (the `bash_tool` returns "No such tool available," and there is no file-writing tool). So I cannot write into `output_files/` or execute a checker. I therefore deliver the four artifacts inline, clearly labeled, and I have done the central computation by hand rather than by machine. The good news is that the key step turned out to be hand-provable.
+
+---
+
+## Cycle 39 result — `W-F1-AA-RES-T2J4-A2B-S4-SYMBOLIC-GOODRED`
+
+Status: `PROOF` (one new lemma) + `EXACT_NEW_WALL` + `AUDIT`. Not `COUNTERPACKET`, not MCA/CA/list/line/curve-MCA/protocol/SNARK/prize, not a uniform `Theta(q_line)` theorem. Ledgers kept separate: `q_gen=p`, `q_line=p^2`, `B=F_p`, `F=F_{p^2}`, `q_chal` unused.
+
+### The actual obstruction, and why it dissolves
+
+Every prior cycle treated the locator `ell = [X^p - X]_E` as a degree-`p`, genuinely `p`-dependent object — which is exactly why "good-reduction monotonicity" looked hard: the scheme whose monodromy we want appeared to change with `p`. That worry is misplaced. In `A = F[X]/E` the locator collapses to a fixed universal element.
+
+`PROOF` — **Locator Collapse Lemma.** Let `p ≡ 3 mod 4`, `p ≠ 5`, `alpha^2=-1`, `F=F_{p^2}=F_p(alpha)`, `E=X^2+alpha X+1`, `A=F[X]/(E)`, `b=[X]_E`. Then `disc(E)=alpha^2-4=-5 ≠ 0`, and since every element of `F_p^*` is a square in `F_{p^2}^*`, `E` splits over `F`, so `A ≅ F × F` via its two roots `rho_{1,2}=(-alpha ± s)/2`, `s^2=-5`. Evaluation at a root is an `F`-algebra map, so
+
+```
+ell(rho_i) = rho_i^p - rho_i = Frob_p(rho_i) - rho_i = conj(rho_i) - rho_i.
+```
+
+Because `p ≡ 3 mod 4`, `Frob_p(alpha)=alpha^p=-alpha`, hence for any `xi=c+d·alpha` we get `conj(xi)-xi = -2d·alpha = -2·Im(xi)·alpha`. Two cases for `Im(rho_i)`:
+
+- `(-5/p)=+1` (`s ∈ F_p`): `rho_i = (s/2) - (alpha/2)` or `(-s/2)-(alpha/2)`, so `Im(rho_i) = -1/2` for **both** roots, giving `ell(rho_i)=alpha` for both. Hence `ell = alpha·1_A` (a scalar).
+- `(-5/p)=-1` (`s = sqrt(5)·alpha ∉ F_p`): `rho_i` is purely imaginary, `ell(rho_i) = -2·rho_i`. Hence `ell = -2·b`.
+
+By reciprocity (`p≡3 mod4 ⇒ (-1/p)=-1`, and `(5/p)=(p/5)`): `(-5/p)=+1 ⇔ p≡2,3 mod5` and `(-5/p)=-1 ⇔ p≡1,4 mod5`. ∎
+
+```
+ell = [X^p - X]_E  =  alpha·1_A      if  p ≡ 3 mod 4 and p ≡ 2,3 mod 5   (subcase A)
+                   =  -2·b           if  p ≡ 3 mod 4 and p ≡ 1,4 mod 5   (subcase B)
+```
+
+This is the symbolic/good-reduction content the wall asked for: the **only** `p`-dependent ingredient of the whole construction is locally constant in `p`, controlled entirely by `χ_p(-5)`. With `ell` fixed, the graph equation
+
+```
+G(z,tau) = (u - z·b)·lambda(tau) - ell·[Q_S(tau)]_E = 0,   u=1+X, b=X, alpha^2=-1, w=(1,alpha,1+alpha,1)
+```
+
+is defined over `R = Z[i][z_0,z_1]` (localize away from a finite bad set), independent of `p` within each subcase. So the matrix `M(z)`, `Delta=det_B M(z)`, the Cramer solution `tau(z)`, and the quartic `L_{tau(z)}(X)` are reductions of a single `R`-scheme. The Cycle 33 top symbol `TopSym(Delta) = -N(kappa)N(z)^2 Q_4` with `Q_4=N(c_b)≠0` and all Cycle 28/29/34 source gates are `χ_p(-5)`-independent and hold in both subcases.
+
+### Consequence: a single good prime can suffice (the sharp bridge)
+
+`S_4` has order `24 = 2^3·3`, so `p ∤ |S_4|` for every `p ≥ 5`, and the degree-4 cover is tame for `p ≥ 5`. By Grothendieck specialization (SGA1: prime-to-`p` tame `π_1` is invariant under good reduction), for any **good** prime `p₀` in a subcase,
+
+```
+G_geom,0  (over  C(z_0,z_1))   ≅   G_geom,p₀  (over  Fbar_p(z_0,z_1)).
+```
+
+Both sides are `≤ S_4` (quartic). The Cycle 38 `p=31` data, read through the Cycle 35 certificate (types `"4"` give a 4-cycle, even type `"13"` gives a 3-cycle and kills the only cyclic — sign — constant-field quotient), proves `G_geom,31 = G_arith,31 = S_4` rigorously **for that one prime**. If `31` is a good-reduction prime for the cover, the iso forces `G_geom,0 = S_4`, and then `G_geom,p = S_4` for *every* good `p ≥ 7` in the **same subcase**. Chebotarev then gives off-`Delta` split density `→ 1/24`, i.e. `Theta(q_line)=Theta(p^2)` bad slopes in that local branch, for almost all such `p`.
+
+So the entire remaining gap is: **certify that one explicit small prime is a good-reduction prime for this cover** (branch divisor stays étale, `Delta` keeps its degree, the degree-4 cover stays separable). That is now a finite, prime-independent task.
+
+### `EXACT_NEW_WALL` (two sharp items prior cycles missed)
+
+`W-F1-AA-RES-T2J4-A2B-S4-GOODRED-SUBCASE`
+
+1. **Subcase split.** `p=31 ≡ 1 mod 5` lies in **subcase B only** (`ell=-2b`; I verified `5^3≡1 mod31`, so `5` is a QR, `-5` a non-QR). The repaired certificate therefore says nothing about **subcase A** (`ell=alpha`), whose smallest viable good prime is `p=7` (`7≡3 mod4`, `7≡2 mod5`), then `23, 43, 47, …`. Exclude `p=3` (`3 | |S_4|`) and `p=5` (`disc E = 0`). A separate finite-place `S_4` certificate is required for subcase A; the two subcases have genuinely different `ell` and could a priori have different monodromy.
+
+2. **Good-reduction certificate.** State and discharge: *for the `R=Z[i,1/N]` cover defined by `G(z,tau)=0` with `ell` fixed per subcase, exhibit an explicit small prime `p₀` (per subcase) at which the char-0 branch divisor `B_0 ⊂ A^2` reduces étale, `deg Delta` is preserved, and `L_{tau(z)}` stays separable of degree 4 over `Fbar_{p₀}(z_0,z_1)`.* Then the section above upgrades the single-prime `S_4` to all good primes of that subcase. The concrete computation is: the char-0 `Delta(z_0,z_1) ∈ Z[i][z_0,z_1]` (`deg ≤ 4`) and the char-0 `disc_X L_{tau}` numerator; show their reductions mod `p₀` do not drop degree or acquire spurious common factors.
+
+Equivalently, if one prefers a purely char-0 route: compute over `Q(i)(z_0,z_1)` that (i) `L_tau` is geometrically irreducible (transitive), (ii) the resolvent cubic is geometrically irreducible, (iii) `disc_X L_tau` has nonconstant squarefree part — for **each** subcase's fixed `ell`. Any of these failing in a subcase is a `ROUTE_CUT` for that subcase.
+
+I did not certify good reduction by hand (it needs the explicit char-0 `Delta` and discriminant numerator, a CAS task I cannot run here), so I do **not** bank `S_4` for an infinite family. The locator-collapse lemma and the single-prime-suffices reduction are banked.
+
+### `AUDIT` / `EXPERIMENTAL` — stronger checker (design, UNRUN: no execution tool in this harness)
+
+This extends the Cycle 38 checker with (1) a direct test of the Locator Collapse Lemma, (2) a per-subcase `S_4` scan over several primes (so subcase A is no longer untested), and (3) a discriminant-nonconstancy probe (two lines with different square classes ⇒ squarefree part nonconstant ⇒ `G_geom=S_4` over `Fbar_p`, not just `A_4`). Reuse the Cycle 38 field/poly arithmetic verbatim; the new core:
+
+```python
+# cycle39_symbolic_goodred_checker.py  (UNRUN here; reuses Cycle 38 fmul/residue2/build/ftype/...)
+# 1) Locator collapse: assert [X^p - X]_E == (alpha) or (-2*[X]_E) per chi_p(-5).
+def check_collapse(P):
+    NR=-1; ZF,OF,ALPHA=(0,0),(1,0),(0,1)
+    # ... paste Cycle 38 fadd/fmul/residue2/pmul/pdivmod, E=[OF,ALPHA,OF] ...
+    LD=[ZF]*(P+1); LD[P]=OF; LD[1]=fsub(LD[1],OF)
+    ell=residue2(LD,E)                         # (ell0, ell1)
+    chi = pow((-5) % P,(P-1)//2,P)             # +1 or P-1
+    if chi==1:   expect=(ALPHA,ZF)             # ell = alpha
+    else:        expect=(ZF, fsub(ZF,(2%P,0))) # ell = -2*[X]_E  -> ell0=0, ell1=-2
+    return {"p":P,"subcase":"A" if chi==1 else "B","ell":ell,"expect":expect,"ok":ell==expect}
+
+# 2) Per-subcase S4 finite-place scan: run Cycle 38 run(m,e) search at several primes of EACH subcase.
+SUBCASE_A=[7,23,43,47]      # p=3 mod4 and p=2,3 mod5   (ell=alpha)   -- previously UNTESTED
+SUBCASE_B=[11,19,31,59]     # p=3 mod4 and p=1,4 mod5   (ell=-2X)     -- contains p=31
+
+# 3) disc nonconstancy probe: collect disc_quartic(tau(z)) over off-Delta z on two distinct lines;
+#    if the multiset of Legendre symbols is not constant +1 across the whole grid, the squarefree
+#    part of disc is nonconstant in (z0,z1)  =>  G_geom = S_4 (rules out A_4) for that prime/subcase.
+def disc_class_profile(P,lines):  # lines: list of (m,e); returns set of legendre(disc) seen off-Delta
+    seen=set()
+    for (m,e) in lines:
+        for z0 in range(P):
+            z=(z0%P,(m*z0+e)%P); M,rhs=build(z)
+            if det4(M)==0: continue
+            tau=solve_lin(M,rhs)
+            if tau: seen.add(legendre(disc_quartic(tau)))
+    return seen   # if {1,-1} (and many "4"/"13" types) -> nonsquare disc, S4 not A4
+```
+
+Expected (per the lemma + the `p=31` evidence; needs running): `check_collapse` returns `ok=true` at all eight primes; the subcase-B scan reproduces the full `S_4` cycle-type spectrum (`4,13,22,112,1111`); the subcase-A scan is the decisive new data point. If subcase A also yields types `"4"` and `"13"`, both arithmetic progressions carry a single-prime `S_4` certificate.
+
+`cycle39_symbolic_certificate.json` (inline):
+```json
+{
+  "target":"W-F1-AA-RES-T2J4-A2B-S4-SYMBOLIC-GOODRED",
+  "status":["PROOF(locator_collapse)","EXACT_NEW_WALL","AUDIT"],
+  "ledger":{"q_gen":"p","q_line":"p^2","B":"F_p","F":"F_{p^2}","q_chal":"unused"},
+  "locator_collapse":{"subcaseA":{"cond":"p=3mod4 & p=2,3 mod5","ell":"alpha"},
+                      "subcaseB":{"cond":"p=3mod4 & p=1,4 mod5","ell":"-2*X","contains_p31":true},
+                      "excluded":[3,5],"proved":true},
+  "single_prime_suffices":{"reason":"S4 prime-to-p for p>=5; tame good-reduction pi1 invariance",
+                           "needs":"good-reduction certificate at one small prime per subcase"},
+  "p31":{"subcase":"B","G_arith":"S_4","G_geom":"S_4","per_instance":true},
+  "not_banked":["COUNTERPACKET","uniform Theta(q_line)","MCA/CA/list/line/curve-MCA/protocol/SNARK/prize",
+                "S4 for subcase A (untested)","good reduction at p=31 (uncertified by hand)"]
+}
+```
+
+`cycle39_next_prompt.md` (inline): attack `W-F1-AA-RES-T2J4-A2B-S4-GOODRED-SUBCASE`. Require one of: (a) a CAS computation of the char-0 `Delta(z_0,z_1)` and `disc_X L_tau` numerator over `Q(i)(z_0,z_1)` for **each** subcase's fixed `ell`, proving geometric irreducibility of quartic+resolvent and nonconstant squarefree discriminant (⇒ `G_geom,0=S_4`), plus an explicit good-reduction prime per subcase; (b) the subcase-A single-prime certificate at `p=7` (or `23,43,47`); (c) a precise `ROUTE_CUT` if some subcase forces `≤ A_4` or reducibility; (d) the Chebotarev/Lang–Weil density step with controlled complexity. Keep `q_gen=p` and `q_line=p^2` separate; do not promote without source hypotheses.
+
+---
+
+Do you see a route to a full solve? Yes, for the restricted `t=2,j=4 A^2_B` branch, and it is now much shorter than before. The Locator Collapse Lemma removes the only `p`-dependence, turning "symbolic good reduction" into a finite prime-independent problem and making a single good prime potentially decisive via tame good-reduction invariance (`S_4` is prime-to-`p`). The next exact lemma is the **good-reduction certificate**: compute the char-0 `Delta` and `disc_X L_tau` numerator over `Q(i)(z_0,z_1)` for each subcase's fixed `ell` (`alpha` or `-2X`), prove geometric irreducibility of the quartic and its resolvent cubic plus nonconstant squarefree discriminant, and exhibit one explicit good prime per subcase (e.g. `p=7` for A, `p=11` or `p=31` for B); these together upgrade the per-prime `S_4` to all good primes of the subcase, after which Chebotarev yields the restricted `Theta(q_line)` counterpacket seed. The one honest caveat is the new subcase split: `p=31` only covers subcase B, so subcase A still needs its own certificate before any infinite-family claim — and none of this is yet a corrected-reserve, MCA, or prize statement.

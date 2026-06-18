@@ -974,3 +974,31 @@ Keep entries concise and link to the relevant files.
   `S_4` for the explicit family, find the exact obstruction, or produce a
   sharper certificate/wall. Future theorem runs should use the clean non-ad
   lane unless ad credit is explicitly requested.
+
+### 2026-06-18 - Fable loop cycle 39, locator-collapse good-reduction split
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE39_SYMBOLIC_GOODRED_RESPONSE.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE39_SYMBOLIC_GOODRED_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE39_SYMBOLIC_GOODRED_RAW.jsonl`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE39_SYMBOLIC_GOODRED_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle39_locator_collapse_verify.py`,
+  `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle39_locator_collapse_verify_result.json`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE39_SYMBOLIC_GOODRED_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle40_subcase_goodred_certificate.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** PROOF / BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT.
+- **What is being added:** Cycle 39 proves the restricted locator-collapse
+  lemma for the explicit `t=2,j=4` family:
+  `[X^p-X]_E=alpha` when `(-5/p)=+1`, and `[X^p-X]_E=-2X` when
+  `(-5/p)=-1`. Codex adds a finite sanity checker confirming the formula on
+  sample primes from both subcases.
+- **How it is useful:** It removes the false impression that the quartic
+  surface family varies freely with `p`; after the collapse, there are two
+  fixed subcase models. The existing `p=31` S4 certificate covers only
+  Subcase B.
+- **What to do next:** Run Cycle 40 against
+  `W-F1-AA-RES-T2J4-A2B-S4-GOODRED-SUBCASE`: certify Subcase A and the
+  good-reduction bridge, or cut one subcase by proving reducibility, an `A_4`
+  trap, or a constant-field obstruction.

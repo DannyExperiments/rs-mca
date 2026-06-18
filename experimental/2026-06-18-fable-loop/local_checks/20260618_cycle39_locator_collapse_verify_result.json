@@ -1,0 +1,329 @@
+{
+  "all_ok": true,
+  "rows": [
+    {
+      "p": 7,
+      "p_mod_20": 7,
+      "legendre_minus_5": 1,
+      "subcase": "A",
+      "ell": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "ok": true
+    },
+    {
+      "p": 11,
+      "p_mod_20": 11,
+      "legendre_minus_5": -1,
+      "subcase": "B",
+      "ell": [
+        [
+          0,
+          0
+        ],
+        [
+          9,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          9,
+          0
+        ]
+      ],
+      "ok": true
+    },
+    {
+      "p": 19,
+      "p_mod_20": 19,
+      "legendre_minus_5": -1,
+      "subcase": "B",
+      "ell": [
+        [
+          0,
+          0
+        ],
+        [
+          17,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          17,
+          0
+        ]
+      ],
+      "ok": true
+    },
+    {
+      "p": 23,
+      "p_mod_20": 3,
+      "legendre_minus_5": 1,
+      "subcase": "A",
+      "ell": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "ok": true
+    },
+    {
+      "p": 31,
+      "p_mod_20": 11,
+      "legendre_minus_5": -1,
+      "subcase": "B",
+      "ell": [
+        [
+          0,
+          0
+        ],
+        [
+          29,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          29,
+          0
+        ]
+      ],
+      "ok": true
+    },
+    {
+      "p": 43,
+      "p_mod_20": 3,
+      "legendre_minus_5": 1,
+      "subcase": "A",
+      "ell": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "ok": true
+    },
+    {
+      "p": 47,
+      "p_mod_20": 7,
+      "legendre_minus_5": 1,
+      "subcase": "A",
+      "ell": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "ok": true
+    },
+    {
+      "p": 59,
+      "p_mod_20": 19,
+      "legendre_minus_5": -1,
+      "subcase": "B",
+      "ell": [
+        [
+          0,
+          0
+        ],
+        [
+          57,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          57,
+          0
+        ]
+      ],
+      "ok": true
+    },
+    {
+      "p": 67,
+      "p_mod_20": 7,
+      "legendre_minus_5": 1,
+      "subcase": "A",
+      "ell": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "ok": true
+    },
+    {
+      "p": 71,
+      "p_mod_20": 11,
+      "legendre_minus_5": -1,
+      "subcase": "B",
+      "ell": [
+        [
+          0,
+          0
+        ],
+        [
+          69,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          69,
+          0
+        ]
+      ],
+      "ok": true
+    },
+    {
+      "p": 79,
+      "p_mod_20": 19,
+      "legendre_minus_5": -1,
+      "subcase": "B",
+      "ell": [
+        [
+          0,
+          0
+        ],
+        [
+          77,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          77,
+          0
+        ]
+      ],
+      "ok": true
+    },
+    {
+      "p": 83,
+      "p_mod_20": 3,
+      "legendre_minus_5": 1,
+      "subcase": "A",
+      "ell": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "ok": true
+    }
+  ]
+}

@@ -32,8 +32,8 @@ Keep entries concise and link to the relevant files.
 ### 2026-06-18 - Experimental theorem note
 
 - **Agent/model:** Codex.
-- **Files added or changed:** `experimental/experiments/experiments.tex`,
-  `experimental/experiments/experiments.pdf`, `experimental/agents-log.md`.
+- **Files added or changed:** `experimental/experiments.tex`,
+  `experimental/experiments.pdf`, `experimental/agents-log.md`.
 - **Status:** PROVED / HEURISTIC / AUDIT.
 - **What is being added:** A standalone LaTeX note collecting restricted
   Cycle 14--18 theorems and heuristics, including the Cycle 18

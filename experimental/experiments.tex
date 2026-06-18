@@ -14,8 +14,7 @@
 \newtheorem{remark}{Remark}
 
 \newcommand{\F}{\mathbb F}
-\newcommand{\B}{\mathbb B}
-\newcommand{\A}{\mathcal A}
+\newcommand{\Bnum}{B_{\rm num}}
 \newcommand{\Deltaone}{\Delta_1}
 \newcommand{\Deltazero}{\Delta_0}
 \newcommand{\tauone}{\tau_1}
@@ -25,7 +24,7 @@
 \newcommand{\qline}{q_{\rm line}}
 \newcommand{\qgen}{q_{\rm gen}}
 
-\title{Experimental Theorems for the F1 / Slack-Two Resonance Window}
+\title{Experimental Theorems for Paper B's F1 / Slack-Two Resonance Window}
 \author{RS-MCA experimental notes}
 \date{June 18, 2026}
 
@@ -34,11 +33,12 @@
 
 \begin{abstract}
 This note records restricted experimental theorems and heuristics extracted
-from the Cycle 14--18 Fable-loop audits in the RS-MCA repository.  The main
-new item is a divisibility gate for the non-coprime resonance branch in the
-quadratic-extension, slack-two, three-co-support toy window.  These statements
-are useful for Paper B's residue-line program, but they are not a proof of the
-corrected MCA conjecture and have no direct protocol consequence.
+from the Cycle 14--18 audits in the RS-MCA repository.  The main new item is a
+divisibility gate for the non-coprime resonance branch in the
+quadratic-extension, slack-two, three-co-support toy window.  The statements
+are aimed at Paper B's residue-line normal form and per-fiber collision
+program, but they are not a proof of the corrected MCA conjecture and have no
+direct protocol consequence.
 \end{abstract}
 
 \section{Status and Scope}
@@ -47,6 +47,20 @@ All results in this note live in the experimental folder and should be read as
 restricted algebraic facts or proof targets.  We do not edit or supersede the
 main papers A--D.
 
+The source map is:
+\begin{itemize}
+\item Paper A, \texttt{tex/RS\_disproof\_v3.tex}, refutes the old no-slack
+  smooth-domain support-wise line-MCA statement.
+\item Paper B, \texttt{tex/slackMCA\_v3.tex}, is the main target here.  In
+  particular, this note is a small local contribution to the residue-line
+  normal form around \texttt{def:residue}, \texttt{thm:normalform},
+  \texttt{prob:perfiber}, and \texttt{conj:B}.
+\item Paper D, \texttt{tex/cs25\_cap\_v4.tex}, gives the universal field-size
+  cap and imported list-to-agreement route.  Nothing below changes that cap.
+\item Paper C, \texttt{tex/snarks\_v4.tex}, records protocol ledgers.  Nothing
+  below may be consumed by a protocol without a separate conversion theorem.
+\end{itemize}
+
 The common restricted setting is
 \[
   B=\F_p,\qquad F=\F_{p^2},\qquad D=\F_p,\qquad
@@ -54,11 +68,7 @@ The common restricted setting is
 \]
 and we work off the tangent/global endpoint
 \[
-  R_0=\{\, [W]_E\wedge [B]_E=0\,\}.
-\]
-Here \(E\in F[X]\) has degree \(2\), \(b=[B]_E\), and
-\[
-  A=F[X]/E.
+  R_0=\{\, [W]_E\wedge [\Bnum]_E=0\,\}.
 \]
 The field ledgers remain distinct:
 \[
@@ -67,6 +77,40 @@ The field ledgers remain distinct:
 The regime is sub-reserve, since \(\eta=\sigma/n=2/n\).  Thus none of the
 following proves a corrected-reserve list, CA, MCA, line-decoding, SNARK, or
 protocol theorem.
+
+\section{Notation}
+
+The base/generated field is \(B=\F_p\).  The line field is the quadratic
+extension \(F=\F_{p^2}=B(\alpha)\), with basis \(\{1,\alpha\}\) over \(B\) and
+\(\alpha^2=\nu\in B\).  The domain is \(D=\F_p\), so \(n=|D|=p\).
+
+A degree-two residue-line datum consists of:
+\[
+  E\in F[X],\qquad \deg E=2,\qquad E(x)\ne0\ \text{for all }x\in D,
+\]
+and a numerator
+\[
+  \Bnum\in F[X],\qquad \deg \Bnum<2.
+\]
+We write
+\[
+  A=F[X]/E,\qquad [P]_E\in A,\qquad b=[\Bnum]_E.
+\]
+The anchor word on \(D\) is interpolated by a polynomial \(W\).  The operation
+\(u\wedge v\) means the determinant of the coordinate vectors of
+\(u,v\in A\) in a chosen \(F\)-basis of the two-dimensional \(F\)-space \(A\).
+Off \(R_0\), the pair \(\{[W]_E,b\}\) is such a basis.
+
+The co-support has size \(j=3\).  If \(T\subset D\) is the three-point
+co-support, define
+\[
+  \tau_1=e_1(T),\qquad \tau_2=e_2(T),\qquad \tau_3=e_3(T).
+\]
+All valid co-supports have \(\tau_i\in B\).  The quantity \(\Ctwo\) denotes
+the number of distinct slopes produced by the relevant landing branch after
+restricting to valid split triples \(T\subset\F_p\).  Bounding landing points
+therefore bounds \(\Ctwo\), but a sharp slope theorem may require more because
+many landing points can share a slope.
 
 \section{Cycle 14 Normal Form}
 
@@ -98,8 +142,9 @@ and \(p_i,q_i\in F\) are affine-linear functions of
 \end{lemma}
 
 \begin{proof}
-The Cycle 14 quotient calculation gives the displayed affine forms.  Expanding
-in the ordered basis \(\{[W]_E,b\}\), the coordinate vector of \(\iota\) is
+The Cycle 14 quotient calculation, which is a concrete instance of Paper B's
+residue-line normal form, gives the displayed affine forms.  Expanding in the
+ordered basis \(\{[W]_E,b\}\), the coordinate vector of \(\iota\) is
 \((p_1-\tauthree,p_2)\), while the coordinate vector of \(\mu\) is
 \((q_1,q_2-\tauthree)\).  Their wedge determinant is therefore
 \[
@@ -328,7 +373,7 @@ and the direct slope count over distinct split triples \(T\subset\F_p\).
 The certificate should keep at least:
 \[
 \begin{gathered}
-  p,\ \qgen,\ \qline,\ E,\ B,\ \text{seed},\ \text{stratum},\
+  p,\ \qgen,\ \qline,\ E,\ \Bnum,\ \text{seed},\ \text{stratum},\
   R_0\text{-status},\\
   \Deltaone\equiv0,\quad G\equiv0,\quad
   \#\{s=h=0\},\quad \#\operatorname{image},\quad

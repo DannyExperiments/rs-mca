@@ -857,3 +857,32 @@ Keep entries concise and link to the relevant files.
   checker/certificate for the discriminant, resolvent, and constant-field
   tests. Do not promote this local branch to a corrected-reserve, MCA,
   protocol, or prize theorem.
+
+### 2026-06-18 - Fable loop cycle 35, finite-place S4 certificate
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE35_A2B_GEOMETRIC_S4_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE35_A2B_GEOMETRIC_S4_RECOVERED_CLAUDE_JSONL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE35_A2B_GEOMETRIC_S4_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE35_A2B_GEOMETRIC_S4_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE35_A2B_GEOMETRIC_S4_TUI_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE35_A2B_GEOMETRIC_S4_CREDIT_SURFACE_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE35_A2B_GEOMETRIC_S4_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle36_a2b_uniform_s4.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / ROUTE_CUT / EXACT_NEW_WALL / EXPERIMENTAL /
+  AUDIT.
+- **What is being added:** Cycle 35 banks a finite-place monodromy certificate:
+  for a fixed source-valid restricted `t=2,j=4` instance, off-Delta squarefree
+  factorization types `"4"` and `"13"` force arithmetic `S_4`; the even
+  degree-one type cuts the sign constant-field obstruction, giving
+  `G_geom=G_arith=S_4` for that tested instance.
+- **How it is useful:** It reinterprets the Cycle 32 histograms as serious
+  monodromy evidence and cuts the constant-field route for tested instances.
+  It does not yet supply a uniform growing-prime counterpacket.
+- **What to do next:** Run Cycle 36 against
+  `W-F1-AA-RES-T2J4-A2B-UNIFORM-S4`: either construct an explicit source-valid
+  infinite family with uniform geometric `S_4`, or find the exact obstruction
+  that kills the counterpacket seed. Do not promote this local branch to a
+  corrected-reserve, MCA, protocol, or prize theorem.

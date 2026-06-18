@@ -825,3 +825,38 @@ Cycle 35 A2_B geometric S4 / constant-field prompt:
   transitivity or full `S_4`, prove arithmetic/geometric equality, or produce
   an explicit symbolic checker/certificate for the discriminant, resolvent,
   and constant-field tests over `B(z_0,z_1)`.
+
+Cycle 35 A2_B geometric S4 answer:
+
+- `raw/20260618_CYCLE35_A2B_GEOMETRIC_S4_RECOVERED_CLAUDE_JSONL.md`
+- `raw/20260618_CYCLE35_A2B_GEOMETRIC_S4_RAW.json`
+- `raw/20260618_CYCLE35_A2B_GEOMETRIC_S4_RUN_RESULT.json`
+- `raw/20260618_CYCLE35_A2B_GEOMETRIC_S4_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`
+- `raw/20260618_CYCLE35_A2B_GEOMETRIC_S4_TUI_RUNNER_RESULT.json`
+- `raw/20260618_CYCLE35_A2B_GEOMETRIC_S4_CREDIT_SURFACE_RUNNER_RESULT.json`
+- `audits/20260618_CYCLE35_A2B_GEOMETRIC_S4_AUDIT.md`
+- Harness status: `HARNESS_MALFORMED_VISIBLE_TERMINAL`; no clean
+  `response.md` was produced. The readable structured-JSONL recovery was
+  audited conservatively and the visible-terminal scrape is not banked as
+  mathematics.
+- Mathematical audit status: `BANKABLE_LEMMA / ROUTE_CUT / EXACT_NEW_WALL /
+  EXPERIMENTAL / AUDIT`.
+- Banked content: a finite-place monodromy certificate. In a fixed
+  source-valid restricted `t=2,j=4` `A^2_B` instance, off-Delta squarefree
+  factorization types `"4"` and `"13"` force `G_arith=S_4`; because `"13"` is
+  even, the sign constant-field obstruction is also cut, so
+  `G_geom=G_arith=S_4` for that tested instance.
+- Experimental application: the Cycle 32 `p=29` histogram includes `"4"`,
+  `"13"`, and `"1111"` and is compatible with the `S_4` cycle index.
+- Not banked: a uniform source-valid counterpacket, a growing-prime
+  `Theta(q_line)` theorem, corrected-reserve theorem, MCA/CA/list/
+  line-decoding/curve-MCA/protocol/SNARK statement, or prize solve.
+- Live wall: `W-F1-AA-RES-T2J4-A2B-UNIFORM-S4`.
+
+Cycle 36 A2_B uniform S4 prompt:
+
+- `prompts/20260618_cycle36_a2b_uniform_s4.md`
+- Status: AUDIT / prompt prepared.
+- Purpose: either upgrade the finite-place `S_4` certificate into a uniform
+  source-valid growing-prime restricted counterpacket seed, or kill it by
+  finding the exact obstruction.

@@ -1002,3 +1002,37 @@ Cycle 40 subcase good-reduction prompt:
 - Purpose: prove or refute the subcase-separated good-reduction/S4 certificate
   below the Cycle 39 locator collapse, especially Subcase A (`ell=alpha`) and
   the explicit good-reduction bridge.
+
+Cycle 40 subcase good-reduction answer:
+
+- `raw/20260618_CYCLE40_SUBCASE_GOODRED_RESPONSE.md`
+- `raw/20260618_CYCLE40_SUBCASE_GOODRED_RAW.json`
+- `raw/20260618_CYCLE40_SUBCASE_GOODRED_RAW.jsonl`
+- `raw/20260618_CYCLE40_SUBCASE_GOODRED_RUN_RESULT.json`
+- `local_checks/20260618_cycle40_subcase_goodred_checker_from_response.py`
+- `local_checks/20260618_cycle40_subcase_goodred_checker_result.json`
+- `audits/20260618_CYCLE40_SUBCASE_GOODRED_AUDIT.md`
+- Harness status: clean enough `artifact_stream`; `response.md` is the theorem
+  answer. The run has one nonfatal stream-json parse warning but no terminal or
+  ad transcript is involved.
+- Mathematical audit status: `BANKABLE_LEMMA / EXACT_NEW_WALL /
+  EXPERIMENTAL / AUDIT`.
+- Banked content: the finite-place histogram criterion `"4"` plus `"13"`
+  proves `G_arith=G_geom=S_4` at the tested prime. This upgrades the prior
+  `p=31` Subcase B certificate to geometric `S_4`.
+- Local Codex follow-up: the parametrized checker from the response was
+  extracted and executed locally. It reports `all_pass=true`: Subcase A passes
+  at `p=7,23,43,47`, and Subcase B passes at `p=11,19,31,59`.
+- Not banked: a characteristic-zero determinant/discriminant computation, a
+  certified good-reduction prime, tame-specialization globalization, a
+  Chebotarev/Lang-Weil density theorem, a `COUNTERPACKET`,
+  corrected-reserve theorem, MCA/CA/list/line-decoding/curve-MCA/protocol/
+  SNARK statement, or prize solve.
+- Live wall: `W-F1-AA-RES-T2J4-A2B-S4-GOODRED-CHAR0DELTA`.
+
+Cycle 41 homerun characteristic-zero Delta prompt:
+
+- `prompts/20260618_cycle41_char0delta_goodred.md`
+- Status: AUDIT / prompt prepared.
+- Purpose: attack the missing characteristic-zero branch determinant,
+  quartic discriminant, and good-reduction bridge per subcase.

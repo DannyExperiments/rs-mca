@@ -1002,3 +1002,30 @@ Keep entries concise and link to the relevant files.
   `W-F1-AA-RES-T2J4-A2B-S4-GOODRED-SUBCASE`: certify Subcase A and the
   good-reduction bridge, or cut one subcase by proving reducibility, an `A_4`
   trap, or a constant-field obstruction.
+
+### 2026-06-18 - Fable loop cycle 40, subcase finite-place geometric S4
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE40_SUBCASE_GOODRED_RESPONSE.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE40_SUBCASE_GOODRED_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE40_SUBCASE_GOODRED_RAW.jsonl`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE40_SUBCASE_GOODRED_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle40_subcase_goodred_checker_from_response.py`,
+  `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle40_subcase_goodred_checker_result.json`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE40_SUBCASE_GOODRED_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle41_char0delta_goodred.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / EXPERIMENTAL / AUDIT.
+- **What is being added:** Cycle 40 upgrades the finite-place monodromy
+  criterion: off-singular factorization types `"4"` and `"13"` certify
+  `G_arith=G_geom=S_4` at that tested prime. Codex extracted and ran the
+  supplied parametrized checker; it reports `all_pass=true`, with Subcase A
+  passing at `p=7,23,43,47` and Subcase B passing at `p=11,19,31,59`.
+- **How it is useful:** The Subcase A finite-place gap is no longer merely a
+  proposed scan. The live obstruction has moved to characteristic-zero branch
+  data and good reduction, not finite-place `S_4`.
+- **What to do next:** Run Cycle 41 against
+  `W-F1-AA-RES-T2J4-A2B-S4-GOODRED-CHAR0DELTA`: compute/certify the
+  characteristic-zero determinant/discriminant data and a good-reduction prime
+  per subcase, or identify the exact obstruction below that wall.

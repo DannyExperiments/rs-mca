@@ -1,0 +1,376 @@
+{
+  "subcaseA": [
+    {
+      "p": 7,
+      "q_gen": 7,
+      "q_line": 49,
+      "subcase": "A",
+      "ell": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "line": {
+        "m": 1,
+        "e": 0
+      },
+      "singular_on_line": 3,
+      "hist": {
+        "112": 1,
+        "13": 2,
+        "4": 1
+      },
+      "witness_4cycle": [
+        3,
+        3
+      ],
+      "witness_13": [
+        0,
+        0
+      ],
+      "resolvent_irred_at": [
+        0,
+        0
+      ],
+      "disc_nonsquare_at": [
+        3,
+        3
+      ],
+      "PASS_geometric_S4": true,
+      "criterion": "('4' in hist) and ('13' in hist) => G_geom=G_arith=S_4"
+    },
+    {
+      "p": 23,
+      "q_gen": 23,
+      "q_line": 529,
+      "subcase": "A",
+      "ell": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "line": {
+        "m": 1,
+        "e": 0
+      },
+      "singular_on_line": 1,
+      "hist": {
+        "1111": 1,
+        "112": 7,
+        "13": 10,
+        "4": 3,
+        "nonsquarefree": 1
+      },
+      "witness_4cycle": [
+        7,
+        7
+      ],
+      "witness_13": [
+        4,
+        4
+      ],
+      "resolvent_irred_at": [
+        4,
+        4
+      ],
+      "disc_nonsquare_at": [
+        7,
+        7
+      ],
+      "PASS_geometric_S4": true,
+      "criterion": "('4' in hist) and ('13' in hist) => G_geom=G_arith=S_4"
+    },
+    {
+      "p": 43,
+      "q_gen": 43,
+      "q_line": 1849,
+      "subcase": "A",
+      "ell": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "line": {
+        "m": 1,
+        "e": 0
+      },
+      "singular_on_line": 1,
+      "hist": {
+        "1111": 1,
+        "112": 9,
+        "13": 16,
+        "22": 4,
+        "4": 10,
+        "nonsquarefree": 2
+      },
+      "witness_4cycle": [
+        0,
+        0
+      ],
+      "witness_13": [
+        4,
+        4
+      ],
+      "resolvent_irred_at": [
+        4,
+        4
+      ],
+      "disc_nonsquare_at": [
+        0,
+        0
+      ],
+      "PASS_geometric_S4": true,
+      "criterion": "('4' in hist) and ('13' in hist) => G_geom=G_arith=S_4"
+    },
+    {
+      "p": 47,
+      "q_gen": 47,
+      "q_line": 2209,
+      "subcase": "A",
+      "ell": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "line": {
+        "m": 1,
+        "e": 0
+      },
+      "singular_on_line": 3,
+      "hist": {
+        "1111": 3,
+        "112": 3,
+        "13": 23,
+        "22": 6,
+        "4": 9
+      },
+      "witness_4cycle": [
+        3,
+        3
+      ],
+      "witness_13": [
+        2,
+        2
+      ],
+      "resolvent_irred_at": [
+        2,
+        2
+      ],
+      "disc_nonsquare_at": [
+        3,
+        3
+      ],
+      "PASS_geometric_S4": true,
+      "criterion": "('4' in hist) and ('13' in hist) => G_geom=G_arith=S_4"
+    }
+  ],
+  "subcaseB": [
+    {
+      "p": 11,
+      "q_gen": 11,
+      "q_line": 121,
+      "subcase": "B",
+      "ell": [
+        [
+          0,
+          0
+        ],
+        [
+          9,
+          0
+        ]
+      ],
+      "line": {
+        "m": 1,
+        "e": 0
+      },
+      "singular_on_line": 0,
+      "hist": {
+        "112": 1,
+        "13": 5,
+        "22": 1,
+        "4": 3,
+        "nonsquarefree": 1
+      },
+      "witness_4cycle": [
+        3,
+        3
+      ],
+      "witness_13": [
+        0,
+        0
+      ],
+      "resolvent_irred_at": [
+        0,
+        0
+      ],
+      "disc_nonsquare_at": [
+        3,
+        3
+      ],
+      "PASS_geometric_S4": true,
+      "criterion": "('4' in hist) and ('13' in hist) => G_geom=G_arith=S_4"
+    },
+    {
+      "p": 19,
+      "q_gen": 19,
+      "q_line": 361,
+      "subcase": "B",
+      "ell": [
+        [
+          0,
+          0
+        ],
+        [
+          17,
+          0
+        ]
+      ],
+      "line": {
+        "m": 1,
+        "e": 0
+      },
+      "singular_on_line": 2,
+      "hist": {
+        "1111": 1,
+        "112": 3,
+        "13": 4,
+        "22": 5,
+        "4": 4
+      },
+      "witness_4cycle": [
+        6,
+        6
+      ],
+      "witness_13": [
+        2,
+        2
+      ],
+      "resolvent_irred_at": [
+        2,
+        2
+      ],
+      "disc_nonsquare_at": [
+        6,
+        6
+      ],
+      "PASS_geometric_S4": true,
+      "criterion": "('4' in hist) and ('13' in hist) => G_geom=G_arith=S_4"
+    },
+    {
+      "p": 31,
+      "q_gen": 31,
+      "q_line": 961,
+      "subcase": "B",
+      "ell": [
+        [
+          0,
+          0
+        ],
+        [
+          29,
+          0
+        ]
+      ],
+      "line": {
+        "m": 1,
+        "e": 0
+      },
+      "singular_on_line": 0,
+      "hist": {
+        "1111": 1,
+        "112": 5,
+        "13": 11,
+        "22": 6,
+        "4": 6,
+        "nonsquarefree": 2
+      },
+      "witness_4cycle": [
+        0,
+        0
+      ],
+      "witness_13": [
+        4,
+        4
+      ],
+      "resolvent_irred_at": [
+        4,
+        4
+      ],
+      "disc_nonsquare_at": [
+        0,
+        0
+      ],
+      "PASS_geometric_S4": true,
+      "criterion": "('4' in hist) and ('13' in hist) => G_geom=G_arith=S_4"
+    },
+    {
+      "p": 59,
+      "q_gen": 59,
+      "q_line": 3481,
+      "subcase": "B",
+      "ell": [
+        [
+          0,
+          0
+        ],
+        [
+          57,
+          0
+        ]
+      ],
+      "line": {
+        "m": 1,
+        "e": 0
+      },
+      "singular_on_line": 1,
+      "hist": {
+        "1111": 1,
+        "112": 14,
+        "13": 19,
+        "22": 6,
+        "4": 17,
+        "nonsquarefree": 1
+      },
+      "witness_4cycle": [
+        2,
+        2
+      ],
+      "witness_13": [
+        5,
+        5
+      ],
+      "resolvent_irred_at": [
+        5,
+        5
+      ],
+      "disc_nonsquare_at": [
+        2,
+        2
+      ],
+      "PASS_geometric_S4": true,
+      "criterion": "('4' in hist) and ('13' in hist) => G_geom=G_arith=S_4"
+    }
+  ],
+  "all_pass": true
+}

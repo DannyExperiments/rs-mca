@@ -1116,3 +1116,34 @@ Cycle 42 external 5.5 Pro answers:
   generated-field theorem, smooth multiplicative-domain theorem, CA/list/
   line-decoding/curve-MCA/protocol/SNARK statement, or Proximity Prize solve.
 - Live wall: `W-F1-AA-RES-STRUCTURED-COSUPPORT-RESERVE-LIFT`.
+
+Cycle 43 reserve-lift homerun:
+
+- `prompts/20260618_cycle43_reserve_lift_homerun.md`
+- `raw/cycle43_reserve_lift_homerun/20260618_CYCLE43_RESERVE_LIFT_RESPONSE.md`
+- `raw/cycle43_reserve_lift_homerun/20260618_CYCLE43_RESERVE_LIFT_RAW.json`
+- `raw/cycle43_reserve_lift_homerun/20260618_CYCLE43_RESERVE_LIFT_RAW.jsonl`
+- `raw/cycle43_reserve_lift_homerun/20260618_CYCLE43_RESERVE_LIFT_RUN_RESULT.json`
+- `raw/cycle43_reserve_lift_homerun/20260618_CYCLE43_RESERVE_LIFT_RUN_STATUS.json`
+- `raw/cycle43_reserve_lift_homerun/20260618_CYCLE43_RESERVE_LIFT_PROMPT_SENT.md`
+- `raw/cycle43_reserve_lift_homerun/20260618_CYCLE43_RESERVE_LIFT_INPUT_MANIFEST.json`
+- `audits/20260618_CYCLE43_RESERVE_LIFT_HOMERUN_AUDIT.md`
+- Harness status: clean non-ad `artifact_stream`; `OK_WITH_NONFATAL_STREAM_WARNING`
+  from one malformed stream-json line; `response.md` is usable theorem
+  content. No `output_files/` deliverables were written by the model.
+- Mathematical audit status: `BANKABLE_LEMMA / ROUTE_CUT / EXACT_NEW_WALL /
+  AUDIT / EXPERIMENTAL`.
+- Banked content: the literal fixed `t=2,j=4` quartic/S4 mechanism does not
+  reserve-scale. Reserve scale has `j=Theta(n) >> 2t=Theta(n/log n)`, so the
+  square Cramer/quartic monodromy object disappears; diagonal scaling
+  `j=2t -> infinity` has totally split density at most `1/j -> 0`.
+- Route-organizing lemma: realized slopes are controlled by cosupport landing
+  counts, with heuristic skeleton
+  `N_split ~ min(q_line, C(p,j)/p^{2(t-1)})`, matching the banked `j=2`,
+  `j=3`, and `j=4` fixed regimes. This is not banked as a proved reserve
+  asymptotic because equidistribution/anticollision is still open.
+- New live wall:
+  `W-F1-AA-RES-COSUPPORT-SUBSET-PRODUCT-EQUIDISTRIBUTION`.
+- Not banked: positive-density reserve lift, corrected-reserve
+  counterpacket, generated-field theorem, MCA/CA/list/line-decoding/
+  curve-MCA/protocol/SNARK statement, or prize solve.

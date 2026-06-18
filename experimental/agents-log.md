@@ -1113,3 +1113,28 @@ Keep entries concise and link to the relevant files.
 - **Lane choice:** Clean artifact stream was used instead of the VS Code ads
   lane because ad credit was not working and theorem progress is higher
   priority.
+
+### 2026-06-19 - Cycle 43 reserve-lift homerun audit
+
+- **Agent/model:** Codex auditing `claude-opus-4-8` Cycle 43 response.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/cycle43_reserve_lift_homerun/`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE43_RESERVE_LIFT_HOMERUN_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / ROUTE_CUT / EXACT_NEW_WALL / AUDIT /
+  EXPERIMENTAL.
+- **What is being added:** Cycle 43 cuts the literal route of directly
+  amplifying the fixed `t=2,j=4` quartic/S4 mechanism to reserve scale. In
+  reserve scale, `j=Theta(n)` while `2t=2sigma=Theta(n/log n)`, so the square
+  Cramer/quartic object disappears; along the balanced diagonal `j=2t`, totally
+  split monodromy density is at most `1/j -> 0`.
+- **How it is useful:** It redirects the live route to a sharper object:
+  `W-F1-AA-RES-COSUPPORT-SUBSET-PRODUCT-EQUIDISTRIBUTION`. The useful
+  heuristic skeleton is
+  `N_split ~ min(q_line, C(p,j)/p^{2(t-1)})`, matching the banked `j=2`,
+  `j=3`, and `j=4` regimes, but reserve-scale equidistribution and slope
+  anticollision remain open.
+- **What to do next:** Discuss before launching Cycle 44. If continuing, attack
+  subset-product/cosupport equidistribution directly, preferably first with a
+  finite sweep fixing `t=2` and increasing `j` to see whether
+  `|Slopes|/p^2` grows toward a positive constant or stalls.

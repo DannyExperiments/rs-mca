@@ -248,3 +248,27 @@ Cycle 17 rank-det split scanner attempt:
   scanner is banked. The readable structured-JSONL recovery is preserved as
   provenance only.
 - Current live wall remains `W-F1-AA-RES-T2J3-RANK-DET-SPLIT`.
+
+Cycle 18 homerun / big-leap attempt:
+
+- `prompts/20260618_cycle18_homerun_full_solve_or_big_leap.md`
+- `raw/20260618_CYCLE18_HOMERUN_RECOVERED_CLAUDE_JSONL.md`
+- `raw/20260618_CYCLE18_HOMERUN_RAW.json`
+- `raw/20260618_CYCLE18_HOMERUN_RUN_RESULT.json`
+- `raw/20260618_CYCLE18_HOMERUN_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`
+- `raw/20260618_CYCLE18_HOMERUN_TUI_RUNNER_RESULT.json`
+- `raw/20260618_CYCLE18_HOMERUN_CREDIT_SURFACE_RUNNER_RESULT.json`
+- `audits/20260618_CYCLE18_HOMERUN_AUDIT.md`
+- Harness status: `HARNESS_MALFORMED_VISIBLE_TERMINAL`; no `response.md` was
+  produced. The readable structured-JSONL recovery is audited conservatively
+  and the visible-terminal scrape is not banked as mathematics.
+- Mathematical audit status: `BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT`.
+- Banked content: in the restricted `D=F_p`, `t=sigma=2`, `j=3`, off-`R0`
+  window, the Cycle 14 determinant in the `{[W]_E,b}` basis is monic
+  quadratic in `tau_3`; after splitting `Delta=Delta0+alpha Delta1`,
+  `Delta0` is monic degree `2` in `tau_3` and `deg_{tau_3} Delta1<=1`.
+- Live wall:
+  `W-F1-AA-RES-T2J3-RESONANCE-SLOPE-MAP-COLLAPSE`.
+- Not banked: a full proof/disproof, the resonance slope-map collapse itself,
+  a `Theta(q_line)` counterpacket, any above-reserve statement, any `q_gen`
+  conclusion, or any protocol/list/CA/MCA/line-decoding conversion.

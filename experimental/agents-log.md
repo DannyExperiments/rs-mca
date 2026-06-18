@@ -311,3 +311,30 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Audit the Cycle 18 answer conservatively. If it does not
   produce a major result, resume the normal targeted loop at the best refined
   wall it identifies.
+
+### 2026-06-18 - Fable loop cycle 18, homerun monicity audit
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE18_HOMERUN_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE18_HOMERUN_RECOVERED_CLAUDE_JSONL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE18_HOMERUN_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE18_HOMERUN_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE18_HOMERUN_TUI_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE18_HOMERUN_CREDIT_SURFACE_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE18_HOMERUN_AUDIT.md`,
+  and `experimental/2026-06-18-fable-loop/README.md`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT.
+- **What is being added:** Cycle 18 did not solve the prize problem, but it
+  banks a restricted monicity lemma: in the `D=F_p`, `t=sigma=2`, `j=3`,
+  off-`R0` window, the Cycle 14 determinant is monic quadratic in `tau_3`
+  after changing to the `{[W]_E,b}` basis; hence `Delta0` is monic degree `2`
+  in `tau_3` and `deg_{tau_3} Delta1<=1`.
+- **How it is useful:** The live wall is sharpened from the `Q==0`
+  rank-determinant split to a two-variable rational slope-image problem on
+  non-coprime resonance strata:
+  `W-F1-AA-RES-T2J3-RESONANCE-SLOPE-MAP-COLLAPSE`.
+- **What to do next:** Prove the resonance slope-map image is one-dimensional
+  on every source-valid non-coprime stratum, or construct a growing-prime
+  source-valid family where `C2/p^2` stays bounded below. Do not promote this
+  sub-reserve toy-window result to a corrected-reserve, `q_gen`, protocol, or
+  MCA/list-decoding statement.

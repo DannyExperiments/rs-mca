@@ -860,3 +860,40 @@ Cycle 36 A2_B uniform S4 prompt:
 - Purpose: either upgrade the finite-place `S_4` certificate into a uniform
   source-valid growing-prime restricted counterpacket seed, or kill it by
   finding the exact obstruction.
+
+Cycle 36 A2_B uniform S4 answer:
+
+- `raw/20260618_CYCLE36_A2B_UNIFORM_S4_RECOVERED_CLAUDE_JSONL.md`
+- `raw/20260618_CYCLE36_A2B_UNIFORM_S4_RAW.json`
+- `raw/20260618_CYCLE36_A2B_UNIFORM_S4_RUN_RESULT.json`
+- `raw/20260618_CYCLE36_A2B_UNIFORM_S4_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`
+- `raw/20260618_CYCLE36_A2B_UNIFORM_S4_TUI_RUNNER_RESULT.json`
+- `raw/20260618_CYCLE36_A2B_UNIFORM_S4_CREDIT_SURFACE_RUNNER_RESULT.json`
+- `audits/20260618_CYCLE36_A2B_UNIFORM_S4_AUDIT.md`
+- Harness status: `HARNESS_MALFORMED_VISIBLE_TERMINAL`; no clean
+  `response.md` was produced. The readable structured-JSONL recovery was
+  audited conservatively and the visible-terminal scrape is not banked as
+  mathematics.
+- Mathematical audit status: `BANKABLE_LEMMA / EXACT_NEW_WALL /
+  EXPERIMENTAL / AUDIT`.
+- Banked content: an explicit source-valid growing-prime denominator family
+  for primes `p = 3 mod 4`,
+  `B=F_p`, `F=F_{p^2}=B(alpha)`, `alpha^2=-1`,
+  `E=X^2+alpha X+1`, `b=X`, plus a reduction of uniform geometric `S_4` to a
+  finite single-prime certificate after good-reduction monotonicity.
+- Correction: the raw criterion "resolvent irreducible plus nonsquare
+  discriminant" must also include quartic transitivity/geometric
+  irreducibility. A finite-place type `"4"` supplies this; types `"4"` and
+  `"13"` are the preferred certificate.
+- Not banked: a `COUNTERPACKET`, a uniform `Theta(q_line)` theorem,
+  corrected-reserve theorem, MCA/CA/list/line-decoding/curve-MCA/protocol/
+  SNARK statement, or prize solve.
+- Live wall: `W-F1-AA-RES-T2J4-A2B-SINGLE-PRIME-S4-CERT`.
+
+Cycle 37 single-prime S4 certificate prompt:
+
+- `prompts/20260618_cycle37_single_prime_s4_cert.md`
+- Status: AUDIT / prompt prepared.
+- Purpose: produce a reproducible one-good-prime certificate for the explicit
+  Cycle 36 family, with quartic transitivity, resolvent, discriminant, and
+  source-validity gates separated.

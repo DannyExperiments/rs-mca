@@ -886,3 +886,32 @@ Keep entries concise and link to the relevant files.
   infinite family with uniform geometric `S_4`, or find the exact obstruction
   that kills the counterpacket seed. Do not promote this local branch to a
   corrected-reserve, MCA, protocol, or prize theorem.
+
+### 2026-06-18 - Fable loop cycle 36, explicit family and single-prime S4 wall
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE36_A2B_UNIFORM_S4_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE36_A2B_UNIFORM_S4_RECOVERED_CLAUDE_JSONL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE36_A2B_UNIFORM_S4_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE36_A2B_UNIFORM_S4_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE36_A2B_UNIFORM_S4_TUI_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE36_A2B_UNIFORM_S4_CREDIT_SURFACE_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE36_A2B_UNIFORM_S4_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle37_single_prime_s4_cert.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / EXPERIMENTAL / AUDIT.
+- **What is being added:** Cycle 36 gives an explicit source-valid
+  growing-prime denominator family for primes `p = 3 mod 4`:
+  `B=F_p`, `F=F_{p^2}=B(alpha)`, `alpha^2=-1`,
+  `E=X^2+alpha X+1`, `b=X`. It also reduces the uniform geometric `S_4`
+  route to a finite single-prime certificate, with a Codex correction that
+  quartic transitivity/geometric irreducibility must be certified in addition
+  to resolvent irreducibility and discriminant nonsquareness.
+- **How it is useful:** This replaces the vague uniform-S4 wall with the
+  concrete target `W-F1-AA-RES-T2J4-A2B-SINGLE-PRIME-S4-CERT`. Success would
+  create a restricted local `Theta(q_line)` counterpacket seed; failure should
+  identify the actual obstruction.
+- **What to do next:** Run Cycle 37 to build or specify a reproducible
+  single-prime checker/certificate for the explicit family, keeping
+  `q_gen=p` and `q_line=p^2` separate and avoiding any MCA/protocol upgrade.

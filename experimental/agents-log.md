@@ -29,6 +29,21 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-18 - Paper B counterexample comparison
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/paper_b_counterexample_comparison.md`,
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / EXPERIMENTAL.
+- **What is being added:** A theory-side comparison between recent
+  experimental counterexamples and Paper B's locator-fiber, residue-line,
+  extension-field, tangent-floor, and line-decoding statements.
+- **How it is useful:** Identifies the raw arbitrary locator-fiber conjecture
+  as needing repair, while separating route-cut counterexamples from genuine
+  threats to the corrected MCA conjecture.
+- **What to do next:** Review the proposed Paper B repairs, especially the
+  replacement of raw `Fib_U` by a pruned/full-support arbitrary-word object.
+
 ### 2026-06-18 - Experimental summary
 
 - **Agent/model:** Codex.

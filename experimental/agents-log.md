@@ -802,3 +802,30 @@ Keep entries concise and link to the relevant files.
   off-curve quartic family has arithmetic/geometric monodromy with positive
   split density. Do not promote the checker output to `PROOF` or
   `COUNTERPACKET`.
+
+### 2026-06-18 - Fable loop cycle 33, A2_B singular curve bound
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE33_A2B_MONODROMY_CERTIFICATE_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE33_A2B_MONODROMY_CERTIFICATE_RECOVERED_CLAUDE_JSONL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE33_A2B_MONODROMY_CERTIFICATE_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE33_A2B_MONODROMY_CERTIFICATE_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE33_A2B_MONODROMY_CERTIFICATE_TUI_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE33_A2B_MONODROMY_CERTIFICATE_CREDIT_SURFACE_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE33_A2B_MONODROMY_CERTIFICATE_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle34_a2b_dominance_resolvent.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / CONDITIONAL / EXACT_NEW_WALL / AUDIT.
+- **What is being added:** Cycle 33 banks the restricted singular-bound
+  lemma: under the Cycle 29 top-symbol nonzero hypotheses, the determinant
+  locus `Delta(z_0,z_1)=0` in the `t=2,j=4` `A^2_B` model has degree at most
+  four and contributes at most `4p` split slopes.
+- **How it is useful:** It removes the singular determinant curve as a
+  possible `Theta(q_line)=Theta(p^2)` source and isolates the real off-curve
+  problem: dominance and resolvent/monodromy of `tau(z_0,z_1)`.
+- **What to do next:** Run Cycle 34 against
+  `W-F1-AA-RES-T2J4-A2B-DOMINANCE-RESOLVENT`: decide generic `B`-Jacobian rank
+  of `z -> tau(z)` and compute or reduce the substituted quartic
+  resolvent/discriminant and constant-field test. Do not promote this local
+  lemma to a corrected-reserve, MCA, protocol, or prize theorem.

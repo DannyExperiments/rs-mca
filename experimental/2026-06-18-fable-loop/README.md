@@ -753,3 +753,38 @@ Cycle 33 A2_B monodromy certificate prompt:
 - Purpose: decide whether the Cycle 32 checker and Cycle 29/30 equations can
   be upgraded into a real surface monodromy / singular-curve certificate, or
   whether a constant-field, singular-curve, or checker obstruction remains.
+
+Cycle 33 A2_B monodromy certificate answer:
+
+- `raw/20260618_CYCLE33_A2B_MONODROMY_CERTIFICATE_RECOVERED_CLAUDE_JSONL.md`
+- `raw/20260618_CYCLE33_A2B_MONODROMY_CERTIFICATE_RAW.json`
+- `raw/20260618_CYCLE33_A2B_MONODROMY_CERTIFICATE_RUN_RESULT.json`
+- `raw/20260618_CYCLE33_A2B_MONODROMY_CERTIFICATE_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`
+- `raw/20260618_CYCLE33_A2B_MONODROMY_CERTIFICATE_TUI_RUNNER_RESULT.json`
+- `raw/20260618_CYCLE33_A2B_MONODROMY_CERTIFICATE_CREDIT_SURFACE_RUNNER_RESULT.json`
+- `audits/20260618_CYCLE33_A2B_MONODROMY_CERTIFICATE_AUDIT.md`
+- Harness status: `HARNESS_MALFORMED_VISIBLE_TERMINAL`; no clean
+  `response.md` was produced. The readable structured-JSONL recovery was
+  audited conservatively and the visible-terminal scrape is not banked as
+  mathematics.
+- Mathematical audit status: `BANKABLE_LEMMA / CONDITIONAL / EXACT_NEW_WALL /
+  AUDIT`.
+- Banked content: in the restricted `D=F_p`, `B=F_p`,
+  `F=F_{p^2}`, `t=sigma=2`, `j=4` branch, assuming the Cycle 29 top-symbol
+  nonzero hypotheses, the singular determinant curve
+  `Delta(z_0,z_1)=0` has degree at most four and contributes at most `4p`
+  split slopes.
+- Not banked: positive off-curve split density, `S_4`, arithmetic/geometric
+  monodromy equality, a `Theta(q_line)` counterpacket, corrected-reserve
+  theorem, MCA/CA/list/line-decoding/curve-MCA/protocol/SNARK statement, or
+  prize solve.
+- Live wall: `W-F1-AA-RES-T2J4-A2B-DOMINANCE-RESOLVENT`.
+
+Cycle 34 A2_B dominance/resolvent prompt:
+
+- `prompts/20260618_cycle34_a2b_dominance_resolvent.md`
+- Status: AUDIT / prompt prepared.
+- Purpose: decide whether the off-curve rational map
+  `tau(z_0,z_1)=M(z)^(-1)(-C_0(z))` has generic `B`-Jacobian rank two and
+  whether the substituted quartic resolvent/discriminant gives a transitive
+  monodromy/constant-field certificate.

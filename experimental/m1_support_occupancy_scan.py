@@ -496,6 +496,371 @@ def expected_residual_packet_lift_count(
     return math.comb(available_fibers, whole_fibers)
 
 
+def all_residual_packets_lift_active(
+    support_size: int,
+    quotient_order: int,
+    fiber_size: int,
+    residual_size: int,
+) -> Tuple[bool, Optional[int], int]:
+    required_fibers = min(residual_size, quotient_order)
+    if residual_size > support_size:
+        return (False, None, required_fibers)
+    if (support_size - residual_size) % fiber_size:
+        return (False, None, required_fibers)
+
+    whole_fibers = (support_size - residual_size) // fiber_size
+    remaining_fibers = quotient_order - whole_fibers
+    return (remaining_fibers >= required_fibers, remaining_fibers, required_fibers)
+
+
+def quotient_limited_pair_parameter_bound(
+    quotient_order: int,
+    fiber_size: int,
+    remaining_fibers: Optional[int],
+    residual_size: int,
+) -> int:
+    if remaining_fibers is None or remaining_fibers <= 0:
+        return 0
+
+    max_touched = min(remaining_fibers, residual_size, quotient_order)
+    total = 0
+    for touched in range(1, max_touched + 1):
+        total += (
+            math.comb(quotient_order - 1, touched - 1)
+            * (touched * fiber_size) ** 2
+        )
+    return total
+
+
+def slack_two_second_kernel_fiber_reduction_data(
+    p: int,
+    domain: Sequence[int],
+    quotient_order: int,
+) -> Dict[str, object]:
+    kernel = tuple(domain[index] for index in range(0, len(domain), quotient_order))
+    kernel_set = set(kernel)
+    square_image = {x * x % p for x in domain}
+    nonzero_square_cosets = set()
+    parameter_count = 0
+    zero_parameter_count = 0
+    for u in kernel:
+        for v in kernel:
+            w = (-1 - u - v) % p
+            values = (1, u, v, w)
+            if w not in kernel_set or len(set(values)) != 4:
+                continue
+            parameter_count += 1
+            shape_slope = (-(u * u + v * v + u * v + u + v + 1)) % p
+            if shape_slope == 0:
+                zero_parameter_count += 1
+                continue
+            nonzero_square_cosets.add(
+                min((shape_slope * square) % p for square in square_image)
+            )
+
+    slope_count = (1 if zero_parameter_count else 0) + (
+        len(nonzero_square_cosets) * len(square_image)
+    )
+    return {
+        "kernel_order": len(kernel),
+        "parameter_count": parameter_count,
+        "zero_parameter_count": zero_parameter_count,
+        "nonzero_parameter_count": parameter_count - zero_parameter_count,
+        "nonzero_square_coset_count": len(nonzero_square_cosets),
+        "slope_count": min(p, slope_count),
+    }
+
+
+def slack_two_second_two_fiber_window_data(
+    p: int,
+    domain: Sequence[int],
+    quotient_order: int,
+    second_fiber: int = 1,
+) -> Optional[Dict[str, object]]:
+    if quotient_order < 2 or len(domain) % quotient_order:
+        return None
+
+    second_fiber %= quotient_order
+    if second_fiber == 0:
+        return None
+
+    fiber_size = len(domain) // quotient_order
+    window = tuple(
+        domain[fiber + quotient_order * offset]
+        for fiber in (0, second_fiber)
+        for offset in range(fiber_size)
+    )
+    window_set = set(window)
+    square_image = {x * x % p for x in domain}
+    square_coset_rep = multiplicative_coset_representative_map(
+        p,
+        tuple(square_image),
+    )
+
+    nonzero_square_cosets = set()
+    parameter_count = 0
+    zero_parameter_count = 0
+    for u in window:
+        for v in window:
+            w = (-1 - u - v) % p
+            values = (1, u, v, w)
+            if w not in window_set or len(set(values)) != 4:
+                continue
+            parameter_count += 1
+            shape_slope = (-(u * u + v * v + u * v + u + v + 1)) % p
+            if shape_slope == 0:
+                zero_parameter_count += 1
+                continue
+            nonzero_square_cosets.add(square_coset_rep[shape_slope])
+
+    slope_count = (1 if zero_parameter_count else 0) + (
+        len(nonzero_square_cosets) * len(square_image)
+    )
+    return {
+        "second_fiber": second_fiber,
+        "fiber_size": fiber_size,
+        "window_size": len(window),
+        "parameter_count": parameter_count,
+        "zero_parameter_count": zero_parameter_count,
+        "nonzero_parameter_count": parameter_count - zero_parameter_count,
+        "nonzero_square_coset_count": len(nonzero_square_cosets),
+        "total_nonzero_square_coset_count": (p - 1) // len(square_image),
+        "square_image_size": len(square_image),
+        "slope_count": min(p, slope_count),
+    }
+
+
+def slack_two_second_fixed_window_data(
+    p: int,
+    domain: Sequence[int],
+    quotient_order: int,
+    window_fibers: Sequence[int],
+) -> Optional[Dict[str, object]]:
+    if quotient_order < 1 or len(domain) % quotient_order:
+        return None
+
+    normalized_fibers = tuple(
+        sorted({fiber % quotient_order for fiber in window_fibers})
+    )
+    if not normalized_fibers or 0 not in normalized_fibers:
+        return None
+
+    fiber_size = len(domain) // quotient_order
+    window = tuple(
+        domain[fiber + quotient_order * offset]
+        for fiber in normalized_fibers
+        for offset in range(fiber_size)
+    )
+    window_set = set(window)
+    square_image = {x * x % p for x in domain}
+    square_coset_rep = multiplicative_coset_representative_map(
+        p,
+        tuple(square_image),
+    )
+
+    nonzero_square_cosets = set()
+    parameter_count = 0
+    zero_parameter_count = 0
+    for u in window:
+        u_square = u * u
+        for v in window:
+            w = (-1 - u - v) % p
+            values = (1, u, v, w)
+            if w not in window_set or len(set(values)) != 4:
+                continue
+            parameter_count += 1
+            shape_slope = (-(u_square + v * v + u * v + u + v + 1)) % p
+            if shape_slope == 0:
+                zero_parameter_count += 1
+                continue
+            nonzero_square_cosets.add(square_coset_rep[shape_slope])
+
+    slope_count = (1 if zero_parameter_count else 0) + (
+        len(nonzero_square_cosets) * len(square_image)
+    )
+    return {
+        "window_fibers": normalized_fibers,
+        "window_size": len(normalized_fibers),
+        "fiber_size": fiber_size,
+        "window_point_count": len(window),
+        "parameter_count": parameter_count,
+        "zero_parameter_count": zero_parameter_count,
+        "nonzero_parameter_count": parameter_count - zero_parameter_count,
+        "nonzero_square_coset_count": len(nonzero_square_cosets),
+        "total_nonzero_square_coset_count": (p - 1) // len(square_image),
+        "square_image_size": len(square_image),
+        "slope_count": min(p, slope_count),
+    }
+
+
+def slack_two_second_two_fiber_union_reduction_data(
+    p: int,
+    domain: Sequence[int],
+    quotient_order: int,
+) -> Optional[Dict[str, object]]:
+    if quotient_order < 2 or len(domain) % quotient_order:
+        return None
+
+    domain_set = set(domain)
+    value_to_fiber = {
+        value: index % quotient_order for index, value in enumerate(domain)
+    }
+    square_image = {x * x % p for x in domain}
+    square_coset_rep = multiplicative_coset_representative_map(
+        p,
+        tuple(square_image),
+    )
+
+    parameter_count = 0
+    zero_parameter_count = 0
+    nonzero_square_cosets = set()
+    for u in domain:
+        u_square = u * u
+        u_fiber = value_to_fiber[u]
+        for v in domain:
+            w = (-1 - u - v) % p
+            values = (1, u, v, w)
+            if w not in domain_set or len(set(values)) != 4:
+                continue
+            touched_fibers = {
+                0,
+                u_fiber,
+                value_to_fiber[v],
+                value_to_fiber[w],
+            }
+            if len(touched_fibers) > 2:
+                continue
+            parameter_count += 1
+            shape_slope = (-(u_square + v * v + u * v + u + v + 1)) % p
+            if shape_slope == 0:
+                zero_parameter_count += 1
+                continue
+            nonzero_square_cosets.add(square_coset_rep[shape_slope])
+
+    per_window_profiles = []
+    for second_fiber in range(1, quotient_order):
+        window = slack_two_second_two_fiber_window_data(
+            p=p,
+            domain=domain,
+            quotient_order=quotient_order,
+            second_fiber=second_fiber,
+        )
+        if window is None:
+            continue
+        per_window_profiles.append(
+            {
+                "second_fiber": int(window["second_fiber"]),
+                "parameter_count": int(window["parameter_count"]),
+                "zero_parameter_count": int(window["zero_parameter_count"]),
+                "nonzero_square_coset_count": int(
+                    window["nonzero_square_coset_count"]
+                ),
+                "slope_count": int(window["slope_count"]),
+            }
+        )
+
+    slope_count = (1 if zero_parameter_count else 0) + (
+        len(nonzero_square_cosets) * len(square_image)
+    )
+    total_nonzero_square_cosets = (p - 1) // len(square_image)
+    return {
+        "quotient_order": quotient_order,
+        "fiber_size": len(domain) // quotient_order,
+        "window_count": len(per_window_profiles),
+        "parameter_count": parameter_count,
+        "zero_parameter_count": zero_parameter_count,
+        "nonzero_parameter_count": parameter_count - zero_parameter_count,
+        "nonzero_square_coset_count": len(nonzero_square_cosets),
+        "total_nonzero_square_coset_count": total_nonzero_square_cosets,
+        "square_image_size": len(square_image),
+        "slope_count": min(p, slope_count),
+        "saturates_nonzero_square_cosets": (
+            len(nonzero_square_cosets) == total_nonzero_square_cosets
+        ),
+        "per_window_profiles": tuple(per_window_profiles),
+    }
+
+
+def slack_two_second_quotient_window_reduction_data(
+    p: int,
+    domain: Sequence[int],
+    quotient_order: int,
+    remaining_fibers: Optional[int],
+) -> Optional[Dict[str, object]]:
+    if (
+        remaining_fibers is None
+        or remaining_fibers <= 0
+        or len(domain) % quotient_order
+    ):
+        return None
+
+    effective_window_size = min(remaining_fibers, 4, quotient_order)
+    domain_set = set(domain)
+    value_to_fiber = {
+        value: index % quotient_order for index, value in enumerate(domain)
+    }
+    square_image = {x * x % p for x in domain}
+    square_coset_rep = multiplicative_coset_representative_map(
+        p,
+        tuple(square_image),
+    )
+
+    parameter_count = 0
+    zero_parameter_count = 0
+    nonzero_square_cosets = set()
+    touched_fiber_histogram: Counter[int] = Counter()
+    for u in domain:
+        u_square = u * u
+        u_fiber = value_to_fiber[u]
+        for v in domain:
+            w = (-1 - u - v) % p
+            values = (1, u, v, w)
+            if w not in domain_set or len(set(values)) != 4:
+                continue
+            touched_fibers = {
+                0,
+                u_fiber,
+                value_to_fiber[v],
+                value_to_fiber[w],
+            }
+            touched_count = len(touched_fibers)
+            if touched_count > effective_window_size:
+                continue
+            parameter_count += 1
+            touched_fiber_histogram[touched_count] += 1
+            shape_slope = (-(u_square + v * v + u * v + u + v + 1)) % p
+            if shape_slope == 0:
+                zero_parameter_count += 1
+                continue
+            nonzero_square_cosets.add(square_coset_rep[shape_slope])
+
+    slope_count = (1 if zero_parameter_count else 0) + (
+        len(nonzero_square_cosets) * len(square_image)
+    )
+    total_nonzero_square_cosets = (p - 1) // len(square_image)
+    window_count = math.comb(quotient_order - 1, effective_window_size - 1)
+    return {
+        "remaining_fibers": remaining_fibers,
+        "effective_window_size": effective_window_size,
+        "quotient_order": quotient_order,
+        "fiber_size": len(domain) // quotient_order,
+        "window_count": window_count,
+        "parameter_count": parameter_count,
+        "zero_parameter_count": zero_parameter_count,
+        "nonzero_parameter_count": parameter_count - zero_parameter_count,
+        "nonzero_square_coset_count": len(nonzero_square_cosets),
+        "total_nonzero_square_coset_count": total_nonzero_square_cosets,
+        "square_image_size": len(square_image),
+        "slope_count": min(p, slope_count),
+        "saturates_nonzero_square_cosets": (
+            len(nonzero_square_cosets) == total_nonzero_square_cosets
+        ),
+        "touched_fiber_histogram": tuple(
+            sorted(touched_fiber_histogram.items())
+        ),
+    }
+
+
 def expected_first_superboundary_zero_slope_data(
     domain_order: int,
     quotient_order: int,
@@ -1073,6 +1438,32 @@ def slack_two_second_superboundary_shape_ledger(
         )
         else None
     )
+    remaining_fibers = (
+        quotient_order - whole_fibers if whole_fibers is not None else None
+    )
+    lift_limited_parameter_bound = quotient_limited_pair_parameter_bound(
+        quotient_order=quotient_order,
+        fiber_size=fiber_size,
+        remaining_fibers=remaining_fibers,
+        residual_size=residual_size,
+    )
+    lift_limited_nonzero_packet_orbit_bound = (
+        lift_limited_parameter_bound // orbit_factor
+    )
+    lift_limited_slope_bound = min(
+        p,
+        (1 if lift_limited_parameter_bound else 0)
+        + lift_limited_nonzero_packet_orbit_bound * len(square_image),
+    )
+    kernel_fiber_reduction = (
+        slack_two_second_kernel_fiber_reduction_data(
+            p=p,
+            domain=domain,
+            quotient_order=quotient_order,
+        )
+        if remaining_fibers == 1
+        else None
+    )
 
     for u in domain:
         for v in domain:
@@ -1187,6 +1578,15 @@ def slack_two_second_superboundary_shape_ledger(
         "square_coset_slope_bound": min(p, square_coset_slope_bound),
         "high_index_slope_bound": high_index_slope_bound,
         "high_index_slope_bound_nontrivial": high_index_slope_bound < p,
+        "lift_limited_remaining_fibers": remaining_fibers,
+        "lift_limited_parameter_bound": lift_limited_parameter_bound,
+        "lift_limited_nonzero_packet_orbit_bound": (
+            lift_limited_nonzero_packet_orbit_bound
+        ),
+        "lift_limited_slope_bound": lift_limited_slope_bound,
+        "lift_limited_slope_bound_nontrivial": lift_limited_slope_bound < p,
+        "kernel_fiber_reduction_active": kernel_fiber_reduction is not None,
+        "kernel_fiber_reduction": kernel_fiber_reduction,
         "twentyfourfold_quotient_check": quotient_check,
         "packet_count": packet_count_numerator // orbit_factor,
         "weighted_support_count": support_count_numerator // orbit_factor,
@@ -1455,6 +1855,598 @@ def slack_two_cyclotomic_shape_bound(p: int, domain_order: int) -> int:
     return (numerator + character_order * character_order - 1) // (
         character_order * character_order
     )
+
+
+def depth_two_kummer_error_l1_split(
+    coordinate_principal_weight: int,
+    coordinate_nonprincipal_l1_bound: int,
+    square_coset_index: int,
+    nonprincipal_constant: int,
+) -> Dict[str, int]:
+    """Split depth-two character error into proved and imported masses."""
+
+    jacobi_l1_bound = coordinate_nonprincipal_l1_bound
+    conic_l1_bound = coordinate_principal_weight * (square_coset_index - 1)
+    kummer_l1_bound = (
+        coordinate_nonprincipal_l1_bound * (square_coset_index - 1)
+    )
+    weighted_error_l1_bound = (
+        jacobi_l1_bound
+        + conic_l1_bound
+        + nonprincipal_constant * kummer_l1_bound
+    )
+    return {
+        "jacobi_l1_bound": jacobi_l1_bound,
+        "conic_l1_bound": conic_l1_bound,
+        "kummer_l1_bound": kummer_l1_bound,
+        "weighted_error_l1_bound": weighted_error_l1_bound,
+    }
+
+
+def slack_two_second_kummer_saturation_data(
+    p: int,
+    domain_order: int,
+    nonprincipal_constant: int = 16,
+) -> Dict[str, object]:
+    """Return the depth-two low-index square-coset saturation certificate."""
+
+    character_order = (p - 1) // domain_order
+    square_kernel_index = math.gcd(2, domain_order)
+    square_coset_index = character_order * square_kernel_index
+    denominator = (
+        character_order
+        * character_order
+        * character_order
+        * square_coset_index
+    )
+    nonprincipal_tuple_count = denominator - 1
+    radical_component_degrees = (1, 1, 1, 2)
+    radical_total_degree = sum(radical_component_degrees)
+    deligne_constant = (radical_total_degree - 1) ** 2
+    coefficient_l1_bound = nonprincipal_tuple_count
+    error_split = depth_two_kummer_error_l1_split(
+        coordinate_principal_weight=1,
+        coordinate_nonprincipal_l1_bound=character_order ** 3 - 1,
+        square_coset_index=square_coset_index,
+        nonprincipal_constant=nonprincipal_constant,
+    )
+    uniform_prime_threshold = kummer_quadratic_uniform_prime_threshold(
+        principal_weight=1,
+        linear_error_weight=(
+            int(error_split["weighted_error_l1_bound"]) + 6 * denominator
+        ),
+    )
+    chi_minus_three = quadratic_character(-3, p)
+    principal_exact_count = p * p - 4 * p + 6 + 4 * chi_minus_three
+    degeneracy_line_count = 6
+    degeneracy_line_union_count = 6 * p - 11
+    lower_numerator = principal_exact_count - (
+        p * int(error_split["weighted_error_l1_bound"])
+        + degeneracy_line_union_count * denominator
+    )
+    admissible_per_coset_lower_bound = (
+        (lower_numerator + denominator - 1) // denominator
+        if lower_numerator > 0
+        else 0
+    )
+    return {
+        "character_order": character_order,
+        "square_kernel_index": square_kernel_index,
+        "square_coset_index": square_coset_index,
+        "denominator": denominator,
+        "nonprincipal_tuple_count": nonprincipal_tuple_count,
+        "coefficient_l1_bound": coefficient_l1_bound,
+        **error_split,
+        "jacobi_error_constant": 1,
+        "conic_error_constant": 1,
+        "divisor_power_failure_count": 0,
+        "divisor_nontriviality_check": True,
+        "radical_component_degrees": radical_component_degrees,
+        "radical_total_degree": radical_total_degree,
+        "deligne_constant_formula": "(radical_total_degree - 1)^2",
+        "deligne_constant": deligne_constant,
+        "deligne_constant_check": nonprincipal_constant == deligne_constant,
+        "uniform_prime_threshold": uniform_prime_threshold,
+        "uniform_threshold_applies": p >= uniform_prime_threshold,
+        "nonprincipal_constant": nonprincipal_constant,
+        "principal_chi_minus_three": chi_minus_three,
+        "principal_exact_count": principal_exact_count,
+        "principal_lower_bound": principal_exact_count,
+        "degeneracy_line_count": degeneracy_line_count,
+        "degeneracy_line_union_count": degeneracy_line_union_count,
+        "lower_numerator": lower_numerator,
+        "admissible_per_coset_lower_bound": (
+            admissible_per_coset_lower_bound
+        ),
+        "saturation_certificate": admissible_per_coset_lower_bound > 0,
+    }
+
+
+def kummer_quadratic_uniform_prime_threshold(
+    principal_weight: int,
+    linear_error_weight: int,
+) -> int:
+    """Return a uniform positive threshold for a quadratic Kummer numerator."""
+
+    return (linear_error_weight + principal_weight - 1) // principal_weight + 4
+
+
+def slack_two_second_two_fiber_kummer_saturation_data(
+    p: int,
+    domain_order: int,
+    quotient_order: int,
+    nonprincipal_constant: int = 16,
+) -> Optional[Dict[str, object]]:
+    """Return a two-quotient-fiber depth-two saturation certificate."""
+
+    if quotient_order < 2 or domain_order % quotient_order:
+        return None
+
+    fiber_size = domain_order // quotient_order
+    kernel_character_order = (p - 1) // fiber_size
+    square_kernel_index = math.gcd(2, domain_order)
+    square_coset_index = ((p - 1) // domain_order) * square_kernel_index
+    denominator = (
+        kernel_character_order
+        * kernel_character_order
+        * kernel_character_order
+        * square_coset_index
+    )
+    principal_weight = 8
+    coefficient_abs_bound = 8
+    radical_component_degrees = (1, 1, 1, 2)
+    radical_total_degree = sum(radical_component_degrees)
+    deligne_constant = (radical_total_degree - 1) ** 2
+    chi_minus_three = quadratic_character(-3, p)
+    principal_exact_count = p * p - 4 * p + 6 + 4 * chi_minus_three
+    degeneracy_line_count = 6
+    degeneracy_line_union_count = 6 * p - 11
+    coefficient_l1_bound = coefficient_abs_bound * (denominator - 1)
+    character_triple_count = kernel_character_order ** 3
+    error_split = depth_two_kummer_error_l1_split(
+        coordinate_principal_weight=principal_weight,
+        coordinate_nonprincipal_l1_bound=(
+            coefficient_abs_bound * (character_triple_count - 1)
+        ),
+        square_coset_index=square_coset_index,
+        nonprincipal_constant=nonprincipal_constant,
+    )
+    uniform_prime_threshold = kummer_quadratic_uniform_prime_threshold(
+        principal_weight,
+        int(error_split["weighted_error_l1_bound"]) + 6 * denominator,
+    )
+    lower_numerator = principal_weight * principal_exact_count - (
+        p * int(error_split["weighted_error_l1_bound"])
+        + degeneracy_line_union_count * denominator
+    )
+    admissible_per_coset_lower_bound = (
+        (lower_numerator + denominator - 1) // denominator
+        if lower_numerator > 0
+        else 0
+    )
+    return {
+        "quotient_order": quotient_order,
+        "fiber_size": fiber_size,
+        "kernel_character_order": kernel_character_order,
+        "square_kernel_index": square_kernel_index,
+        "square_coset_index": square_coset_index,
+        "denominator": denominator,
+        "nonprincipal_tuple_count_bound": denominator - 1,
+        "divisor_power_failure_count": 0,
+        "divisor_nontriviality_check": True,
+        "radical_component_degrees": radical_component_degrees,
+        "radical_total_degree": radical_total_degree,
+        "deligne_constant_formula": "(radical_total_degree - 1)^2",
+        "deligne_constant": deligne_constant,
+        "deligne_constant_check": nonprincipal_constant == deligne_constant,
+        "principal_weight": principal_weight,
+        "coefficient_abs_bound": coefficient_abs_bound,
+        "coefficient_l1_bound": coefficient_l1_bound,
+        **error_split,
+        "jacobi_error_constant": 1,
+        "conic_error_constant": 1,
+        "uniform_prime_threshold": uniform_prime_threshold,
+        "uniform_threshold_applies": p >= uniform_prime_threshold,
+        "nonprincipal_constant": nonprincipal_constant,
+        "principal_chi_minus_three": chi_minus_three,
+        "principal_exact_count": principal_exact_count,
+        "degeneracy_line_count": degeneracy_line_count,
+        "degeneracy_line_union_count": degeneracy_line_union_count,
+        "lower_numerator": lower_numerator,
+        "admissible_per_coset_lower_bound": (
+            admissible_per_coset_lower_bound
+        ),
+        "saturation_certificate": admissible_per_coset_lower_bound > 0,
+    }
+
+
+def slack_two_second_fixed_window_kummer_saturation_data(
+    p: int,
+    domain_order: int,
+    quotient_order: int,
+    window_size: int,
+    nonprincipal_constant: int = 16,
+) -> Optional[Dict[str, object]]:
+    """Return a fixed quotient-window depth-two saturation certificate."""
+
+    if (
+        quotient_order < 1
+        or window_size < 1
+        or window_size > quotient_order
+        or domain_order % quotient_order
+    ):
+        return None
+
+    fiber_size = domain_order // quotient_order
+    kernel_character_order = (p - 1) // fiber_size
+    square_kernel_index = math.gcd(2, domain_order)
+    square_coset_index = ((p - 1) // domain_order) * square_kernel_index
+    denominator = (
+        kernel_character_order
+        * kernel_character_order
+        * kernel_character_order
+        * square_coset_index
+    )
+    principal_weight = window_size ** 3
+    coefficient_abs_bound = window_size ** 3
+    radical_component_degrees = (1, 1, 1, 2)
+    radical_total_degree = sum(radical_component_degrees)
+    deligne_constant = (radical_total_degree - 1) ** 2
+    chi_minus_three = quadratic_character(-3, p)
+    principal_exact_count = p * p - 4 * p + 6 + 4 * chi_minus_three
+    degeneracy_line_union_count = 6 * p - 11
+    coefficient_l1_bound = coefficient_abs_bound * (denominator - 1)
+    character_triple_count = kernel_character_order ** 3
+    error_split = depth_two_kummer_error_l1_split(
+        coordinate_principal_weight=principal_weight,
+        coordinate_nonprincipal_l1_bound=(
+            coefficient_abs_bound * (character_triple_count - 1)
+        ),
+        square_coset_index=square_coset_index,
+        nonprincipal_constant=nonprincipal_constant,
+    )
+    uniform_prime_threshold = kummer_quadratic_uniform_prime_threshold(
+        principal_weight,
+        int(error_split["weighted_error_l1_bound"]) + 6 * denominator,
+    )
+    lower_numerator = principal_weight * principal_exact_count - (
+        p * int(error_split["weighted_error_l1_bound"])
+        + degeneracy_line_union_count * denominator
+    )
+    admissible_per_coset_lower_bound = (
+        (lower_numerator + denominator - 1) // denominator
+        if lower_numerator > 0
+        else 0
+    )
+    return {
+        "quotient_order": quotient_order,
+        "window_size": window_size,
+        "fiber_size": fiber_size,
+        "kernel_character_order": kernel_character_order,
+        "square_kernel_index": square_kernel_index,
+        "square_coset_index": square_coset_index,
+        "denominator": denominator,
+        "nonprincipal_tuple_count_bound": denominator - 1,
+        "divisor_power_failure_count": 0,
+        "divisor_nontriviality_check": True,
+        "radical_component_degrees": radical_component_degrees,
+        "radical_total_degree": radical_total_degree,
+        "deligne_constant_formula": "(radical_total_degree - 1)^2",
+        "deligne_constant": deligne_constant,
+        "deligne_constant_check": nonprincipal_constant == deligne_constant,
+        "principal_weight": principal_weight,
+        "coefficient_abs_bound": coefficient_abs_bound,
+        "coefficient_l1_bound": coefficient_l1_bound,
+        **error_split,
+        "jacobi_error_constant": 1,
+        "conic_error_constant": 1,
+        "uniform_prime_threshold": uniform_prime_threshold,
+        "uniform_threshold_applies": p >= uniform_prime_threshold,
+        "nonprincipal_constant": nonprincipal_constant,
+        "principal_chi_minus_three": chi_minus_three,
+        "principal_exact_count": principal_exact_count,
+        "degeneracy_line_union_count": degeneracy_line_union_count,
+        "lower_numerator": lower_numerator,
+        "admissible_per_coset_lower_bound": (
+            admissible_per_coset_lower_bound
+        ),
+        "saturation_certificate": admissible_per_coset_lower_bound > 0,
+    }
+
+
+def quotient_window_label_triple_count(
+    quotient_order: int,
+    window_size: int,
+) -> int:
+    """Count quotient-label triples touching at most ``window_size`` fibers."""
+
+    if quotient_order < 1 or window_size < 1:
+        return 0
+
+    max_new_labels = min(window_size - 1, 3, quotient_order - 1)
+    total = 0
+    for new_labels in range(max_new_labels + 1):
+        onto_count = 0
+        for missing in range(new_labels + 1):
+            onto_count += (
+                (-1) ** missing
+                * math.comb(new_labels, missing)
+                * (new_labels + 1 - missing) ** 3
+            )
+        total += math.comb(quotient_order - 1, new_labels) * onto_count
+    return total
+
+
+def quotient_window_label_nonprincipal_bound(
+    quotient_order: int,
+    window_size: int,
+) -> int:
+    """Bound nonprincipal quotient-label Fourier coefficients."""
+
+    if quotient_order < 1 or window_size < 1:
+        return 0
+    if window_size == 1:
+        return 1
+    if window_size == 2:
+        return max(1, 3 * quotient_order - 6)
+    if window_size == 3:
+        return max(6, (quotient_order - 2) * (quotient_order - 3))
+    return 0
+
+
+def quotient_window_label_l1_data(
+    quotient_order: int,
+    window_size: int,
+) -> Dict[str, object]:
+    """Return an exact or certified quotient-label Fourier L1 bound."""
+
+    if quotient_order < 1 or window_size < 1:
+        return {"l1_bound": 0, "exact": False}
+    if window_size == 1:
+        return {"l1_bound": quotient_order ** 3, "exact": True}
+    if window_size == 2:
+        n = quotient_order
+        if n % 2:
+            zero_count = (n - 1) * (n - 3) * (n - 3)
+            one_count = (n - 1) * (7 * n - 17)
+            two_count = 3 * n - 3
+            three_count = 6 * n - 6
+        else:
+            zero_count = n ** 3 - 7 * n ** 2 + 15 * n - 10
+            one_count = (n - 2) * (7 * n - 10)
+            two_count = 3 * n - 6
+            three_count = 6 * n - 5
+        seven_count = 1
+        l1_bound = (
+            6 * zero_count
+            + abs(n - 6) * one_count
+            + abs(2 * n - 6) * two_count
+            + abs(3 * n - 6) * three_count
+            + (7 * n - 6) * seven_count
+        )
+        return {
+            "l1_bound": l1_bound,
+            "exact": True,
+            "zero_subset_count_histogram": (
+                (0, zero_count),
+                (1, one_count),
+                (2, two_count),
+                (3, three_count),
+                (7, seven_count),
+            ),
+        }
+    if window_size == 3:
+        n = quotient_order
+        principal_value = quotient_window_label_triple_count(n, 3)
+        if n % 2:
+            entries = (
+                (principal_value, 1),
+                (-(2 * n - 6), (n - 1) * (4 * n - 5)),
+                (-(n - 6), 3 * (n - 1) * (n - 3)),
+                (6, n ** 3 - 7 * n ** 2 + 15 * n - 9),
+                ((n - 2) * (n - 3), 6 * n - 6),
+            )
+        else:
+            entries = (
+                (principal_value, 1),
+                (-(3 * n - 6), 1),
+                (-(2 * n - 6), (n - 2) * (4 * n - 1)),
+                (-(n - 6), 3 * (n - 2) ** 2),
+                (6, n ** 3 - 7 * n ** 2 + 15 * n - 10),
+                ((n - 2) * (n - 3), 6 * n - 6),
+            )
+        coefficient_histogram: Dict[int, int] = {}
+        for value, count in entries:
+            if count:
+                coefficient_histogram[value] = (
+                    coefficient_histogram.get(value, 0) + count
+                )
+        coefficient_value_histogram = tuple(sorted(coefficient_histogram.items()))
+        l1_bound = sum(
+            abs(value) * count for value, count in coefficient_value_histogram
+        )
+        return {
+            "l1_bound": l1_bound,
+            "exact": True,
+            "coefficient_value_histogram": coefficient_value_histogram,
+        }
+
+    label_triple_count = quotient_window_label_triple_count(
+        quotient_order,
+        window_size,
+    )
+    coefficient_abs_bound = quotient_window_label_nonprincipal_bound(
+        quotient_order,
+        window_size,
+    )
+    quotient_l1_bound = label_triple_count + (
+        quotient_order ** 3 - 1
+    ) * coefficient_abs_bound
+    return {"l1_bound": quotient_l1_bound, "exact": False}
+
+
+def slack_two_second_quotient_window_union_kummer_saturation_data(
+    p: int,
+    domain_order: int,
+    quotient_order: int,
+    remaining_fibers: int,
+    nonprincipal_constant: int = 16,
+) -> Optional[Dict[str, object]]:
+    """Return a Kummer certificate for the full quotient-window union."""
+
+    if (
+        quotient_order < 1
+        or remaining_fibers < 1
+        or domain_order % quotient_order
+    ):
+        return None
+
+    effective_window_size = min(remaining_fibers, 4, quotient_order)
+    if effective_window_size >= min(4, quotient_order):
+        return None
+
+    fiber_size = domain_order // quotient_order
+    kernel_character_order = (p - 1) // fiber_size
+    square_kernel_index = math.gcd(2, domain_order)
+    square_coset_index = ((p - 1) // domain_order) * square_kernel_index
+    denominator = (
+        kernel_character_order
+        * kernel_character_order
+        * kernel_character_order
+        * square_coset_index
+    )
+    label_triple_count = quotient_window_label_triple_count(
+        quotient_order,
+        effective_window_size,
+    )
+    principal_weight = label_triple_count
+    coefficient_abs_bound = quotient_window_label_nonprincipal_bound(
+        quotient_order,
+        effective_window_size,
+    )
+    ambient_restriction_kernel_count = kernel_character_order // quotient_order
+    quotient_l1_data = quotient_window_label_l1_data(
+        quotient_order,
+        effective_window_size,
+    )
+    if bool(quotient_l1_data["exact"]):
+        quotient_coefficient_l1_bound = (
+            ambient_restriction_kernel_count ** 3
+            * int(quotient_l1_data["l1_bound"])
+        )
+    else:
+        quotient_coefficient_l1_bound = (
+            ambient_restriction_kernel_count ** 3 * label_triple_count
+            + (
+                kernel_character_order ** 3
+                - ambient_restriction_kernel_count ** 3
+            )
+            * coefficient_abs_bound
+        )
+    coefficient_l1_bound = (
+        square_coset_index * quotient_coefficient_l1_bound
+        - label_triple_count
+    )
+    coordinate_nonprincipal_l1_bound = (
+        quotient_coefficient_l1_bound - label_triple_count
+    )
+    error_split = depth_two_kummer_error_l1_split(
+        coordinate_principal_weight=label_triple_count,
+        coordinate_nonprincipal_l1_bound=coordinate_nonprincipal_l1_bound,
+        square_coset_index=square_coset_index,
+        nonprincipal_constant=nonprincipal_constant,
+    )
+    crude_coefficient_l1_bound = (
+        label_triple_count * denominator - label_triple_count
+    )
+    crude_error_split = depth_two_kummer_error_l1_split(
+        coordinate_principal_weight=label_triple_count,
+        coordinate_nonprincipal_l1_bound=(
+            label_triple_count * (kernel_character_order ** 3 - 1)
+        ),
+        square_coset_index=square_coset_index,
+        nonprincipal_constant=nonprincipal_constant,
+    )
+    radical_component_degrees = (1, 1, 1, 2)
+    radical_total_degree = sum(radical_component_degrees)
+    deligne_constant = (radical_total_degree - 1) ** 2
+    chi_minus_three = quadratic_character(-3, p)
+    principal_exact_count = p * p - 4 * p + 6 + 4 * chi_minus_three
+    degeneracy_line_union_count = 6 * p - 11
+    uniform_prime_threshold = kummer_quadratic_uniform_prime_threshold(
+        principal_weight,
+        int(error_split["weighted_error_l1_bound"]) + 6 * denominator,
+    )
+    crude_lower_numerator = principal_weight * principal_exact_count - (
+        p * int(crude_error_split["weighted_error_l1_bound"])
+        + degeneracy_line_union_count * denominator
+    )
+    lower_numerator = principal_weight * principal_exact_count - (
+        p * int(error_split["weighted_error_l1_bound"])
+        + degeneracy_line_union_count * denominator
+    )
+    admissible_per_coset_lower_bound = (
+        (lower_numerator + denominator - 1) // denominator
+        if lower_numerator > 0
+        else 0
+    )
+    return {
+        "quotient_order": quotient_order,
+        "effective_window_size": effective_window_size,
+        "window_count": math.comb(
+            quotient_order - 1,
+            effective_window_size - 1,
+        ),
+        "label_triple_count": label_triple_count,
+        "fiber_size": fiber_size,
+        "kernel_character_order": kernel_character_order,
+        "square_kernel_index": square_kernel_index,
+        "square_coset_index": square_coset_index,
+        "denominator": denominator,
+        "nonprincipal_tuple_count_bound": denominator - 1,
+        "divisor_power_failure_count": 0,
+        "divisor_nontriviality_check": True,
+        "radical_component_degrees": radical_component_degrees,
+        "radical_total_degree": radical_total_degree,
+        "deligne_constant_formula": "(radical_total_degree - 1)^2",
+        "deligne_constant": deligne_constant,
+        "deligne_constant_check": nonprincipal_constant == deligne_constant,
+        "principal_weight": principal_weight,
+        "coefficient_abs_bound": coefficient_abs_bound,
+        "crude_coefficient_abs_bound": label_triple_count,
+        "ambient_restriction_kernel_count": ambient_restriction_kernel_count,
+        "quotient_l1_exact": bool(quotient_l1_data["exact"]),
+        "quotient_l1_zero_subset_histogram": quotient_l1_data.get(
+            "zero_subset_count_histogram"
+        ),
+        "quotient_l1_coefficient_histogram": quotient_l1_data.get(
+            "coefficient_value_histogram"
+        ),
+        "quotient_coefficient_l1_bound": quotient_coefficient_l1_bound,
+        "coefficient_l1_bound": coefficient_l1_bound,
+        **error_split,
+        "jacobi_error_constant": 1,
+        "conic_error_constant": 1,
+        "crude_coefficient_l1_bound": crude_coefficient_l1_bound,
+        "crude_jacobi_l1_bound": crude_error_split["jacobi_l1_bound"],
+        "crude_conic_l1_bound": crude_error_split["conic_l1_bound"],
+        "crude_kummer_l1_bound": crude_error_split["kummer_l1_bound"],
+        "crude_weighted_error_l1_bound": (
+            crude_error_split["weighted_error_l1_bound"]
+        ),
+        "uniform_prime_threshold": uniform_prime_threshold,
+        "uniform_threshold_applies": p >= uniform_prime_threshold,
+        "nonprincipal_constant": nonprincipal_constant,
+        "principal_chi_minus_three": chi_minus_three,
+        "principal_exact_count": principal_exact_count,
+        "degeneracy_line_union_count": degeneracy_line_union_count,
+        "crude_lower_numerator": crude_lower_numerator,
+        "lower_numerator": lower_numerator,
+        "admissible_per_coset_lower_bound": (
+            admissible_per_coset_lower_bound
+        ),
+        "saturation_certificate": admissible_per_coset_lower_bound > 0,
+    }
 
 
 def slack_three_conic_shape_bound(p: int, domain_order: int) -> int:
@@ -2230,6 +3222,16 @@ def scan_supports(
         if slack_two_second_superboundary_lift_gate_active
         else None
     )
+    (
+        slack_two_second_all_shapes_lift_active_gate,
+        slack_two_second_lift_safety_remaining_fibers,
+        slack_two_second_lift_safety_required_fibers,
+    ) = all_residual_packets_lift_active(
+        support_size=support_size,
+        quotient_order=quotient_order,
+        fiber_size=fiber_size,
+        residual_size=slack_two_second_superboundary_residual_size,
+    )
     slack_two_second_superboundary_lift_gate_check = (
         slack_two_second_superboundary_lift_gate_active
         or (
@@ -2304,6 +3306,20 @@ def scan_supports(
         if slack_two_second_shape_ledger is not None and n == p - 1
         else None
     )
+    slack_two_second_kummer_saturation = (
+        slack_two_second_kummer_saturation_data(p, n)
+        if slack_two_second_shape_ledger is not None
+        else None
+    )
+    slack_two_second_two_fiber_kummer_saturation = (
+        slack_two_second_two_fiber_kummer_saturation_data(
+            p,
+            n,
+            quotient_order,
+        )
+        if slack_two_second_shape_ledger is not None
+        else None
+    )
     slack_three_full_domain_beta_data = (
         full_domain_slack_three_beta_class_data(p)
         if slack_three_shape_ledger is not None and n == p - 1
@@ -2372,6 +3388,181 @@ def scan_supports(
             )
         else:
             slack_three_exact_min_cube_coset_parameter_count = 0
+
+    slack_two_second_two_fiber_union_reduction = (
+        slack_two_second_two_fiber_union_reduction_data(
+            p,
+            domain,
+            quotient_order,
+        )
+        if (
+            slack_two_second_shape_ledger is not None
+            and slack_two_second_shape_ledger["lift_limited_remaining_fibers"]
+            == 2
+        )
+        else None
+    )
+    slack_two_second_r_window_reduction = (
+        slack_two_second_quotient_window_reduction_data(
+            p,
+            domain,
+            quotient_order,
+            slack_two_second_shape_ledger["lift_limited_remaining_fibers"],
+        )
+        if (
+            slack_two_second_shape_ledger is not None
+            and slack_two_second_shape_ledger["lift_limited_remaining_fibers"]
+            is not None
+            and int(slack_two_second_shape_ledger["lift_limited_remaining_fibers"])
+            < min(4, quotient_order)
+        )
+        else None
+    )
+    slack_two_second_r_window_kummer_saturation = (
+        slack_two_second_fixed_window_kummer_saturation_data(
+            p,
+            n,
+            quotient_order,
+            int(slack_two_second_shape_ledger["lift_limited_remaining_fibers"]),
+        )
+        if (
+            slack_two_second_shape_ledger is not None
+            and slack_two_second_shape_ledger["lift_limited_remaining_fibers"]
+            is not None
+            and 0
+            < int(slack_two_second_shape_ledger["lift_limited_remaining_fibers"])
+            < min(4, quotient_order)
+        )
+        else None
+    )
+    slack_two_second_r_window_union_kummer_saturation = (
+        slack_two_second_quotient_window_union_kummer_saturation_data(
+            p,
+            n,
+            quotient_order,
+            int(slack_two_second_shape_ledger["lift_limited_remaining_fibers"]),
+        )
+        if (
+            slack_two_second_shape_ledger is not None
+            and slack_two_second_shape_ledger["lift_limited_remaining_fibers"]
+            is not None
+            and 0
+            < int(slack_two_second_shape_ledger["lift_limited_remaining_fibers"])
+            < min(4, quotient_order)
+        )
+        else None
+    )
+    slack_two_second_index_window_label = None
+    slack_two_second_kummer_exact_support_saturation = False
+    slack_two_second_two_fiber_exact_support_saturation = False
+    slack_two_second_r2_union_exact_support_saturation = False
+    slack_two_second_r_window_kummer_exact_support_saturation = False
+    slack_two_second_r_window_union_kummer_exact_support_saturation = False
+    slack_two_second_r_window_exact_support_saturation = False
+    if slack_two_second_kummer_saturation is not None:
+        slack_two_second_kummer_exact_support_saturation = (
+            bool(slack_two_second_kummer_saturation["saturation_certificate"])
+            and slack_two_second_all_shapes_lift_active_gate
+        )
+    if (
+        slack_two_second_two_fiber_kummer_saturation is not None
+        and slack_two_second_shape_ledger is not None
+    ):
+        remaining_fibers = slack_two_second_shape_ledger[
+            "lift_limited_remaining_fibers"
+        ]
+        slack_two_second_two_fiber_exact_support_saturation = (
+            bool(
+                slack_two_second_two_fiber_kummer_saturation[
+                    "saturation_certificate"
+                ]
+            )
+            and remaining_fibers is not None
+            and int(remaining_fibers) >= 2
+        )
+    if slack_two_second_two_fiber_union_reduction is not None:
+        slack_two_second_r2_union_exact_support_saturation = bool(
+            slack_two_second_two_fiber_union_reduction[
+                "saturates_nonzero_square_cosets"
+            ]
+        )
+    if slack_two_second_r_window_reduction is not None:
+        slack_two_second_r_window_exact_support_saturation = bool(
+            slack_two_second_r_window_reduction[
+                "saturates_nonzero_square_cosets"
+            ]
+        )
+    if slack_two_second_r_window_kummer_saturation is not None:
+        slack_two_second_r_window_kummer_exact_support_saturation = bool(
+            slack_two_second_r_window_kummer_saturation[
+                "saturation_certificate"
+            ]
+        )
+    if slack_two_second_r_window_union_kummer_saturation is not None:
+        slack_two_second_r_window_union_kummer_exact_support_saturation = bool(
+            slack_two_second_r_window_union_kummer_saturation[
+                "saturation_certificate"
+            ]
+        )
+    if (
+        slack_two_second_shape_ledger is not None
+        and slack_two_second_kummer_saturation is not None
+    ):
+        full_domain_raw_saturation = (
+            slack_two_depth_two_full_domain_A_data is not None
+            and bool(
+                slack_two_depth_two_full_domain_A_data[
+                    "saturates_nonzero_square_cosets"
+                ]
+            )
+        )
+        if not slack_two_second_superboundary_lift_gate_active:
+            slack_two_second_index_window_label = "inactive_lift_gate"
+        elif (
+            full_domain_raw_saturation
+            and slack_two_second_all_shapes_lift_active_gate
+        ):
+            slack_two_second_index_window_label = "full_domain_saturated"
+        elif slack_two_second_kummer_exact_support_saturation:
+            slack_two_second_index_window_label = "low_index_saturated"
+        elif slack_two_second_two_fiber_exact_support_saturation:
+            slack_two_second_index_window_label = "two_fiber_saturated"
+        elif slack_two_second_r_window_kummer_exact_support_saturation:
+            slack_two_second_index_window_label = "r_window_kummer_saturated"
+        elif slack_two_second_r_window_union_kummer_exact_support_saturation:
+            slack_two_second_index_window_label = (
+                "r_window_union_kummer_saturated"
+            )
+        elif slack_two_second_r2_union_exact_support_saturation:
+            slack_two_second_index_window_label = "r2_union_saturated"
+        elif slack_two_second_r_window_exact_support_saturation:
+            slack_two_second_index_window_label = "r_window_saturated"
+        elif bool(
+            slack_two_second_shape_ledger[
+                "lift_limited_slope_bound_nontrivial"
+            ]
+        ):
+            slack_two_second_index_window_label = "lift_limited_sparse"
+        elif (
+            full_domain_raw_saturation
+            or bool(slack_two_second_kummer_saturation["saturation_certificate"])
+        ):
+            slack_two_second_index_window_label = "raw_saturated_lift_limited"
+        elif bool(
+            slack_two_second_shape_ledger["high_index_slope_bound_nontrivial"]
+        ):
+            slack_two_second_index_window_label = "high_index_sparse"
+        else:
+            slack_two_second_index_window_label = "intermediate_index_window"
+
+    slack_two_second_kernel_reduction = (
+        slack_two_second_shape_ledger["kernel_fiber_reduction"]
+        if (
+            slack_two_second_shape_ledger is not None
+            and bool(slack_two_second_shape_ledger["kernel_fiber_reduction_active"])
+        )
+        else None
+    )
 
     return {
         "proof_status": "AUDIT / EXPERIMENTAL",
@@ -3240,6 +4431,21 @@ def scan_supports(
             if canonical_line and slack == 2 and slack + 2 < fiber_size
             else None
         ),
+        "canonical_slack_two_second_lift_safety_remaining_fibers": (
+            slack_two_second_lift_safety_remaining_fibers
+            if canonical_line and slack == 2 and slack + 2 < fiber_size
+            else None
+        ),
+        "canonical_slack_two_second_lift_safety_required_fibers": (
+            slack_two_second_lift_safety_required_fibers
+            if canonical_line and slack == 2 and slack + 2 < fiber_size
+            else None
+        ),
+        "canonical_slack_two_second_all_shapes_lift_active_gate": (
+            slack_two_second_all_shapes_lift_active_gate
+            if canonical_line and slack == 2 and slack + 2 < fiber_size
+            else None
+        ),
         "canonical_slack_two_second_superboundary_lift_gate_check": (
             slack_two_second_superboundary_lift_gate_check
             if canonical_line and slack == 2 and slack + 2 < fiber_size
@@ -3626,6 +4832,22 @@ def scan_supports(
             if slack_two_second_shape_ledger is not None
             else None
         ),
+        "canonical_slack_two_second_shape_saturates_nonzero_square_cosets": (
+            int(slack_two_second_shape_ledger["nonzero_square_coset_count"])
+            == int(slack_two_second_shape_ledger["total_nonzero_square_coset_count"])
+            if slack_two_second_shape_ledger is not None
+            else None
+        ),
+        "canonical_slack_two_second_shape_active_saturates_nonzero_square_cosets": (
+            int(
+                slack_two_second_shape_ledger[
+                    "active_nonzero_square_coset_count"
+                ]
+            )
+            == int(slack_two_second_shape_ledger["total_nonzero_square_coset_count"])
+            if slack_two_second_shape_ledger is not None
+            else None
+        ),
         "canonical_slack_two_second_shape_square_image_size": (
             int(slack_two_second_shape_ledger["square_image_size"])
             if slack_two_second_shape_ledger is not None
@@ -3711,6 +4933,1085 @@ def scan_supports(
             len(slack_two_second_superboundary_slope_histogram)
             <= int(slack_two_second_shape_ledger["high_index_slope_bound"])
             if slack_two_second_shape_ledger is not None
+            else None
+        ),
+        "canonical_slack_two_second_shape_lift_limited_remaining_fibers": (
+            slack_two_second_shape_ledger["lift_limited_remaining_fibers"]
+            if slack_two_second_shape_ledger is not None
+            else None
+        ),
+        "canonical_slack_two_second_shape_lift_limited_parameter_bound": (
+            int(slack_two_second_shape_ledger["lift_limited_parameter_bound"])
+            if slack_two_second_shape_ledger is not None
+            else None
+        ),
+        "canonical_slack_two_second_shape_lift_limited_nonzero_orbit_bound": (
+            int(
+                slack_two_second_shape_ledger[
+                    "lift_limited_nonzero_packet_orbit_bound"
+                ]
+            )
+            if slack_two_second_shape_ledger is not None
+            else None
+        ),
+        "canonical_slack_two_second_shape_lift_limited_slope_bound": (
+            int(slack_two_second_shape_ledger["lift_limited_slope_bound"])
+            if slack_two_second_shape_ledger is not None
+            else None
+        ),
+        "canonical_slack_two_second_shape_lift_limited_nontrivial": (
+            bool(
+                slack_two_second_shape_ledger[
+                    "lift_limited_slope_bound_nontrivial"
+                ]
+            )
+            if slack_two_second_shape_ledger is not None
+            else None
+        ),
+        "canonical_slack_two_second_shape_lift_limited_bound_check": (
+            len(slack_two_second_superboundary_slope_histogram)
+            <= int(slack_two_second_shape_ledger["lift_limited_slope_bound"])
+            if slack_two_second_shape_ledger is not None
+            else None
+        ),
+        "canonical_slack_two_second_kernel_fiber_reduction_active": (
+            bool(slack_two_second_shape_ledger["kernel_fiber_reduction_active"])
+            if slack_two_second_shape_ledger is not None
+            else None
+        ),
+        "canonical_slack_two_second_kernel_fiber_order": (
+            int(slack_two_second_kernel_reduction["kernel_order"])
+            if slack_two_second_kernel_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_kernel_fiber_parameter_count": (
+            int(slack_two_second_kernel_reduction["parameter_count"])
+            if slack_two_second_kernel_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_kernel_fiber_zero_parameter_count": (
+            int(slack_two_second_kernel_reduction["zero_parameter_count"])
+            if slack_two_second_kernel_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_kernel_fiber_nonzero_square_coset_count": (
+            int(slack_two_second_kernel_reduction["nonzero_square_coset_count"])
+            if slack_two_second_kernel_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_kernel_fiber_slope_count": (
+            int(slack_two_second_kernel_reduction["slope_count"])
+            if slack_two_second_kernel_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_kernel_fiber_reduction_check": (
+            (
+                int(slack_two_second_kernel_reduction["parameter_count"])
+                == int(slack_two_second_shape_ledger["active_parameter_count"])
+            )
+            and (
+                int(slack_two_second_kernel_reduction["zero_parameter_count"])
+                == int(slack_two_second_shape_ledger["active_zero_parameter_count"])
+            )
+            and (
+                int(
+                    slack_two_second_kernel_reduction[
+                        "nonzero_square_coset_count"
+                    ]
+                )
+                == int(
+                    slack_two_second_shape_ledger[
+                        "active_nonzero_square_coset_count"
+                    ]
+                )
+            )
+            and (
+                int(slack_two_second_kernel_reduction["slope_count"])
+                == len(slack_two_second_superboundary_slope_histogram)
+            )
+            if (
+                slack_two_second_kernel_reduction is not None
+                and slack_two_second_shape_ledger is not None
+            )
+            else None
+        ),
+        "canonical_slack_two_second_r2_union_reduction_active": (
+            slack_two_second_two_fiber_union_reduction is not None
+        ),
+        "canonical_slack_two_second_r2_union_window_count": (
+            int(slack_two_second_two_fiber_union_reduction["window_count"])
+            if slack_two_second_two_fiber_union_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r2_union_parameter_count": (
+            int(slack_two_second_two_fiber_union_reduction["parameter_count"])
+            if slack_two_second_two_fiber_union_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r2_union_zero_parameter_count": (
+            int(
+                slack_two_second_two_fiber_union_reduction[
+                    "zero_parameter_count"
+                ]
+            )
+            if slack_two_second_two_fiber_union_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r2_union_nonzero_square_coset_count": (
+            int(
+                slack_two_second_two_fiber_union_reduction[
+                    "nonzero_square_coset_count"
+                ]
+            )
+            if slack_two_second_two_fiber_union_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r2_union_saturates": (
+            bool(
+                slack_two_second_two_fiber_union_reduction[
+                    "saturates_nonzero_square_cosets"
+                ]
+            )
+            if slack_two_second_two_fiber_union_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r2_union_exact_support_certificate": (
+            slack_two_second_r2_union_exact_support_saturation
+            if slack_two_second_two_fiber_union_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r2_union_slope_count": (
+            int(slack_two_second_two_fiber_union_reduction["slope_count"])
+            if slack_two_second_two_fiber_union_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r2_union_per_window_profiles": (
+            list(
+                slack_two_second_two_fiber_union_reduction[
+                    "per_window_profiles"
+                ]
+            )
+            if slack_two_second_two_fiber_union_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r2_union_reduction_check": (
+            (
+                int(
+                    slack_two_second_two_fiber_union_reduction[
+                        "parameter_count"
+                    ]
+                )
+                == int(slack_two_second_shape_ledger["active_parameter_count"])
+            )
+            and (
+                int(
+                    slack_two_second_two_fiber_union_reduction[
+                        "zero_parameter_count"
+                    ]
+                )
+                == int(slack_two_second_shape_ledger["active_zero_parameter_count"])
+            )
+            and (
+                int(
+                    slack_two_second_two_fiber_union_reduction[
+                        "nonzero_square_coset_count"
+                    ]
+                )
+                == int(
+                    slack_two_second_shape_ledger[
+                        "active_nonzero_square_coset_count"
+                    ]
+                )
+            )
+            and (
+                int(slack_two_second_two_fiber_union_reduction["slope_count"])
+                == len(slack_two_second_superboundary_slope_histogram)
+            )
+            if (
+                slack_two_second_two_fiber_union_reduction is not None
+                and slack_two_second_shape_ledger is not None
+            )
+            else None
+        ),
+        "canonical_slack_two_second_r_window_reduction_active": (
+            slack_two_second_r_window_reduction is not None
+        ),
+        "canonical_slack_two_second_r_window_effective_size": (
+            int(slack_two_second_r_window_reduction["effective_window_size"])
+            if slack_two_second_r_window_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_window_count": (
+            int(slack_two_second_r_window_reduction["window_count"])
+            if slack_two_second_r_window_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_parameter_count": (
+            int(slack_two_second_r_window_reduction["parameter_count"])
+            if slack_two_second_r_window_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_zero_parameter_count": (
+            int(slack_two_second_r_window_reduction["zero_parameter_count"])
+            if slack_two_second_r_window_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_nonzero_square_coset_count": (
+            int(
+                slack_two_second_r_window_reduction[
+                    "nonzero_square_coset_count"
+                ]
+            )
+            if slack_two_second_r_window_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_touched_fiber_histogram": (
+            {
+                str(touched): count
+                for touched, count in slack_two_second_r_window_reduction[
+                    "touched_fiber_histogram"
+                ]
+            }
+            if slack_two_second_r_window_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_saturates": (
+            bool(
+                slack_two_second_r_window_reduction[
+                    "saturates_nonzero_square_cosets"
+                ]
+            )
+            if slack_two_second_r_window_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_exact_support_certificate": (
+            slack_two_second_r_window_exact_support_saturation
+            if slack_two_second_r_window_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_slope_count": (
+            int(slack_two_second_r_window_reduction["slope_count"])
+            if slack_two_second_r_window_reduction is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_reduction_check": (
+            (
+                int(slack_two_second_r_window_reduction["parameter_count"])
+                == int(slack_two_second_shape_ledger["active_parameter_count"])
+            )
+            and (
+                int(slack_two_second_r_window_reduction["zero_parameter_count"])
+                == int(slack_two_second_shape_ledger["active_zero_parameter_count"])
+            )
+            and (
+                int(
+                    slack_two_second_r_window_reduction[
+                        "nonzero_square_coset_count"
+                    ]
+                )
+                == int(
+                    slack_two_second_shape_ledger[
+                        "active_nonzero_square_coset_count"
+                    ]
+                )
+            )
+            and (
+                int(slack_two_second_r_window_reduction["slope_count"])
+                == len(slack_two_second_superboundary_slope_histogram)
+            )
+            if (
+                slack_two_second_r_window_reduction is not None
+                and slack_two_second_shape_ledger is not None
+            )
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_window_size": (
+            int(slack_two_second_r_window_kummer_saturation["window_size"])
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_character_order": (
+            int(
+                slack_two_second_r_window_kummer_saturation[
+                    "kernel_character_order"
+                ]
+            )
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_square_coset_index": (
+            int(
+                slack_two_second_r_window_kummer_saturation[
+                    "square_coset_index"
+                ]
+            )
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_denominator": (
+            int(slack_two_second_r_window_kummer_saturation["denominator"])
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_principal_weight": (
+            int(
+                slack_two_second_r_window_kummer_saturation[
+                    "principal_weight"
+                ]
+            )
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_coefficient_bound": (
+            int(
+                slack_two_second_r_window_kummer_saturation[
+                    "coefficient_abs_bound"
+                ]
+            )
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_coefficient_l1_bound": (
+            int(
+                slack_two_second_r_window_kummer_saturation[
+                    "coefficient_l1_bound"
+                ]
+            )
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_jacobi_l1_bound": (
+            int(slack_two_second_r_window_kummer_saturation["jacobi_l1_bound"])
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_conic_l1_bound": (
+            int(slack_two_second_r_window_kummer_saturation["conic_l1_bound"])
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_kummer_l1_bound": (
+            int(slack_two_second_r_window_kummer_saturation["kummer_l1_bound"])
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_weighted_error_l1_bound": (
+            int(
+                slack_two_second_r_window_kummer_saturation[
+                    "weighted_error_l1_bound"
+                ]
+            )
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_prime_threshold": (
+            int(
+                slack_two_second_r_window_kummer_saturation[
+                    "uniform_prime_threshold"
+                ]
+            )
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_threshold_applies": (
+            bool(
+                slack_two_second_r_window_kummer_saturation[
+                    "uniform_threshold_applies"
+                ]
+            )
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_lower_numerator": (
+            int(
+                slack_two_second_r_window_kummer_saturation[
+                    "lower_numerator"
+                ]
+            )
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_lower_bound": (
+            int(
+                slack_two_second_r_window_kummer_saturation[
+                    "admissible_per_coset_lower_bound"
+                ]
+            )
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_certificate": (
+            bool(
+                slack_two_second_r_window_kummer_saturation[
+                    "saturation_certificate"
+                ]
+            )
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_kummer_exact_support_certificate": (
+            slack_two_second_r_window_kummer_exact_support_saturation
+            if slack_two_second_r_window_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_effective_size": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "effective_window_size"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_window_count": (
+            int(slack_two_second_r_window_union_kummer_saturation["window_count"])
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_label_triples": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "label_triple_count"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_character_order": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "kernel_character_order"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_square_coset_index": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "square_coset_index"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_denominator": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "denominator"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_principal_weight": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "principal_weight"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_coefficient_bound": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "coefficient_abs_bound"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_crude_coefficient_bound": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "crude_coefficient_abs_bound"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_ambient_kernel_count": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "ambient_restriction_kernel_count"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_quotient_l1_exact": (
+            bool(slack_two_second_r_window_union_kummer_saturation[
+                "quotient_l1_exact"
+            ])
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_zero_subset_histogram": (
+            dict(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "quotient_l1_zero_subset_histogram"
+                ]
+            )
+            if (
+                slack_two_second_r_window_union_kummer_saturation is not None
+                and slack_two_second_r_window_union_kummer_saturation[
+                    "quotient_l1_zero_subset_histogram"
+                ]
+                is not None
+            )
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_coefficient_histogram": (
+            dict(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "quotient_l1_coefficient_histogram"
+                ]
+            )
+            if (
+                slack_two_second_r_window_union_kummer_saturation is not None
+                and slack_two_second_r_window_union_kummer_saturation[
+                    "quotient_l1_coefficient_histogram"
+                ]
+                is not None
+            )
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_quotient_l1_bound": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "quotient_coefficient_l1_bound"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_coefficient_l1_bound": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "coefficient_l1_bound"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_jacobi_l1_bound": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "jacobi_l1_bound"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_conic_l1_bound": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "conic_l1_bound"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_kummer_l1_bound": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "kummer_l1_bound"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_weighted_error_l1_bound": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "weighted_error_l1_bound"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_crude_l1_bound": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "crude_coefficient_l1_bound"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_crude_conic_l1_bound": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "crude_conic_l1_bound"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_crude_weighted_error_l1_bound": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "crude_weighted_error_l1_bound"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_prime_threshold": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "uniform_prime_threshold"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_threshold_applies": (
+            bool(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "uniform_threshold_applies"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_lower_numerator": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "lower_numerator"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_crude_lower_numerator": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "crude_lower_numerator"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_lower_bound": (
+            int(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "admissible_per_coset_lower_bound"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_certificate": (
+            bool(
+                slack_two_second_r_window_union_kummer_saturation[
+                    "saturation_certificate"
+                ]
+            )
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_r_window_union_kummer_exact_support_certificate": (
+            slack_two_second_r_window_union_kummer_exact_support_saturation
+            if slack_two_second_r_window_union_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_character_order": (
+            int(slack_two_second_kummer_saturation["character_order"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_square_kernel_index": (
+            int(slack_two_second_kummer_saturation["square_kernel_index"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_square_coset_index": (
+            int(slack_two_second_kummer_saturation["square_coset_index"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_denominator": (
+            int(slack_two_second_kummer_saturation["denominator"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_nonprincipal_tuple_count": (
+            int(slack_two_second_kummer_saturation["nonprincipal_tuple_count"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_coefficient_l1_bound": (
+            int(slack_two_second_kummer_saturation["coefficient_l1_bound"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_jacobi_l1_bound": (
+            int(slack_two_second_kummer_saturation["jacobi_l1_bound"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_conic_l1_bound": (
+            int(slack_two_second_kummer_saturation["conic_l1_bound"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_kummer_l1_bound": (
+            int(slack_two_second_kummer_saturation["kummer_l1_bound"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_weighted_error_l1_bound": (
+            int(slack_two_second_kummer_saturation["weighted_error_l1_bound"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_divisor_power_failure_count": (
+            int(
+                slack_two_second_kummer_saturation[
+                    "divisor_power_failure_count"
+                ]
+            )
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_divisor_nontriviality_check": (
+            bool(
+                slack_two_second_kummer_saturation[
+                    "divisor_nontriviality_check"
+                ]
+            )
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_radical_component_degrees": (
+            list(
+                slack_two_second_kummer_saturation[
+                    "radical_component_degrees"
+                ]
+            )
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_radical_total_degree": (
+            int(slack_two_second_kummer_saturation["radical_total_degree"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_deligne_constant_formula": (
+            str(slack_two_second_kummer_saturation["deligne_constant_formula"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_deligne_constant": (
+            int(slack_two_second_kummer_saturation["deligne_constant"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_deligne_constant_check": (
+            bool(slack_two_second_kummer_saturation["deligne_constant_check"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_uniform_prime_threshold": (
+            int(slack_two_second_kummer_saturation["uniform_prime_threshold"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_uniform_threshold_applies": (
+            bool(slack_two_second_kummer_saturation["uniform_threshold_applies"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_nonprincipal_constant": (
+            int(slack_two_second_kummer_saturation["nonprincipal_constant"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_principal_chi_minus_three": (
+            int(slack_two_second_kummer_saturation["principal_chi_minus_three"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_principal_exact_count": (
+            int(slack_two_second_kummer_saturation["principal_exact_count"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_principal_lower_bound": (
+            int(slack_two_second_kummer_saturation["principal_lower_bound"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_degeneracy_line_count": (
+            int(slack_two_second_kummer_saturation["degeneracy_line_count"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_degeneracy_line_union_count": (
+            int(
+                slack_two_second_kummer_saturation[
+                    "degeneracy_line_union_count"
+                ]
+            )
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_lower_numerator": (
+            int(slack_two_second_kummer_saturation["lower_numerator"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_admissible_per_coset_lower_bound": (
+            int(
+                slack_two_second_kummer_saturation[
+                    "admissible_per_coset_lower_bound"
+                ]
+            )
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_saturation_certificate": (
+            bool(slack_two_second_kummer_saturation["saturation_certificate"])
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_exact_support_saturation_certificate": (
+            slack_two_second_kummer_exact_support_saturation
+            if slack_two_second_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_kummer_saturation_certificate_check": (
+            (
+                not bool(
+                    slack_two_second_kummer_saturation[
+                        "saturation_certificate"
+                    ]
+                )
+            )
+            or (
+                int(slack_two_second_shape_ledger["nonzero_square_coset_count"])
+                == int(
+                    slack_two_second_shape_ledger[
+                        "total_nonzero_square_coset_count"
+                    ]
+                )
+            )
+            if (
+                slack_two_second_kummer_saturation is not None
+                and slack_two_second_shape_ledger is not None
+            )
+            else None
+        ),
+        "canonical_slack_two_second_kummer_exact_support_certificate_check": (
+            (
+                not slack_two_second_kummer_exact_support_saturation
+            )
+            or (
+                int(
+                    slack_two_second_shape_ledger[
+                        "active_nonzero_square_coset_count"
+                    ]
+                )
+                == int(
+                    slack_two_second_shape_ledger[
+                        "total_nonzero_square_coset_count"
+                    ]
+                )
+            )
+            if (
+                slack_two_second_kummer_saturation is not None
+                and slack_two_second_shape_ledger is not None
+            )
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_kummer_character_order": (
+            int(
+                slack_two_second_two_fiber_kummer_saturation[
+                    "kernel_character_order"
+                ]
+            )
+            if slack_two_second_two_fiber_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_kummer_square_coset_index": (
+            int(
+                slack_two_second_two_fiber_kummer_saturation[
+                    "square_coset_index"
+                ]
+            )
+            if slack_two_second_two_fiber_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_kummer_denominator": (
+            int(slack_two_second_two_fiber_kummer_saturation["denominator"])
+            if slack_two_second_two_fiber_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_kummer_principal_weight": (
+            int(
+                slack_two_second_two_fiber_kummer_saturation[
+                    "principal_weight"
+                ]
+            )
+            if slack_two_second_two_fiber_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_kummer_coefficient_bound": (
+            int(
+                slack_two_second_two_fiber_kummer_saturation[
+                    "coefficient_abs_bound"
+                ]
+            )
+            if slack_two_second_two_fiber_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_kummer_coefficient_l1_bound": (
+            int(
+                slack_two_second_two_fiber_kummer_saturation[
+                    "coefficient_l1_bound"
+                ]
+            )
+            if slack_two_second_two_fiber_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_kummer_jacobi_l1_bound": (
+            int(
+                slack_two_second_two_fiber_kummer_saturation[
+                    "jacobi_l1_bound"
+                ]
+            )
+            if slack_two_second_two_fiber_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_kummer_conic_l1_bound": (
+            int(
+                slack_two_second_two_fiber_kummer_saturation[
+                    "conic_l1_bound"
+                ]
+            )
+            if slack_two_second_two_fiber_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_kummer_kummer_l1_bound": (
+            int(
+                slack_two_second_two_fiber_kummer_saturation[
+                    "kummer_l1_bound"
+                ]
+            )
+            if slack_two_second_two_fiber_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_kummer_weighted_error_l1_bound": (
+            int(
+                slack_two_second_two_fiber_kummer_saturation[
+                    "weighted_error_l1_bound"
+                ]
+            )
+            if slack_two_second_two_fiber_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_kummer_uniform_prime_threshold": (
+            int(
+                slack_two_second_two_fiber_kummer_saturation[
+                    "uniform_prime_threshold"
+                ]
+            )
+            if slack_two_second_two_fiber_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_kummer_threshold_applies": (
+            bool(
+                slack_two_second_two_fiber_kummer_saturation[
+                    "uniform_threshold_applies"
+                ]
+            )
+            if slack_two_second_two_fiber_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_kummer_lower_numerator": (
+            int(
+                slack_two_second_two_fiber_kummer_saturation[
+                    "lower_numerator"
+                ]
+            )
+            if slack_two_second_two_fiber_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_kummer_lower_bound": (
+            int(
+                slack_two_second_two_fiber_kummer_saturation[
+                    "admissible_per_coset_lower_bound"
+                ]
+            )
+            if slack_two_second_two_fiber_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_kummer_saturation_certificate": (
+            bool(
+                slack_two_second_two_fiber_kummer_saturation[
+                    "saturation_certificate"
+                ]
+            )
+            if slack_two_second_two_fiber_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_exact_support_certificate": (
+            slack_two_second_two_fiber_exact_support_saturation
+            if slack_two_second_two_fiber_kummer_saturation is not None
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_kummer_certificate_check": (
+            (
+                not bool(
+                    slack_two_second_two_fiber_kummer_saturation[
+                        "saturation_certificate"
+                    ]
+                )
+            )
+            or (
+                int(slack_two_second_shape_ledger["nonzero_square_coset_count"])
+                == int(
+                    slack_two_second_shape_ledger[
+                        "total_nonzero_square_coset_count"
+                    ]
+                )
+            )
+            if (
+                slack_two_second_two_fiber_kummer_saturation is not None
+                and slack_two_second_shape_ledger is not None
+            )
+            else None
+        ),
+        "canonical_slack_two_second_two_fiber_exact_support_check": (
+            (
+                not slack_two_second_two_fiber_exact_support_saturation
+            )
+            or (
+                int(
+                    slack_two_second_shape_ledger[
+                        "active_nonzero_square_coset_count"
+                    ]
+                )
+                == int(
+                    slack_two_second_shape_ledger[
+                        "total_nonzero_square_coset_count"
+                    ]
+                )
+            )
+            if (
+                slack_two_second_two_fiber_kummer_saturation is not None
+                and slack_two_second_shape_ledger is not None
+            )
+            else None
+        ),
+        "canonical_slack_two_second_index_window_label": (
+            slack_two_second_index_window_label
+        ),
+        "canonical_slack_two_second_intermediate_index_window_candidate": (
+            slack_two_second_index_window_label == "intermediate_index_window"
+            if slack_two_second_index_window_label is not None
             else None
         ),
         "canonical_slack_two_second_full_domain_A_square_count": (

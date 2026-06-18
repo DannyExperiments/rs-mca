@@ -29,6 +29,37 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-18 - PR #79-#81 experimental integration
+
+- **Agent/model:** AllenGrahamHart and scottdhughes PRs, integrated by Codex.
+- **Files added or changed:** `experimental/m1_depth_two_lift_window_theorem.md`,
+  `experimental/m1_kummer_weil_import_contract.md`,
+  `experimental/m1_support_coefficient_test.md`,
+  `experimental/m1_support_occupancy_scan.py`,
+  `experimental/m1_support_occupancy_scan.md`,
+  `experimental/verify_m1_kummer_divisor_geometry.py`,
+  `experimental/verify_m1_slack_two_depth_two_kummer_saturation.py`,
+  `experimental/l1_arbitrary_fiber_repair.md`,
+  `experimental/verify_l1_arbitrary_fiber_repair.py`,
+  `experimental/a0_external_import_source_check_20260618.md`,
+  `experimental/a0_import_source_probe.py`,
+  `experimental/pr-triage-2026-06-18-round3.md`, and
+  `experimental/agents-log.md`.
+- **Status:** CONDITIONAL / AUDIT / EXPERIMENTAL / COUNTEREXAMPLE.
+- **What is being added:** Manual integration of PR #79's M1 depth-two
+  Kummer-window material, PR #80's L1 arbitrary-fiber repair note, and PR
+  #81's A0 external-import source check.  The M1 material is explicitly
+  conditional on the isolated Kummer-Weil import; the L1 material repairs a
+  false raw-support arbitrary-fiber route; the A0 material records source
+  reachability without closing the Paper D import audit.
+- **How it is useful:** Narrows three active ledgers without editing Papers
+  A--D: M1 gains a sharper lift-window/saturation audit, L1 gets a corrected
+  list-object target, and A0 has a reproducible source-access record for the
+  universal-cap import chain.
+- **What to do next:** Prove or cite the M1 `16p` Kummer estimate, decide
+  whether Paper B should promote `ImgFib_U(s)` or another repaired L1 object,
+  and obtain the CS25/ABF PDFs needed to close the remaining A0 checks.
+
 ### 2026-06-18 - Four-item packet label clarification
 
 - **Agent/model:** Codex.

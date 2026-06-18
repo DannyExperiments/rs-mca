@@ -136,6 +136,9 @@ canonical_slack_two_shape_square_coset_slope_bound_check
 canonical_slack_two_second_superboundary_lift_gate_active
 canonical_slack_two_second_superboundary_lift_gate_remainder
 canonical_slack_two_second_superboundary_lift_gate_whole_fibers
+canonical_slack_two_second_lift_safety_remaining_fibers
+canonical_slack_two_second_lift_safety_required_fibers
+canonical_slack_two_second_all_shapes_lift_active_gate
 canonical_slack_two_second_superboundary_lift_gate_check
 canonical_slack_two_second_superboundary_packet_count
 canonical_slack_two_second_superboundary_support_count
@@ -146,15 +149,122 @@ canonical_slack_two_second_shape_zero_conic_parameter_count
 canonical_slack_two_second_shape_nonzero_square_coset_count
 canonical_slack_two_second_shape_active_nonzero_square_coset_count
 canonical_slack_two_second_shape_square_image_size
+canonical_slack_two_second_shape_saturates_nonzero_square_cosets
+canonical_slack_two_second_shape_active_saturates_nonzero_square_cosets
 canonical_slack_two_second_shape_square_coset_slope_count
 canonical_slack_two_second_shape_square_coset_slope_count_check
 canonical_slack_two_second_shape_square_coset_slope_bound_check
 canonical_slack_two_second_shape_high_index_slope_bound
 canonical_slack_two_second_shape_high_index_nontrivial
 canonical_slack_two_second_shape_high_index_bound_check
+canonical_slack_two_second_shape_lift_limited_remaining_fibers
+canonical_slack_two_second_shape_lift_limited_parameter_bound
+canonical_slack_two_second_shape_lift_limited_nonzero_orbit_bound
+canonical_slack_two_second_shape_lift_limited_slope_bound
+canonical_slack_two_second_shape_lift_limited_nontrivial
+canonical_slack_two_second_shape_lift_limited_bound_check
+canonical_slack_two_second_kernel_fiber_reduction_active
+canonical_slack_two_second_kernel_fiber_order
+canonical_slack_two_second_kernel_fiber_parameter_count
+canonical_slack_two_second_kernel_fiber_zero_parameter_count
+canonical_slack_two_second_kernel_fiber_nonzero_square_coset_count
+canonical_slack_two_second_kernel_fiber_slope_count
+canonical_slack_two_second_kernel_fiber_reduction_check
+canonical_slack_two_second_r2_union_reduction_active
+canonical_slack_two_second_r2_union_window_count
+canonical_slack_two_second_r2_union_parameter_count
+canonical_slack_two_second_r2_union_zero_parameter_count
+canonical_slack_two_second_r2_union_nonzero_square_coset_count
+canonical_slack_two_second_r2_union_saturates
+canonical_slack_two_second_r2_union_exact_support_certificate
+canonical_slack_two_second_r2_union_slope_count
+canonical_slack_two_second_r2_union_per_window_profiles
+canonical_slack_two_second_r2_union_reduction_check
+canonical_slack_two_second_r_window_reduction_active
+canonical_slack_two_second_r_window_effective_size
+canonical_slack_two_second_r_window_window_count
+canonical_slack_two_second_r_window_parameter_count
+canonical_slack_two_second_r_window_zero_parameter_count
+canonical_slack_two_second_r_window_nonzero_square_coset_count
+canonical_slack_two_second_r_window_touched_fiber_histogram
+canonical_slack_two_second_r_window_saturates
+canonical_slack_two_second_r_window_exact_support_certificate
+canonical_slack_two_second_r_window_slope_count
+canonical_slack_two_second_r_window_reduction_check
+canonical_slack_two_second_r_window_kummer_window_size
+canonical_slack_two_second_r_window_kummer_character_order
+canonical_slack_two_second_r_window_kummer_square_coset_index
+canonical_slack_two_second_r_window_kummer_denominator
+canonical_slack_two_second_r_window_kummer_principal_weight
+canonical_slack_two_second_r_window_kummer_coefficient_bound
+canonical_slack_two_second_r_window_kummer_coefficient_l1_bound
+canonical_slack_two_second_r_window_kummer_jacobi_l1_bound
+canonical_slack_two_second_r_window_kummer_conic_l1_bound
+canonical_slack_two_second_r_window_kummer_kummer_l1_bound
+canonical_slack_two_second_r_window_kummer_weighted_error_l1_bound
+canonical_slack_two_second_r_window_kummer_prime_threshold
+canonical_slack_two_second_r_window_kummer_threshold_applies
+canonical_slack_two_second_r_window_kummer_lower_numerator
+canonical_slack_two_second_r_window_kummer_lower_bound
+canonical_slack_two_second_r_window_kummer_certificate
+canonical_slack_two_second_r_window_kummer_exact_support_certificate
+canonical_slack_two_second_r_window_union_kummer_effective_size
+canonical_slack_two_second_r_window_union_kummer_window_count
+canonical_slack_two_second_r_window_union_kummer_label_triples
+canonical_slack_two_second_r_window_union_kummer_character_order
+canonical_slack_two_second_r_window_union_kummer_square_coset_index
+canonical_slack_two_second_r_window_union_kummer_denominator
+canonical_slack_two_second_r_window_union_kummer_principal_weight
+canonical_slack_two_second_r_window_union_kummer_coefficient_bound
+canonical_slack_two_second_r_window_union_kummer_crude_coefficient_bound
+canonical_slack_two_second_r_window_union_kummer_ambient_kernel_count
+canonical_slack_two_second_r_window_union_kummer_quotient_l1_exact
+canonical_slack_two_second_r_window_union_kummer_zero_subset_histogram
+canonical_slack_two_second_r_window_union_kummer_coefficient_histogram
+canonical_slack_two_second_r_window_union_kummer_quotient_l1_bound
+canonical_slack_two_second_r_window_union_kummer_coefficient_l1_bound
+canonical_slack_two_second_r_window_union_kummer_jacobi_l1_bound
+canonical_slack_two_second_r_window_union_kummer_conic_l1_bound
+canonical_slack_two_second_r_window_union_kummer_kummer_l1_bound
+canonical_slack_two_second_r_window_union_kummer_weighted_error_l1_bound
+canonical_slack_two_second_r_window_union_kummer_crude_l1_bound
+canonical_slack_two_second_r_window_union_kummer_crude_conic_l1_bound
+canonical_slack_two_second_r_window_union_kummer_crude_weighted_error_l1_bound
+canonical_slack_two_second_r_window_union_kummer_prime_threshold
+canonical_slack_two_second_r_window_union_kummer_threshold_applies
+canonical_slack_two_second_r_window_union_kummer_lower_numerator
+canonical_slack_two_second_r_window_union_kummer_crude_lower_numerator
+canonical_slack_two_second_r_window_union_kummer_lower_bound
+canonical_slack_two_second_r_window_union_kummer_certificate
+canonical_slack_two_second_r_window_union_kummer_exact_support_certificate
 canonical_slack_two_second_full_domain_saturates_nonzero_slopes
 canonical_slack_two_second_full_domain_nonzero_slope_image
 canonical_slack_two_second_full_domain_coset_count_check
+canonical_slack_two_second_kummer_coefficient_l1_bound
+canonical_slack_two_second_kummer_jacobi_l1_bound
+canonical_slack_two_second_kummer_conic_l1_bound
+canonical_slack_two_second_kummer_kummer_l1_bound
+canonical_slack_two_second_kummer_weighted_error_l1_bound
+canonical_slack_two_second_kummer_exact_support_saturation_certificate
+canonical_slack_two_second_kummer_exact_support_certificate_check
+canonical_slack_two_second_two_fiber_kummer_character_order
+canonical_slack_two_second_two_fiber_kummer_square_coset_index
+canonical_slack_two_second_two_fiber_kummer_denominator
+canonical_slack_two_second_two_fiber_kummer_principal_weight
+canonical_slack_two_second_two_fiber_kummer_coefficient_bound
+canonical_slack_two_second_two_fiber_kummer_coefficient_l1_bound
+canonical_slack_two_second_two_fiber_kummer_jacobi_l1_bound
+canonical_slack_two_second_two_fiber_kummer_conic_l1_bound
+canonical_slack_two_second_two_fiber_kummer_kummer_l1_bound
+canonical_slack_two_second_two_fiber_kummer_weighted_error_l1_bound
+canonical_slack_two_second_two_fiber_kummer_uniform_prime_threshold
+canonical_slack_two_second_two_fiber_kummer_threshold_applies
+canonical_slack_two_second_two_fiber_kummer_lower_numerator
+canonical_slack_two_second_two_fiber_kummer_lower_bound
+canonical_slack_two_second_two_fiber_kummer_saturation_certificate
+canonical_slack_two_second_two_fiber_exact_support_certificate
+canonical_slack_two_second_two_fiber_kummer_certificate_check
+canonical_slack_two_second_two_fiber_exact_support_check
 canonical_slack_two_full_domain_alpha_square_count
 canonical_slack_two_full_domain_alpha_nonsquare_count
 canonical_slack_two_full_domain_alpha_zero_count
@@ -462,9 +572,20 @@ M_2^(2)(z) = (1/24) sum_{u,v}
 
 The `canonical_slack_two_second_*` fields report the depth-two lift gate
 `m | k-2`, reconstructed packet/support counts and slope histograms, and the
-exact square-coset compressed slope count. The zero-slope parameter count is
-the slack-three conic catalog, so this audit checks the first concrete link
-between the slack-two depth-two layer and the slack-three depth-one layer.
+exact square-coset compressed slope count. They also distinguish raw
+normalized shapes from lift-active exact-support shapes. If
+`s=k+2=Lm+4`, every four-point residual packet is guaranteed to lift whenever
+
+```text
+N-L >= min(4,N).
+```
+
+The scanner records this as
+`canonical_slack_two_second_all_shapes_lift_active_gate`, together with the
+remaining and required quotient-fiber counts. The zero-slope parameter count
+is the slack-three conic catalog, so this audit checks the first concrete
+link between the slack-two depth-two layer and the slack-three depth-one
+layer.
 The `canonical_slack_two_second_shape_high_index_*` fields record the
 unconditional subgroup-size ceiling
 
@@ -474,6 +595,315 @@ unconditional subgroup-size ceiling
 
 This bound is intentionally coarse, but it gives a quick non-field-filling
 certificate whenever the right side is below `p`.
+The `canonical_slack_two_second_shape_lift_limited_*` fields record the
+complementary exact-support ceiling when only
+
+```text
+R = N-L
+```
+
+quotient fibers remain after the whole-fiber choices. An active normalized
+four-point shape must touch at most `R` quotient fibers, including the fiber
+of the normalized point `1`. Therefore its ordered `(u,v)` pair is counted by
+
+```text
+B_R = sum_(r=1)^min(R,4,N) binom(N-1,r-1) (r m)^2.
+```
+
+Since every nonzero packet has exactly `24` normalizations, the exact-support
+depth-two slope image satisfies
+
+```text
+|Bad_{t=2,d=2}^{active}|
+  <= min(p, 1 + floor(B_R/24) |D^2|).
+```
+
+The scanner reports this bound and checks it against the exact active slope
+histogram. This is independent of the Kummer estimate: it is a quotient-lift
+restriction and is most useful precisely when the raw shape catalog saturates
+but too few quotient fibers remain for all shapes to lift.
+The exact object behind this ceiling is a quotient-window reduction. For
+`R<min(4,N)`, active normalized shapes are precisely the union over quotient
+windows `W` with `K subset W`, `|W|=R`, of
+
+```text
+C_2^(2)(W) = {(u,v): 1,u,v,-1-u-v in W and distinct}.
+```
+
+Equivalently, these are exactly the normalized shapes whose four entries
+touch at most `R` quotient fibers. The
+`canonical_slack_two_second_r_window_*` fields enumerate this union without
+enumerating exact supports, record the touched-fiber histogram, and check the
+result against the active depth-two parameter count, zero count, nonzero
+`D^2`-coset count, and slope count. If this union saturates all nonzero
+`D^2`-cosets below the all-shapes gate, the index-window label records
+`r_window_saturated`.
+There is also a fixed-window Kummer certificate for this same reduction. For
+a quotient window `W` of size `R`, the indicator of `W` has principal weight
+`R/h`, so the principal term for `u,v,-1-u-v in W` has weight `R^3/(h^3 q)`,
+where `h=[F_p^*:K]` and `q=[F_p^*:D^2]`. The nonprincipal coefficients are
+bounded by `R^3`. The `d=0` part is a three-character Jacobi sum, and the
+coordinate-principal `d!=0` part is a nontrivial character sum of the affine
+quadratic `A(u,v)`; both only cost `p`. The imported `16p` Kummer error is
+paid only for mixed coordinate/conic terms. The conservative lower numerator
+is
+
+```text
+R^3 (p^2 - 4p + 6 + 4 chi(-3))
+  - p R^3((h^3-1) + (q-1) + 16(h^3-1)(q-1))
+  - (6p - 11) h^3 q.
+```
+
+When this is positive, one fixed `R`-window already hits every nonzero
+`D^2`-coset, hence exact-support saturation follows whenever the
+exact-support complement has at least those `R` quotient fibers. The scanner
+records this as `r_window_kummer_saturated`.
+The `canonical_slack_two_second_r_window_union_kummer_*` fields apply the
+same Kummer estimate to the entire quotient-window union rather than to one
+fixed window. If the quotient group has order `N`, the number of quotient-label
+triples `(a,b,c)` for `u,v,-1-u-v` whose touched set
+`{1,a,b,c}` has size at most `R` is
+
+```text
+T_R(N) = sum_{j=0}^{min(R-1,3,N-1)}
+           binom(N-1,j)
+           sum_{i=0}^j (-1)^i binom(j,i) (j+1-i)^3.
+```
+
+Thus `T_1(N)=1`, `T_2(N)=7N-6`, and
+`T_3(N)=1+7(N-1)+12 binom(N-1,2)`. The nonprincipal
+quotient-Fourier coefficients are smaller than this support-size bound. The
+scanner uses
+
+```text
+C_1(N)=1,
+C_2(N)=3N-6,
+C_3(N)=max(6,(N-2)(N-3)),
+```
+
+where `C_R(N)` bounds every nonprincipal coefficient. The sharpened union
+certificate uses the full ambient character L1 bound. Put
+
+```text
+e = [F_p^*:D],        h = [F_p^*:K] = eN,
+q = [F_p^*:D^2].
+```
+
+The quotient-label L1 bound is
+
+```text
+S_R <= e^3 T_R(N) + (h^3-e^3) C_R(N),
+```
+
+because `e^3` ambient character triples restrict trivially to `D/K`. For
+`R=2`, the scanner uses the exact quotient L1 value instead. If `z(r,s,t)`
+is the number of nonempty subset sums among `r,s,t` that vanish in the
+quotient group, then the coefficient is `zN-6`. The exact distribution is:
+
+```text
+N odd:
+  z=0: (N-1)(N-3)^2,    z=1: (N-1)(7N-17),
+  z=2: 3N-3,            z=3: 6N-6,      z=7: 1.
+
+N even:
+  z=0: N^3-7N^2+15N-10, z=1: (N-2)(7N-10),
+  z=2: 3N-6,            z=3: 6N-5,      z=7: 1.
+```
+
+Thus `S_2=e^3 sum_z count_z |zN-6|` exactly. For `R=3`, the scanner also uses
+an exact coefficient-value histogram. The principal coefficient is `T_3(N)`.
+For odd `N`, the remaining coefficient/count pairs are
+
+```text
+-(2N-6): (N-1)(4N-5),       -(N-6): 3(N-1)(N-3),
+6: N^3-7N^2+15N-9,          (N-2)(N-3): 6N-6.
+```
+
+For even `N`, they are
+
+```text
+-(3N-6): 1,                 -(2N-6): (N-2)(4N-1),
+-(N-6): 3(N-2)^2,           6: N^3-7N^2+15N-10,
+(N-2)(N-3): 6N-6.
+```
+
+Thus the quotient L1 term is exact for `R=2` and `R=3`. After also expanding
+the `D^2`-coset condition, the total nonprincipal coefficient L1 bound is
+
+```text
+E_R <= q S_R - T_R(N).
+```
+
+The reported numerator uses proved `p` bounds for the `d=0` Jacobi part and
+the coordinate-principal `d!=0` conic-only part. The imported Kummer bound is
+paid only for mixed coordinate/conic terms. Thus the weighted error term is
+
+```text
+W_R = (S_R - T_R(N)) + (q-1)T_R(N)
+      + 16(q-1)(S_R - T_R(N)).
+```
+
+Thus the sharpened lower numerator is
+
+```text
+T_R(N) (p^2 - 4p + 6 + 4 chi(-3))
+  - p W_R - (6p - 11) h^3 q.
+```
+
+The reported uniform prime threshold uses the quadratic implication
+
+```text
+p >= ceil((W_R + 6h^3q)/T_R(N)) + 4.
+```
+
+When this is positive, the active quotient-window union itself hits every
+nonzero `D^2`-coset. The scanner also reports the crude numerator obtained by
+using the support-size bound for every nonprincipal coefficient, so strict
+Fourier-L1 threshold improvements are auditable. The verifier checks exact
+`R=2` and `R=3` improvements.
+At the extreme `R=1`, the lift-limited layer has an exact quotient-kernel
+reduction. Let
+
+```text
+K = {x in D : x lies in the quotient fiber of 1}.
+```
+
+Then an active normalized shape has `1,u,v,-1-u-v in K`, and every such
+kernel shape lifts exactly once. Therefore the active exact-support slope
+image is exactly
+
+```text
+{0 if A=0 occurs} union A(C_2^(2)(K)) D^2.
+```
+
+The `canonical_slack_two_second_kernel_fiber_*` fields report this kernel
+catalog and check it against the active depth-two parameter count, zero count,
+nonzero square-coset count, and exact active slope count.
+At the next lift-limited layer `R=2`, active normalized shapes have all four
+entries inside at most two quotient fibers, one of which is the kernel fiber
+containing the normalized entry `1`. Hence the active parameter set is exactly
+the union of the two-fiber windows
+
+```text
+C_2^(2)(K union cK),     cK != K.
+```
+
+The `canonical_slack_two_second_r2_union_*` fields enumerate this quotient
+window union directly, record the per-window profiles, and check the exact
+union against the active depth-two parameter count, zero count, nonzero
+`D^2`-coset count, and slope count. This explains finite cases where a single
+two-fiber window is not saturated but the union over all second fibers is
+saturated; those cases are genuine exact-support saturation, not artifacts of
+the coarse lift-limited slope ceiling.
+When this exact `R=2` union saturates all nonzero `D^2`-cosets, the index
+window label records `r2_union_saturated` rather than the weaker
+`raw_saturated_lift_limited` or `intermediate_index_window` labels.
+The `canonical_slack_two_second_kummer_*` fields record the opposite
+low-index certificate. They use the rank-two Kummer character-sum expansion
+for the depth-two shape map
+
+```text
+(u,v) -> -(u^2+v^2+uv+u+v+1)
+```
+
+on triples `u,v,-1-u-v in D`. Under the standard degree-five
+two-variable Kummer-Weil bound with constant `16`, the certificate lower
+bounds the number of raw admissible shapes in each nonzero `D^2`-coset. When
+the reported lower bound is positive, every nonzero square coset is forced to
+occur in the raw shape catalog. This becomes an exact-support saturation
+certificate only when `canonical_slack_two_second_all_shapes_lift_active_gate`
+also holds. The matching `*_saturation_certificate_check` field compares the
+raw certificate against exact square-coset enumeration in the queried finite
+case, while `*_exact_support_certificate_check` compares the lift-safe
+certificate against the active exact-support catalog.
+The `*_divisor_nontriviality_check` field records the elementary divisor
+audit behind the Kummer step. Writing the order-`h` square-coset character as
+`psi`, every nonprincipal term is
+
+```text
+psi(u^(ga) v^(gb) (-1-u-v)^(gc) A(u,v)^d),
+```
+
+with divisor exponents `(ga,gb,gc,d)` modulo `h=eg`. These are all zero only
+for the principal tuple, so no nonprincipal term is an `h`-th power in the
+Kummer open set.
+The `*_radical_total_degree` and `*_deligne_constant` fields make the
+imported constant explicit: the squarefree support divisor has component
+degrees `1,1,1,2`, total degree `5`, and the standard two-variable
+Kummer-Weil estimate contributes `(5-1)^2=16`.
+For the raw catalog, with `e=[F_p^*:D]` and `q=[F_p^*:D^2]`, the certificate
+pays the proved Jacobi bound on the `d=0` mass `e^3-1`, the proved affine
+conic bound on the coordinate-principal `d!=0` mass `q-1`, and the imported
+Kummer error only on the mixed mass `(e^3-1)(q-1)`. These are recorded as
+`*_jacobi_l1_bound`, `*_conic_l1_bound`, and `*_kummer_l1_bound`, while
+`*_weighted_error_l1_bound` is the linear error term used in the certificate
+numerator.
+The `*_principal_exact_count` field records the exact principal open-set
+count
+
+```text
+p^2 - 4p + 6 + 4 chi(-3),
+```
+
+obtained by inclusion-exclusion for the three lines `u=0`, `v=0`,
+`-1-u-v=0` and the conic `A(u,v)=0`.
+The `*_degeneracy_line_union_count` field records the exact size `6p-11` of
+the six residual distinctness-failure lines
+`u=1`, `v=1`, `-1-u-v=1`, `u=v`, `u=-1-u-v`, and `v=-1-u-v`.
+The `canonical_slack_two_second_two_fiber_kummer_*` fields record a sharper
+lift-limited certificate. Let `K` be the quotient kernel and let `cK` be any
+second quotient fiber. On the two-fiber window
+
+```text
+U = K union cK
+```
+
+the indicator `1_U` has principal weight `2/h`, where
+`h=[F_p^*:K]`. Hence the principal term for `u,v,-1-u-v in U` has weight
+`8/(h^3 q)`, with `q=[F_p^*:D^2]`. The coordinate-principal `d!=0` terms are
+conic-only and cost `p`; the same imported Kummer-Weil constant `16` is paid
+only for mixed coordinate/conic terms. Paying the coefficient bound `8`, the
+Jacobi/conic/Kummer split gives the conservative lower numerator
+
+```text
+8 (p^2 - 4p + 6 + 4 chi(-3))
+  - p * 8((h^3-1) + (q-1) + 16(h^3-1)(q-1))
+  - (6p - 11) h^3 q.
+```
+
+When this is positive, every nonzero `D^2`-coset already occurs inside a
+fixed two-fiber window. Therefore, if the exact-support complement has
+`R=N-L>=2` remaining quotient fibers, this is an exact-support saturation
+certificate even though the all-shapes lift gate `R>=min(4,N)` may fail.
+The corresponding `*_exact_support_check` compares the certified conclusion
+against the active exact-support catalog in the queried finite instance.
+The field `canonical_slack_two_second_index_window_label` combines the lift
+gate, these saturation certificates, and the high-index sparsity
+ceiling. Its values are:
+
+```text
+inactive_lift_gate
+full_domain_saturated
+low_index_saturated
+two_fiber_saturated
+r_window_kummer_saturated
+r_window_union_kummer_saturated
+r2_union_saturated
+r_window_saturated
+lift_limited_sparse
+raw_saturated_lift_limited
+high_index_sparse
+intermediate_index_window
+```
+
+The last case is the live proper-subgroup window for this catalog: neither
+the full-domain theorem, the Kummer saturation wall, nor the elementary
+high-index ceiling explains the observed depth-two square-coset image.
+The `raw_saturated_lift_limited` label means the raw shape catalog is known
+to saturate, but the complement-fiber gate above is not strong enough to
+promote that statement to exact-support saturation.
+The `lift_limited_sparse` label means the exact-support quotient-fiber bound
+already proves non-field-filling, even if the raw shape catalog may be large.
 When `D=F_p^*`, the
 `canonical_slack_two_second_full_domain_*` fields also record the full-domain
 frontier saturation certificate: for `p>=11`, the values
@@ -481,6 +911,15 @@ frontier saturation certificate: for `p>=11`, the values
 the nonzero depth-two slope image is all of `F_p^*`. The analytic proof covers
 `p>=23`; `experimental/verify_m1_slack_two_depth_two_full_domain.py` checks
 `p=11,13,17,19` and records the tiny failures `p=5,7`.
+The companion verifier
+
+```bash
+python3 experimental/verify_m1_slack_two_depth_two_kummer_saturation.py
+```
+
+checks two index-two proper-subgroup cases where this low-index certificate is
+positive, and one high-index case where the certificate correctly stays
+silent.
 
 When `D=F_p^*`, the `canonical_slack_two_full_domain_*` fields also check the
 quadratic-character formula for the classes of `alpha(u)=-(1+u+u^2)`. For

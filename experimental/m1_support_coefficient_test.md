@@ -1340,6 +1340,230 @@ Thus the full-domain saturation theorem above and this high-index ceiling
 bracket the first nonzero frontier: low-index/full-domain cases saturate,
 while sufficiently high-index subgroup cases are automatically sparse.
 
+There is also a low-index saturation certificate for proper subgroups. Let
+`D <= F_p^*` have order `n`, index `e`, put `g=gcd(2,n)`, and put
+`H=D^2`, so `[F_p^*:H]=h=eg`. Fix a multiplicative character `chi` with
+kernel `D`, a character `psi` with kernel `H`, and a nonzero coset `gamma H`.
+For the depth-two shape map
+
+```text
+A(u,v)=-(u^2+v^2+uv+u+v+1),     w=-1-u-v,
+```
+
+define the raw coset count
+
+```text
+V_gamma^raw =
+  #{(u,v) in F_p^2 :
+      u,v,w in D, A(u,v) in gamma H }.
+```
+
+With all characters extended by zero at zero, this has the exact expansion
+
+```text
+V_gamma^raw =
+  (1/(e^3 h)) sum_{a,b,c,d}
+    psi^(-d)(gamma) S_{a,b,c,d},
+
+S_{a,b,c,d} =
+  sum_{u,v in F_p}
+    chi^a(u) chi^b(v) chi^c(-1-u-v) psi^d(A(u,v)).
+```
+
+The nonprincipal terms in this expansion are genuinely Kummer-nontrivial.
+Indeed `H=D^2` has index `h=eg`, and after choosing `psi` of order `h` one
+has `chi=psi^g`. Thus each summand is
+
+```text
+psi(u^(ga) v^(gb) w^(gc) A(u,v)^d),     w=-1-u-v.
+```
+
+For `p>3`, the four divisors `u=0`, `v=0`, `w=0`, and `A=0` are distinct
+reduced components, with `A=0` a nonsingular conic. The divisor exponents
+are
+
+```text
+ga, gb, gc, d      modulo h.
+```
+
+If all four exponents are `0 mod h`, then `a=b=c=0 mod e` and `d=0 mod h`,
+which is exactly the principal tuple. Hence no nonprincipal term is an
+`h`-th power times a constant on the Kummer open set. The imported
+two-variable Weil bound is therefore being applied only to nontrivial
+Kummer sheaves; the scanner reports this as
+`canonical_slack_two_second_kummer_divisor_nontriviality_check`.
+
+The principal term counts the complement of the divisor
+`u v (-1-u-v) A(u,v)=0`, and this count is exact. The three lines
+`u=0`, `v=0`, and `w=0` have union size `3p-3`. The affine conic `A=0`
+has `p-chi(-3)` points. On each of the three lines it cuts
+`1+chi(-3)` points, and these intersection sets are disjoint because the
+line-line intersections are not on the conic. Hence the principal count is
+
+```text
+p^2 - (3p-3) - (p-chi(-3)) + 3(1+chi(-3))
+  = p^2 - 4p + 6 + 4 chi(-3).
+```
+
+The imported constant is attached to the radical divisor, not to the possibly
+large character orders. The squarefree support divisor has component degrees
+
+```text
+deg(u=0), deg(v=0), deg(w=0), deg(A=0) = 1,1,1,2,
+```
+
+so its total degree is `5`. The standard two-variable Kummer-Weil estimate
+for a nontrivial rank-one Kummer sheaf with squarefree divisor of total
+degree `r` gives constant `(r-1)^2`; here this is `(5-1)^2=16`. Thus we use
+
+```text
+|S_{a,b,c,d}| <= 16 p
+```
+
+for every nonprincipal tuple `(a,b,c,d)`. The remaining admissibility cuts
+`u=1`, `v=1`, `w=1`, `u=v`, `u=w`, and `v=w` form six affine lines. For
+`p>3`, these lines have exact union size `6p-11`, so they remove at most
+`6p-11` points from any fixed coset count. Therefore every nonzero `H`-coset
+is hit by a raw admissible depth-two shape whenever
+
+```text
+p^2 - 4p + 6 + 4 chi(-3) > (22p-11) e^3 h.
+```
+
+Equivalently, the scanner's integer certificate
+
+```text
+ceil((p^2 - 4p + 6 + 4 chi(-3) - (22p-11)e^3 h)/(e^3 h)) > 0
+```
+
+forces the raw nonzero depth-two slack-two shape catalog to saturate every
+nonzero `D^2`-coset.
+
+There is one further exact-support transfer gate. At support size
+`s=k+2=Lm+4`, a normalized four-point residual packet touching `tau` quotient
+fibers has lift multiplicity
+
+```text
+binom(N-tau,L),        N=n/m.
+```
+
+Since always `tau <= min(4,N)`, every raw depth-two shape is lift-active if
+
+```text
+N-L >= min(4,N).
+```
+
+Under this complement-fiber gate, the raw Kummer saturation certificate
+therefore promotes to exact-support saturation: every nonzero `D^2`-coset
+occurs among actual slack-two depth-two supports. Without this gate, the
+Kummer estimate is still a raw shape theorem, but the exact-support image must
+be read from the active shape catalog or proved by an additional argument.
+
+The same lift filter also gives an unconditional sparse bound in the
+lift-limited case. Let
+
+```text
+R=N-L
+```
+
+be the number of quotient fibers not consumed by the whole-fiber part of the
+support. An active normalized four-point shape must have
+
+```text
+tau(u,v) <= R,
+```
+
+so its quotient support is a subset of at most `R` quotient fibers containing
+the normalized fiber of `1`. Hence the number of active ordered normalized
+pairs `(u,v)` is at most
+
+```text
+B_R = sum_(r=1)^min(R,4,N) binom(N-1,r-1) (r m)^2.
+```
+
+The nonzero depth-two packets still have exactly `24` normalizations, while
+zero-slope packets contribute only the single slope `0`. Therefore the active
+exact-support slope image obeys the field-capped bound
+
+```text
+|Bad_{T=2,d=2}^{active}|
+  <= min(p, 1 + floor(B_R/24) |D^2|).
+```
+
+This bound is independent of the Kummer estimate. It explains part of the
+new `raw_saturated_lift_limited` regime: even if the raw shape map is
+surjective onto `F_p^*/D^2`, exact supports are non-field-filling whenever
+the displayed lift-limited bound is below `p`.
+
+At the extreme `R=1`, this quotient-limited bound becomes an exact reduction.
+Let
+
+```text
+K = {x in D : x is in the quotient fiber of 1};
+```
+
+equivalently `K` is the subgroup of `D` of order `m`. A normalized active
+shape touches only one quotient fiber if and only if
+
+```text
+u,v,-1-u-v in K.
+```
+
+It then has lift multiplicity `1`, because the remaining `N-1` quotient
+fibers are forced to be the whole-fiber part of the support. Hence the
+`R=1` exact-support slope image is
+
+```text
+{0 : A(u,v)=0 for some kernel shape}
+  union
+{ A(u,v) D^2 :
+    u,v,-1-u-v in K, 1,u,v,-1-u-v distinct, A(u,v) != 0 }.
+```
+
+Thus the most lift-limited depth-two layer is not an ambient support problem
+at all: it is the depth-two shape map on the quotient kernel, expanded by the
+ambient square image `D^2`.
+
+This does not give a positive M1 bound; it is the complementary wall to the
+high-index ceiling above. Low-index proper subgroups are saturated only when
+the lift gate and complement-fiber gate transfer raw shapes to exact supports,
+high-index subgroups are sparse by the elementary `n^3/g` bound, lift-limited
+supports are sparse when the `B_R` bound is nontrivial, and the genuinely
+M1-relevant regime is the intermediate window where none of these
+certificates fires.
+
+The same inequality gives an exact integer threshold for fixed subgroup
+index data:
+
+```text
+p >= 22 e^3 h + 4 = 22 e^4 g + 4.
+```
+
+At and above this threshold, the Kummer certificate forces raw low-index
+saturation, and it forces exact-support saturation when
+`N-L >= min(4,N)` also holds. The high-index ceiling above gives sparse
+non-field-filling whenever
+
+```text
+1 + n^3/g < p,        n=(p-1)/e.
+```
+
+Thus, after the lift gate `m | k-2` and complement-fiber gate
+`N-L >= min(4,N)` are checked, the slack-two depth-two frontier has only one
+unresolved proper-subgroup index window in this catalog:
+
+```text
+p < 22 e^4 g + 4
+and
+1 + (p-1)^3/(e^3 g) >= p.
+```
+
+Heuristically this is the interval
+`(p/(22g))^(1/4) lesssim e lesssim p^(2/3)/g^(1/3)`. The point is not that
+this window is small enough for the final M1 theorem, but that everything
+outside it is now explained by a precise reason: inactive lift gate,
+low-index saturation, or high-index sparsity.
+
 For the full multiplicative domain this conic ledger has an exact elementary
 count. Take `D=F_p^*`, `p>3`, and write `chi` for the quadratic character.
 The affine conic `Q(u,v)=0` has `p-chi(-3)` points. The three sections
@@ -1747,6 +1971,12 @@ only equality of cosets, so the M1-relevant object is the image of
 The proper-subgroup character expansion gives a second analytic route: it
 counts this image coset-by-coset and proves all nonzero cosets are hit in a
 small-index regime, subject to the standard four-root Weil bound.
+The exact-support lift-limited bound gives the complementary finite-support
+route: when only `R=N-L` quotient fibers remain, the active depth-two image is
+bounded by `1+floor(B_R/24)|D^2|` even if the raw character-sum image
+saturates all square cosets.
+At `R=1`, this finite-support route is exact: the active catalog is just the
+kernel-fiber depth-two catalog, followed by multiplication by `D^2`.
 For the full multiplicative domain this image is already both quadratic
 classes for every `p>=17`, with zero added exactly when `p==1 mod 3`; this
 proves that full-domain slack-two examples saturate all nonzero slopes rather

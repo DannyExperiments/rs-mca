@@ -744,3 +744,30 @@ Keep entries concise and link to the relevant files.
   `W-F1-AA-RES-T2J4-SPLIT-QUADRIC-COLLAPSE`: search for rational-root,
   discriminant, trace/norm, or Frobenius structure forcing `O(p)`, while
   keeping the counterpacket alternative open.
+
+### 2026-06-18 - Fable loop cycle 31, T2J4 split-quadric collapse
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE31_T2J4_SPLIT_QUADRIC_COLLAPSE_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE31_T2J4_SPLIT_QUADRIC_COLLAPSE_RECOVERED_CLAUDE_JSONL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE31_T2J4_SPLIT_QUADRIC_COLLAPSE_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE31_T2J4_SPLIT_QUADRIC_COLLAPSE_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE31_T2J4_SPLIT_QUADRIC_COLLAPSE_TUI_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE31_T2J4_SPLIT_QUADRIC_COLLAPSE_CREDIT_SURFACE_RUNNER_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE31_T2J4_SPLIT_QUADRIC_COLLAPSE_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle31_t2_j4_scaling_spotcheck_certificate.md`,
+  `experimental/2026-06-18-fable-loop/prompts/20260618_cycle32_t2j4_quartic_monodromy_s4.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** EXACT_NEW_WALL / AUDIT.
+- **What is being added:** Cycle 31 proposes that the `t=2,j=4` split locus is
+  governed by quartic monodromy of `L_{tau(z)}` rather than by a hidden
+  rational-root collapse. Codex rejects the stronger overclaim that the finite
+  scans already prove positive density, but banks the discriminant/resolvent
+  monodromy computation as the next exact wall.
+- **How it is useful:** It redirects the live branch from qualitative scan
+  interpretation to a crisp algebraic certificate:
+  `W-F1-AA-RES-T2J4-QUARTIC-MONODROMY-S4`.
+- **What to do next:** Run Cycle 32 to compute or source-audit the quartic
+  discriminant/resolvent and settle the correct base-field model for
+  `z in F_{p^2}` with splitting over `B=F_p`.

@@ -687,3 +687,39 @@ Cycle 31 T2J4 split-quadric collapse prompt:
 - Purpose: attack the hidden structure suggested by the finite scan: prove an
   `O(p)` split-collapse theorem for `Phi(e(T))=0`, or produce a source-valid
   family that realizes positive-density slopes despite the small-prime data.
+
+Cycle 31 T2J4 split-quadric collapse answer:
+
+- `raw/20260618_CYCLE31_T2J4_SPLIT_QUADRIC_COLLAPSE_RECOVERED_CLAUDE_JSONL.md`
+- `raw/20260618_CYCLE31_T2J4_SPLIT_QUADRIC_COLLAPSE_RAW.json`
+- `raw/20260618_CYCLE31_T2J4_SPLIT_QUADRIC_COLLAPSE_RUN_RESULT.json`
+- `raw/20260618_CYCLE31_T2J4_SPLIT_QUADRIC_COLLAPSE_RESPONSE_MALFORMED_VISIBLE_TERMINAL.md`
+- `raw/20260618_CYCLE31_T2J4_SPLIT_QUADRIC_COLLAPSE_TUI_RUNNER_RESULT.json`
+- `raw/20260618_CYCLE31_T2J4_SPLIT_QUADRIC_COLLAPSE_CREDIT_SURFACE_RUNNER_RESULT.json`
+- `audits/20260618_CYCLE31_T2J4_SPLIT_QUADRIC_COLLAPSE_AUDIT.md`
+- `local_checks/20260618_cycle31_t2_j4_scaling_spotcheck_certificate.md`
+- Harness status: `HARNESS_MALFORMED_VISIBLE_TERMINAL`; no clean
+  `response.md` was produced. The readable structured-JSONL recovery was
+  audited conservatively and the visible-terminal scrape is not banked as
+  mathematics.
+- Mathematical audit status: `EXACT_NEW_WALL / AUDIT`.
+- Banked content: Cycle 31 does not prove that `O(p)` collapse is impossible
+  and does not bank a `Theta(q_line)` counterpacket. It does identify the next
+  exact invariant: compute the quartic discriminant/resolvent/monodromy of
+  `L_{tau(z)}` and decide whether the split locus has positive density.
+- Local experimental spot-check: small extended scans at `p=31` and `p=37`
+  make the earlier phrase "leans O(p)" too strong, but still do not prove
+  `1/24` density or any asymptotic.
+- Exact new wall: `W-F1-AA-RES-T2J4-QUARTIC-MONODROMY-S4`.
+- Not banked: any proof of `O(p)`, any proof that `O(p)` is impossible, any
+  `Theta(q_line)` counterpacket, corrected-reserve theorem, full MCA bound,
+  `q_gen` consequence, protocol/list/CA/MCA/line-decoding/curve-MCA/SNARK
+  statement, or prize solve.
+
+Cycle 32 T2J4 quartic monodromy prompt:
+
+- `prompts/20260618_cycle32_t2j4_quartic_monodromy_s4.md`
+- Status: AUDIT / prompt prepared.
+- Purpose: audit the exact discriminant/resolvent/monodromy invariant for
+  `L_{tau(z)}`, including the base-field issue for `z in F_{p^2}` and
+  splitting over `B=F_p`.

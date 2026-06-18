@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/Users/danielcabezas/OpenClaw/rs-mca/experimental/2026-06-18-fable-loop/local_checks/20260618_cycle41_char0delta_checker_from_response.py", line 210, in <module>
+    out={"A":run_subcase("A",I,7),         # ell=i,   p0=7
+             ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/danielcabezas/OpenClaw/rs-mca/experimental/2026-06-18-fable-loop/local_checks/20260618_cycle41_char0delta_checker_from_response.py", line 120, in run_subcase
+    t,D=tau_at(z0)
+        ~~~~~~^^^^
+  File "/Users/danielcabezas/OpenClaw/rs-mca/experimental/2026-06-18-fable-loop/local_checks/20260618_cycle41_char0delta_checker_from_response.py", line 97, in tau_at
+    M,rhs=build(z); D=det4(M)
+          ~~~~~^^^
+  File "/Users/danielcabezas/OpenClaw/rs-mca/experimental/2026-06-18-fable-loop/local_checks/20260618_cycle41_char0delta_checker_from_response.py", line 72, in build
+    const=b4(eqres(z,[ZERO]*4))
+             ~~~~~^^^^^^^^^^^^
+  File "/Users/danielcabezas/OpenClaw/rs-mca/experimental/2026-06-18-fable-loop/local_checks/20260618_cycle41_char0delta_checker_from_response.py", line 68, in eqres
+    return rsub(rmul(left,lam(t)),rmul(ell,qres(t)))
+                                  ~~~~^^^^^^^^^^^^^
+  File "/Users/danielcabezas/OpenClaw/rs-mca/experimental/2026-06-18-fable-loop/local_checks/20260618_cycle41_char0delta_checker_from_response.py", line 33, in rmul
+    c0=gsub(gmul(a0,b0), gmul(a1,b1))
+            ~~~~^^^^^^^
+  File "/Users/danielcabezas/OpenClaw/rs-mca/experimental/2026-06-18-fable-loop/local_checks/20260618_cycle41_char0delta_checker_from_response.py", line 19, in gmul
+    def gmul(x,y): return (x[0]*y[0]-x[1]*y[1], x[0]*y[1]+x[1]*y[0])
+                           ~^^^
+TypeError: 'Fraction' object is not subscriptable

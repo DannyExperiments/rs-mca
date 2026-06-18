@@ -1029,3 +1029,38 @@ Keep entries concise and link to the relevant files.
   `W-F1-AA-RES-T2J4-A2B-S4-GOODRED-CHAR0DELTA`: compute/certify the
   characteristic-zero determinant/discriminant data and a good-reduction prime
   per subcase, or identify the exact obstruction below that wall.
+
+### 2026-06-18 - Fable loop cycle 41, characteristic-zero good-reduction bridge
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE41_CHAR0DELTA_GOODRED_RECOVERED_FINAL_ASSISTANT.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE41_CHAR0DELTA_GOODRED_RESPONSE_STREAM_MALFORMED.md`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE41_CHAR0DELTA_GOODRED_RAW.json`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE41_CHAR0DELTA_GOODRED_RAW.jsonl`,
+  `experimental/2026-06-18-fable-loop/raw/20260618_CYCLE41_CHAR0DELTA_GOODRED_RUN_RESULT.json`,
+  `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle41_char0delta_checker_from_response.py`,
+  `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle41_char0delta_checker_result.json`,
+  `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle41_char0delta_checker_patched.py`,
+  `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle41_char0delta_checker_patched_result.json`,
+  `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle41_char0delta_goodprime_scan_result.json`,
+  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE41_CHAR0DELTA_GOODRED_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/handoffs/20260618_cycle42_external_homerun/PROMPT.md`,
+  `experimental/2026-06-18-fable-loop/handoffs/20260618_cycle42_external_homerun/MANIFEST.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / EXPERIMENTAL / AUDIT.
+- **What is being added:** Cycle 41 reduces the characteristic-zero
+  good-reduction bridge to explicit `(G1,G2,G3)` gates for the fixed subcase
+  line cover. Codex recovered the coherent final answer from JSONL because the
+  dashboard `response.md` contained duplicated partial stream text. The
+  original model checker fails with a type error; a minimal patched copy runs.
+- **How it is useful:** The patched checker reports Subcase B good reduction
+  at `p0=19,31,59`, while Subcase A fails the good-reduction gates at every
+  scanned A-prime `7,23,43,47,67,83`. This makes the live wall sharper: finite
+  `S_4` is not the bottleneck; the A-side branch separability/disjointness
+  obstruction is.
+- **What to do next:** Send the Cycle 42 external-model homerun packet. The
+  next model should independently rederive the characteristic-zero model,
+  audit the Codex checker repairs, decide whether the A-side failure is a real
+  `ROUTE_CUT` or a line/checker artifact, and, if possible, push the B-side
+  good-reduction certificate through global-density.

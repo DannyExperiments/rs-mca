@@ -1036,3 +1036,46 @@ Cycle 41 homerun characteristic-zero Delta prompt:
 - Status: AUDIT / prompt prepared.
 - Purpose: attack the missing characteristic-zero branch determinant,
   quartic discriminant, and good-reduction bridge per subcase.
+
+Cycle 41 characteristic-zero Delta answer:
+
+- `raw/20260618_CYCLE41_CHAR0DELTA_GOODRED_RECOVERED_FINAL_ASSISTANT.md`
+- `raw/20260618_CYCLE41_CHAR0DELTA_GOODRED_RESPONSE_STREAM_MALFORMED.md`
+- `raw/20260618_CYCLE41_CHAR0DELTA_GOODRED_RAW.json`
+- `raw/20260618_CYCLE41_CHAR0DELTA_GOODRED_RAW.jsonl`
+- `raw/20260618_CYCLE41_CHAR0DELTA_GOODRED_RUN_RESULT.json`
+- `local_checks/20260618_cycle41_char0delta_checker_from_response.py`
+- `local_checks/20260618_cycle41_char0delta_checker_result.json`
+- `local_checks/20260618_cycle41_char0delta_checker_patched.py`
+- `local_checks/20260618_cycle41_char0delta_checker_patched_result.json`
+- `local_checks/20260618_cycle41_char0delta_goodprime_scan_result.json`
+- `audits/20260618_CYCLE41_CHAR0DELTA_GOODRED_AUDIT.md`
+- Harness status: source-audited `artifact_stream` recovery. The dashboard
+  `response.md` contains duplicated partial stream text, so it is preserved as
+  malformed stream provenance only. The final coherent assistant message was
+  recovered from `raw_response.jsonl` and audited conservatively.
+- Mathematical audit status: `BANKABLE_LEMMA / EXACT_NEW_WALL /
+  EXPERIMENTAL / AUDIT`.
+- Banked content: the tame good-reduction bridge is now an explicit
+  `(G1,G2,G3)` gate for the fixed subcase line cover. After a minimal local
+  checker repair, Subcase B passes good reduction at `p0=19,31,59`.
+- Local Codex follow-up: the model's original checker fails with a type error;
+  the patched checker represents `ell=i` as `(i,0)` and wraps flattened
+  scalar equations as Gaussian scalars. The patched good-prime scan finds no
+  Subcase A good prime among `p0=7,23,43,47,67,83`; all fail the separability
+  and disjointness gates.
+- Not banked: independent source derivation of the char-0 checker, Subcase A
+  characteristic-zero `S_4`, a full surface good-reduction result, the
+  explicit bad-prime set, Chebotarev/Lang-Weil density, a `COUNTERPACKET`,
+  corrected-reserve theorem, MCA/CA/list/line-decoding/curve-MCA/protocol/
+  SNARK statement, or prize solve.
+- Live wall: `W-F1-AA-RES-T2J4-A2B-S4-SUBCASEA-GOODRED-OBSTRUCTION`.
+
+Cycle 42 external-model homerun handoff:
+
+- `handoffs/20260618_cycle42_external_homerun/PROMPT.md`
+- `handoffs/20260618_cycle42_external_homerun/MANIFEST.md`
+- Status: AUDIT / handoff prepared.
+- Purpose: send a different model a focused packet to independently audit the
+  Cycle 41 characteristic-zero checker, resolve the Subcase A obstruction, and
+  push the Subcase B global-density route if the checker survives source audit.

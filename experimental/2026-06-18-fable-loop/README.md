@@ -1265,3 +1265,24 @@ Cycle 46 targeted wallbreaker 5.5 Pro audit:
   column-distance interleaved list lower bound with exponent
   `H_2(rho)-m c`, but this may be ordinary volume behavior rather than a full
   grand list-decoding threshold.
+
+Cycle 46 instance-3 Frobenius-compression supplement:
+
+- `raw/cycle46_instance3_frobenius_supplement/`
+- `audits/20260619_CYCLE46_INSTANCE3_FROBENIUS_COMPRESSED_AUDIT.md`
+- Status: `PROOF_CANDIDATE / BANKABLE_LEMMA / ROUTE_CUT / AUDIT`.
+- The extra instance-4 file is another Cycle45 balanced/random-anchor
+  restricted additive certificate, consistent with the banked theorem.
+- New instance-3 claim: take `E=H(X)(X-theta)`, `B_num=H(X)`,
+  `theta in F_{p^2}\F_p`, and `H in F_p[X]` of degree `t-1`. The
+  Frobenius envelope `J=lcm(E,E^(p))=H m_theta` has degree `t+1`, so
+  the base-polynomial residue image `U` has `F_p`-dimension `t+1`,
+  contains `F_{p^2}b`, and contains every cosupport residue for
+  `F_p`-valued anchors.
+- Entropy consequence: with `Lambda=binom(p,j)/p^(t+1)` and shell loss
+  `exp(O(sqrt p))`, the additive branch reaches the full strict range
+  `C < H_2(rho)` if the nonminimal denominator datum is accepted.
+- Caveat: `gcd(E,B_num)=H`, so the rational direction reduces to
+  `-1/(X-theta)`. This is literally allowed by the local residue-datum
+  definition, but it may be considered a nonminimal-denominator artifact by a
+  reviewer. It is not promoted to a final prize claim.

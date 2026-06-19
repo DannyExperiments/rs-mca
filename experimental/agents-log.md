@@ -1293,3 +1293,29 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Formalize/source-audit the domain-uniform Bessel moment
   theorem and smooth-prime-subgroup MCA counterpacket, then compare literally
   against the official grand MCA challenge wording.
+
+### 2026-06-19 - Cycle 46 instance-3 Frobenius-compression supplement
+
+- **Agent/model:** Codex auditing one additional attachment plus one pasted
+  external 5.5 Pro-style instance-3 answer.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/cycle46_instance3_frobenius_supplement/`,
+  `experimental/2026-06-18-fable-loop/audits/20260619_CYCLE46_INSTANCE3_FROBENIUS_COMPRESSED_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** PROOF_CANDIDATE / BANKABLE_LEMMA / ROUTE_CUT / AUDIT.
+- **What changed:** Instance 3 gives a literal Frobenius-compressed additive
+  construction with `E=H(X)(X-theta)` and `B_num=H`, where
+  `J=lcm(E,E^(p))=H m_theta` has degree `t+1`. For `F_p`-valued anchors, all
+  cosupport residues land in a `t+1` dimensional `F_p`-space `U` containing
+  the slope line `F_{p^2}b`.
+- **Entropy consequence:** The effective mean becomes
+  `Lambda=binom(p,j)/p^(t+1)`, with shell loss `exp(O(sqrt p))`; hence the
+  additive/base-field branch reaches `C < H_2(rho)` if the nonminimal
+  denominator presentation is accepted.
+- **Caveat:** `gcd(E,B_num)=H`, so the direction reduces to
+  `-1/(X-theta)`. The local residue-datum definition does not forbid this,
+  but a reviewer may classify it as a nonminimal-denominator or low-denominator
+  artifact. It is not a smooth-domain or prize-level promotion by itself.
+- **What to do next:** Decide whether reduced denominators are required; then
+  test whether the same envelope proof works cleanly on smooth multiplicative
+  subgroups/cosets `D subset F_p^*`.

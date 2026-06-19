@@ -1,0 +1,158 @@
+Cycle 45 Random-Anchor L2 / Reserve-Landing Certificate
+
+Ledger:
+
+[q_{\rm gen}=p,\quad B=\mathbf F_p,\quad F=\mathbf F_{p^2},\quadq_{\rm line}=|F|=p^2,\quad q_{\rm chal}\text{ unused},\quad D=\mathbf F_p.]
+
+Let q=q_line=p^2, let E in F[X] have degree t and be nonzero on D,let A=F[X]/E, let b=[Bnum]_E != 0, and fix j, a=p-j witht<=a. For each j-subset T, write S_T=D\T and
+
+[R_T(w)=\rho_w(T)=[\operatorname{interp}_{S_T}(w)]_E\in A.]
+
+BANKABLE_LEMMA: exact pair-rank law
+
+For T,T', put
+
+[r=|T\setminus T'|=|T'\setminus T|,\qquad C=S_T\cap S_{T'}.]
+
+Then the image of the F-linear map
+
+[w\longmapsto (R_T(w),R_{T'}(w))]
+
+is exactly
+
+[{(u,v)\in A^2\in V_C},\qquadV_C=[L_C F[X]_{<r}]_E,]
+
+and
+
+[\dim_F V_C=\min(t,r),\qquad\operatorname{rank}F(R_T,R{T'})=t+\min(t,r).]
+
+Proof: the two interpolation polynomials have degree <a; their differencevanishes on C, hence equals L_C R with deg R<r. Conversely every suchdifference is realized by compatible values on S_T union S_T'. Since Ehas no root in C, L_C is a unit modulo E; the residues of polynomialsof degree <r have dimension min(t,r).
+
+PROOF: exact random-anchor moments
+
+Take w uniformly from F^D. Let
+
+[\nu_w(z)=#{T:|T|=j,\ R_T(w)=zb},\qquadN=\binom pj,\qquad \lambda=N/q^t.]
+
+For every z in F,
+
+[\mathbf E\nu_w(z)=\lambda.]
+
+For fixed T, the number of T' at exchange distance r is
+
+[K_r=\binom jr\binom ar.]
+
+The pair-rank law gives the exact formula
+
+[\mathbf E\nu_w(z)^2=N\sum_{r=0}^{\min(j,a)}K_r q^{-t-\min(t,r)}.]
+
+Set
+
+[C_*=\sum_{r\ge0}\frac{4^{-r}}{(r!)^2}<e^{1/4}.]
+
+Because ja<=p^2/4=q/4,
+
+[\sum_r K_rq^{-r}\le C_*.]
+
+Splitting at r=t yields
+
+[\operatorname{Var}(\nu_w(z))\le C_*\lambda.]
+
+Consequently, for
+
+[\Phi(w)=\sum_{z\in F}(\nu_w(z)-\lambda)^2,]
+
+[\mathbf E\Phi(w)\le C_*q\lambda.]
+
+Hence some deterministic anchor w satisfies
+
+[\Phi(w)\le C_*q\lambda.]
+
+It can be selected by the method of conditional expectations, fixing thep coordinates of w one at a time.
+
+Let
+
+[L=#\operatorname{Land}=\sum_z\nu_w(z),\qquadM_2=\sum_z\nu_w(z)^2,\qquad s=\sqrt{C_*/\lambda}.]
+
+Cauchy--Schwarz gives
+
+[|L-q\lambda|\le q\lambda s,]
+
+and expansion around the mean gives
+
+[M_2\le q\lambda^2(1+s)^2.]
+
+Therefore, whenever lambda -> infinity,
+
+[M_2\le\left(\frac{1+s}{1-s}\right)^2\frac{L^2}{q}=(1+O(\lambda^{-1/2}))\frac{L^2}{q}.]
+
+This is stronger than the Cycle 44 target
+
+[M_2\le L+(1+o(1))L^2/q_{\rm line}.]
+
+If lambda>C_*q, then every slope occurs: otherwise a missing slope alonewould contribute lambda^2>C_*q lambda to Phi. Thus
+
+[#{z:\nu_w(z)>0}=q_{\rm line}.]
+
+PROOF: reserve-scale specialization
+
+Fix 0<rho<1 and
+
+[0<C<\tfrac12 H_2(\rho).]
+
+For each sufficiently large prime p, set
+
+[t=\left\lfloor \frac{Cp}{\log_2p}\right\rfloor,\qquad k=\lfloor\rho p\rfloor,\qquad a=k+t,\qquad j=p-a.]
+
+Choose alpha in F_{p^2}\F_p,
+
+[E=X^t-\alpha,\qquad Bnum=1,]
+
+and choose the anchor by the preceding conditional-expectation argument.Then E(d)!=0 for every d in F_p, since d^t in F_p but alpha notin
+F_p. Also t<p, so E is squarefree, and E is coprime to its Frobeniusconjugate.
+
+Stirling gives
+
+[\log_2\lambda=\log_2\binom pj-2t\log_2p=(H_2(\rho)-2C+o(1))p.]
+
+Hence lambda/q_line -> infinity, and every one of the p^2 slopes lands.
+
+For a landing T, put S=D\T and Q_z=I_S. Then
+
+[\deg Q_z<a=k+t,\qquad Q_z\equiv z\pmod E,\qquad Q_z=w\text{ on }S.]
+
+Noncontainment is automatic: if G in F[X]_{<k} agreed with -1/E onS, then EG+1 would have degree <k+t=|S| and |S| roots, so would bethe zero polynomial, impossible for nonconstant E. Thus every landing is asource-valid noncontained witness.
+
+Equivalently, for the line
+
+[f=w/E,\qquad g=-1/E,]
+
+all p^2 parameters are support-wise MCA-bad at radius
+
+[\delta_p=1-\frac{k+t}{p}=1-\rho-\frac{C}{\log_2p}+o(1/\log p).]
+
+This is a restricted extension-field reserve-scale result. It is not agenerated-field theorem and does not assert the positive corrected-reservehalf above the entropy threshold.
+
+ROUTE_CUT: no uniform-in-anchor L2 theorem
+
+The L2 statement is false as a uniform assertion over all source-valid anchors. Take an anchorsupported at one point d0. Every T containing d0 has I_{D\T}=0, hencelands at slope 0. Therefore
+
+[\nu(0)\ge\binom{p-1}{j-1}=\frac jp\binom pj\ge \frac jp#\operatorname{Land}.]
+
+For j=Theta(p) this meets the Cycle 44 high-multiplicity falsifier by aconstant factor. Thus the correct theorem is existential/averaged over theanchor, exactly as required by the packing maximum; it cannot be uniform overall residue-line data.
+
+AUDIT: correction to the stated one-fiber falsifier threshold
+
+With q_line=p^2, the dense-regime L2 scale is
+
+[M_2\asymp L^2/p^2,]
+
+so L2 permits a largest fiber of order L/p. A single-fiber lower bound
+
+[\max_z\nu(z)\ge L/p^{1+\epsilon}]
+
+is therefore not a falsifier: it is smaller than the permitted RMS scale.A sufficient one-fiber falsifier is instead
+
+[\max_z\nu(z)\gg L/p,]
+
+for example max nu >= L/p^(1-epsilon). Nor can a lower bound on the maximumfiber by itself force a small image; one needs a second-moment excess or astatement that 1-o(1) of the landing mass is carried by o(q_line) slopes.The one-point anchor above gives the much stronger max nu >= c L, so it is agenuine uniform-L2 falsifier despite the defect in the packet's generalcriterion.

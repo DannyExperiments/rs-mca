@@ -1389,3 +1389,31 @@ Keep entries concise and link to the relevant files.
 - **Finite warning:** a correct finite safe-side statement must include
   `R_line=ceil(binomial(n,k+t)/Q^(t-1))`; a bare `n^{1+o(1)}` bound immediately
   after the entropy equality is not the prize-level finite theorem.
+
+### 2026-06-19 - Cycle 49 syndrome transverse-secant audit
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/cycle49_syndrome_transverse_secant_inverse/`,
+  `experimental/2026-06-18-fable-loop/audits/20260619_CYCLE49_SYNDROME_TRANSVERSE_SECANT_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / ROUTE_CUT / EXACT_NEW_WALL / AUDIT.
+- **What changed:** The upper-side MCA problem is reformulated as an exact
+  Hankel-pencil locator-kernel problem. For `t=r-j`, `u+zv in W_T` iff
+  `(H(u)+zH(v))ell_T=0`, where `ell_T` is the monic degree-`j` complement
+  locator.
+- **Banked reduction:** With `K0=ker H(u) cap ker H(v)`, the moving part of
+  the pencil lives in `V=F[X]_{<=j}/K0`, `dim V<=2t`. Kronecker minimal indices
+  have total degree at most `t`, producing a reduced moving scroll of degree at
+  most `t`.
+- **Route cut:** Do not claim that removing the common core and bounding scroll
+  degree gives an `O(n)` slope bound. Structured split locators can concentrate
+  on quotient-aligned scrolls, matching the Cycle48 quotient-component
+  obstruction.
+- **New wall:** `W-MCA-REDUCED-MOVING-SCROLL-INCIDENCE`, with first subtarget
+  `W-MCA-REDUCED-MOVING-SCROLL-BALANCED-INDEX`.
+- **What to do next:** Ask for a proof or source-valid counterpacket for the
+  balanced-minimal-index case:
+  if all right minimal indices of `H(u)+zH(v)` differ by at most one, prove
+  `#{z : M_z meets Proj_V(Split_L^sf)} <= R_line+(j+1)`, or exhibit the first
+  genuinely aperiodic counterpacket.

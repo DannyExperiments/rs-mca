@@ -1343,9 +1343,30 @@ Cycle 48 upper-inverse refresh audit:
 Cycle 49 staged prompt:
 
 - `prompts/20260619_cycle49_syndrome_transverse_secant_inverse.md`
-- Status: `STAGED_PROMPT / NOT_RUN`.
+- Status: `RUN_COMPLETE`; see the Cycle 49 audit below.
 - Target: `W-MCA-SYNDROME-TRANSVERSE-SECANT-ENTROPY-INVERSE`, with explicit
   quotient-action-rank and finite `R_line` accounting from Cycle 48.
 - Launch note: the Packy/Fable project source snapshot should be refreshed from
   this repo before sending, because the current Packy `DIRECTOR_STATE.md` was
   observed to be stale at Cycle 44 during this audit.
+
+Cycle 49 syndrome transverse-secant audit:
+
+- `raw/cycle49_syndrome_transverse_secant_inverse/`
+- `audits/20260619_CYCLE49_SYNDROME_TRANSVERSE_SECANT_AUDIT.md`
+- Status: `BANKABLE_LEMMA / ROUTE_CUT / EXACT_NEW_WALL / AUDIT`.
+- Banked content: the MCA upper-side object has an exact Hankel-pencil normal
+  form. For `t=r-j`, a slope is witnessed iff the kernel of
+  `H(u)+zH(v)` contains a squarefree fully split degree-`j` locator, with
+  transversality `H(v)ell_T != 0`.
+- Banked reduction: after removing the intrinsic common core
+  `K0=ker H(u) cap ker H(v)`, the moving problem lives in
+  `V=F[X]_{<=j}/K0` with `dim V<=2t`; Kronecker minimal indices have total
+  degree at most `t`, so the moving kernels sweep a rational scroll of degree
+  at most `t`.
+- Route cut: common-core removal plus scroll degree `<=t` does not imply an
+  `O(n)` slope bound. The projected split-locator configuration is structured,
+  and quotient-component packets can concentrate on low-degree scrolls.
+- New wall: `W-MCA-REDUCED-MOVING-SCROLL-INCIDENCE`. The next clean subwall is
+  the balanced-minimal-index case:
+  `W-MCA-REDUCED-MOVING-SCROLL-BALANCED-INDEX`.

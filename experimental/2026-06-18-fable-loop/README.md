@@ -1451,7 +1451,26 @@ Cycle 52 totally-split density audit:
 Cycle 53 staged prompt:
 
 - `prompts/20260619_cycle53_per_line_symmetric_determinantal_incidence.md`
-- Status: `STAGED_PROMPT / NOT_RUN`.
+- Status: `RUN_COMPLETE`; see the Cycle 53 audit below.
 - Target: `W-MCA-PER-LINE-SYMMETRIC-DETERMINANTAL-INCIDENCE`, the
   deterministic per-line incidence bound for the degree-2 symmetric determinant
   equations on `L`-split locators.
+
+Cycle 53 slope-summed character audit:
+
+- `raw/cycle53_per_line_symmetric_determinantal_incidence/`
+- `audits/20260619_CYCLE53_SLOPE_SUMMED_CHARACTER_AUDIT.md`
+- Status: `BANKABLE_LEMMA / ROUTE_CUT / EXACT_NEW_WALL / AUDIT`.
+- Harness note: `OK_WITH_NONFATAL_STREAM_WARNING`; one malformed stream-json
+  line, usable answer text, raw artifacts preserved before audit.
+- Banked content: the per-line landing count has the exact signed expansion
+  `R=binomial(n,j)/Q^(t-1)-Q*K0_split+Err`, where
+  `Err=Q^{-t} sum_z sum_{y!=0} S(y,z)` and `S(y,z)` is the cosupport
+  elementary-symmetric character sum.
+- Route cut: determinantal codimension plus Bezout does not prove the fixed
+  `L`-split locator bound. Balanced minimal index gives phase
+  nondegeneracy, not cancellation.
+- New wall:
+  `W-MCA-PER-LINE-SLOPE-SUMMED-CHARACTER-CANCELLATION`.
+- Next target: the `t=2` slope-summed cosupport cancellation subcase, searching
+  for either a proof of `Err<=O(j)` or a source-valid aperiodic counterpacket.

@@ -1543,3 +1543,27 @@ Keep entries concise and link to the relevant files.
   problem after the free-root monodromy route was cut.
 - **What to do next:** Launch via artifact stream, preserve the raw response,
   and audit conservatively.
+
+### 2026-06-19 - Cycle 53 slope-summed character audit
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/cycle53_per_line_symmetric_determinantal_incidence/`,
+  `experimental/2026-06-18-fable-loop/audits/20260619_CYCLE53_SLOPE_SUMMED_CHARACTER_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / ROUTE_CUT / EXACT_NEW_WALL / AUDIT.
+- **Harness note:** `OK_WITH_NONFATAL_STREAM_WARNING`; one malformed
+  stream-json line, usable answer text, raw artifacts preserved before audit.
+- **What changed:** The deterministic per-line incidence wall is now an exact
+  signed character-sum problem:
+  `R=binomial(n,j)/Q^(t-1)-Q*K0_split+Err`.
+- **Banked reduction:** `Err=Q^{-t} sum_z sum_{y!=0} S(y,z)`, where the phase
+  rewrites as the Cycle44-style cosupport elementary-symmetric sum
+  `sum_{x in L\T} beta_x(z)Y(x)prod_{y' in T}(x-y')`.
+- **Route cut:** Determinantal codimension plus Bezout is not enough for the
+  fixed-domain `L`-split locator bound. Balanced minimal index gives phase
+  nondegeneracy only; cancellation remains unproved.
+- **New wall:** `W-MCA-PER-LINE-SLOPE-SUMMED-CHARACTER-CANCELLATION`.
+- **What to do next:** Stage the first subcase prompt
+  `W-MCA-T2-SLOPE-SUMMED-COSUPPORT-CANCELLATION`, asking for a proof of
+  `Err<=O(j)` in `t=2` or a source-valid aperiodic counterpacket.

@@ -1508,3 +1508,22 @@ Keep entries concise and link to the relevant files.
   and toward the actual value-set numerator.
 - **What to do next:** Launch via artifact stream, preserve the raw response,
   and audit conservatively.
+
+### 2026-06-19 - Cycle 52 totally-split density audit
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/cycle52_balanced_scroll_totally_split_density/`,
+  `experimental/2026-06-18-fable-loop/audits/20260619_CYCLE52_TOTALLY_SPLIT_DENSITY_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** ROUTE_CUT / BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT.
+- **What changed:** The monodromy-density formulation is cut. The actual
+  fixed-domain MCA object is the discrete configuration of fully `L`-split
+  locators, not a free-root cover over the slope line.
+- **Banked content:** The reduced moving-scroll incidence is
+  `Config cap S`, equivalently the vanishing of degree-2 symmetric determinants
+  `a_i(T)b_l(T)-a_l(T)b_i(T)` in the elementary symmetric data of `T`.
+- **Route cut:** A `1/j` totally-split density belongs to a relaxed/free-root
+  or square-regime cover and is not equivalent to the finite target
+  `Z_mov<=R_line+O(j)`.
+- **New wall:** `W-MCA-PER-LINE-SYMMETRIC-DETERMINANTAL-INCIDENCE`.

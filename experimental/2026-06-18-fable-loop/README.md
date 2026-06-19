@@ -1426,6 +1426,24 @@ Cycle 51 balanced-scroll value-set audit:
 Cycle 52 staged prompt:
 
 - `prompts/20260619_cycle52_balanced_scroll_totally_split_density.md`
-- Status: `STAGED_PROMPT / NOT_RUN`.
+- Status: `RUN_COMPLETE`; see the Cycle 52 audit below.
 - Target: `W-MCA-BALANCED-SCROLL-TOTALLY-SPLIT-DENSITY`, asking for direct
   monodromy/splitting-density control of the distinct slope image.
+
+Cycle 52 totally-split density audit:
+
+- `raw/cycle52_balanced_scroll_totally_split_density/`
+- `audits/20260619_CYCLE52_TOTALLY_SPLIT_DENSITY_AUDIT.md`
+- Status: `ROUTE_CUT / BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT`.
+- Harness note: clean enough `response.md` with nonfatal stream-json parse
+  warning; raw JSONL preserved.
+- Banked content: the reduced moving-scroll condition is a discrete incidence
+  problem `Config cap S` over fixed fully `L`-split locators. The incidence
+  equations are degree-2 symmetric determinants
+  `a_i(T)b_l(T)-a_l(T)b_i(T)=0`.
+- Route cut: the proposed `1/j` totally-split monodromy density is the wrong
+  object for fixed-domain MCA. It belongs to a relaxed/free-root or square
+  regime cover, not to the finite `Split_L` locator configuration.
+- New wall: `W-MCA-PER-LINE-SYMMETRIC-DETERMINANTAL-INCIDENCE`, a deterministic
+  per-line bound for the degree-2 symmetric minors under balanced-index and
+  quotient-separated hypotheses.

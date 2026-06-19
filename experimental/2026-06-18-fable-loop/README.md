@@ -1370,3 +1370,11 @@ Cycle 49 syndrome transverse-secant audit:
 - New wall: `W-MCA-REDUCED-MOVING-SCROLL-INCIDENCE`. The next clean subwall is
   the balanced-minimal-index case:
   `W-MCA-REDUCED-MOVING-SCROLL-BALANCED-INDEX`.
+
+Cycle 50 staged prompt:
+
+- `prompts/20260619_cycle50_reduced_moving_scroll_balanced_index.md`
+- Status: `STAGED_PROMPT / NOT_RUN`.
+- Target: `W-MCA-REDUCED-MOVING-SCROLL-BALANCED-INDEX`, asking for a proof or
+  source-valid counterpacket for the balanced right-minimal-index case of the
+  reduced Hankel/Kronecker moving-scroll incidence wall.

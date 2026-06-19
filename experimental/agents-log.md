@@ -1417,3 +1417,20 @@ Keep entries concise and link to the relevant files.
   if all right minimal indices of `H(u)+zH(v)` differ by at most one, prove
   `#{z : M_z meets Proj_V(Split_L^sf)} <= R_line+(j+1)`, or exhibit the first
   genuinely aperiodic counterpacket.
+
+### 2026-06-19 - Cycle 50 balanced-index prompt staged
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260619_cycle50_reduced_moving_scroll_balanced_index.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** STAGED_PROMPT / AUDIT.
+- **What is being added:** A focused theorem-worker prompt for
+  `W-MCA-REDUCED-MOVING-SCROLL-BALANCED-INDEX`, asking for a proof or
+  counterpacket to the balanced right-minimal-index reduced moving-scroll
+  incidence bound.
+- **How it is useful:** Keeps the next loop on the smallest genuinely
+  aperiodic subwall exposed by Cycle49 rather than re-litigating the whole
+  upper theorem.
+- **What to do next:** Launch via artifact stream, preserve the raw response,
+  then audit conservatively before updating the route board.

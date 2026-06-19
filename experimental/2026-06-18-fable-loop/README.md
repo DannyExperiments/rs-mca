@@ -1535,3 +1535,14 @@ Cycle 55 t=2,j=2 conic audit:
 - New wall: `W-MCA-T2J2-CONIC-SPLIT-PAIR-COUNT-CORRECTED`.
 - Next target: `W-MCA-T2J2-CONIC-SQRT-COUNTERPACKET-CHECK`, a finite/source
   validity check for the proposed `Theta(sqrt(Q))` excess seed.
+
+Cycle 56 staged prompt:
+
+- `prompts/20260619_cycle56_t2j2_conic_sqrt_counterpacket_check.md`
+- Status: `STAGED_PROMPT`.
+- Target: `W-MCA-T2J2-CONIC-SQRT-COUNTERPACKET-CHECK`.
+- Purpose: verify or kill the Cycle55 `Theta(sqrt(Q))` excess seed. A
+  `COUNTERPACKET` must supply a source-valid growing family and rule out
+  core/tangent, quotient/coset, low `d_M(E)`, same-witness, and contained
+  explanations; a `PROOF` or `ROUTE_CUT` must identify the exact hypothesis
+  that restores an `O(1)` or otherwise harmless bound.

@@ -1677,3 +1677,20 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Stage `W-MCA-T2J2-CONIC-SQRT-COUNTERPACKET-CHECK`:
   verify the conic identity and search for non-core, non-coset examples with
   excess `~sqrt(Q)`.
+
+### 2026-06-19 - Cycle 56 conic sqrt counterpacket-check prompt staged
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260619_cycle56_t2j2_conic_sqrt_counterpacket_check.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** STAGED_PROMPT / AUDIT.
+- **What is being added:** A focused prompt for
+  `W-MCA-T2J2-CONIC-SQRT-COUNTERPACKET-CHECK`, the finite/source-validity
+  check created by Cycle55.
+- **How it is useful:** It forces the next worker to either promote the
+  `Theta(sqrt(Q))` genus-one fluctuation seed into a real source-valid
+  `COUNTERPACKET`, or kill it by identifying the exact source hypothesis that
+  restores the desired bound.
+- **What to do next:** Launch via artifact stream, preserve the raw response,
+  and audit conservatively.

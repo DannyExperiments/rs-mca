@@ -1158,3 +1158,29 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Preserve and audit only clean `response.md` and explicit
   `output_files/` deliverables. Do not bank Cycle 44 mathematics until the
   answer is classified conservatively.
+
+### 2026-06-19 - Cycle 44 cosupport moment identity audit
+
+- **Agent/model:** Codex auditing `claude-opus-4-8` Cycle 44 response.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/cycle44_cosupport_subset_product_homerun/`,
+  `experimental/2026-06-18-fable-loop/audits/20260619_CYCLE44_COSUPPORT_MOMENT_IDENTITY_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT / EXPERIMENTAL.
+- **What is being added:** Cycle 44 banks the exact cosupport moment identity
+  `rho(T)=-ell Lambda(T)^(-1)N(T)` for `rho(T)=[I_{D\T}]_E`, with both
+  `N(T)` and `Lambda(T)` affine-linear in the elementary symmetric functions
+  of `T`. It also banks the exact landing-count character identity with main
+  term `binom(p,j)/p^(2(t-1))`.
+- **How it is useful:** The reserve wall is no longer the vague
+  subset-product/equidistribution object. It is sharpened to
+  `W-F1-AA-RES-SYMMETRIC-FUNCTION-CANCELLATION`, especially the
+  `L2` anticollision bound
+  `M_2 <= #Land + (1+o(1))#Land^2/q_line`.
+- **What is not banked:** No proof of cancellation, no proof of the L2
+  anticollision estimate, no positive reserve-density result, no generated
+  field or MCA consequence, and no final counterpacket.
+- **What to do next:** Prepare a role-split external 5.5 Pro packet or next
+  theorem prompt against the L2 anticollision wall: either prove the moment
+  anticollision estimate or produce a source-valid growing-family falsifier
+  with a high-multiplicity slope.

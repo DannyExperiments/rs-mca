@@ -1151,13 +1151,31 @@ Cycle 43 reserve-lift homerun:
 Cycle 44 cosupport subset-product homerun:
 
 - `prompts/20260619_cycle44_cosupport_subset_product_homerun.md`
-- Status: active clean non-ad `artifact_stream` run / pending audit.
+- `raw/cycle44_cosupport_subset_product_homerun/20260619_CYCLE44_COSUPPORT_RESPONSE.md`
+- `raw/cycle44_cosupport_subset_product_homerun/20260619_CYCLE44_COSUPPORT_RAW.json`
+- `raw/cycle44_cosupport_subset_product_homerun/20260619_CYCLE44_COSUPPORT_RAW.jsonl`
+- `raw/cycle44_cosupport_subset_product_homerun/20260619_CYCLE44_COSUPPORT_RUN_RESULT.json`
+- `raw/cycle44_cosupport_subset_product_homerun/20260619_CYCLE44_COSUPPORT_RUN_STATUS.json`
+- `raw/cycle44_cosupport_subset_product_homerun/20260619_CYCLE44_COSUPPORT_PROMPT_SENT.md`
+- `raw/cycle44_cosupport_subset_product_homerun/20260619_CYCLE44_COSUPPORT_INPUT_MANIFEST.json`
+- `audits/20260619_CYCLE44_COSUPPORT_MOMENT_IDENTITY_AUDIT.md`
+- Status: clean non-ad `artifact_stream`; `response.md` is usable theorem
+  content. No `output_files/` deliverables were written by the model.
 - Run directory:
   `/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-19T00-05-26-501Z-cycle44-cosupport-subset-product-homerun-11471e45`.
 - Target: `W-F1-AA-RES-COSUPPORT-SUBSET-PRODUCT-EQUIDISTRIBUTION`.
-- Purpose: make a slower homerun attack on the reserve-scale wall created by
-  Cycle 43. The prompt asks for a source-valid reserve lift through cosupport
-  subset-product equidistribution, or the smallest exact lemma, obstruction,
-  or falsifier below that wall.
-- Note: no mathematics is banked from Cycle 44 until a clean `response.md`
-  and/or explicit `output_files/` deliverables are preserved and audited.
+- Mathematical audit status: `BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT /
+  EXPERIMENTAL`.
+- Banked content: exact cosupport moment identity for
+  `rho(T)=[I_{D\T}]_E` in the restricted `D=F_p` branch,
+  `rho(T)=-ell Lambda(T)^(-1)N(T)`, where both `N(T)` and `Lambda(T)` are
+  affine-linear in the elementary symmetric functions `e_m(T)`. Cycle 44 also
+  gives an exact additive-character landing formula whose main term is
+  `binom(p,j)/p^(2(t-1))`.
+- New live wall:
+  `W-F1-AA-RES-SYMMETRIC-FUNCTION-CANCELLATION`; preferred subwall:
+  `W-F1-AA-RES-SYMMETRIC-FUNCTION-CANCELLATION-L2-ANTICOLLISION`.
+- Not banked: first-moment cancellation, the L2 anticollision estimate,
+  positive-density reserve lift, corrected-reserve counterpacket,
+  generated-field theorem, MCA/CA/list/line-decoding/curve-MCA/protocol/SNARK
+  statement, or prize solve.

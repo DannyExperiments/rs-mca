@@ -1399,3 +1399,11 @@ Cycle 50 reduced moving-scroll balanced-index audit:
   the actual MCA numerator bound.
 - New wall: `W-MCA-BALANCED-SCROLL-CONFIG-EQUIDISTRIBUTION`, with next target
   `W-MCA-BALANCED-SCROLL-VALUESET-VS-LANDING`.
+
+Cycle 51 staged prompt:
+
+- `prompts/20260619_cycle51_balanced_scroll_valueset_vs_landing.md`
+- Status: `STAGED_PROMPT / NOT_RUN`.
+- Target: `W-MCA-BALANCED-SCROLL-VALUESET-VS-LANDING`, forcing the next worker
+  to distinguish the actual distinct slope image `Z(u,v)` from the stronger
+  total landing count `R(u,v)`.

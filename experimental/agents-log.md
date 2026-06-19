@@ -1458,3 +1458,20 @@ Keep entries concise and link to the relevant files.
   but stronger than the actual numerator bound on `Z(u,v)`.
 - **New wall:** `W-MCA-BALANCED-SCROLL-CONFIG-EQUIDISTRIBUTION`; next target:
   `W-MCA-BALANCED-SCROLL-VALUESET-VS-LANDING`.
+
+### 2026-06-19 - Cycle 51 value-set-vs-landing prompt staged
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260619_cycle51_balanced_scroll_valueset_vs_landing.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** STAGED_PROMPT / AUDIT.
+- **What is being added:** A focused prompt for
+  `W-MCA-BALANCED-SCROLL-VALUESET-VS-LANDING`, forcing the next theorem worker
+  to bound the distinct slope image `Z(u,v)` or produce a counterpacket with
+  many distinct slopes, not merely many total landings.
+- **How it is useful:** Prevents the upper-bound route from accidentally
+  replacing the actual MCA numerator by a stronger but different first-moment
+  landing count.
+- **What to do next:** Launch via artifact stream, preserve the raw response,
+  and audit the result before any promotion.

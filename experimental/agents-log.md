@@ -1788,3 +1788,22 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** When quota is restored or another provider lane is
   selected, launch this prompt or supersede it with the global syndrome
   transverse-secant inverse prompt.
+
+### 2026-06-20 - PRZ public-review index added
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/PRZ_REVIEW_INDEX.md`,
+  `experimental/2026-06-18-fable-loop/README.md`,
+  `experimental/agents-log.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** AUDIT / EXPERIMENTAL / REVIEW_INDEX.
+- **What is being added:** A compact `AGENTS.md`-template review index for the
+  public Cycle 49-57 artifact dump, including claim, status, parameters, paper
+  dependency, proof idea or experiment, ledger impact, constants, and
+  reproducibility.
+- **How it is useful:** It makes the public PR reviewable for PRZ and other
+  agents without requiring them to start from raw `jsonl` artifacts or infer
+  which cycle files are theorem-relevant.
+- **What to do next:** Keep future deposits public under `experimental/`,
+  preserve raw artifacts before audit, and update this log for each material
+  change.

@@ -2,6 +2,10 @@
 
 Status: EXPERIMENTAL / AUDIT.
 
+Reviewer entrypoint:
+
+- `PRZ_REVIEW_INDEX.md`
+
 This folder records Codex-managed Opus 4.8 co-director cycles after the manual integration of PR #62 into upstream `main`.
 
 Source policy:

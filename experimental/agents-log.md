@@ -1434,3 +1434,27 @@ Keep entries concise and link to the relevant files.
   upper theorem.
 - **What to do next:** Launch via artifact stream, preserve the raw response,
   then audit conservatively before updating the route board.
+
+### 2026-06-19 - Cycle 50 reduced moving-scroll balanced-index audit
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/cycle50_reduced_moving_scroll_balanced_index/`,
+  `experimental/2026-06-18-fable-loop/audits/20260619_CYCLE50_REDUCED_MOVING_SCROLL_BALANCED_INDEX_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / ROUTE_CUT / EXACT_NEW_WALL / AUDIT.
+- **What changed:** Cycle50 identifies the reduced moving-scroll count as a
+  rank-one value-set problem. For each split locator `ell_T`, put
+  `(a(T),b(T))=(H(u)ell_T,H(v)ell_T)`. A transverse locator realizes a unique
+  slope iff `rank[a(T)|b(T)]<=1` and `b(T)!=0`.
+- **Banked reduction:** Moving fibers are pairwise disjoint after quotienting
+  `K0=ker H(u) cap ker H(v)`, and the finite random-incidence baseline is still
+  `R_line=ceil(binomial(n,k+t)/Q^(t-1))`.
+- **Route cuts:** Balanced right minimal indices do not remove all quotient or
+  bounded-defect quotient-action packets. Also, averaged random-anchor landing
+  bounds do not imply deterministic per-line upper bounds.
+- **Audit correction:** Distinct slope image `Z(u,v)` and total landing count
+  `R(u,v)` must be kept separate. A bound on `R(u,v)` is sufficient for MCA,
+  but stronger than the actual numerator bound on `Z(u,v)`.
+- **New wall:** `W-MCA-BALANCED-SCROLL-CONFIG-EQUIDISTRIBUTION`; next target:
+  `W-MCA-BALANCED-SCROLL-VALUESET-VS-LANDING`.

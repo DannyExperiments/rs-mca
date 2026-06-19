@@ -1374,7 +1374,28 @@ Cycle 49 syndrome transverse-secant audit:
 Cycle 50 staged prompt:
 
 - `prompts/20260619_cycle50_reduced_moving_scroll_balanced_index.md`
-- Status: `STAGED_PROMPT / NOT_RUN`.
+- Status: `RUN_COMPLETE`; see the Cycle 50 audit below.
 - Target: `W-MCA-REDUCED-MOVING-SCROLL-BALANCED-INDEX`, asking for a proof or
   source-valid counterpacket for the balanced right-minimal-index case of the
   reduced Hankel/Kronecker moving-scroll incidence wall.
+
+Cycle 50 reduced moving-scroll balanced-index audit:
+
+- `raw/cycle50_reduced_moving_scroll_balanced_index/`
+- `audits/20260619_CYCLE50_REDUCED_MOVING_SCROLL_BALANCED_INDEX_AUDIT.md`
+- Status: `BANKABLE_LEMMA / ROUTE_CUT / EXACT_NEW_WALL / AUDIT`.
+- Banked content: a transverse split locator realizes a unique slope exactly
+  when `(a(T),b(T))=(H(u)ell_T,H(v)ell_T)` has rank one with `b(T)!=0`. Thus
+  the MCA numerator is the value set of a partial slope map on split locators,
+  bounded by the rank-one landing count.
+- Banked reduction: after quotienting `K0=ker H(u) cap ker H(v)`, moving fibers
+  `M_z` are pairwise disjoint. The random-incidence baseline remains
+  `R_line=ceil(binomial(n,k+t)/Q^(t-1))`.
+- Route cuts: balanced right minimal indices alone do not remove all quotient
+  or bounded-defect quotient-action packets; and averaged landing estimates do
+  not imply the required deterministic per-line upper bound.
+- Audit correction: do not conflate distinct slope image `Z(u,v)` with total
+  landing count `R(u,v)`. A landing upper bound is sufficient but stronger than
+  the actual MCA numerator bound.
+- New wall: `W-MCA-BALANCED-SCROLL-CONFIG-EQUIDISTRIBUTION`, with next target
+  `W-MCA-BALANCED-SCROLL-VALUESET-VS-LANDING`.

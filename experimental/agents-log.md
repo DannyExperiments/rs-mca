@@ -1527,3 +1527,19 @@ Keep entries concise and link to the relevant files.
   or square-regime cover and is not equivalent to the finite target
   `Z_mov<=R_line+O(j)`.
 - **New wall:** `W-MCA-PER-LINE-SYMMETRIC-DETERMINANTAL-INCIDENCE`.
+
+### 2026-06-19 - Cycle 53 symmetric-determinantal prompt staged
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260619_cycle53_per_line_symmetric_determinantal_incidence.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** STAGED_PROMPT / AUDIT.
+- **What is being added:** A focused prompt for
+  `W-MCA-PER-LINE-SYMMETRIC-DETERMINANTAL-INCIDENCE`, asking for a proof,
+  counterpacket, or sharper reduction for the deterministic degree-2 symmetric
+  determinant incidence bound on `L`-split locators.
+- **How it is useful:** Keeps the loop on the fixed-domain per-line incidence
+  problem after the free-root monodromy route was cut.
+- **What to do next:** Launch via artifact stream, preserve the raw response,
+  and audit conservatively.

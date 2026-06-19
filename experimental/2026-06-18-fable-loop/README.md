@@ -1447,3 +1447,11 @@ Cycle 52 totally-split density audit:
 - New wall: `W-MCA-PER-LINE-SYMMETRIC-DETERMINANTAL-INCIDENCE`, a deterministic
   per-line bound for the degree-2 symmetric minors under balanced-index and
   quotient-separated hypotheses.
+
+Cycle 53 staged prompt:
+
+- `prompts/20260619_cycle53_per_line_symmetric_determinantal_incidence.md`
+- Status: `STAGED_PROMPT / NOT_RUN`.
+- Target: `W-MCA-PER-LINE-SYMMETRIC-DETERMINANTAL-INCIDENCE`, the
+  deterministic per-line incidence bound for the degree-2 symmetric determinant
+  equations on `L`-split locators.

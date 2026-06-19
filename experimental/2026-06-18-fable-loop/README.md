@@ -1422,3 +1422,10 @@ Cycle 51 balanced-scroll value-set audit:
   landing upper bound `R<=R_line+O(j)` or count the value set directly.
 - New wall: `W-MCA-BALANCED-SCROLL-VALUESET-MONODROMY-DENSITY`; next target
   `W-MCA-BALANCED-SCROLL-TOTALLY-SPLIT-DENSITY`.
+
+Cycle 52 staged prompt:
+
+- `prompts/20260619_cycle52_balanced_scroll_totally_split_density.md`
+- Status: `STAGED_PROMPT / NOT_RUN`.
+- Target: `W-MCA-BALANCED-SCROLL-TOTALLY-SPLIT-DENSITY`, asking for direct
+  monodromy/splitting-density control of the distinct slope image.

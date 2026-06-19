@@ -1493,3 +1493,18 @@ Keep entries concise and link to the relevant files.
   `R<=R_line+O(j)` or directly count the distinct value set.
 - **New wall:** `W-MCA-BALANCED-SCROLL-VALUESET-MONODROMY-DENSITY`; next
   target `W-MCA-BALANCED-SCROLL-TOTALLY-SPLIT-DENSITY`.
+
+### 2026-06-19 - Cycle 52 totally-split density prompt staged
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260619_cycle52_balanced_scroll_totally_split_density.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** STAGED_PROMPT / AUDIT.
+- **What is being added:** A focused prompt for
+  `W-MCA-BALANCED-SCROLL-TOTALLY-SPLIT-DENSITY`, asking for direct
+  monodromy/splitting-density control of the distinct slope image.
+- **How it is useful:** Moves the safe-side route away from L2/landing moments
+  and toward the actual value-set numerator.
+- **What to do next:** Launch via artifact stream, preserve the raw response,
+  and audit conservatively.

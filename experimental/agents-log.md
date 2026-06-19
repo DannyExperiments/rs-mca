@@ -1597,3 +1597,27 @@ Keep entries concise and link to the relevant files.
   before launch.
 - **Heartbeat:** `rs-mca-cycle49-heartbeat` retargeted to Cycle54 at a
   10-minute cadence.
+
+### 2026-06-19 - Cycle 54 t=2 determinantal quadric audit
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/cycle54_t2_slope_summed_cosupport_cancellation/`,
+  `experimental/2026-06-18-fable-loop/audits/20260619_CYCLE54_T2_DETERMINANTAL_QUADRIC_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / PROOF / ROUTE_CUT / EXACT_NEW_WALL / AUDIT.
+- **Harness note:** `OK`; no stream warning, no `output_files/`, raw artifacts
+  preserved before audit.
+- **What changed:** The `t=2` slope-summed character wall has a z-eliminated
+  determinant form: `R=#{T split : D(T)=0,b(T)!=0}`.
+- **Banked lemma:** `D(T)=a_0(T)b_1(T)-a_1(T)b_0(T)` expands as a canonical
+  quadratic form in the locator coefficients `ell_T`.
+- **Banked proof:** The `j=1` subcase has `R<=2=O(j)` because a projective line
+  meets the Veronese conic in at most two points.
+- **Route cut/correction:** The `t=2` phase is not generally a single
+  elementary-symmetric `e_j` sum; for `j>=2` it involves multiple elementary
+  symmetric coordinates.
+- **New wall:** `W-MCA-T2-DETERMINANTAL-QUADRIC-SPLIT-COUNT`.
+- **What to do next:** Stage `W-MCA-T2J2-DETERMINANTAL-CONIC-SPLIT-PAIR-COUNT`,
+  the smallest open case: count split pairs `{s,s'}` on one conic after
+  quotient/imprimitive pairs are removed.

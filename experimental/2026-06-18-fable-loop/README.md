@@ -1478,7 +1478,7 @@ Cycle 53 slope-summed character audit:
 Cycle 54 staged prompt:
 
 - `prompts/20260619_cycle54_t2_slope_summed_cosupport_cancellation.md`
-- Status: `RUN_ACTIVE`.
+- Status: `RUN_COMPLETE`; see the Cycle 54 audit below.
 - Target: `W-MCA-T2-SLOPE-SUMMED-COSUPPORT-CANCELLATION`, the first
   nontrivial subcase of the Cycle53 character-sum wall.
 - Purpose: ask for a proof of `Err<=O(j)` in `t=2`, or an explicit
@@ -1486,3 +1486,21 @@ Cycle 54 staged prompt:
 - Launch receipt:
   `/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-19T10-47-16-076Z-cycle54-t2-slope-summed-cosupport-cancellation-a3e20c65`.
 - Initial status: `generating` / `Claude CLI generating`.
+
+Cycle 54 t=2 determinantal quadric audit:
+
+- `raw/cycle54_t2_slope_summed_cosupport_cancellation/`
+- `audits/20260619_CYCLE54_T2_DETERMINANTAL_QUADRIC_AUDIT.md`
+- Status: `BANKABLE_LEMMA / PROOF / ROUTE_CUT / EXACT_NEW_WALL / AUDIT`.
+- Harness note: `OK`, no capture warning, no `output_files/`.
+- Banked content: for `t=2`, the transverse landing count is exactly
+  `R=#{T split : D(T)=0,b(T)!=0}`, where
+  `D(T)=a_0(T)b_1(T)-a_1(T)b_0(T)` is a canonical quadratic form in the locator
+  coefficients `ell_T`.
+- Banked proof: the `j=1` subcase satisfies `R<=2=O(j)` because the pencil line
+  meets the Veronese conic in at most two points.
+- Route cut/correction: the `t=2` phase is not generally a single
+  elementary-symmetric `e_j` sum; it usually involves all
+  `e_1(T),...,e_j(T)`.
+- New wall: `W-MCA-T2-DETERMINANTAL-QUADRIC-SPLIT-COUNT`.
+- Next target: `W-MCA-T2J2-DETERMINANTAL-CONIC-SPLIT-PAIR-COUNT`.

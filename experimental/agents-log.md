@@ -1567,3 +1567,19 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Stage the first subcase prompt
   `W-MCA-T2-SLOPE-SUMMED-COSUPPORT-CANCELLATION`, asking for a proof of
   `Err<=O(j)` in `t=2` or a source-valid aperiodic counterpacket.
+
+### 2026-06-19 - Cycle 54 t=2 cancellation prompt staged
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/prompts/20260619_cycle54_t2_slope_summed_cosupport_cancellation.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** STAGED_PROMPT / AUDIT.
+- **What is being added:** A focused prompt for
+  `W-MCA-T2-SLOPE-SUMMED-COSUPPORT-CANCELLATION`, the first nontrivial
+  specialization of the Cycle53 slope-summed character wall.
+- **How it is useful:** Forces the next worker to separate genuine
+  cancellation from phase nondegeneracy in the smallest case, or else produce a
+  source-valid balanced/transverse/quotient-separated aperiodic counterpacket.
+- **What to do next:** Launch via artifact stream, preserve the raw response,
+  and audit conservatively.

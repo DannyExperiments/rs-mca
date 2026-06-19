@@ -1474,3 +1474,12 @@ Cycle 53 slope-summed character audit:
   `W-MCA-PER-LINE-SLOPE-SUMMED-CHARACTER-CANCELLATION`.
 - Next target: the `t=2` slope-summed cosupport cancellation subcase, searching
   for either a proof of `Err<=O(j)` or a source-valid aperiodic counterpacket.
+
+Cycle 54 staged prompt:
+
+- `prompts/20260619_cycle54_t2_slope_summed_cosupport_cancellation.md`
+- Status: `STAGED_PROMPT / NOT_RUN`.
+- Target: `W-MCA-T2-SLOPE-SUMMED-COSUPPORT-CANCELLATION`, the first
+  nontrivial subcase of the Cycle53 character-sum wall.
+- Purpose: ask for a proof of `Err<=O(j)` in `t=2`, or an explicit
+  source-valid balanced/transverse/quotient-separated aperiodic counterpacket.

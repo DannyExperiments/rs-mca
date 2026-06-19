@@ -1,0 +1,825 @@
+## VERDICT
+
+**PROOF. Confidence: high.**
+
+The exact pair-rank lemma is domain-free, the Bessel-shell moment calculation is correct, and the resulting residue-line witnesses transfer directly to the official support-wise MCA definition on every smooth multiplicative domain.
+
+Thus `W-F1-AA-RES-DOMAIN-UNIFORM-BESSEL-MOMENT` is closed at theorem level.
+
+What is proved is the **lower/failure branch**:
+
+[
+\varepsilon_{\rm mca}!\left(\operatorname{RS}[F,L,k],,1-\frac{k+t}{n}\right)
+\ge
+\left(1-
+\frac{q_{\rm line}^{,t}J}{\binom{n}{k+t}}
+\right)_+,
+]
+
+with error exactly (1) under an explicit stronger finite inequality. In the source live regime (q_{\rm line}=2^{o(n)}), this gives error (1) throughout the strict line-field entropy range
+
+[
+t=\frac{(c+o(1))n}{\log_2 q_{\rm line}},
+\qquad
+c<H_2(\rho).
+]
+
+No additive structure, Frobenius compression, nonminimal denominator, or extension-coordinate assumption is needed for the scalar generated-field branch.
+
+This does **not** determine the grand MCA threshold: the matching all-line upper bound above the corrected entropy and quotient reserve remains open. The official challenge explicitly asks for both sides of the threshold (`proximity_blueprint_v3.tex:102–112`).
+
+---
+
+## LEDGER
+
+The clean scalar instantiation is:
+
+| Quantity                 | Value                                                                     |   |   |
+| ------------------------ | ------------------------------------------------------------------------- | - | - |
+| Base/generated field (B) | (B=F)                                                                     |   |   |
+| Alphabet/line field (F)  | (F=\mathbb F_Q)                                                           |   |   |
+| (q_{\rm gen})            | (Q), under the generated-field hypothesis                                 |   |   |
+| (q_{\rm line})           | (Q=                                                                       | F | ) |
+| (q_{\rm chal})           | (Q) only for the stand-alone MCA experiment; otherwise protocol-dependent |   |   |
+| Official domain (D/L)    | (L=\alpha H\subseteq F^\times), (H) of power-of-two order                 |   |   |
+| (n)                      | (                                                                         | L | ) |
+| (k)                      | RS dimension                                                              |   |   |
+| (\rho)                   | (k/n)                                                                     |   |   |
+| Denominator degree (t)   | (t=\sigma), (1\le t\le n-k)                                               |   |   |
+| Support size (a)         | (a=k+t)                                                                   |   |   |
+| Cosupport size (j)       | (j=n-a=n-k-t)                                                             |   |   |
+| Radius (\delta)          | (j/n=1-(k+t)/n)                                                           |   |   |
+| Denominator (E)          | (E=X^t)                                                                   |   |   |
+| Numerator (B_{\rm num})  | (1)                                                                       |   |   |
+| Anchor                   | (w:L\to F), selected existentially or randomly                            |   |   |
+| Actual line              | (f=w/X^t,\quad g=-1/X^t)                                                  |   |   |
+
+The source defines the line field as the field over which the line experiment is analyzed, but warns that a protocol challenge field need not be identical to it (`proximity_blueprint_v3.tex:245–251, 722–727`). Hence no normalization by a larger (q_{\rm chal}) is justified without a protocol reduction.
+
+For an extension presentation (B\subsetneq F), (L\subseteq B), the same construction has
+
+[
+q_{\rm gen}=|B|,
+\qquad
+q_{\rm line}=|F|,
+]
+
+and becomes a multiplication-slice/interleaved-base construction under coordinate transfer.
+
+---
+
+## THEOREM_OR_FALSIFIER
+
+### Theorem: domain-uniform Bessel occupancy and smooth-domain MCA transfer
+
+Let (F=\mathbb F_Q), let (L\subseteq F^\times) be any set of (n) distinct points, and let
+
+[
+1\le k<n,\qquad 1\le t\le n-k,\qquad
+a=k+t,\qquad j=n-a.
+]
+
+Let (E\in F[X]) have degree (t) and satisfy (E(x)\ne0) for every (x\in L). For (T\in\binom Lj), put (S=L\setminus T), and let
+
+[
+I_S(w)\in F[X]_{<a}
+]
+
+be the unique polynomial interpolating (w|_S). Define
+
+[
+R_T(w):=[I_S(w)]_E\in A:=F[X]/(E).
+]
+
+For uniform (w\in F^L), and (z\in F), put
+
+[
+\nu_w(z)
+========
+
+#\left{
+T\in\binom Lj:
+R_T(w)=z[1]_E
+\right}.
+]
+
+Set
+
+[
+N=\binom nj=\binom n{k+t},
+\qquad
+\lambda=\frac{N}{Q^t},
+]
+
+and, with binomial coefficients interpreted as zero outside their natural range,
+
+[
+K_d=\binom jd\binom ad,
+]
+
+[
+V=\sum_{0\le d<t}K_d\bigl(Q^{-d}-Q^{-t}\bigr),
+\qquad
+J=\sum_{0\le d<t}K_dQ^{-d}.
+]
+
+Then:
+
+1. For (T,T'\in\binom Lj), with (d=|T\setminus T'|),
+
+   [
+   \operatorname{rank}*F\bigl(w\mapsto(R_T(w),R*{T'}(w))\bigr)
+   ===========================================================
+
+   t+\min(t,d).
+   ]
+
+2. For every (z\in F),
+
+   [
+   \mathbb E_w\nu_w(z)=\lambda,
+   ]
+
+   [
+   \mathbb E_w\nu_w(z)^2
+   =====================
+
+   \lambda^2+\lambda V,
+   ]
+
+   and therefore
+
+   [
+   \operatorname{Var}_w\nu_w(z)=\lambda V\le\lambda J.
+   ]
+
+3. The global (L^2) defect is
+
+   [
+   \mathbb E_w
+   \sum_{z\in F}\bigl(\nu_w(z)-\lambda\bigr)^2
+   ===========================================
+
+   Q\lambda V
+   \le Q\lambda J.
+   ]
+
+4. The shell satisfies
+
+   [
+   J
+   \le
+   \sum_{d\ge0}\frac{(aj/Q)^d}{(d!)^2}
+   ===================================
+
+   I_0!\left(2\sqrt{\frac{aj}{Q}}\right)
+   \le
+   \exp!\left(2\sqrt{\frac{aj}{Q}}\right)
+   \le
+   \exp!\left(\frac n{\sqrt Q}\right).
+   ]
+
+5. There exists an anchor (w) for which the number (M(w)) of missed slopes satisfies
+
+   [
+   M(w)\le\frac{QV}{\lambda}\le\frac{QJ}{\lambda}.
+   ]
+
+   Consequently,
+
+   [
+   \varepsilon_{\rm mca}
+   \left(
+   \operatorname{RS}[F,L,k],
+   \frac jn
+   \right)
+   \ge
+   \left(1-\frac{V}{\lambda}\right)*+
+   \ge
+   \left(1-\frac{J}{\lambda}\right)*+.
+   ]
+
+6. In particular, if
+
+   [
+   \lambda>QJ,
+   ]
+
+   equivalently
+
+   [
+   \binom n{k+t}
+
+   >
+
+   Q^{t+1}
+   \sum_{0\le d<t}
+   \binom jd\binom adQ^{-d},
+   ]
+
+   then
+
+   [
+   \boxed{
+   \varepsilon_{\rm mca}
+   \left(
+   \operatorname{RS}[F,L,k],
+   1-\frac{k+t}{n}
+   \right)=1.
+   }
+   ]
+
+The witnessing line is
+
+[
+\boxed{
+f(x)=\frac{w(x)}{E(x)},
+\qquad
+g(x)=-\frac1{E(x)}.
+}
+]
+
+For the official smooth-domain branch one may take (E=X^t).
+
+---
+
+## PROOF_OR_OBSTRUCTION
+
+### 1. Exact pair rank uses only interpolation
+
+Fix (T,T'), let (S=L\setminus T), (S'=L\setminus T'), and write
+
+[
+d=|S\setminus S'|=|S'\setminus S|,
+\qquad
+C=S\cap S',
+\qquad
+|C|=a-d.
+]
+
+Let
+
+[
+L_C(X)=\prod_{x\in C}(X-x).
+]
+
+If
+
+[
+P=I_S(w),\qquad P'=I_{S'}(w),
+]
+
+then (P-P') vanishes on (C). Since both have degree (<a),
+
+[
+P-P'=L_Ch
+]
+
+for some (h\in F[X]_{<d}). Therefore every image pair ((u,v)) satisfies
+
+[
+u-v\in[L_CF[X]_{<d}]_E.
+]
+
+Conversely, suppose
+
+[
+u-v=[L_Ch]_E,\qquad \deg h<d.
+]
+
+Choose the degree-(<t) representative (p_u) of (u), and put
+
+[
+P=p_u,\qquad P'=P-L_Ch.
+]
+
+Both have degree (<a), they agree on (C), and their residues modulo (E) are (u,v). Define (w=P) on (S), (w=P') on (S'\setminus S), and arbitrarily elsewhere. Then (P) and (P') are the respective interpolation polynomials.
+
+Thus
+
+[
+\operatorname{Im}(R_T,R_{T'})
+=============================
+
+\left{
+(u,v)\in A^2:
+u-v\in[L_CF[X]_{<d}]_E
+\right}.
+]
+
+Because (E) is nonzero on (L), it has no common factor with (L_C). Hence ([L_C]*E) is a unit in (A). The image of (F[X]*{<d}) in (A) has dimension (\min(t,d)), giving
+
+[
+\operatorname{rank}(R_T,R_{T'})
+===============================
+
+t+\min(t,d).
+]
+
+Nothing here uses addition, subgroup closure, (X^p-X), Frobenius, or symmetric functions.
+
+### 2. First and second moments
+
+A single map (R_T:F^L\to A) has rank (t), so it is uniform on the (Q^t)-element space (A). Hence
+
+[
+\Pr(R_T(w)=z)=Q^{-t},
+]
+
+and
+
+[
+\mathbb E\nu_w(z)=NQ^{-t}=\lambda.
+]
+
+For a fixed (T), the number of (T') at exchange distance (d) is
+
+[
+K_d=\binom jd\binom ad.
+]
+
+The pair target ((z,z)) always belongs to the pair-map image, since its difference is zero. The pair-rank lemma therefore gives
+
+[
+\Pr(R_T(w)=R_{T'}(w)=z)
+=======================
+
+Q^{-t-\min(t,d)}.
+]
+
+Summing over ordered pairs,
+
+[
+\mathbb E\nu_w(z)^2
+===================
+
+N\sum_dK_dQ^{-t-\min(t,d)}.
+]
+
+Since (\sum_dK_d=N), this rearranges to
+
+[
+\mathbb E\nu_w(z)^2
+===================
+
+\lambda^2+
+\lambda\sum_{d<t}K_d(Q^{-d}-Q^{-t})
+===================================
+
+\lambda^2+\lambda V.
+]
+
+This proves the exact variance and the global (L^2) identity.
+
+### 3. Missing-slope bound
+
+If (\nu_w(z)=0), then
+
+[
+(\nu_w(z)-\lambda)^2=\lambda^2.
+]
+
+Consequently,
+
+[
+M(w)\lambda^2
+\le
+\sum_z(\nu_w(z)-\lambda)^2.
+]
+
+Averaging and using the moment identity gives
+
+[
+\mathbb E M(w)\le\frac{QV}{\lambda}.
+]
+
+Hence some (w) has that many or fewer missing slopes. More strongly,
+
+[
+\Pr_w[M(w)>0]\le\frac{QV}{\lambda}.
+]
+
+Thus, when (QV/\lambda=o(1)), a random anchor hits every slope with probability (1-o(1)). When only (V/\lambda=o(1)), a random anchor hits a (1-o(1)) fraction of slopes. There is no uniform-in-anchor assertion.
+
+### 4. Bessel shell
+
+Using
+
+[
+\binom ad\binom jd
+\le
+\frac{(aj)^d}{(d!)^2},
+]
+
+one obtains
+
+[
+J
+\le
+\sum_{d\ge0}\frac{(aj/Q)^d}{(d!)^2}.
+]
+
+Writing (x=aj/Q),
+
+[
+\sum_{d\ge0}\frac{x^d}{(d!)^2}
+\le
+\left(\sum_{d\ge0}\frac{x^{d/2}}{d!}\right)^2
+=============================================
+
+e^{2\sqrt x}.
+]
+
+Since (a+j=n), (aj\le n^2/4). Moreover (L\subset F^\times) implies (Q\ge n+1). Hence
+
+[
+J\le e^{n/\sqrt Q}\le e^{\sqrt n}.
+]
+
+The shell loss is therefore subexponential on every finite-field evaluation domain, not only an additive one.
+
+### 5. Construction of the official RS line
+
+Choose an anchor (w) supplied by the occupancy theorem and take
+
+[
+E=X^t,\qquad B_{\rm num}=1,
+]
+
+[
+f=\frac wE,\qquad g=-\frac1E.
+]
+
+This is well-defined because a smooth multiplicative coset lies in (F^\times).
+
+For each counted slope (z), choose (T) with (R_T(w)=z), set (S=L\setminus T), and let
+
+[
+Q_{z,S}=I_S(w).
+]
+
+Then
+
+[
+Q_{z,S}\equiv z\pmod E.
+]
+
+Therefore
+
+[
+P_{z,S}:=\frac{Q_{z,S}-z}{E}
+]
+
+is a polynomial of degree (<k). On (S),
+
+[
+P_{z,S}
+=======
+
+# \frac{w-z}{E}
+
+f+zg.
+]
+
+Thus (f+zg) agrees with the RS codeword (P_{z,S}) on the (a=k+t) points of (S).
+
+### 6. Official noncontainment
+
+Suppose some (G\in F[X]_{<k}) explained (g) on (S). Then
+
+[
+EG+1
+]
+
+would vanish on all (a=k+t) points of (S), while
+
+[
+\deg(EG+1)\le k+t-1=a-1.
+]
+
+Hence (EG+1) would be the zero polynomial, which is impossible.
+
+Thus (g) alone is not code-explainable on (S), so there cannot exist a pair (A,G\in F[X]_{<k}) simultaneously explaining (f,g) there. This is exactly condition (ii) of the official support-wise MCA definition.
+
+Every occupied slope is therefore officially MCA-bad.
+
+### 7. Strict entropy threshold
+
+Let (k/n\to\rho), and suppose
+
+[
+t\log_2Q=(c+o(1))n,
+\qquad
+t/n\to0.
+]
+
+Because (Q\ge n+1), the second condition holds in the usual choice (t\sim cn/\log_2Q). Stirling gives
+
+[
+\log_2\binom n{k+t}
+===================
+
+\bigl(H_2(\rho)+o(1)\bigr)n.
+]
+
+Therefore
+
+[
+\log_2\lambda
+=============
+
+\bigl(H_2(\rho)-c+o(1)\bigr)n,
+]
+
+while
+
+[
+\log_2J=o(n).
+]
+
+Hence:
+
+* If (c<H_2(\rho)), then (J/\lambda\to0), so
+
+  [
+  \varepsilon_{\rm mca}\ge1-o(1).
+  ]
+
+* If additionally (\log_2Q=o(n)), then (QJ/\lambda\to0), so eventually
+
+  [
+  \varepsilon_{\rm mca}=1.
+  ]
+
+The latter includes Paper B’s live range (\operatorname{poly}(n)\le Q\le2^{o(n)}).
+
+For the challenge rates, writing (\ell=\log_2q_{\rm line}):
+
+| (\rho) |    (H_2(\rho)) |                                    Proven strict failure radii |
+| -----: | -------------: | -------------------------------------------------------------: |
+|  (1/2) |            (1) |                  (\delta=\frac12-\frac c\ell+o(1/\ell)), (c<1) |
+|  (1/4) | (0.8112781245) |       (\delta=\frac34-\frac c\ell+o(1/\ell)), (c<0.8112781245) |
+|  (1/8) | (0.5435644432) |       (\delta=\frac78-\frac c\ell+o(1/\ell)), (c<0.5435644432) |
+| (1/16) | (0.3372900666) | (\delta=\frac{15}{16}-\frac c\ell+o(1/\ell)), (c<0.3372900666) |
+
+The exact finite criterion remains the binomial/Bessel inequality, not its entropy approximation.
+
+---
+
+## SOURCE_ADMISSIBILITY_CHECK
+
+1. **Official domain:** admissible. The official smooth domain is a multiplicative subgroup coset of power-of-two order (`proximity_blueprint_v3.tex:102–112`). The proof works for every distinct-point (L\subseteq F^\times).
+
+2. **Arbitrary line words:** admissible. MCA maximizes over all (f,g\in F^L), not polynomial or base-valued words (`slackMCA_v3.tex:643–653`).
+
+3. **Arbitrary random anchor:** admissible. A residue-line datum explicitly permits any word (w:L\to F) (`slackMCA_v3.tex:1189–1191`). Since MCA is a maximum, existential selection of (w) is sufficient.
+
+4. **Residue datum:** admissible. (E=X^t) has degree (t) and is nonzero on (L); (B_{\rm num}=1) has degree (<t). The datum is balanced because (t=\sigma).
+
+5. **Actual line transfer:** exact. The direct construction agrees with the source normal form (f=w/E,\ g=-B_{\rm num}/E) (`slackMCA_v3.tex:1197–1207`).
+
+6. **Noncontainment:** exact. The degree/root argument proves that (g) cannot be explained on any counted (a)-support. This is stronger than merely failing simultaneous containment.
+
+7. **Reduced denominator:** no obstruction. Here
+
+   [
+   \gcd(E,B_{\rm num})=\gcd(X^t,1)=1.
+   ]
+
+   Hence the common-factor defect of the Frobenius-compressed construction is absent.
+
+8. **No hidden smaller denominator:** for a smooth coset (L=\alpha H), the displayed direction is also minimal in the source denominator representation. On (L),
+
+   [
+   -X^{-t}=-\alpha^{-n}X^{n-t}.
+   ]
+
+   If it admitted a representation (R-B'/E') with (\deg R<k) and (\deg E'=s<t), then
+
+   [
+   E'\bigl(-\alpha^{-n}X^{n-t}-R\bigr)+B'
+   ]
+
+   would be a nonzero polynomial of degree (s+n-t<n) vanishing on all (n) points of (L). Its leading term cannot be canceled because (n-t\ge k). Contradiction.
+
+9. **Line field:** the moment denominator is (q_{\rm line}^t), not (q_{\rm gen}^t), because the anchor and interpolation residues range over (F).
+
+10. **Challenge field:** no code-level obstruction, but no protocol-level identification is automatic. The source explicitly warns not to assume (q_{\rm line}=q_{\rm chal}) (`proximity_blueprint_v3.tex:722–727`).
+
+11. **Prize completeness:** not established. The theorem supplies the failure side; the official problem asks for matching upper and lower threshold statements.
+
+There is therefore **no source or admissibility obstruction to the scalar MCA counterpacket**.
+
+---
+
+## RELATION_TO_PRZ_ORIGIN_FILES
+
+`paper_b_counterexample_comparison.md` identifies the balanced (t=\sigma), arbitrary-anchor residue cloud as the live F1/M1 wall (`lines 149–194`). The theorem attacks exactly that object:
+
+[
+\operatorname{Cloud}_E(w,a)
+===========================
+
+{[I_S(w)]_E:|S|=a},
+]
+
+and proves that below line-field entropy, a typical anchor’s cloud intersects the scalar line (F[1]_E) in almost every point, and in all points under the stronger criterion.
+
+This does **not** contradict Paper B’s corrected positive conjecture. In the generated-field scalar branch,
+
+[
+t\log_2q_{\rm gen}
+==================
+
+(c+o(1))n
+<
+H_2(\rho)n,
+]
+
+so the construction lies below the entropy reserve required by `conj:B` (`slackMCA_v3.tex:1231–1252`). Instead, it proves the conjecture’s anticipated failure behavior in a concrete balanced arbitrary-anchor stratum.
+
+It also improves the origin ledger in one respect. In an extension setting (L\subseteq B\subsetneq F), genuinely extension-valued attacks do not require (E\notin B[X]): a base-defined denominator (E=X^t) together with an (F)-valued anchor (w) already suffices. Thus any wording that treats non-base denominators as the only extension source should be qualified to say:
+
+> the genuinely extension-valued datum may enter through the denominator, the numerator, or the anchor.
+
+Taking (t) odd at the exact prize rates also prevents (E=X^t) from being a literal pullback through any proper power-of-two quotient (X\mapsto X^M). Thus the construction may be placed in the displayed aperiodic denominator stratum rather than being dismissed as a quotient packet.
+
+---
+
+## RELATION_TO_FROBENIUS_COMPRESSION
+
+Frobenius compression is not needed for this route.
+
+The compressed construction in `20260619_CYCLE46_INSTANCE3_FROBENIUS_COMPRESSED_AUDIT.md` uses
+
+[
+E=H(X)(X-\theta),
+\qquad
+B_{\rm num}=H(X),
+]
+
+so its rational direction reduces to
+
+[
+-\frac1{X-\theta}.
+]
+
+That is the common-factor/nonminimality concern recorded at lines 137–170 of that audit.
+
+The domain-uniform theorem instead uses
+
+[
+E=X^t,\qquad B_{\rm num}=1.
+]
+
+It has:
+
+* no common factor;
+* genuine denominator complexity (t);
+* no Frobenius envelope;
+* no restriction to (B)-valued anchors;
+* no additive-domain hypothesis;
+* direct applicability to the official smooth multiplicative domain.
+
+Frobenius compression remains relevant only if one imposes the extra, nonofficial condition that an extension-field construction must use anchors valued in the base field. Under that restriction the residue image need not be uniform over (F[X]/E), and an effective base-field envelope becomes relevant. The official MCA definition imposes no such restriction.
+
+---
+
+## MCA_AND_LIST_DECODING_IMPLICATIONS
+
+### MCA
+
+The exact finite conclusion is
+
+[
+\boxed{
+\varepsilon_{\rm mca}
+\left(
+\operatorname{RS}[F,L,k],
+1-\frac{k+t}{n}
+\right)
+\ge
+\left(
+1-
+\frac{Q^t}{\binom n{k+t}}
+\sum_{d<t}
+\binom jd\binom adQ^{-d}
+\right)_+.
+}
+]
+
+If
+
+[
+\binom n{k+t}>Q^{t+1}J,
+]
+
+then the conclusion is
+
+[
+\boxed{\varepsilon_{\rm mca}=1.}
+]
+
+If only (J/\lambda=o(1)), the conclusion is
+
+[
+\boxed{\varepsilon_{\rm mca}\ge1-o(1).}
+]
+
+If neither condition is verified, the theorem still gives the exact residue-line/MCA lower bound above; it is not merely a heuristic residue statement.
+
+For the prize target, it suffices that
+
+[
+1-\frac{J}{\lambda}>2^{-128}
+]
+
+to conclude
+
+[
+\delta^*_{\rm mca}
+\bigl(\operatorname{RS}[F,L,k],2^{-128}\bigr)
+\le
+1-\frac{k+t}{n}.
+]
+
+Error one then propagates to every larger radius by the monotonicity built into the official MCA definition (`slackMCA_v3.tex:643–653`).
+
+### Scalar versus extension/interleaved
+
+When (B=F), the construction is genuinely scalar. The coordinate-transfer theorem is the identity and contributes nothing.
+
+When (L\subseteq B\subsetneq F), the line remains a valid scalar line of the official code (\operatorname{RS}[F,L,k]), but `f1_extension_coordinate_transfer.md` identifies its base-coordinate presentation as
+
+[
+\Phi(f)+M_z\Phi(g)
+]
+
+inside the (e)-interleaved base code (`lines 27–63, 84–120`). Thus:
+
+* it is scalar over (F);
+* it is a structured multiplication-slice phenomenon over (B);
+* it is not ordinary scalar MCA over (B).
+
+### List decoding
+
+The Bessel MCA theorem does not by itself give a nontrivial lower bound for the official interleaved list challenge.
+
+For fixed (z), the number (\nu_w(z)) counts feasible (a)-supports. Several such supports may come from the same codeword with a larger full agreement support. The origin files explicitly warn that raw support fibers can be exponentially larger than actual lists (`paper_b_counterexample_comparison.md:34–91`; `l2_interleaved_support_bridge.md:71–138`).
+
+Moreover, different slopes correspond to different received words (f+zg). They do not form a list around one fixed received word.
+
+The extension-coordinate transfer likewise produces a parameterized multiplication-slice family, not a large list around one fixed interleaved received matrix. Therefore this route directly threatens the MCA challenge, not the list-decoding challenge.
+
+It does, however, yield the corresponding lower bound for the **support-wise** line-decoding numerator, because each counted slope has an exact noncontained support. It does not imply an ordinary close-point line-decoding or interleaved-list lower bound without an additional common-support/full-support argument.
+
+---
+
+## EXACT_NEW_WALL
+
+The target Bessel wall is solved. The next mathematical wall for the grand MCA challenge is:
+
+```text
+W-M1-AA-RES-ABOVE-ENTROPY-QUOTIENT-SEPARATED-UNIFORM-UPPER-PACKING
+```
+
+The exact needed lemma is the deterministic upper counterpart to the theorem above:
+
+> Let (L_n) be generated-field smooth domains, (k_n/n\to\rho), and let (\sigma_n) clear the generated-field entropy reserve and the quotient profile. For every reduced residue-line datum ((E,B_{\rm num},w)), especially in the balanced range (\deg E=t=\sigma_n), bound the number of slopes (z) for which some (a=k+\sigma_n) support has
+> [
+> [I_S(w)]*E=z[B*{\rm num}]_E
+> ]
+> and is noncontained, by
+> [
+> n^{1+o(1)}
+> ]
+> after quotient-pullback denominator families are separated.
+
+This is genuinely new. The Bessel proof averages over anchors and proves existence of rich anchors below entropy. MCA’s positive side maximizes over anchors, so no averaging argument can provide the required worst-anchor upper bound above entropy.
+
+A clean experimental-PR theorem statement is therefore:
+
+> **Domain-uniform balanced residue-line failure theorem.**
+> Let (F=\mathbb F_Q), (L\subseteq F^\times) have size (n), and (C=\operatorname{RS}[F,L,k]). For (1\le t\le n-k), put (a=k+t), (j=n-a), and
+> [
+> J=\sum_{d<t}\binom jd\binom adQ^{-d}.
+> ]
+> Then there exists (w:L\to F) such that the line
+> [
+> f=w/X^t,\qquad g=-1/X^t
+> ]
+> has at least
+> [
+> Q-\left\lfloor
+> \frac{Q^{t+1}J}{\binom n{k+t}}
+> \right\rfloor
+> ]
+> support-wise MCA-bad slopes at radius (j/n). In particular,
+> [
+> \varepsilon_{\rm mca}(C,j/n)
+> \ge
+> \left(1-\frac{Q^tJ}{\binom n{k+t}}\right)*+,
+> ]
+> and if (\binom n{k+t}>Q^{t+1}J), then (\varepsilon*{\rm mca}(C,j/n)=1). For every generated-field family with (Q=2^{o(n)}), (k/n\to\rho), and (t=(c+o(1))n/\log_2Q), this gives error one for every strict (c<H_2(\rho)).
+
+**Do you see a route to a full solve?** Yes. This theorem closes the lower/failure side. The next exact lemma is the quotient-separated, balanced arbitrary-anchor residue-cloud **upper** local limit stated above, together with its finite critical-window form near (t\log_2q_{\rm line}=\log_2\binom n{k+t}).

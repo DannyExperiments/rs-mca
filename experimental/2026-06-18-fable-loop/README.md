@@ -1286,3 +1286,27 @@ Cycle 46 instance-3 Frobenius-compression supplement:
   `-1/(X-theta)`. This is literally allowed by the local residue-datum
   definition, but it may be considered a nonminimal-denominator artifact by a
   reviewer. It is not promoted to a final prize claim.
+
+Cycle 47 domain-uniform Bessel moment audit:
+
+- `raw/cycle47_domain_uniform_bessel_5p5/`
+- `audits/20260619_CYCLE47_DOMAIN_UNIFORM_BESSEL_AUDIT.md`
+- Status: `PROOF_CANDIDATE / BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT`.
+- Major claim: the domain-uniform Bessel wall
+  `W-F1-AA-RES-DOMAIN-UNIFORM-BESSEL-MOMENT` is closed at the
+  algebraic/source-local lower-branch level. The exact pair-rank lemma is
+  domain-free, and the near-shell factor is
+  `J <= I_0(2 sqrt(aj/Q)) <= exp(2 sqrt(aj/Q))`.
+- Smooth-domain consequence: for a smooth multiplicative domain `L subset F^*`,
+  take `E=X^t`, `B_num=1`, `f=w/E`, and `g=-1/E`. There exists an anchor with
+  at least a `1-J/lambda` fraction of bad slopes, and all slopes are bad if
+  `lambda=binom(n,k+t)/Q^t > QJ`.
+- Entropy consequence: when `k/n -> rho`, `t=(c+o(1))n/log_2 Q`, and
+  `log_2 Q=o(n)`, the source-local lower/failure branch gives
+  `epsilon_mca=1` throughout the strict range `c < H_2(rho)`.
+- Not solved: the matching safe-side upper theorem above entropy, literal
+  survey Definition 4.3 alignment, and the grand list-decoding threshold.
+- New main wall:
+  `W-MCA-AA-RES-ENTROPY-BOUNDARY-MATCHING-UPPER`, equivalently a uniform
+  high-cloud inverse theorem for balanced arbitrary-anchor residue clouds after
+  quotient-pullback and tangent/contained templates are separated.

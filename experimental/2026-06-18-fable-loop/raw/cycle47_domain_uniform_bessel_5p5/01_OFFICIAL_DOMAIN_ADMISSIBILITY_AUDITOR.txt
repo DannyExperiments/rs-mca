@@ -1,0 +1,695 @@
+## VERDICT
+
+**AUDIT — algebraic PROOF; literal-official promotion admissible under one extra source check.**
+
+The exact pair-rank lemma and Bessel-moment argument **do prove a domain-uniform, scalar, same-field smooth-domain MCA failure theorem** under the packet’s explicit support-wise MCA definition. The proof needs only interpolation on distinct evaluation points. It does not use (D=\mathbb F_p), additivity, (X^p-X), a quadratic extension, Frobenius, or a shared denominator factor.
+
+The remaining admissibility obstruction is external to that algebra: the packet explicitly says that the paper’s support-wise MCA definition has not yet been matched quantifier-by-quantifier to the survey’s formal Definition 4.3. The survey definition itself is not included in the packet, so under the instruction not to assume unstated definitions, literal official promotion remains conditional on that alignment. The official challenge also asks for matching upper and lower sides of the threshold for each code; Bessel gives the lower/failure side, not the matching upper side. 【proximity_blueprint_v3.tex, lines 100–122】【proximity_blueprint_v3.tex, lines 631–640】
+
+**Hard ruling:**
+
+* **Pair-rank/Bessel theorem:** yes, proved.
+* **Scalar smooth-domain MCA lower branch:** yes, source-locally admissible.
+* **Need for (D=\mathbb F_p) additivity:** no.
+* **Need for (\mathbb F_{q^2}):** no.
+* **Interleaved-only phenomenon:** no, although extension coordinates give an equivalent interleaved-base representation.
+* **Nonminimal-denominator obstruction:** no for the Bessel route.
+* **Literal official challenge solved:** no; official-definition alignment and the matching upper theorem remain.
+
+Confidence: **high**.
+
+---
+
+## LEDGER
+
+Let (\mathbb B) denote the generated/base field, to avoid confusing it with the residue numerator (B_{\rm num}).
+
+| Quantity       | Domain-uniform theorem                                                               | Same-field scalar specialization                             |   |               |   |   |
+| -------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------ | - | ------------- | - | - |
+| (\mathbb B)    | Smallest field containing the domain and locator data                                | (\mathbb B=F)                                                |   |               |   |   |
+| (q_{\rm gen})  | (                                                                                    | \mathbb B                                                    | ) | (q_{\rm gen}= | F | ) |
+| (F)            | Alphabet and line field (\mathbb F_Q)                                                | Same field used by (RS[F,L,k])                               |   |               |   |   |
+| (q_{\rm line}) | (Q=                                                                                  | F                                                            | ) | (Q)           |   |   |
+| (q_{\rm chal}) | **Not mathematically defined in the packet**; protocol-dependent                     | Unused unless a reduction identifies it with (q_{\rm line})  |   |               |   |   |
+| (D/L)          | Any (n) distinct points for pair-rank; official (L) is a smooth multiplicative coset | (L\subset F^\times), (                                       | L | =n=2^m)       |   |   |
+| (k)            | RS dimension                                                                         | (k=\rho n)                                                   |   |               |   |   |
+| (t=\sigma)     | Denominator degree and balanced reserve                                              | (1\le t\le n-k)                                              |   |               |   |   |
+| (a)            | Agreement-support size                                                               | (a=k+t)                                                      |   |               |   |   |
+| (j)            | Cosupport size                                                                       | (j=n-a)                                                      |   |               |   |   |
+| (E)            | Degree (t), nonzero on (L)                                                           | May take (E=X^t)                                             |   |               |   |   |
+| (B_{\rm num})  | Nonzero polynomial of degree (<t)                                                    | May take (B_{\rm num}=1)                                     |   |               |   |   |
+| (w)            | Uniform random element of (F^L)                                                      | Existential, and typical when the moment ratio tends to zero |   |               |   |   |
+
+The packet explicitly defines (q_{\rm gen}) as the generated-field size and (q_{\rm line}) as the field from which the line challenge is sampled. It separately warns not to assume (q_{\rm line}=q_{\rm chal}). There is no corresponding definition of (q_{\rm chal}), only a macro and that warning. 【proximity_blueprint_v3.tex, lines 228–251】【proximity_blueprint_v3.tex, lines 722–726】
+
+For the Bessel calculation, the relevant cardinality is (Q=q_{\rm line}), because (w) is genuinely (F)-valued and the residue maps are (F)-linear. It is not legitimate to replace (Q) by (q_{\rm gen}) when (\mathbb B\subsetneq F).
+
+---
+
+## THEOREM_OR_FALSIFIER
+
+### Domain-uniform random-anchor Bessel theorem
+
+Let (F=\mathbb F_Q), let (D\subset F) consist of (n) distinct points, and let
+[
+C=RS[F,D,k].
+]
+Fix (1\le t\le n-k), and put
+[
+a=k+t,\qquad j=n-a,\qquad N=\binom nj.
+]
+
+Let (E\in F[X]) have degree (t) and no zero on (D). Let
+[
+0\ne B_{\rm num}\in F[X]*{<t},
+\qquad
+A_E=F[X]/(E),
+\qquad
+b=[B*{\rm num}]_E\ne0.
+]
+
+For (T\in\binom Dj), write (S=D\setminus T). Given (w\in F^D), let (I_S(w)\in F[X]_{<a}) be the polynomial interpolating (w) on (S), and define
+[
+R_T(w)=\rho_w(T):=[I_S(w)]_E\in A_E.
+]
+For (z\in F), put
+[
+\nu_w(z)=
+#\left{T\in\binom Dj:\rho_w(T)=zb\right}.
+]
+
+Define
+[
+\lambda=\frac{N}{Q^t},
+\qquad
+K_r=\binom jr\binom ar,
+\qquad
+J_t=\sum_{0\le r<t}K_rQ^{-r}.
+]
+
+Then:
+
+1. For every (z\in F),
+   [
+   \mathbb E_w\nu_w(z)=\lambda.
+   ]
+
+2. If (T,T'\in\binom Dj) and
+   [
+   r=|T\setminus T'|=|S\setminus S'|,
+   ]
+   then
+   [
+   \operatorname{rank}*F(R_T,R*{T'})
+   =t+\min(t,r),
+   ]
+   and therefore
+   [
+   \Pr_w!\left[\rho_w(T)=zb,\ \rho_w(T')=zb\right]
+   =Q^{-t-\min(t,r)}.
+   ]
+
+3. The variance is exactly
+   [
+   \operatorname{Var}\nu_w(z)
+   ==========================
+
+   \lambda
+   \sum_{0\le r<t}
+   K_r\bigl(Q^{-r}-Q^{-t}\bigr)
+   \le \lambda J_t.
+   ]
+
+4. Consequently,
+   [
+   \mathbb E_w\sum_{z\in F}
+   \bigl(\nu_w(z)-\lambda\bigr)^2
+   \le Q\lambda J_t.
+   ]
+
+5. There is a deterministic anchor (w) for which the number (M(w)) of missing slopes satisfies
+   [
+   M(w)\le \frac{QJ_t}{\lambda}.
+   ]
+   Moreover, for a uniformly random anchor,
+   [
+   \Pr_w[\text{some slope is missing}]
+   \le\frac{QJ_t}{\lambda}.
+   ]
+
+6. The shell factor obeys
+   [
+   J_t
+   \le
+   \sum_{r\ge0}\frac{(aj/Q)^r}{(r!)^2}
+   \le
+   \exp!\left(2\sqrt{\frac{aj}{Q}}\right)
+   \le
+   \exp!\left(\frac n{\sqrt Q}\right).
+   ]
+
+7. The residue datum ((E,B_{\rm num},w)) gives
+   [
+   \varepsilon_{\rm mca}
+   \left(C,1-\frac{k+t}{n}\right)
+   \ge
+   1-\frac{J_t}{\lambda}.
+   ]
+   In particular,
+   [
+   \boxed{\lambda>QJ_t
+   \quad\Longrightarrow\quad
+   \varepsilon_{\rm mca}
+   \left(C,1-\frac{k+t}{n}\right)=1.}
+   ]
+
+This is the exact finite theorem. No asymptotic or unproved distributional input is required.
+
+The residue-line datum in the source explicitly permits an arbitrary anchor (w:D\to F), and its exact normal form converts noncontained residue witnesses into MCA-bad slopes. 【slackMCA_v3.tex, lines 1187–1207】
+
+### Smooth-domain asymptotic corollary
+
+Let (L_n\subseteq\mathbb F_{Q_n}^{\times}) be any sequence of smooth multiplicative cosets with (|L_n|=n), let (k/n\to\rho\in(0,1)), and suppose
+[
+\log_2Q_n=o(n).
+]
+If
+[
+t=
+\left(C+o(1)\right)\frac{n}{\log_2Q_n},
+\qquad
+C<H_2(\rho),
+]
+then
+[
+\log_2\lambda
+=============
+
+\bigl(H_2(\rho)-C+o(1)\bigr)n,
+]
+while
+[
+\log_2(Q_nJ_t)=o(n).
+]
+Hence, for all sufficiently large (n),
+[
+\varepsilon_{\rm mca}
+\left(RS[\mathbb F_{Q_n},L_n,k],
+1-\frac{k+t}{n}\right)=1.
+]
+
+This applies uniformly to subgroups and cosets; no additive-domain assumption appears.
+
+---
+
+## PROOF_OR_OBSTRUCTION
+
+### 1. Exact pair-rank uses interpolation only
+
+Fix (T,T'), with supports (S=D\setminus T) and (S'=D\setminus T'). Put
+[
+C_0=S\cap S',
+\qquad
+r=|S\setminus S'|.
+]
+
+For an anchor (w), let
+[
+P=I_S(w),\qquad P'=I_{S'}(w).
+]
+Both have degree (<a), and they agree on (C_0). Therefore
+[
+P-P'=L_{C_0}H
+]
+for some (H\in F[X]*{<r}), because
+[
+\deg L*{C_0}=|C_0|=a-r.
+]
+Thus
+[
+R_T(w)-R_{T'}(w)
+\in [L_{C_0}F[X]_{<r}]_E.
+]
+
+Conversely, suppose (u,v\in A_E) and
+[
+u-v=[L_{C_0}H]*E,\qquad \deg H<r.
+]
+Choose the degree-(<t) representative (V) of (v), and set
+[
+P'=V,\qquad P=V+L*{C_0}H.
+]
+Then (\deg P,\deg P'<a), their residues are (u,v), and they agree on (C_0). They therefore define one word (w) on (S\cup S'), extendable arbitrarily to (D). Hence
+[
+\operatorname{Im}(R_T,R_{T'})
+=============================
+
+\left{(u,v)\in A_E^2:
+u-v\in[L_{C_0}F[X]_{<r}]_E\right}.
+]
+
+Because (E) has no roots in (D),
+[
+\gcd(E,L_{C_0})=1,
+]
+so multiplication by ([L_{C_0}]*E) is invertible. Reduction of (F[X]*{<r}) modulo a degree-(t) polynomial has rank (\min(r,t)). Thus
+[
+\operatorname{rank}(R_T,R_{T'})
+=t+\min(t,r).
+]
+
+No use has been made of additive closure, characteristic (p), (D=\mathbb F_p), or any formula involving (X^p-X). This proves the Cycle46 domain-free pair-rank assertion rather than merely assuming it. The prior audit stated precisely this candidate law and identified interpolation as its only mechanism. 【20260619_CYCLE46_TARGETED_WALLBREAKER_AUDIT.md, lines 43–76】
+
+### 2. First and second moments
+
+Each (R_T) is surjective: for any residue (u), take its representative of degree (<t<a) and use its evaluations on (S). Hence (\rho_w(T)) is uniform on the (Q^t)-element space (A_E), giving
+[
+\mathbb E\nu_w(z)=NQ^{-t}=\lambda.
+]
+
+For the pair (T,T'), the target ((zb,zb)) belongs to the pair-map image because its difference is zero. A rank-(d) linear map sends a uniform input to each image point with probability (Q^{-d}), giving the exact joint probability above.
+
+For fixed (T), the number of (T') at exchange distance (r) is
+[
+K_r=\binom jr\binom ar:
+]
+remove (r) elements from (T) and insert (r) elements from (D\setminus T). Also
+[
+\sum_rK_r=N.
+]
+It follows that
+[
+\mathbb E\nu_w(z)^2
+===================
+
+\lambda\sum_rK_rQ^{-\min(t,r)}.
+]
+Subtracting
+[
+\lambda^2
+=========
+
+\lambda\sum_rK_rQ^{-t}
+]
+gives the exact variance formula.
+
+### 3. Bessel shell
+
+For each (r),
+[
+\binom ar\binom jr
+\le
+\frac{(aj)^r}{(r!)^2}.
+]
+Therefore
+[
+J_t\le\sum_{r\ge0}\frac{(aj/Q)^r}{(r!)^2}.
+]
+For (y\ge0),
+[
+\sum_{r\ge0}\frac{y^r}{(r!)^2}
+\le
+\left(\sum_{r\ge0}\frac{y^{r/2}}{r!}\right)^2
+=e^{2\sqrt y}.
+]
+Finally,
+[
+2\sqrt{aj}\le a+j=n.
+]
+
+This establishes the proposed shell bound exactly.
+
+### 4. Landing in MCA
+
+Suppose (\rho_w(T)=zb), with (S=D\setminus T), and let
+[
+Q_z=I_S(w).
+]
+Then
+[
+Q_z\equiv zB_{\rm num}\pmod E,
+]
+so
+[
+P_z=\frac{Q_z-zB_{\rm num}}E
+]
+is a polynomial of degree (<k). Define the two words
+[
+f=\frac wE,\qquad
+g=-\frac{B_{\rm num}}E
+]
+pointwise on (D). On (S),
+[
+f+zg
+====
+
+# \frac{w-zB_{\rm num}}E
+
+P_z.
+]
+Thus (f+zg) agrees with a codeword on the (a=k+t) points of (S).
+
+Noncontainment is automatic from the direction. If (G\in F[X]*{<k}) explained (g) on (S), then
+[
+EG+B*{\rm num}
+]
+would vanish on (k+t) points while having degree (<k+t). It would be the zero polynomial, which would imply (E\mid B_{\rm num}). Since
+[
+0<\deg E=t,\qquad \deg B_{\rm num}<t,\qquad B_{\rm num}\ne0,
+]
+that is impossible.
+
+Therefore every realized slope is support-wise MCA-bad.
+
+The explicit source definition maximizes over arbitrary words (f,g\in F^D), so an existentially chosen random anchor is legitimate. 【slackMCA_v3.tex, lines 639–653】
+
+---
+
+## SOURCE_ADMISSIBILITY_CHECK
+
+### 1. Official domain
+
+The packet’s survey restatement defines a smooth domain as a multiplicative coset of a power-of-two-order subgroup. Paper B often uses subgroups, and the packet itself records this subgroup/coset drift. 【proximity_blueprint_v3.tex, lines 100–112】【proximity_blueprint_v3.tex, lines 691–695】
+
+The pair-rank theorem holds for **any set of distinct points**. For the MCA landing, a multiplicative coset lies in (F^\times), so (E=X^t) is nonzero on the domain. Thus the subgroup-to-coset drift causes no mathematical loss.
+
+**Ruling: admissible.**
+
+### 2. (q_{\rm gen},q_{\rm line},q_{\rm chal})
+
+* (q_{\rm gen}): size of the smallest field containing the domain and locator coefficients.
+* (q_{\rm line}): size of the field from which (z) is sampled and in which the line experiment is analyzed.
+* (q_{\rm chal}): not defined in the packet as a mathematical quantity. The packet only warns that it need not equal (q_{\rm line}).
+
+For the scalar MCA theorem,
+[
+Q=q_{\rm line}=|F|.
+]
+In the same-field specialization,
+[
+q_{\rm gen}=q_{\rm line}=|F|.
+]
+No statement involving (q_{\rm chal}) follows without a protocol reduction.
+
+**Ruling: theorem admissible; any protocol-level identification with (q_{\rm chal}) requires an extra hypothesis.**
+
+### 3. Arbitrary anchors
+
+The residue-line definition explicitly says
+[
+w:D\to F
+]
+is an arbitrary anchor word. It does not require (w) to be polynomial, base-valued, monic, or canonical. 【slackMCA_v3.tex, lines 1187–1195】
+
+The origin audit likewise says arbitrary anchors are part of the definition and that restricting to monic anchors does not cover the full problem. 【paper_b_counterexample_comparison.md, lines 149–194】
+
+**Ruling: random-anchor selection is literally admissible.**
+
+### 4. Quadratic extension alphabet
+
+The proof is over one arbitrary finite field (F=\mathbb F_Q). It does not require
+[
+\mathbb F_q\subset\mathbb F_{q^2}.
+]
+The Cycle45 half-entropy threshold arose from its particular ledger
+[
+n=p,\qquad q_{\rm line}=p^2,
+]
+not from the pair-rank lemma.
+
+For an official code (RS[F,L,k]), simply run the theorem over that same (F). In particular, setting (\mathbb B=F) removes every extension issue.
+
+**Ruling: no field mismatch.**
+
+### 5. Extension-coordinate transfer
+
+When (L\subseteq\mathbb B\subsetneq F), coordinate expansion gives
+[
+RS[F,L,k]\cong RS[\mathbb B,L,k]^e,
+]
+and an (F)-line becomes the structured multiplication slice
+[
+\Phi(f)+M_z\Phi(g).
+]
+The source proves this equivalence exactly. 【f1_extension_coordinate_transfer.md, lines 5–63】
+
+This does **not** make the result non-scalar in the official alphabet-(F) formulation. It means the same scalar (F)-construction has an equivalent interleaved-(\mathbb B) representation. What would be invalid is to call it ordinary scalar MCA for (RS[\mathbb B,L,k]), or to infer it from a base-field scalar numerator.
+
+**Ruling: scalar for the official (F)-code; multiplication-slice interleaved when rewritten over (\mathbb B).**
+
+### 6. Minimal denominator and shared factors
+
+The Frobenius-compressed construction has
+[
+E=H(X)(X-\theta),\qquad B_{\rm num}=H(X),
+]
+so
+[
+\gcd(E,B_{\rm num})=H.
+]
+Its rational direction reduces to denominator degree one, which is why the packet calls it a possible packaging artifact. 【20260619_CYCLE46_INSTANCE3_FROBENIUS_COMPRESSED_AUDIT.md, lines 137–169】
+
+For the Bessel route, choose
+[
+E=X^t,\qquad B_{\rm num}=1.
+]
+Then
+[
+\gcd(E,B_{\rm num})=1.
+]
+Thus even a strengthened reduced-denominator convention would not remove the construction.
+
+**Ruling: nonminimality matters only to the Frobenius-compressed route, not to Bessel.**
+
+### 7. Remaining literal-official source obstruction
+
+The packet explicitly lists as unfinished the alignment between the paper’s support-wise MCA definition and the survey’s formal Definition 4.3, including quantifiers and finite-length rounding. The formal survey definition is absent from the packet. 【proximity_blueprint_v3.tex, lines 631–640】
+
+Therefore:
+
+> The theorem is fully proved for the packet’s explicit support-wise MCA object. Its promotion to the literal official challenge is conditional on the missing definition-alignment check.
+
+This is the only genuine source-admissibility obstruction found.
+
+---
+
+## RELATION_TO_PRZ_ORIGIN_FILES
+
+The origin comparison identifies balanced arbitrary-anchor residue clouds as the live F1 wall:
+[
+t=\sigma,\qquad
+\operatorname{Cloud}_E(w,a)
+===========================
+
+{[Q_S^w]_E:|S|=a}.
+]
+The Bessel theorem works exactly in this balanced arbitrary-anchor regime. It settles a substantial **failure-side** statement: below the residue entropy threshold, a typical anchor makes this cloud meet the entire scalar line (Fb). 【paper_b_counterexample_comparison.md, lines 149–194】
+
+It does not contradict Paper B’s corrected positive conjecture. That conjecture only predicts a small packing after the reserve clears the entropy and quotient scales; it expressly leaves the below-entropy failure half dependent on equidistribution. The Bessel theorem supplies precisely such equidistribution for randomly selected anchors. 【slackMCA_v3.tex, lines 1231–1252】
+
+The degree-one extension counterexamples and failed same-numerator lift are also consistent with the theorem. The Bessel route does not lift a base-field numerator. It constructs the (F)-valued line directly. 【paper_b_counterexample_comparison.md, lines 93–147】
+
+The raw locator-fiber overcount problem is irrelevant here. MCA only asks whether a slope has at least one noncontained support witness. Multiple supports witnessing the same slope improve (\nu_w(z)); they are not being misidentified as distinct nearby codewords.
+
+---
+
+## RELATION_TO_FROBENIUS_COMPRESSION
+
+The Bessel route strictly dominates Frobenius compression for the scalar smooth-domain failure branch:
+
+[
+\begin{array}{c|c|c}
+& \text{Bessel route} & \text{Frobenius-compressed route}\ \hline
+\text{Domain} & \text{arbitrary distinct }D;\ \text{official smooth }L & D=\mathbb F_p\ \text{in the original branch}\
+\text{Field} & \text{one arbitrary }F & \mathbb F_p\subset\mathbb F_{p^2}\
+\text{Anchor} & F\text{-valued arbitrary/random} & \mathbb F_p\text{-valued}\
+\text{Denominator} & E=X^t,\ B_{\rm num}=1 & E=H(X)(X-\theta),\ B_{\rm num}=H\
+\text{Reduced?} & \gcd(E,B_{\rm num})=1 & \gcd(E,B_{\rm num})=H\
+\text{Mechanism} & \text{interpolation rank} & \text{Frobenius envelope}\
+\end{array}
+]
+
+Frobenius compression remains potentially useful only for a protocol-specific restriction requiring base-valued anchors or a particular extension-field presentation. The official support-wise MCA maximum in the packet imposes no such restriction.
+
+---
+
+## MCA_AND_LIST_DECODING_IMPLICATIONS
+
+### Entropy constants at the four challenge rates
+
+The all-slope asymptotic range is
+[
+t=
+\left(C+o(1)\right)\frac n{\log_2q_{\rm line}},
+\qquad
+C<H_2(\rho).
+]
+
+The four strict thresholds are:
+
+[
+\begin{array}{c|c}
+\rho & H_2(\rho)\ \hline
+1/2 & 1\
+1/4 & 0.8112781244\ldots\
+1/8 & 0.5435644432\ldots\
+1/16 & 0.3372900666\ldots
+\end{array}
+]
+
+Thus the apparent Cycle45 value (H_2(\rho)/2) is not intrinsic. It came from
+[
+q_{\rm line}=p^2,\qquad n=p.
+]
+In the same-field ledger, the threshold is (H_2(\rho)).
+
+### Finite counterpacket inside the stated challenge envelope
+
+The packet itself identifies the Fermat field (p=65537). Take
+[
+F=\mathbb F_{65537},
+\qquad
+L=F^\times,
+\qquad
+n=65536=2^{16}.
+]
+This is a smooth multiplicative subgroup and satisfies
+[
+|F|<2^{256},\qquad k\le2^{40}
+]
+at all four rates. 【slackMCA_v3.tex, lines 643–657】【proximity_blueprint_v3.tex, lines 100–112】
+
+Choose
+[
+t=511,\qquad E=X^{511},\qquad B_{\rm num}=1.
+]
+For every challenge rate, let (k=\rho n) and (a=k+511).
+
+Since
+[
+J_t\le e^{n/\sqrt{|F|}}<e^{256}
+]
+and
+[
+|F|<2^{17},
+]
+we have
+[
+|F|J_t<2^{401}.
+]
+
+On the other hand,
+[
+\binom na\ge\left(\frac na\right)^a,
+\qquad
+|F|^{511}<2^{8687}.
+]
+Elementary bounds give:
+
+[
+\begin{array}{c|c|c}
+\rho & a & \log_2\lambda\ \text{lower bound}\ \hline
+1/2 & 33279 & >7952\
+1/4 & 16895 & >8208\
+1/8 & 8703 & >8719\
+1/16 & 4607 & >5134
+\end{array}
+]
+
+Hence in all four cases
+[
+\lambda>|F|J_t.
+]
+Therefore an anchor (w\in F^L) exists such that every (z\in F) is bad, and indeed
+[
+\Pr_w[\text{all slopes bad}]
+
+>
+
+1-2^{-4733}.
+]
+
+Consequently, under the packet’s support-wise definition,
+[
+\boxed{
+\varepsilon_{\rm mca}
+\left(
+RS[\mathbb F_{65537},\mathbb F_{65537}^{\times},\rho\cdot65536],
+1-\rho-\frac{511}{65536}
+\right)=1
+}
+]
+for every
+[
+\rho\in\left{\frac12,\frac14,\frac18,\frac1{16}\right}.
+]
+
+Thus, conditionally on official-definition alignment,
+[
+\delta^*_{\rm mca}(C,2^{-128})
+\le
+1-\rho-\frac{511}{65536}.
+]
+
+This finite construction also avoids the quotient-periodic-denominator concern: every proper (M\mid\gcd(n,k)) is even, whereas (511) is odd, so (X^{511}) is not a pullback polynomial in (X^M). It is also reduced because (\gcd(X^{511},1)=1).
+
+### What it does not prove about list decoding
+
+Many MCA slopes do not automatically give a large interleaved list at one common received word. Different slopes concern different received words (f+zg), and the one-bad-parameter-per-support law obstructs the naive conversion.
+
+The source’s interleaved bridge instead counts tuples whose full agreement supports have a large common intersection. 【l2_interleaved_support_bridge.md, lines 38–69】【l2_interleaved_support_bridge.md, lines 71–138】
+
+Accordingly:
+
+* This proves a scalar MCA failure theorem.
+* It does not determine (\delta^*_{\rm list}(C,m,2^{-128})).
+* Under extension coordinates it gives a multiplication-slice bad family in an interleaved base code, not a large ordinary interleaved list.
+* The separate (m)-anchor zero-residue list construction in Cycle46 remains a distinct argument and was itself classified as not yet determining the grand list threshold. 【20260619_CYCLE46_TARGETED_WALLBREAKER_AUDIT.md, lines 196–230】
+
+---
+
+## EXACT_NEW_WALL
+
+The mathematical target
+
+```text
+W-F1-AA-RES-DOMAIN-UNIFORM-BESSEL-MOMENT
+```
+
+is closed for the source-local support-wise MCA definition.
+
+The immediate source wall is:
+
+```text
+W-OFFICIAL-MCA-DEFINITION-4.3-ALIGNMENT
+```
+
+It must verify that the survey’s literal MCA definition has exactly the same:
+
+* quantification over arbitrary (F)-valued (f,g);
+* scalar parameter range (z\in F);
+* same-support noncontainment condition;
+* finite-length rounding;
+* subgroup/coset convention.
+
+After that, the mathematical wall for a full threshold determination is:
+
+```text
+W-OFFICIAL-MCA-MATCHING-UPPER-ARBITRARY-ANCHOR-RESIDUE-CLOUD
+```
+
+A sufficient exact lemma would be an upper theorem of the following form: once the generated-field entropy reserve and quotient profile are cleared, uniformly over every (E), (B_{\rm num}), and arbitrary anchor (w),
+[
+\Lambda^{\rm NC}_{t,,1-\rho-\eta}(L,k)
+\le
+n^{1+o(1)}
++
+\text{the explicit quotient-profile contribution}.
+]
+For (t<\sigma), this should be obtained through the repaired actual-list/full-support theorem at residual slack (\sigma-t). For balanced (t=\sigma), it is precisely the arbitrary-anchor residue-cloud upper bound identified in the origin audits.
+
+A deterministic explicit anchor construction would improve the reviewer-facing counterpacket, but it is not necessary for the existential MCA theorem; conditional expectation or an explicit small-bias interpolation family is the natural derandomization target.
+
+## Do you see a route to a full solve? If yes, what is the next exact lemma or construction?
+
+Yes. First discharge the survey Definition 4.3 alignment. Then prove the matching upper-side balanced arbitrary-anchor residue-cloud theorem; that, combined with the residual-list reduction for (t<\sigma), is the next exact lemma needed for a full official MCA threshold result.

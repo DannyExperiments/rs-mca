@@ -1319,3 +1319,37 @@ Keep entries concise and link to the relevant files.
 - **What to do next:** Decide whether reduced denominators are required; then
   test whether the same envelope proof works cleanly on smooth multiplicative
   subgroups/cosets `D subset F_p^*`.
+
+### 2026-06-19 - Cycle 47 domain-uniform Bessel moment audit
+
+- **Agent/model:** Codex auditing six fresh external 5.5 Pro-style answers
+  against the repo-aware Cycle 47 Bessel packet.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/cycle47_domain_uniform_bessel_5p5/`,
+  `experimental/2026-06-18-fable-loop/audits/20260619_CYCLE47_DOMAIN_UNIFORM_BESSEL_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** PROOF_CANDIDATE / BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT.
+- **Consensus:** Five answers classify
+  `W-F1-AA-RES-DOMAIN-UNIFORM-BESSEL-MOMENT` as `PROOF`; the admissibility
+  auditor classifies it as algebraic `PROOF` with literal-official promotion
+  conditional on matching the survey's MCA Definition 4.3 to the source
+  support-wise definition.
+- **Banked theorem candidate:** For any distinct-point domain `D subset F_Q`,
+  the pair-rank lemma is domain-free:
+  `rank_F(w -> (R_S(w),R_S'(w))) = t + min(t, |S\S'|)`. The shell factor is
+  `J <= I_0(2 sqrt(aj/Q)) <= exp(2 sqrt(aj/Q))`, giving an anchor with missed
+  slopes at most `QJ/lambda`, where
+  `lambda=binom(n,k+t)/Q^t`.
+- **Smooth-domain lower branch:** For smooth multiplicative `L subset F^*`,
+  `E=X^t`, `B_num=1`, `f=w/E`, and `g=-1/E` give a source-local MCA failure
+  branch. If `lambda > QJ`, every slope is bad. Asymptotically, for
+  `t=(c+o(1))n/log_2 Q` and `log_2 Q=o(n)`, this reaches the strict range
+  `c < H_2(rho)`.
+- **Not solved:** The matching safe-side upper theorem, the exact official
+  threshold, and the list-decoding grand challenge remain open. The list-side
+  `m`-anchor construction gives the ordinary exponent `H_2(rho)-mc`, not the
+  scalar MCA coefficient for `m>=2`.
+- **New main wall:** `W-MCA-AA-RES-ENTROPY-BOUNDARY-MATCHING-UPPER`: a uniform
+  high-cloud inverse theorem for balanced arbitrary-anchor residue clouds,
+  after quotient-pullback, tangent/contained, and residual-list templates are
+  separated.

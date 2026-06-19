@@ -29,21 +29,40 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-19 - Experimental folder streamlining
+
+- **Agent/model:** Codex.
+- **Files added or changed:** `experimental/README.md`,
+  `experimental/notes/README.md`, `experimental/scripts/README.md`,
+  `experimental/data/README.md`, plus repository moves under
+  `experimental/notes/`, `experimental/scripts/`, `experimental/data/`, and
+  `experimental/lean/`.
+- **Status:** AUDIT.
+- **What is being added:** Reorganized the experimental workspace into four
+  durable buckets: notes, scripts, compact data, and Lean. Removed generated
+  Python caches and raw/prompt transcript dumps from dated AI-loop artifacts.
+- **How it is useful:** Future agents now have a small root surface and a clear
+  placement policy. Audited summaries and reproducible scripts remain, while
+  bulky model-run provenance that was not needed for review is gone.
+- **What to do next:** Keep new work inside the existing buckets, update
+  `README.md` if a genuinely new bucket is needed, and avoid adding raw
+  transcript archives unless they are the only reproducibility artifact.
+
 ### 2026-06-19 - PR #82/#84-#95 experimental integration
 
 - **Agent/model:** AllenGrahamHart, scottdhughes, latifkasuli,
   DannyExperiments PRs, integrated by Codex.
-- **Files added or changed:** `experimental/pr-triage-2026-06-19.md`,
+- **Files added or changed:** `experimental/notes/triage/pr-triage-2026-06-19.md`,
   `experimental/SUMMARY.md`, `experimental/agents-log.md`,
-  `experimental/l1_prefix_divisor_count.md`,
-  `experimental/l1_quotient_defect_closure.md`,
-  `experimental/l1_repaired_locator_theorem_package.md`,
-  `experimental/l2_interleaved_dilation_constants.md`,
-  `experimental/2026-06-19-mca-frontier-nfb-certificate/README.md`,
-  `experimental/2026-06-19-mca-frontier-nfb-certificate/nfb_deployed_certificate.json`,
-  `experimental/m1_residue_line_roadmap.md`, M1 depth-two Kummer notes and
+  `experimental/notes/l1/l1_prefix_divisor_count.md`,
+  `experimental/notes/l1/l1_quotient_defect_closure.md`,
+  `experimental/notes/l1/l1_repaired_locator_theorem_package.md`,
+  `experimental/notes/l2/l2_interleaved_dilation_constants.md`,
+  `experimental/data/certificates/nfb-frontier-20260619/README.md`,
+  `experimental/data/certificates/nfb-frontier-20260619/nfb_deployed_certificate.json`,
+  `experimental/notes/m1/m1_residue_line_roadmap.md`, M1 depth-two Kummer notes and
   verifiers, L1/L2 verifier scripts, and the selected
-  `experimental/2026-06-18-fable-loop/PRZ_REVIEW_INDEX.md` Cycle 49--57 audit
+  `experimental/notes/f1/fable-loop/PRZ_REVIEW_INDEX.md` Cycle 49--57 audit
   layer.
 - **Status:** PROVED / CONDITIONAL / CONJECTURAL / EXPERIMENTAL / AUDIT, as
   marked per file.
@@ -52,8 +71,8 @@ Keep entries concise and link to the relevant files.
   L1 prefix/divisor/Fourier split; PR #92 adds L2 interleaved dilation and
   quotient-core constants; PR #94 adds a compact `F\B` deep-hole certificate
   packet; PR #82 adds the M1 low-slack Kummer/depth-two packet; PR #95 is
-  integrated only as review index plus cycle audits/prompts, not as a raw
-  225k-line archive.
+  integrated only as review index plus cycle audits, not as a raw 225k-line
+  archive.
 - **How it is useful:** Gives future work clear entry points: L1 quotient
   floors versus aperiodic Fourier cancellation, M1 two-coordinate/conductor
   targets, L2 aligned interleaved constants, an F1/Paper D explicit-line
@@ -197,9 +216,9 @@ Keep entries concise and link to the relevant files.
 
 - **Agent/model:** Codex.
 - **Files added or changed:**
-  `experimental/2026-06-18-fable-loop/audits/20260618_CYCLE18_RESONANCE_SLOPE_MAP_COLLAPSE_AUDIT.md`,
-  `experimental/2026-06-18-fable-loop/local_checks/20260618_cycle18_resonance_slope_symbolic.py`,
-  `experimental/2026-06-18-fable-loop/README.md`,
+  `experimental/notes/f1/fable-loop/audits/20260618_CYCLE18_RESONANCE_SLOPE_MAP_COLLAPSE_AUDIT.md`,
+  `experimental/scripts/fable_loop/local_checks/20260618_cycle18_resonance_slope_symbolic.py`,
+  `experimental/notes/f1/fable-loop/README.md`,
   `experimental/agents-log.md`.
 - **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / AUDIT.
 - **What is being added:** A local reconstruction of Danny's Cycle 18

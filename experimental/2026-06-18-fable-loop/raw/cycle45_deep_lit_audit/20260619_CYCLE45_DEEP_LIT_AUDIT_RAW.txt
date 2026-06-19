@@ -1,0 +1,948 @@
+Deep Literature Audit: Restricted-Branch Theorem for the Proximity Prize / Reed-Solomon MCA Setting
+Preliminary Remarks on the Query Context
+The candidate theorem you describe concerns RS
+F
+p
+2
+,
+D
+=
+F
+p
+,
+k
+F 
+p 
+2
+ 
+​
+ ,D=F 
+p
+​
+ ,k
+, i.e., a Reed-Solomon code whose evaluation domain is the additive subfield F_p ⊂ F_{p^2}, and whose residue-line datum involves denominators of degree t, a "B_num" with non-zero Hasse evaluation, and an anchor function. The core technical claim is a pair-rank formula
+
+rank
+⁡
+F
+(
+w
+↦
+(
+[
+interp
+⁡
+D
+∖
+T
+(
+w
+)
+]
+E
+,
+[
+interp
+⁡
+D
+∖
+T
+′
+(
+w
+)
+]
+E
+)
+)
+=
+t
++
+min
+⁡
+(
+t
+,
+r
+)
+rank 
+F
+​
+ (w↦([interp 
+D∖T
+​
+ (w)] 
+E
+​
+ ,[interp 
+D∖T 
+′
+ 
+​
+ (w)] 
+E
+​
+ ))=t+min(t,r)
+
+for supports/cosupports T,T' at exchange distance r, followed by a random-anchor averaging argument yielding L² anticollision and a count of (1-o(1))p² bad MCA slopes in the restricted additive branch.
+
+Below I address each of your six questions in turn, with reference to the surveyed literature.
+
+Task 1: Does This Exact Pair-Rank / Random-Anchor Argument or an Equivalent Theorem Already Appear in the Literature?
+Verdict: RELATED BUT DIFFERENT
+
+The pair-rank of two interpolation maps on the complement of two supports at a given exchange distance does not appear as a stated theorem in any published form I have found. However, the following close relatives exist:
+
+Proximity Gaps for RS Codes (Ben-Sasson, Carmon, Ishai, Kopparty, Saraf, FOCS 2020) [1] proves a correlated-agreement theorem for affine spaces: For a 1-dimensional affine space 
+{
+u
+0
++
+z
+u
+1
+:
+z
+∈
+F
+}
+{u 
+0
+​
+ +zu 
+1
+​
+ :z∈F}, if many elements are δ-close to RS
+F
+q
+,
+D
+,
+k
+F 
+q
+​
+ ,D,k
+, then there exists a large subdomain 
+D
+′
+D 
+′
+  on which 
+u
+0
+,
+u
+1
+u 
+0
+​
+ ,u 
+1
+​
+  agree with some codewords. The proof works by introducing a formal variable Z and studying the rank of the interpolation system over the function field 
+F
+q
+(
+Z
+)
+F 
+q
+​
+ (Z). This is the closest analogue to your pair-rank argument: the "pair" is 
+(
+u
+0
+,
+u
+1
+)
+(u 
+0
+​
+ ,u 
+1
+​
+ ) and the rank analysis over 
+F
+q
+(
+Z
+)
+F 
+q
+​
+ (Z) is what gives the correlated agreement conclusion. The formal-variable / function-field technique is exactly a random-anchor averaging argument (z plays the role of a random element of 
+F
+q
+F 
+q
+​
+ ).
+
+List Decoding RS, AG, and Gabidulin Subcodes up to the Singleton Bound (Guruswami, Xing, STOC 2013) [3] uses a linear-algebraic list decoder that outputs a periodic subspace of dimension 
+(
+s
+−
+1
+)
+k
+(s−1)k over 
+F
+q
+F 
+q
+​
+  for RS codes with evaluation points in a subfield. The underlying algebraic engine—exploiting Frobenius relations 
+f
+(
+α
+)
+q
+=
+f
+σ
+(
+α
+)
+f(α) 
+q
+ =f 
+σ
+ (α) for 
+α
+∈
+F
+q
+α∈F 
+q
+​
+ —is structurally similar to your residue-line setup. The "pair-rank" in their setting is the rank of a linearized polynomial system 
+B
+0
+(
+β
+)
+=
+0
+B 
+0
+​
+ (β)=0 whose solution space 
+W
+⊂
+F
+q
+m
+W⊂F 
+q 
+m
+ 
+​
+  has dimension 
+≤
+s
+−
+1
+≤s−1.
+
+Subspace Polynomials and List Decoding of RS Codes (Ben-Sasson, Kopparty, Radhakrishnan, FOCS 2006) [6] constructs explicit RS list-decoding configurations by analyzing the rank of evaluations of subspace polynomials. This is a pair-rank argument in a different sense (the "pair" is the set of polynomials and the received word).
+
+Interleaved RS Codes and Collaborative Decoding (Schmidt, Sidorenko, Bossert, IEEE TIT 2009) [7] treats the rank of a syndrome matrix for interleaved (paired) received words. The maximum correcting radius is determined by a rank condition on a block-Vandermonde matrix—this is a form of pair-rank, though for error-location rather than interpolation.
+
+What is genuinely missing from the literature: Your specific pair-rank formula 
+rank
+⁡
+=
+t
++
+min
+⁡
+(
+t
+,
+r
+)
+rank=t+min(t,r) for two interpolation maps with supports at exchange distance r, and the associated random-anchor averaging that converts rank bounds into anticollision probability bounds, does not appear in any of these works. The exchange-distance parameterization of pairs of supports is also absent. The combination of:
+
+explicit rank computation for two interpolation problems on cosupports at distance r,
+random averaging over the anchor w,
+counting argument yielding 
+(
+1
+−
+o
+(
+1
+)
+)
+p
+2
+(1−o(1))p 
+2
+  bad slopes
+appears to be novel.
+
+Task 2: Is D = F_p Inside F_{p^2} Considered a “Smooth Evaluation Domain” for the Grand Proximity Prize MCA Challenge?
+Verdict: DOMAIN ADMISSIBILITY ISSUE — Likely Not
+
+The "Grand Proximity Prize / RS MCA challenge" as described in recent coding-theory challenge problems (e.g., the Simons Institute or IPAM coding theory challenges, or the open problems listed in [6] and [5]) typically concerns Reed-Solomon codes over "smooth" evaluation domains. The concept of "smooth" here derives from the additive-combinatorial notion used in the FRI protocol (Fast Reed-Solomon Interactive Oracle Proof of Proximity):
+
+In the FRI protocol and its soundness analysis [1], the evaluation domain is typically taken to be the multiplicative subgroup of size a power of two (or more generally, a smooth multiplicative subgroup of a finite field), not an additive subfield.
+
+The "smoothness" requirement is: the evaluation domain must be a subgroup of the multiplicative group (so that FRI's folding operation, which uses the map 
+x
+↦
+x
+2
+x↦x 
+2
+  or more general endomorphisms, works). This is essential for the FRI COMMIT phase where the domain size halves at each iteration.
+
+The additive subfield 
+F
+p
+⊂
+F
+p
+2
+F 
+p
+​
+ ⊂F 
+p 
+2
+ 
+​
+  is not closed under multiplication by powers of a smooth generator (unless 
+p
+p is smooth, but 
+p
+p is the characteristic). Moreover, the Frobenius map on 
+F
+p
+2
+F 
+p 
+2
+ 
+​
+  is 
+x
+↦
+x
+p
+x↦x 
+p
+ , which fixes 
+F
+p
+F 
+p
+​
+  pointwise—this provides an alternative algebraic structure, but not the multiplicative-smooth structure needed for FRI-style folding.
+
+Relevant papers:
+
+The Proximity Gaps paper [1] works with arbitrary evaluation domains 
+D
+⊂
+F
+q
+D⊂F 
+q
+​
+  and does not require smoothness. Their Theorem I.2 works for any 
+D
+D of size 
+n
+n, with the error bound depending on 
+n
+/
+q
+n/q. However, the application to FRI's soundness (Section III-B of [1]) explicitly assumes the additive FRI structure which relies on smooth multiplicative subgroups.
+Guruswami and Rudra [5] use folding based on the multiplicative map 
+γ
+↦
+γ
+s
+γ↦γ 
+s
+  where 
+γ
+γ is a primitive element—this is the original "smooth" construction.
+The cyclotomic function field codes (Guruswami, STOC 2009) [8] use the multiplicative structure of the residue field 
+F
+q
+[
+T
+]
+/
+(
+M
+)
+F 
+q
+​
+ [T]/(M).
+Conclusion: 
+D
+=
+F
+p
+D=F 
+p
+​
+  is not a "smooth evaluation domain" in the standard FRI/Proximity-Prize sense. It is an additive subgroup, which is smooth in a different (additive) sense. Whether the challenge explicitly requires multiplicative smoothness is a matter of the challenge's formal rules—but the technical machinery of folding-based proximity testing depends on multiplicative structure.
+
+Task 3: Known Results Transferring Additive-Subfield RS[MCA] to Smooth Multiplicative Domains
+Verdict: RELATED BUT DIFFERENT
+
+The transfer from additive-subfield to multiplicative-smooth settings is not automatic, but several partial results exist:
+
+Subfield subcodes: Delsarte [10] showed that the subfield subcode of an RS code (with evaluation points in the full field) is a BCH code. Guruswami and Xing [3] explicitly use the constant extension technique: they take RS codes with evaluation points in 
+F
+q
+F 
+q
+​
+  and messages over 
+F
+q
+m
+F 
+q 
+m
+ 
+​
+ , apply the Frobenius automorphism to manufacture derivative relations, and obtain periodic subspaces. This is a transfer from additive (subfield) to structural (periodic) spaces.
+
+Artin automorphisms in cyclotomic function fields [8] provide a multiplicative analogue of the additive Frobenius-based folding: the place 
+A
+A lying over an irreducible polynomial 
+A
+(
+T
+)
+A(T) of degree 
+D
+D satisfies 
+σ
+A
+(
+f
+)
+≡
+f
+q
+D
+(
+m
+o
+d
+A
+)
+σ 
+A
+​
+ (f)≡f 
+q 
+D
+ 
+ (modA). This is a multiplicative-smooth structure that parallels the additive-subfield construction.
+
+Affine-invariant codes from lifting (Guo, Kopparty, Sudan, ITCS 2013) [11] give a framework where both additive and multiplicative structures can be lifted.
+
+Multiplicity codes [2,4] are defined over affine space 
+F
+q
+m
+F 
+q
+m
+​
+  and use derivative evaluations—these are additive in nature but can be composed with multiplicative structures for concatenation.
+
+What is missing: A direct transfer theorem stating that if one has a restricted-branch / MCA result for 
+R
+S
+[
+F
+p
+2
+,
+F
+p
+,
+k
+]
+RS[F 
+p 
+2
+ 
+​
+ ,F 
+p
+​
+ ,k], then one can deduce the same for RS codes over smooth multiplicative subgroups with identical parameters. No such transfer lemma exists in the literature.
+
+Task 4: Known Obstructions to Such a Transfer
+Verdict: SUPPORTS NOVELTY (Obstructions are known, but not in this specific form)
+
+Several obstructions are documented:
+
+Field size vs. blocklength: The Proximity Gaps result [1, Remark I.2] explicitly notes that the Johnson-bound-reaching regime requires fields of size at least quadratic in blocklength. For the additive subfield 
+D
+=
+F
+p
+D=F 
+p
+​
+ , we have 
+n
+=
+p
+n=p, so the relevant field for the code is 
+F
+p
+2
+F 
+p 
+2
+ 
+​
+ , giving 
+q
+=
+p
+2
+q=p 
+2
+ . The ratio 
+q
+/
+n
+2
+=
+p
+2
+/
+p
+2
+=
+1
+q/n 
+2
+ =p 
+2
+ /p 
+2
+ =1, which is borderline. For a smooth multiplicative domain of size 
+n
+n, one typically needs 
+q
+=
+Θ
+(
+n
+2
+)
+q=Θ(n 
+2
+ ) or larger.
+
+The "norm" obstruction: In [5], Guruswami and Rudra prove that RS codes cannot be list-recovered with input list size 
+ℓ
+≥
+n
+/
+k
+ℓ≥n/k when evaluated on distinct points (not necessarily distinct was the setting of the original polynomial reconstruction). The evaluation points being an additive subgroup forces distinctness, but the subspace polynomial construction [6] shows that for such evaluation sets, one can achieve super-polynomial list sizes.
+
+The trace obstruction: The "subfield value" phenomenon (Theorem 1 of [5]) shows that polynomials over 
+F
+q
+m
+F 
+q 
+m
+ 
+​
+  mapping 
+F
+q
+F 
+q
+​
+  into 
+F
+q
+F 
+q
+​
+  form a vector space of dimension exactly 
+2
+m
+2 
+m
+ —this is the norm-function basis. For 
+D
+=
+F
+p
+⊂
+F
+p
+2
+D=F 
+p
+​
+ ⊂F 
+p 
+2
+ 
+​
+ , this means that 
+2
+m
+=
+2
+2
+=
+4
+2 
+m
+ =2 
+2
+ =4 such polynomials exist of degree at most 
+p
++
+1
+p+1. This limits the amount of "bad" structure that can be created, but also limits the algebraic richness.
+
+The additive-versus-multiplicative gap: In FRI [1], the folding operation relies on the map 
+x
+↦
+x
+2
+x↦x 
+2
+  (or a more general endomorphism) which preserves multiplicative subgroups. Additive subgroups are not closed under such maps. Conversely, additive subgroups are closed under the Frobenius endomorphism 
+x
+↦
+x
+p
+x↦x 
+p
+ , but this is not a folding map in the standard FRI sense.
+
+Dvir-Lovett subspace-evasive sets and subspace designs (used in [3]) require certain field size lower bounds. The additive-subfield setting 
+F
+p
+⊂
+F
+p
+2
+F 
+p
+​
+ ⊂F 
+p 
+2
+ 
+​
+  has 
+p
+p possibly as small as 2, which may be too small for these constructions.
+
+Task 5: Prior Work on Johnson-Scheme Pair-Rank / Random-Anchor Averaging for RS Proximity Gaps, Correlated Agreement, MCA, or List Decoding
+Verdict: RELATED BUT DIFFERENT — substantial prior art exists but none matches your exact technique
+
+Key prior works:
+
+Proximity Gaps for RS Codes [1]: This is the most directly relevant work. Their main technical theorem (Theorem I.4) is a correlated agreement over lines result. Their proof:
+
+Introduces a formal variable 
+Z
+Z
+Studies the pair 
+(
+u
+0
+,
+u
+1
+)
+(u 
+0
+​
+ ,u 
+1
+​
+ ) via 
+w
+=
+u
+0
++
+Z
+u
+1
+w=u 
+0
+​
+ +Zu 
+1
+​
+  as an element of 
+R
+S
+[
+F
+q
+(
+Z
+)
+,
+D
+,
+k
+]
+RS[F 
+q
+​
+ (Z),D,k]
+Runs the Guruswami-Sudan algorithm over 
+F
+q
+(
+Z
+)
+F 
+q
+​
+ (Z) to obtain a bivariate polynomial 
+Q
+(
+X
+,
+Y
+,
+Z
+)
+Q(X,Y,Z)
+Factors 
+Q
+Q over the power series ring 
+F
+q
+(
+Z
+)
+[
+[
+X
+]
+]
+F 
+q
+​
+ (Z)[[X]] using Hensel lifting
+The rank of the interpolation system appears implicitly in the degree analysis of the coefficient matrix
+Random anchor averaging is present: the variable 
+Z
+Z is sampled uniformly from 
+F
+q
+F 
+q
+​
+  to translate the formal argument into a statistical one.
+Their Theorem I.6 extends this to affine spaces of arbitrary dimension (not just lines) via correlated agreement over affine spaces. Your "pair-rank" for supports at exchange distance 
+r
+r is a different combinatorial refinement—they handle the case where the two interpolation problems correspond to erasing two different subsets of evaluation points.
+
+The Rothblum-Vadhan-Wigderson paradigm (as extended in [1]): The random linear combination test for proximity of a batch of vectors is exactly a random-anchor averaging technique. The analysis of this test is what proximity gaps formalize.
+
+Guruswami-Kopparty-Saraf-Ron-Zewi [2]: The linear-algebraic approach to list-recovery of folded RS codes uses a random-coordinate-sampling algorithm (PruneListFRS) that is essentially a random-anchor averaging argument. Their Lemma I.1 (the dimension-drop lemma) is a pair-rank result: fixing coordinates reduces dimension in expectation.
+
+The Johnson bound for list decoding (as described in [9,12]): The classical Johnson bound 
+ℓ
+≤
+n
+/
+k
+ℓ≤n/k for list recovery is a pair-rank bound on the agreement of polynomials—two degree-
+k
+k polynomials agree on at most 
+k
+k points.
+
+Subspace evasive sets and subspace designs (used in [3,4]): The pruning of a periodic subspace using subspace designs involves a rank analysis that is structurally similar to pair-rank.
+
+What is genuinely new in your approach: The exchange distance parameterization, the explicit formula 
+rank
+⁡
+=
+t
++
+min
+⁡
+(
+t
+,
+r
+)
+rank=t+min(t,r), and the binom(p,j)/p^{2t} growth condition for anticollision do not appear in any of these works. The closest structural analogue is the dimension analysis in the Proof of Lemma IV.5 (PruneListFRS) in [2], where fixing 
+τ
+τ random coordinates of a dimension-
+r
+r subspace of folded RS codewords reduces the space of valid candidates.
+
+Task 6: Does the Result Imply Anything for the Grand List-Decoding Challenge for C^{≡m}, or Is the MCA-to-List Bridge One-Way / Not Applicable Here?
+Verdict: SUPPORTS NOVELTY — The MCA-to-list bridge is subtle, and the connection is partial
+
+The relationship between Multiplicity Code Agreement (MCA) and list decoding is known to be bidirectional in some settings but asymmetric in others:
+
+From MCA to list decoding: The standard approach in [1] (Proximity Gaps) uses correlated agreement to derive proximity gaps, which then yield batch-verification protocols. These protocols are not themselves list decoders, but they serve as soundness amplification tools for interactive proof systems (like FRI). The connection to list decoding is indirect: better proximity gaps → tighter soundness analysis → more efficient protocols. The MCA setting you describe (with denominator degree 
+t
+t, numerator 
+B
+num
+B 
+num
+​
+ , anchor 
+w
+w) seems to be a internal technical lemma within such a protocol analysis.
+
+From list decoding to MCA: The classical Guruswami-Sudan list decoder itself can be viewed as an MCA solver: given a received word 
+r
+r, find all polynomials 
+f
+f such that 
+r
+r and 
+Ev
+⁡
+(
+f
+)
+Ev(f) agree on at least 
+t
+t points. The "agreement" in MCA is about derivatives (multiplicity), while the "agreement" in list decoding is about function values. The generalization to multiplicity codes is given in [2,4].
+
+The C^{≡m} grand challenge: The problem of list decoding the m-th order Reed-Muller code 
+R
+M
+(
+m
+,
+m
+)
+RM(m,m) or more generally the family of Reed-Muller codes with multiplicities (often denoted 
+C
+≡
+m
+C 
+≡m
+ ) is a well-known open problem. The work [2] on multivariate multiplicity codes achieves capacity-approaching list decoding for high-rate multiplicity codes but not for the constant-rate regime of 
+C
+≡
+m
+C 
+≡m
+ . Specifically:
+
+Theorem 10 of [2] (multiplicity codes are locally self-correctable) works up to 
+δ
+/
+10
+δ/10 errors with 
+O
+(
+s
+)
+m
+q
+O(s) 
+m
+ q queries.
+The local list-recovery result for multivariate multiplicity codes in [2] achieves rate 
+1
+−
+ε
+1−ε with sub-polynomial list sizes, but only for very high rate codes.
+One-way bridge: The direction from an MCA result (like your restricted-branch theorem) to a list-decoding result for 
+C
+≡
+m
+C 
+≡m
+  is not automatic. Your theorem provides a bound on the number of bad multiplicative-challenge slopes in a restricted additive branch, which is a statement about the soundness of a proximity test—not a list decoder. However, as shown in [1, Section III-B], proximity gap results directly imply soundness improvements for FRI, and FRI is used as a building block in STARKs and transparent argument systems, but FRI does not directly solve the 
+C
+≡
+m
+C 
+≡m
+  list-decoding problem.
+
+What your result may imply: If the domain 
+D
+=
+F
+p
+D=F 
+p
+​
+  is the additive subfield and the MCA result yields 
+(
+1
+−
+o
+(
+1
+)
+)
+p
+2
+(1−o(1))p 
+2
+  bad slopes in the restricted additive branch, then:
+
+For the grand Proximity Prize challenge (which concerns FRI-style IOPs), this would indicate tight soundness analysis for a specific parameter regime, but the admissibility of the additive evaluation domain (Task 2) would need to be resolved.
+For the C^{≡m} list-decoding challenge, the implication is weaker—your result applies to RS codes, not Reed-Muller codes or multiplicity codes. However, [2, Section 4] shows how to use RS list decoding as a subroutine for decoding multivariate multiplicity codes (via lines). Your pair-rank lemma could potentially strengthen that subroutine.
+Summary Table
+Question	Verdict	Key Reason
+1. Pair-rank / random-anchor argument in literature	RELATED BUT DIFFERENT	Proximity Gaps [1] uses formal-variable / rank analysis but not exchange-distance pair-rank; Guruswami-Xing [3] uses periodic subspaces but not your exact rank formula
+2. D=F_p as smooth evaluation domain	DOMAIN ADMISSIBILITY ISSUE	The Proximity Prize challenge typically requires multiplicative-smooth domains (closed under squaring for FRI); F_p is additive, not multiplicative-smooth
+3. Transfer from additive to multiplicative	RELATED BUT DIFFERENT	Guruswami [8] gives multiplicative analogue via Artin automorphisms; Guo-Kopparty-Sudan [11] give lifting framework; no direct transfer theorem exists
+4. Known obstructions	SUPPORTS NOVELTY	Field-size constraints [1], norm-function phenomenon [5], subspace polynomial limitations [6], FRI incompatibility — all documented but not as obstructions to your specific transfer
+5. Johnson-scheme pair-rank / random-anchor prior art	RELATED BUT DIFFERENT	PruneListFRS [2], correlated agreement [1], linear-algebraic decoding [3] all use rank analysis but not exchange distance parameterization
+6. Implication for C^{≡m} grand challenge	SUPPORTS NOVELTY	MCA-to-list bridge is one-way in this context; your result strengthens FRI soundness analysis but does not directly solve C^{≡m} list decoding
+References
+[1]E. Ben-Sasson, D. Carmon, Y. Ishai, S. Kopparty, and S. Saraf, "Proximity Gaps for Reed–Solomon Codes," in 2020 IEEE 61st Annual Symposium on Foundations of Computer Science (FOCS), IEEE, 2020, pp. 900–909
+DOI: 10.1109/focs46700.2020.00088
+[2]S. Kopparty, N. Ron-Zewi, S. Saraf, and M. Wootters, "Improved Decoding of Folded Reed-Solomon and Multiplicity Codes," in 2018 IEEE 59th Annual Symposium on Foundations of Computer Science (FOCS), IEEE, 2018, pp. 212–223
+DOI: 10.1109/focs.2018.00029
+[3]V. Guruswami and C. Xing, "List decoding reed-solomon, algebraic-geometric, and gabidulin subcodes up to the singleton bound," in Proceedings of the Forty-Fifth Annual ACM Symposium on Theory of Computing, ACM, 2013, pp. 843–852
+DOI: 10.1145/2488608.2488715
+[4]S. Kopparty, S. Saraf, and S. Yekhanin, "High-rate codes with sublinear-time decoding," in Proceedings of the Forty-Third Annual ACM Symposium on Theory of Computing, ACM, 2011, pp. 167–176
+DOI: 10.1145/1993636.1993660
+[5]V. Guruswami and A. Rudra, "Limits to list decoding Reed-Solomon codes," in Proceedings of the Thirty-Seventh Annual ACM Symposium on Theory of Computing, ACM, 2005, pp. 602–609
+DOI: 10.1145/1060590.1060679
+[6]E. Ben-Sasson, S. Kopparty, and J. Radhakrishnan, "Subspace Polynomials and List Decoding of Reed-Solomon Codes," in 2006 47th Annual IEEE Symposium on Foundations of Computer Science (FOCS'06), IEEE, 2006, pp. 207–216
+DOI: 10.1109/focs.2006.73
+[7]G. Schmidt, V. R. Sidorenko, and M. Bossert, "Collaborative Decoding of Interleaved Reed–Solomon Codes and Concatenated Code Designs," IEEE Transactions on Information Theory, vol. 55, no. 7, pp. 2991–3012, 2009
+DOI: 10.1109/tit.2009.2021308
+[8]V. Guruswami, "Artin automorphisms, cyclotomic function fields, and folded list-decodable codes," in Proceedings of the Forty-First Annual ACM Symposium on Theory of Computing, ACM, 2009, pp. 23–32
+DOI: 10.1145/1536414.1536420
+[9]J. Justesen and T. Hoholdt, "Bounds on list decoding of MDS codes," IEEE Transactions on Information Theory, vol. 47, no. 4, pp. 1604–1609, 2001
+DOI: 10.1109/18.923744
+[10]P. Delsarte, "On subfield subcodes of modified Reed-Solomon codes," IEEE Transactions on Information Theory, vol. 21, no. 5, pp. 575–576, 1975
+DOI: 10.1109/tit.1975.1055435
+[11]A. Guo, S. Kopparty, and M. Sudan, "New affine-invariant codes from lifting," in Proceedings of the 4th Conference on Innovations in Theoretical Computer Science, ACM, 2013, pp. 529–540
+DOI: 10.1145/2422436.2422494
+[12]V. Guruswami and M. Sudan, "Decoding concatenated codes using soft information," in Proceedings 17th IEEE Annual Conference on Computational Complexity, IEEE, 2002, pp. 148–157
+DOI: 10.1109/ccc.2002.1004350

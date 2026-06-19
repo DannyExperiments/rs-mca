@@ -1220,3 +1220,23 @@ Cycle 45 external random-anchor L2 audit:
   Proximity Prize solve.
 - New full-problem wall:
   `W-F1-AA-RES-FROBENIUS-COMPRESSED-LANDING`.
+
+Cycle 45 deep literature audit:
+
+- `raw/cycle45_deep_lit_audit/20260619_CYCLE45_DEEP_LIT_AUDIT_RAW.txt`
+- `audits/20260619_CYCLE45_DEEP_LIT_AUDIT.md`
+- Status: `AUDIT / ROUTE_CUT / EXACT_NEW_WALL`.
+- Lit-audit verdict: the exact Cycle 45 exchange-distance pair-rank theorem
+  was not identified as a stated theorem in the surveyed literature, though
+  proximity-gap, folded-RS, subspace-polynomial, and interleaved-RS rank
+  methods are nearby prior art.
+- Route cut: Cycle 45 is not promoted to a full grand MCA solve because
+  `D=F_p subset F_{p^2}` may not be an admissible "smooth evaluation domain"
+  in the intended multiplicative/protocol sense.
+- Correction: the lit AI confused `C^{equiv m}` with Reed-Muller or
+  multiplicity-code notation in one passage. Locally, `C^{equiv m}` is the
+  `m`-interleaved Reed-Solomon code with column distance.
+- New walls:
+  `W-F1-AA-RES-SMOOTH-DOMAIN-ADMISSIBILITY`,
+  `W-F1-AA-RES-FROBENIUS-COMPRESSED-LANDING`, and
+  `W-F1-LIST-INTERLEAVED-BRIDGE`.

@@ -1235,3 +1235,28 @@ Keep entries concise and link to the relevant files.
   compression lemma that would reduce the landing codimension from
   `2(t-1)` `B`-dimensions to `t-1` and move the entropy threshold from
   `H_2(rho)/2` toward the generated-field scale `H_2(rho)`.
+
+### 2026-06-19 - Cycle 45 deep literature audit
+
+- **Agent/model:** Codex auditing the user-provided deep lit-AI report plus
+  public/source checks.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/cycle45_deep_lit_audit/`,
+  `experimental/2026-06-18-fable-loop/audits/20260619_CYCLE45_DEEP_LIT_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** AUDIT / ROUTE_CUT / EXACT_NEW_WALL.
+- **Lit-audit conclusion:** No duplicate of the exact Cycle 45
+  exchange-distance pair-rank theorem was identified, but there is substantial
+  related prior art in proximity gaps, folded RS / multiplicity decoding,
+  subspace-polynomial list decoding, and interleaved-RS rank methods.
+- **Route cut:** Do not promote the restricted additive branch directly to a
+  full grand MCA solve. The official challenge says "smooth evaluation
+  domain"; the restricted branch uses `D=F_p subset F_{p^2}` and may not match
+  the intended multiplicative/generated smooth-domain setting.
+- **Correction:** The lit-AI output incorrectly drifts from the local
+  `C^{equiv m}` notation to Reed-Muller/multiplicity-code language. In local
+  source, `C^{equiv m}` is the `m`-interleaved Reed-Solomon code with column
+  distance.
+- **New walls:** `W-F1-AA-RES-SMOOTH-DOMAIN-ADMISSIBILITY`,
+  `W-F1-AA-RES-FROBENIUS-COMPRESSED-LANDING`, and
+  `W-F1-LIST-INTERLEAVED-BRIDGE`.

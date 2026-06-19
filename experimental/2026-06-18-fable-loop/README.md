@@ -1403,7 +1403,22 @@ Cycle 50 reduced moving-scroll balanced-index audit:
 Cycle 51 staged prompt:
 
 - `prompts/20260619_cycle51_balanced_scroll_valueset_vs_landing.md`
-- Status: `STAGED_PROMPT / NOT_RUN`.
+- Status: `RUN_COMPLETE`; see the Cycle 51 audit below.
 - Target: `W-MCA-BALANCED-SCROLL-VALUESET-VS-LANDING`, forcing the next worker
   to distinguish the actual distinct slope image `Z(u,v)` from the stronger
   total landing count `R(u,v)`.
+
+Cycle 51 balanced-scroll value-set audit:
+
+- `raw/cycle51_balanced_scroll_valueset_vs_landing/`
+- `audits/20260619_CYCLE51_BALANCED_SCROLL_VALUESET_AUDIT.md`
+- Status: `BANKABLE_LEMMA / ROUTE_CUT / EXACT_NEW_WALL / AUDIT`.
+- Banked content: for multiplicities `nu(z)`, total landings `R=sum nu`,
+  distinct slope image `Z=#{z:nu(z)>=1}`, and `M2=sum nu^2`,
+  Cauchy-Schwarz gives `Z>=R^2/M2`; L2 anticollision is a lower-bound tool for
+  image size, not an upper-bound tool.
+- Route cut: the safe-side upper branch cannot be proved by recycling the
+  Cycle44/Cycle47 L2 anticollision estimate. It must either prove the stronger
+  landing upper bound `R<=R_line+O(j)` or count the value set directly.
+- New wall: `W-MCA-BALANCED-SCROLL-VALUESET-MONODROMY-DENSITY`; next target
+  `W-MCA-BALANCED-SCROLL-TOTALLY-SPLIT-DENSITY`.

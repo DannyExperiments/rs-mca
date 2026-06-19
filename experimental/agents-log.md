@@ -1475,3 +1475,21 @@ Keep entries concise and link to the relevant files.
   landing count.
 - **What to do next:** Launch via artifact stream, preserve the raw response,
   and audit the result before any promotion.
+
+### 2026-06-19 - Cycle 51 balanced-scroll value-set audit
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/cycle51_balanced_scroll_valueset_vs_landing/`,
+  `experimental/2026-06-18-fable-loop/audits/20260619_CYCLE51_BALANCED_SCROLL_VALUESET_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / ROUTE_CUT / EXACT_NEW_WALL / AUDIT.
+- **What changed:** The value-set wall is now separated from the landing-count
+  wall. With `R=sum_z nu(z)`, `Z=#{z:nu(z)>=1}`, and `M2=sum_z nu(z)^2`,
+  the sharp inequality is `Z>=R^2/M2`; L2 anticollision pushes the image lower
+  bound upward and cannot upper-bound the safe-side MCA numerator.
+- **Route cut:** Do not use Cycle44/Cycle47 L2 anticollision as the positive
+  upper theorem. The upper route must either prove the stronger landing bound
+  `R<=R_line+O(j)` or directly count the distinct value set.
+- **New wall:** `W-MCA-BALANCED-SCROLL-VALUESET-MONODROMY-DENSITY`; next
+  target `W-MCA-BALANCED-SCROLL-TOTALLY-SPLIT-DENSITY`.

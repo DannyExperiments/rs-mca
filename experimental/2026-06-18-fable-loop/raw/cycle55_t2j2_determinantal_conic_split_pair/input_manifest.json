@@ -1,0 +1,56 @@
+{
+  "project": {
+    "id": "rs-mca-proximity-prize-research",
+    "name": "RS-MCA Proximity Prize Research",
+    "description": "Isolated RS-MCA / proximity prize research workspace. Keep separate from Erdos 361 and 346 theorem state.",
+    "sourceDir": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/source_files",
+    "startFiles": [
+      "README_FOR_FABLE.md",
+      "DIRECTOR_STATE.md",
+      "DIRECTOR_STATE.json",
+      "ROUTE_BOARD_CURRENT.md",
+      "ACTIVE_WALLS.md",
+      "BANKED_LEMMAS.md",
+      "CUTS_AND_FALSE_ROUTES.md",
+      "INSTANCE_REGISTRY.json",
+      "NEXT_PROMPT_QUEUE.md"
+    ],
+    "path": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research"
+  },
+  "runId": "2026-06-19T11-04-49-776Z-cycle55-t2j2-determinantal-conic-split-pair-c74bc45f",
+  "runMode": "artifact_stream",
+  "runDir": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-19T11-04-49-776Z-cycle55-t2j2-determinantal-conic-split-pair-c74bc45f",
+  "uploadDir": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-19T11-04-49-776Z-cycle55-t2j2-determinantal-conic-split-pair-c74bc45f/input_attachments",
+  "projectCopyDir": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-19T11-04-49-776Z-cycle55-t2j2-determinantal-conic-split-pair-c74bc45f/input_project",
+  "outputDir": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-19T11-04-49-776Z-cycle55-t2j2-determinantal-conic-split-pair-c74bc45f/output_files",
+  "includeProjectSource": true,
+  "allowOutputFiles": true,
+  "allowedTools": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Write"
+  ],
+  "embeddedTextAttachments": [],
+  "stagedFiles": [],
+  "extractedArchives": [],
+  "archiveWarnings": [],
+  "projectSource": {
+    "included": true,
+    "sourceDir": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/source_files",
+    "copyDir": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-19T11-04-49-776Z-cycle55-t2j2-determinantal-conic-split-pair-c74bc45f/input_project"
+  },
+  "fileIndex": {
+    "included": true,
+    "path": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-19T11-04-49-776Z-cycle55-t2j2-determinantal-conic-split-pair-c74bc45f/FILE_INDEX_FOR_MODEL.md",
+    "sections": [
+      {
+        "title": "Project source copy",
+        "root": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-19T11-04-49-776Z-cycle55-t2j2-determinantal-conic-split-pair-c74bc45f/input_project",
+        "fileCount": 647
+      }
+    ],
+    "fileCount": 647
+  },
+  "promptChars": 7544
+}

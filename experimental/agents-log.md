@@ -1651,3 +1651,29 @@ Keep entries concise and link to the relevant files.
   before launch.
 - **Heartbeat:** `rs-mca-cycle49-heartbeat` should now target Cycle55 at a
   10-minute cadence.
+
+### 2026-06-19 - Cycle 55 t=2,j=2 conic audit
+
+- **Agent/model:** Codex auditing `claude-opus-4-8`.
+- **Files added or changed:** `experimental/2026-06-18-fable-loop/raw/cycle55_t2j2_determinantal_conic_split_pair/`,
+  `experimental/2026-06-18-fable-loop/audits/20260619_CYCLE55_T2J2_CONIC_AUDIT.md`,
+  `experimental/2026-06-18-fable-loop/README.md`, and
+  `experimental/2026-06-18-fable-loop/SHA256SUMS.txt`.
+- **Status:** BANKABLE_LEMMA / PROOF / ROUTE_CUT / EXACT_NEW_WALL / AUDIT.
+- **Harness note:** `OK_WITH_NONFATAL_STREAM_WARNING`; one malformed
+  stream-json line, usable answer text, no `output_files/`.
+- **What changed:** The `t=2,j=2` wall is now an explicit conic/curve problem.
+  For `T={s,s'}`, the determinant is `D(s+s',ss')=0`.
+- **Banked proof:** After removing tangent/core and quotient/coset components,
+  the split-pair curve is bidegree `(2,2)` and Weil gives
+  `R=binomial(n,2)/Q+O(sqrt(Q))`.
+- **Route cut:** The literal `+O(1)` target is cut in the large-domain
+  genus-one regime; a `Theta(sqrt(Q))` Frobenius-trace fluctuation is the
+  expected obstruction.
+- **Counterpacket status:** The response gives a plausible
+  `Theta(sqrt(Q))` excess seed, but it is not banked as `COUNTERPACKET` until a
+  local checker and source-validity audit verify a concrete growing family.
+- **New wall:** `W-MCA-T2J2-CONIC-SPLIT-PAIR-COUNT-CORRECTED`.
+- **What to do next:** Stage `W-MCA-T2J2-CONIC-SQRT-COUNTERPACKET-CHECK`:
+  verify the conic identity and search for non-core, non-coset examples with
+  excess `~sqrt(Q)`.

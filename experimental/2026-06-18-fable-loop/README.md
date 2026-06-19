@@ -1508,7 +1508,7 @@ Cycle 54 t=2 determinantal quadric audit:
 Cycle 55 staged prompt:
 
 - `prompts/20260619_cycle55_t2j2_determinantal_conic_split_pair.md`
-- Status: `RUN_ACTIVE`.
+- Status: `RUN_COMPLETE`; see the Cycle 55 audit below.
 - Target: `W-MCA-T2J2-DETERMINANTAL-CONIC-SPLIT-PAIR-COUNT`.
 - Purpose: ask for a proof, source-valid counterpacket, or sharper reduction
   for the smallest open `t=2` case: split pairs `{s,s'}` on the determinantal
@@ -1516,3 +1516,22 @@ Cycle 55 staged prompt:
 - Launch receipt:
   `/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-19T11-04-49-776Z-cycle55-t2j2-determinantal-conic-split-pair-c74bc45f`.
 - Initial status: `generating` / `Claude CLI generating`.
+
+Cycle 55 t=2,j=2 conic audit:
+
+- `raw/cycle55_t2j2_determinantal_conic_split_pair/`
+- `audits/20260619_CYCLE55_T2J2_CONIC_AUDIT.md`
+- Status: `BANKABLE_LEMMA / PROOF / ROUTE_CUT / EXACT_NEW_WALL / AUDIT`.
+- Harness note: `OK_WITH_NONFATAL_STREAM_WARNING`; one malformed stream-json
+  line, usable answer text, no `output_files/`.
+- Banked content: for `T={s,s'}`, the determinant becomes the explicit conic
+  `D(e_1,e_2)=0`, with `e_1=s+s'` and `e_2=ss'`.
+- Banked proof: after removing tangent/core and quotient/coset components,
+  the split-pair curve is a symmetric bidegree `(2,2)` curve; Weil gives the
+  corrected bound `R=binomial(n,2)/Q+O(sqrt(Q))`.
+- Route cut: the literal `+O(1)` target is cut in the large-domain genus-one
+  regime unless additional hypotheses force genus zero or a small-subgroup
+  incidence theorem.
+- New wall: `W-MCA-T2J2-CONIC-SPLIT-PAIR-COUNT-CORRECTED`.
+- Next target: `W-MCA-T2J2-CONIC-SQRT-COUNTERPACKET-CHECK`, a finite/source
+  validity check for the proposed `Theta(sqrt(Q))` excess seed.

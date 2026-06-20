@@ -29,6 +29,24 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 67 cross-color injectivity prompt staged
+
+- **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 66.
+- **Files added or changed:** `experimental/notes/m1/cycle67_cross_color_injectivity_packet/`
+  and `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / PLAN.
+- **What is being added:** A targeted prompt for
+  `L-CYCLE66-CROSS-COLOR-INJECTIVITY-LOWER-BOUND`, asking the next worker to
+  prove or kill the proposed symbolic shortcut
+  `Occ(beta) >= 8^7 * (# independent color classes)` for the Role 05
+  sevenfold product occupancy model.
+- **How it is useful:** Tries the remaining proof-scale shortcut before
+  committing to a large compiled/external-sort occupancy count over roughly
+  52.7 billion constrained products.
+- **What to do next:** Refresh the Packy/Fable source snapshot, run a no-token
+  preview, launch Cycle 67 if the preview has the expected Cycle 66 audit and
+  self-check script, then let the heartbeat monitor completion.
+
 ### 2026-06-20 - Cycle 66 sevenfold product occupancy return banked
 
 - **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,

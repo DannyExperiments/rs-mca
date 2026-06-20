@@ -29,6 +29,25 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 61 master referee plan banked locally
+
+- **Agent/model:** 5.5 Pro Master Planner / Referee, banked by Codex.
+- **Files added or changed:** `experimental/notes/m1/cycle61_master_referee_raw/`,
+  `experimental/notes/m1/m1_cycle61_master_referee_audit.md`, and
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / PLAN / CONDITIONAL.
+- **What is being added:** The single master-referee answer that adjudicates
+  the nine Cycle 61 planning responses. It selects the scalar-list apolar
+  complete-intersection route as primary, with the `t=1` MCA
+  generalized-Jacobian support-plus-color route as backup.
+- **How it is useful:** Cuts the broad registry-first direction and turns the
+  next proof round into a falsifiable route test around
+  `L-LIST-MINIMAL-CI-GJ-FIBER`, the model generalized-Jacobian local limit,
+  and a parallel finite frontier checker.
+- **What to do next:** Prepare a targeted 9-instance round from the referee
+  allocation, preserving the finite-checker and packet-verification lanes as
+  route guards.
+
 ### 2026-06-20 - Cycle 61 planning synthesis and master referee packet
 
 - **Agent/model:** Codex synthesizing nine external planning lanes.

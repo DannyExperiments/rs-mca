@@ -29,6 +29,24 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 65 thickened gadget color prompt launched
+
+- **Agent/model:** Codex launching `claude-opus-4-8` via Packy/Fable
+  `artifact_stream`.
+- **Files added or changed:** `experimental/notes/m1/cycle65_thickened_gadget_color_packet/`
+  and `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / ACTIVE RUN.
+- **What is being added:** A targeted Cycle 65 worker prompt for
+  `W-MODEL-GJ-THICKENED-GADGET-COLOR-OCCUPANCY`, the exact wall exposed by
+  Cycle 64 after prefix-gadget charge was shown to equal scalar support mass.
+- **How it is useful:** Keeps the loop focused on the live prize-relevant
+  object: occupied thickened colors for the Role 05 model packet, rather than
+  total scalar support mass.
+- **What to do next:** Monitor the active run
+  `/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-20T06-28-17-528Z-cycle65-thickened-gadget-color-occupancy-80b449fb`,
+  preserve raw artifacts on completion, audit conservatively, then bank and
+  continue with the next exact prompt.
+
 ### 2026-06-20 - Cycle 64 prefix-collision gadget return banked
 
 - **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,

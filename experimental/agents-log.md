@@ -29,6 +29,42 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 73 compiled product ladder prompt staged
+
+- **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 72.
+- **Files added or changed:** `experimental/notes/m1/cycle73_compiled_product_ladder_packet/`
+  and `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / PLAN.
+- **What is being added:** A targeted prompt for
+  `V-CYCLE72-COMPILED-PRODUCT-ONLY-LADDER-AND-ENERGY`, requiring a real
+  product-only verifier/certificate, structural proof, or explicit collision
+  for the remaining `k=3/k=4` rungs, with the Cycle 72 displacement-energy
+  decomposition queued as the next gate.
+- **How it is useful:** Prevents another unrun or color-key pass from being
+  mistaken for evidence and ties the next computation directly to the
+  `D<=155` multiplicity threshold.
+- **What to do next:** Refresh the Packy/Fable source snapshot, preview, launch
+  Cycle 73, and heartbeat the run.
+
+### 2026-06-20 - Cycle 72 product-only ladder return banked
+
+- **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,
+  audited by Codex with a bounded local follow-up attempt.
+- **Files added or changed:** `experimental/notes/m1/cycle72_product_only_ladder_raw/`,
+  `experimental/notes/m1/m1_cycle72_product_only_ladder_audit.md`, and
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / BANKABLE_LEMMA / PLAN.
+- **What is being added:** Cycle 72 does not prove or kill `k=3/k=4`, because
+  the worker had read-only tools and supplied only unrun verifier code. It
+  banks the displacement-energy decomposition
+  `D=sum_S 48^(7-|S|) E_S`, which makes `k=5` injectivity mandatory if the
+  `D<=155` route is to survive after a `k=4` pass.
+- **How it is useful:** Converts the post-ladder target from vague
+  collision-energy counting into exact fully displaced support rungs
+  `|S|=5,6,7`.
+- **What to do next:** Stage Cycle 73 for an actual compiled/product-only
+  verifier or explicit collision. Do not accept unrun pass claims.
+
 ### 2026-06-20 - Cycle 72 product-only ladder prompt staged
 
 - **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 71.

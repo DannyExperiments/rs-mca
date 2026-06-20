@@ -1,0 +1,54 @@
+{
+  "entropy_occupancy": {
+    "binomial_bit_upper": 524288,
+    "generated_entropy_surplus_strictly_greater_than": 65536,
+    "occupancy_denominator_bit_lower": 2359152
+  },
+  "field_checks": {
+    "omega_size": 32,
+    "ord_p_2": 19,
+    "p_prime": true,
+    "two_to_M_mod_p": 64
+  },
+  "formal_lemmas_used": [
+    "Finite-field multiplicative groups are cyclic.",
+    "For squarefree E, the minimal polynomial degree of [X^D] equals the number of distinct geometric D-th-power values on roots of E.",
+    "A nonzero degree-d polynomial has at most d roots.",
+    "An RS syndrome lies in V_T iff the word agrees with a degree-<k polynomial off T."
+  ],
+  "packet_counts": {
+    "distinct_slopes": 28048800,
+    "excess_over_target": 11271840,
+    "monomial_profile_sum": 7890114,
+    "monomial_profile_terms": [
+      7888725,
+      1365,
+      21,
+      3
+    ],
+    "tangent_j": 376832,
+    "target_T_F": 16776960,
+    "target_remainder": 581535029772639337384334136610652161
+  },
+  "parameters": {
+    "M": 16384,
+    "a": 147456,
+    "j": 376832,
+    "k": 131072,
+    "n": 524288,
+    "p": 524287,
+    "q_gen": 274876858369,
+    "q_line": 5708903659119442793759136591282812149479505921,
+    "sigma": 16384
+  },
+  "symbolic_action_polynomial": "-2*X**2*h*zeta + 2*X**2*h - 4*X*h*zeta + X*h - X*zeta + 4*X - 2*zeta + 2",
+  "theta_existence": {
+    "action_collision_upper": 4294967296,
+    "admissible_theta_lower_bound": 5708903659119442793759136591279271836994278190,
+    "base_exclusion_upper": 35,
+    "field_size": 5708903659119442793759136591282812149479505921,
+    "slope_collision_upper": 3540308190260400,
+    "total_forbidden_upper": 3540312485227731
+  },
+  "verdict": "AUDIT_PASS"
+}

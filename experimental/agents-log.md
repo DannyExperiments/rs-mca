@@ -29,6 +29,30 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 62 Round 1 returns banked and audited
+
+- **Agent/model:** External 5.5/5.6 Pro theorem-worker returns, banked and
+  audited by Codex.
+- **Files added or changed:** `experimental/notes/m1/cycle62_round1_raw/`,
+  `experimental/notes/m1/m1_cycle62_round1_audit.md`, and
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / BANKABLE_LEMMA / COUNTERPACKET / ROUTE_CUT /
+  CONDITIONAL.
+- **What is being added:** Raw Round 1 returns and verifier artifacts for the
+  scalar-apolar execution packet. Roles 01 and 02 support the scalar apolar
+  CI/GJ algebraic route; Role 04 cuts the declared one-atom `Q_per`
+  local-limit route with an official-scale counterpacket; Role 05 repairs the
+  `t=1` MCA color object by thickening the modulus; Roles 07 and 08 verify
+  guard packets; Role 09 cuts right-factor-only two-block overlap rigidity.
+- **How it is useful:** Moves the central scalar-list wall from
+  `W-LIST-MODEL-GJ-QUOTIENT-CONDITIONED-LOCAL-LIMIT` to the sharper
+  configuration/block-trade wall
+  `L-MODEL-GJ-MAXIMAL-BLOCK-TRADE-CHARGE`.
+- **What to do next:** Prepare a Round 2 packet around maximal `(K,D)`
+  block-plus-defect assignment, finite overlap/non-double-counting, and the
+  near-split collision-class-mass wall, while implementing the finite frontier
+  checker and auditing the Role 01/02 algebra.
+
 ### 2026-06-20 - Cycle 62 scalar apolar Round 1 packet
 
 - **Agent/model:** Codex, following the Cycle 61 Master Referee plan.

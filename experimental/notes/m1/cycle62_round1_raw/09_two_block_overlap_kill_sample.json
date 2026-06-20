@@ -1,0 +1,41 @@
+{
+  "R_blocks": 24,
+  "S_blocks": 16,
+  "all_common_unions": 256,
+  "code": {
+    "j": 18,
+    "k": 24,
+    "n": 48,
+    "rate": "1/2",
+    "sigma": 6
+  },
+  "common_core_size": 0,
+  "component_graph_type": "K_{3,2}",
+  "degree_checks": {
+    "agreement": 30,
+    "anchor_root_bound": 24,
+    "direction_zero_bound": 29,
+    "k_plus_sigma": 30
+  },
+  "distinct_slopes": 56,
+  "extension_degree": 6,
+  "field_base": 97,
+  "fixed_size_common_supports": 56,
+  "incidence_components": 8,
+  "irreducible_polynomial_descending": [
+    1,
+    70,
+    53,
+    81,
+    58,
+    6,
+    3
+  ],
+  "locator_family_collinear": false,
+  "map_degrees": [
+    2,
+    3
+  ],
+  "nontrivial_common_unions": 254,
+  "weighted_cover": 56
+}

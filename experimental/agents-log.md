@@ -29,6 +29,31 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 60 find-the-theorem audit
+
+- **Agent/model:** Codex auditing nine external theorem-worker lanes.
+- **Files added or changed:** `experimental/notes/m1/m1_cycle60_find_the_theorem_audit.md`,
+  `experimental/notes/m1/cycle60_find_the_theorem_raw/`, and
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / COUNTEREXAMPLE / CONDITIONAL / EXPERIMENTAL, with
+  BANKABLE_LEMMA, ROUTE_CUT, and EXACT_NEW_WALL subresults.
+- **What is being added:** Raw preservation and a compact audit of the Cycle
+  60 responses. The round expands the quotient ledger to include genus-one
+  Lattes/isogeny packets, cuts a point-fiber-only primitive JR route via
+  divisor-norm/configuration characters, and banks support-counting reductions
+  for QAR, hereditary MDS-3-core extraction, the `t=1` apolar normal form, and
+  scalar full-support circuit transversals.
+- **How it is useful:** Refines the M1/MCA and scalar-list safe-side walls from
+  broad denominator classifiers into support-theoretic split-rational,
+  Lattes, configuration-character, envelope, and primitive occupancy
+  containers. It also identifies arithmetic verification tasks for the
+  proposed Lattes finite packets before promotion.
+- **What to do next:** Verify the Lattes degree-31 and degree-113 arithmetic,
+  then attack `W-SRQ-GENUS-0/1-MONODROMY-CONTAINER`,
+  `W-JR-CORANK-ONE-DIVISOR-NORM-CHARACTER-TRICHOTOMY`,
+  `W-JR-T1-PRIMITIVE-APOLAR-SPLIT-NUMERATOR-INVERSE`, and
+  `W-LIST-LOW-ARITY-SPLIT-DENOMINATOR-CIRCUIT-COVER`.
+
 ### 2026-06-20 - Cycle 59 5.5/5.6 route-repair audit
 
 - **Agent/model:** Codex auditing nine external 5.5/5.6 theorem-worker lanes.

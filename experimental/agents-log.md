@@ -29,6 +29,38 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 75 direct mmax fiber prompt staged
+
+- **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 74.
+- **Files added or changed:** `experimental/notes/m1/cycle75_direct_mmax_fiber_packet/`
+  and `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / PLAN.
+- **What is being added:** A targeted prompt for
+  `V-CYCLE75-DIRECT-MMAX-FIBER-CENSUS`, shifting from the likely-too-strong
+  total-energy gate `D<=155` to direct certification of `m_max(beta)<=12`.
+- **How it is useful:** Targets the actual obstruction threshold, a 13-fold
+  fiber, rather than trying to prove an apparently false total collision-energy
+  smallness bound.
+- **What to do next:** Refresh the Packy/Fable source snapshot, preview, launch
+  Cycle 75, and heartbeat the run.
+
+### 2026-06-20 - Cycle 74 norm-bucket ladder return banked
+
+- **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,
+  audited by Codex with a heuristic arithmetic check.
+- **Files added or changed:** `experimental/notes/m1/cycle74_norm_bucket_ladder_raw/`,
+  `experimental/notes/m1/m1_cycle74_norm_bucket_ladder_audit.md`, and
+  `experimental/agents-log.md`.
+- **Status:** ROUTE_CUT / PLAN.
+- **What is being added:** Cycle 74 again does not execute the ladder, but cuts
+  the `D<=155` route as likely too strong: `(48^7)^2/(17^16-1) ~= 7082.63`,
+  so total off-diagonal energy may exceed 155 even when max fiber remains
+  below 13.
+- **How it is useful:** Refocuses the finite model route on direct
+  `m_max(beta)<=12` certification or explicit 13-fold collision.
+- **What to do next:** Stage Cycle 75 against direct max-fiber census, using
+  norm buckets and the color constraint as sharding/filtering tools.
+
 ### 2026-06-20 - Cycle 74 norm-bucket ladder prompt staged
 
 - **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 73.

@@ -29,6 +29,31 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 68 collision multiplicity return banked
+
+- **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,
+  audited by Codex with a local checker run.
+- **Files added or changed:** `experimental/notes/m1/cycle68_collision_multiplicity_raw/`,
+  `experimental/notes/m1/m1_cycle68_collision_multiplicity_audit.md`,
+  `experimental/scripts/cycle68_slot_factorization_checker.py`,
+  `experimental/notes/m1/cycle68_slot_factorization_certificate.json`, and
+  `experimental/agents-log.md`.
+- **Status:** BANKABLE_LEMMA / EXACT_NEW_WALL / PLAN.
+- **What is being added:** The Cycle 68 worker proves the disjoint-coset
+  factorization
+  `rho_beta(T)=(beta-1) prod_t prod_{b in B_t}(beta^2-eta^(2t+16b))`,
+  reducing the model occupancy wall to a seven-slot sumset multiplicity
+  problem over a 336-entry table. Codex locally ran the checker and validated
+  the factorization, color/set-sum bookkeeping, full slot-product oracle, and
+  single-slot injectivity.
+- **How it is useful:** Gives an executable reduction below the Cycle 67
+  `m_max(beta)<=12` target and isolates the remaining symbolic wall as
+  `L-CYCLE68-SLOT-LOG-INDEPENDENCE`, or alternatively a compiled bounded
+  multiplicity verifier.
+- **What to do next:** Stage Cycle 69 to prove/kill slot-log independence or
+  specify/write the bounded-multiplicity verifier that certifies
+  `m_max(beta)<=12`.
+
 ### 2026-06-20 - Cycle 68 collision multiplicity prompt staged
 
 - **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 67.

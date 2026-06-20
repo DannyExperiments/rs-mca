@@ -1,0 +1,51 @@
+{
+  "P0": 52747567104,
+  "decision": "REDUCTION_VERIFIED__FULL_MMAX_REQUIRES_COMPILED_RUN",
+  "m_max_lower_bound_probe": 1,
+  "model": {
+    "beta": [
+      2,
+      1
+    ],
+    "eta": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6
+    ],
+    "field_poly": [
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "selfchecks": {
+    "C1_factorization_all_336": true,
+    "C2_rho_random": 16,
+    "C3_48_sets_distinct_color_eq_sum": true,
+    "C4_slot_full_product_oracle": true,
+    "C5_single_slot_injective": true,
+    "C6_right_tuple_probe_count": 3
+  },
+  "threshold": 4294967296
+}

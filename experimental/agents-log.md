@@ -29,6 +29,42 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 78 exact mmax census prompt staged
+
+- **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 77.
+- **Files added or changed:** `experimental/notes/m1/cycle78_exact_mmax_census_packet/`
+  and `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / PLAN.
+- **What is being added:** A targeted execution-focused prompt for
+  `V-CYCLE78-EXACT-MMAX-CENSUS`, asking for exact `m_max<=12`,
+  an explicit `13`-fold packet, or a compiled/executable all-subset product
+  collision certificate.
+- **How it is useful:** Moves the finite model route away from abstract
+  hand-proof attempts and toward theorem-grade computation or explicit
+  falsification.
+- **What to do next:** Refresh the Packy/Fable source snapshot, preview, launch
+  Cycle 78, and heartbeat the run.
+
+### 2026-06-20 - Cycle 77 AB product maxfiber return banked
+
+- **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,
+  audited by Codex with a local pair-subset injectivity checker.
+- **Files added or changed:** `experimental/notes/m1/cycle77_ab_product_maxfiber_raw/`,
+  `experimental/notes/m1/m1_cycle77_ab_product_maxfiber_audit.md`,
+  `experimental/scripts/cycle77_subset_injectivity_check.py`,
+  `experimental/notes/m1/cycle77_subset_injectivity_pairs_certificate.json`,
+  and `experimental/agents-log.md`.
+- **Status:** BANKABLE_LEMMA / ROUTE_CUT / PLAN.
+- **What is being added:** Cycle 77 banks the configuration-evaluation
+  reduction and fiber-as-code lemma, but cuts the idea that the constant `12`
+  is likely to fall from a short hand proof. Codex locally certified all
+  singleton and pair slot-product maps: 28 subsets, all product-injective.
+- **How it is useful:** Establishes product-fiber minimum distance at least `3`
+  and narrows the live target to exact census, explicit `13`-fold packet, or
+  stronger all-subset injectivity certificates.
+- **What to do next:** Stage Cycle 78 against exact `m_max` census or compiled
+  product-collision certification.
+
 ### 2026-06-20 - Cycle 77 AB product maxfiber prompt staged
 
 - **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 76.

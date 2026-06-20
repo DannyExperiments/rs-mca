@@ -29,6 +29,39 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 77 AB product maxfiber prompt staged
+
+- **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 76.
+- **Files added or changed:** `experimental/notes/m1/cycle77_ab_product_maxfiber_packet/`
+  and `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / PLAN.
+- **What is being added:** A targeted prompt for
+  `V-CYCLE77-AB-PRODUCT-MAXFIBER`, starting from the now-certified
+  product-injective MITM split `A={slots 1,2,3}` and `B={slots 4,5,6,7}`.
+- **How it is useful:** Moves the route past injectivity ladders to the exact
+  remaining max-intersection wall `max_v |A cap v B^{-1}| <= 12`, or an
+  explicit `13`-fold fiber in `P_0`.
+- **What to do next:** Refresh the Packy/Fable source snapshot, preview, launch
+  Cycle 77, and heartbeat the run.
+
+### 2026-06-20 - Cycle 76 right-half/mmax return banked
+
+- **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,
+  audited by Codex with a local optimized right-half checker.
+- **Files added or changed:** `experimental/notes/m1/cycle76_right_half_mmax_raw/`,
+  `experimental/notes/m1/m1_cycle76_right_half_mmax_audit.md`,
+  `experimental/scripts/cycle76_fast_right_half_check.py`, and
+  `experimental/agents-log.md`.
+- **Status:** BANKABLE_LEMMA / PROOF / PLAN.
+- **What is being added:** Cycle 76 banks the one-sided injective-fiber
+  reduction. Codex locally certified product-only injectivity for right slots
+  `{4,5,6,7}` with `5308416` distinct products on `5308416` tuples.
+- **How it is useful:** Completes the MITM product-injective split. The
+  remaining model wall is no longer another ladder rung; it is the exact
+  product-set intersection bound `max_v |A cap v B^{-1}| <= 12`.
+- **What to do next:** Stage Cycle 77 against the `A*B` max-fiber problem, or
+  produce an explicit `13`-fold packet in `P_0`.
+
 ### 2026-06-20 - Cycle 76 right-half/mmax prompt staged
 
 - **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 75.

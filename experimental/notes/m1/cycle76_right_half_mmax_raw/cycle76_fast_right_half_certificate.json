@@ -1,0 +1,71 @@
+{
+  "decision": "RIGHT_HALF_PRODUCT_INJECTIVE",
+  "key": "packed_product_only",
+  "model": {
+    "beta": [
+      2,
+      1
+    ],
+    "eta": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6
+    ],
+    "field_poly": [
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "modulus_specialization": "X^16 + X^8 + 3",
+  "right_45": {
+    "distinct_products": 2304,
+    "product_injective": true,
+    "slots": [
+      4,
+      5
+    ],
+    "tuple_count": 2304
+  },
+  "right_4567": {
+    "distinct_products": 5308416,
+    "product_injective": true,
+    "slots": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "tuple_count": 5308416
+  },
+  "right_67": {
+    "distinct_products": 2304,
+    "product_injective": true,
+    "slots": [
+      6,
+      7
+    ],
+    "tuple_count": 2304
+  }
+}

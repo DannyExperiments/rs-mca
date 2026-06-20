@@ -29,6 +29,41 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 80 mindistance/symmetric-energy prompt staged
+
+- **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 79.
+- **Files added or changed:** `experimental/notes/m1/cycle80_mindist_symmetric_energy_packet/`
+  and `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / PLAN.
+- **What is being added:** A targeted prompt for
+  `V-CYCLE80-MINDIST-OR-SYMMETRIC-ENERGY`, asking for an exact all-triples
+  product-injectivity proof, an explicit three-slot collision packet, or a
+  theorem-grade optimized certificate design.
+- **How it is useful:** Uses the only new Cycle 79 structure, tau symmetry,
+  while first closing the finite product-fiber minimum-distance rung.
+- **What to do next:** Refresh the Packy/Fable source snapshot, preview,
+  launch Cycle 80, and heartbeat the run.
+
+### 2026-06-20 - Cycle 79 common-ratio return banked
+
+- **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,
+  audited by Codex with a local involution verifier.
+- **Files added or changed:** `experimental/notes/m1/cycle79_common_ratio_bound_raw/`,
+  `experimental/notes/m1/m1_cycle79_common_ratio_bound_audit.md`,
+  `experimental/scripts/cycle79_involution_verifier.py`,
+  `experimental/notes/m1/cycle79_involution_certificate.json`, and
+  `experimental/agents-log.md`.
+- **Status:** BANKABLE_LEMMA / ROUTE_CUT / PLAN.
+- **What is being added:** Cycle 79 banks the complement involution
+  `tau(1,a)=(2,a+6)`, `tau(2,a)=(1,a+10)`, `tau(3,a)=(3,a+8)`, with
+  `Phi(tau(T))=K/Phi(T)` and `tau(P_0)=P_0`. It also cuts the coherent-ratio
+  formulation alone as equivalent to the original fiber count.
+- **How it is useful:** Adds a real symmetry constraint `m(v)=m(K/v)` for the
+  finite model and narrows the next wall to exact minimum distance or a
+  tau-symmetric energy bound.
+- **What to do next:** Decide all three-slot product collisions or prove a
+  tau-symmetric energy bound strong enough to approach `m_max(beta)<=12`.
+
 ### 2026-06-20 - Cycle 79 common-ratio prompt staged
 
 - **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 78.

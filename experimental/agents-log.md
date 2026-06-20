@@ -29,6 +29,41 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 79 common-ratio prompt staged
+
+- **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 78.
+- **Files added or changed:** `experimental/notes/m1/cycle79_common_ratio_bound_packet/`
+  and `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / PLAN.
+- **What is being added:** A targeted prompt for
+  `V-CYCLE79-COMMON-RATIO-BOUND-OR-CENSUS`, asking for a coherent
+  common-ratio set bound, an explicit coherent size-13 witness, or a smaller
+  exact wall.
+- **How it is useful:** Moves beyond repeated census planning toward the
+  sharpest non-computational finite object extracted by Cycle 78.
+- **What to do next:** Refresh the Packy/Fable source snapshot, preview, launch
+  Cycle 79, and heartbeat the run.
+
+### 2026-06-20 - Cycle 78 exact mmax census return banked
+
+- **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,
+  audited by Codex with a bounded LR-incidence sanity check.
+- **Files added or changed:** `experimental/notes/m1/cycle78_exact_mmax_census_raw/`,
+  `experimental/notes/m1/m1_cycle78_exact_mmax_census_audit.md`,
+  `experimental/scripts/cycle78_lr_incidence_sanity.py`,
+  `experimental/notes/m1/cycle78_lr_incidence_sanity_certificate.json`, and
+  `experimental/agents-log.md`.
+- **Status:** BANKABLE_LEMMA / ROUTE_CUT / PLAN.
+- **What is being added:** Cycle 78 banks the exact left-right incidence
+  reduction for product fibers and cuts another broad hand/census-planning
+  attempt. Codex locally sanity-checked the product/color decomposition on 25
+  deterministic sample pairs.
+- **How it is useful:** Defines the precise finite object:
+  `m(v)=#{l in L_img : v l^{-1} in R_img and color-compatible}` and isolates
+  the coherent common-ratio set as the next proof target.
+- **What to do next:** Stage Cycle 79 against coherent ratio-set size bounds or
+  explicit size-13 witness construction.
+
 ### 2026-06-20 - Cycle 78 exact mmax census prompt staged
 
 - **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 77.

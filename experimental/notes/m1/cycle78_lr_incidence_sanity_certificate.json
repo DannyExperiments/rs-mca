@@ -1,0 +1,433 @@
+{
+  "color_role": "domain_filter_only",
+  "decision": "LR_INCIDENCE_SAMPLE_PASS",
+  "key": "packed_product_only",
+  "rows": [
+    {
+      "color_identity": true,
+      "left": [
+        0,
+        1,
+        2
+      ],
+      "p0_member": false,
+      "packed_product": 48479717593379539863,
+      "product_identity": true,
+      "right": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        0,
+        1,
+        2
+      ],
+      "p0_member": false,
+      "packed_product": 37956720241234116670,
+      "product_identity": true,
+      "right": [
+        4,
+        18,
+        32,
+        46
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        0,
+        1,
+        2
+      ],
+      "p0_member": false,
+      "packed_product": 27638525360031677159,
+      "product_identity": true,
+      "right": [
+        47,
+        0,
+        16,
+        33
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        0,
+        1,
+        2
+      ],
+      "p0_member": false,
+      "packed_product": 17727519924339259772,
+      "product_identity": true,
+      "right": [
+        11,
+        22,
+        35,
+        44
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        0,
+        1,
+        2
+      ],
+      "p0_member": false,
+      "packed_product": 38011992610833576341,
+      "product_identity": true,
+      "right": [
+        7,
+        19,
+        28,
+        40
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        3,
+        17,
+        31
+      ],
+      "p0_member": false,
+      "packed_product": 21079747696827491030,
+      "product_identity": true,
+      "right": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        3,
+        17,
+        31
+      ],
+      "p0_member": false,
+      "packed_product": 40620175757526398378,
+      "product_identity": true,
+      "right": [
+        4,
+        18,
+        32,
+        46
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        3,
+        17,
+        31
+      ],
+      "p0_member": false,
+      "packed_product": 23147464515110709182,
+      "product_identity": true,
+      "right": [
+        47,
+        0,
+        16,
+        33
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        3,
+        17,
+        31
+      ],
+      "p0_member": false,
+      "packed_product": 37691745373443307908,
+      "product_identity": true,
+      "right": [
+        11,
+        22,
+        35,
+        44
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        3,
+        17,
+        31
+      ],
+      "p0_member": false,
+      "packed_product": 4360833428141737120,
+      "product_identity": true,
+      "right": [
+        7,
+        19,
+        28,
+        40
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        47,
+        46,
+        45
+      ],
+      "p0_member": false,
+      "packed_product": 39527331544581874415,
+      "product_identity": true,
+      "right": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        47,
+        46,
+        45
+      ],
+      "p0_member": true,
+      "packed_product": 36020657871708336379,
+      "product_identity": true,
+      "right": [
+        4,
+        18,
+        32,
+        46
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        47,
+        46,
+        45
+      ],
+      "p0_member": true,
+      "packed_product": 40369969624774201760,
+      "product_identity": true,
+      "right": [
+        47,
+        0,
+        16,
+        33
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        47,
+        46,
+        45
+      ],
+      "p0_member": true,
+      "packed_product": 17624007024619235957,
+      "product_identity": true,
+      "right": [
+        11,
+        22,
+        35,
+        44
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        47,
+        46,
+        45
+      ],
+      "p0_member": false,
+      "packed_product": 13559392957321034257,
+      "product_identity": true,
+      "right": [
+        7,
+        19,
+        28,
+        40
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        5,
+        29,
+        41
+      ],
+      "p0_member": false,
+      "packed_product": 4762274448663448395,
+      "product_identity": true,
+      "right": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        5,
+        29,
+        41
+      ],
+      "p0_member": false,
+      "packed_product": 27341530614142548422,
+      "product_identity": true,
+      "right": [
+        4,
+        18,
+        32,
+        46
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        5,
+        29,
+        41
+      ],
+      "p0_member": false,
+      "packed_product": 14568182725948323125,
+      "product_identity": true,
+      "right": [
+        47,
+        0,
+        16,
+        33
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        5,
+        29,
+        41
+      ],
+      "p0_member": false,
+      "packed_product": 48142530070332115581,
+      "product_identity": true,
+      "right": [
+        11,
+        22,
+        35,
+        44
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        5,
+        29,
+        41
+      ],
+      "p0_member": false,
+      "packed_product": 18269976653945306120,
+      "product_identity": true,
+      "right": [
+        7,
+        19,
+        28,
+        40
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        12,
+        24,
+        36
+      ],
+      "p0_member": false,
+      "packed_product": 14782467970434500330,
+      "product_identity": true,
+      "right": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        12,
+        24,
+        36
+      ],
+      "p0_member": true,
+      "packed_product": 20112007545117643687,
+      "product_identity": true,
+      "right": [
+        4,
+        18,
+        32,
+        46
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        12,
+        24,
+        36
+      ],
+      "p0_member": true,
+      "packed_product": 48151370034742369157,
+      "product_identity": true,
+      "right": [
+        47,
+        0,
+        16,
+        33
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        12,
+        24,
+        36
+      ],
+      "p0_member": true,
+      "packed_product": 34960849684527964325,
+      "product_identity": true,
+      "right": [
+        11,
+        22,
+        35,
+        44
+      ]
+    },
+    {
+      "color_identity": true,
+      "left": [
+        12,
+        24,
+        36
+      ],
+      "p0_member": false,
+      "packed_product": 30879400421460091595,
+      "product_identity": true,
+      "right": [
+        7,
+        19,
+        28,
+        40
+      ]
+    }
+  ],
+  "sample_pairs": 25
+}

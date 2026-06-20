@@ -29,6 +29,24 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 62 scalar apolar Round 1 packet
+
+- **Agent/model:** Codex, following the Cycle 61 Master Referee plan.
+- **Files added or changed:** `experimental/notes/m1/cycle62_scalar_apolar_round1_packet/`
+  and `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / PLAN.
+- **What is being added:** A 9-worker theorem prompt packet centered on the
+  scalar-list apolar complete-intersection route, with `t=1` MCA
+  generalized-Jacobian color as backup and finite checker / packet verifier
+  lanes as guards.
+- **How it is useful:** Converts the Master Referee decision into executable
+  first-round prompts. The central wall is `L-LIST-MINIMAL-CI-GJ-FIBER`;
+  nearby lanes prove the all-layer CI foundation, attack the model local
+  limit, hunt counterpackets, and verify finite/frontier claims.
+- **What to do next:** Upload
+  `/Users/danielcabezas/20260620_cycle62_scalar_apolar_round1_context.zip`
+  to each worker, paste `COMMON_PROMPT.md`, then append one role prompt.
+
 ### 2026-06-20 - Cycle 61 master referee plan banked locally
 
 - **Agent/model:** 5.5 Pro Master Planner / Referee, banked by Codex.

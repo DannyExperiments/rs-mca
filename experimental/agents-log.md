@@ -29,6 +29,27 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 65 thickened gadget color return banked
+
+- **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,
+  audited by Codex.
+- **Files added or changed:** `experimental/notes/m1/cycle65_thickened_gadget_color_raw/`,
+  `experimental/notes/m1/m1_cycle65_thickened_gadget_color_audit.md`, and
+  `experimental/agents-log.md`.
+- **Status:** BANKABLE_LEMMA / ROUTE_CUT / EXACT_NEW_WALL.
+- **What is being added:** The Cycle 65 worker reduces thickened MCA color
+  occupancy to an explicit constrained sevenfold product-set in `F_{17^16}^*`,
+  proves the exact local factorization through three degree-8 polynomials, and
+  cuts the hoped symbolic collapse to product color or truncated jet.
+- **How it is useful:** Replaces a broad structural wall with the finite
+  verifier target
+  `V-CYCLE65-SEVENFOLD-PRODUCT-OCCUPANCY-VERIFIER`; the live decision is now
+  whether occupied thickened colors exceed the `2^32` model line for an
+  explicit admissible `(eta,beta)`.
+- **What to do next:** Implement or prompt the sevenfold product occupancy
+  verifier, then pair any large occupancy result with
+  `RS-PRIZE-FRONTIER-V1-REGISTRY-FIRST-RUN` before calling it prize-relevant.
+
 ### 2026-06-20 - Cycle 65 thickened gadget color prompt launched
 
 - **Agent/model:** Codex launching `claude-opus-4-8` via Packy/Fable

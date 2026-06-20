@@ -1,0 +1,137 @@
+I'll start by reading the file index and the key project state files.The index is large. Let me read it in chunks.Let me directly read the key files specified in the read order rather than scanning the full index.Now let me find the exact paths in the index for the cycle64 audit files. Let me grep the index.Now let me read the raw response from Cycle 64 and the Role 05 near-split file.Now the key Role 05 source files.Now the t=1 color transfer file (Role 08).I have enough to render a rigorous verdict. I've read the Cycle 64 audit and raw response, the Role 05 near-split counterpacket (the source of the 48-state gadget and the packet construction), and the Role 08 t=1 color-transfer counterpacket. The decisive work is an exact factorization of the thickening map, which I derive below.
+
+---
+
+EXACT_NEW_WALL
+
+## 1. Executive verdict and confidence
+
+The thickened occupancy question reduces **exactly and model-independently** to a single named finite object: the image size of a sevenfold *multiplicative product-set* of evaluations of three fixed degree-8 polynomials over `μ_16`-cosets in `F_{17^16}`, restricted by one color-sum congruence. I give that reduction in closed form (bankable, confidence 0.97).
+
+Two negative facts follow with high confidence:
+
+- **No collapse identity exists** (confidence 0.95). `ρ_β(T)` depends on the *full* locator `E_T(1/β)`, i.e. on all of `e_1,…,e_{113}`, not on the truncated jet `E_T mod z^6`. The packet fixes only `e_1,…,e_5`; the higher coefficients vary freely, so there is no norm/trace/jet identity that forces the thickened colors to be a function of the product color. The easy `BANKABLE_LEMMA` (collapse) route is therefore **dead**.
+- **The packet does not, by itself, decide the wall** (confidence 0.9). The exact count depends on `β` (only through `ξ = β²`) and on the explicit choice of `η`, neither of which is fixed in the Role 05 model. A naive "generic `β`" union bound **fails by counting**: the number of bad `(tuple,tuple)` pairs (`~2.8·10^21·56`) vastly exceeds `|F_0| ≈ 4.8·10^19`, so genericity cannot certify a single admissible `β` in this field. Deciding "large vs. collapse" requires specifying `(η,β)` and running a finite distinct-product computation.
+
+Expected outcome once `(η,β)` are pinned: occupancy is **large**, heuristically `≈ |P_0| = 52,747,567,104` (about `12·2^32`), giving a *model-level* `t=1` MCA color obstruction — but this is not certified here, and finite frontier placement is not established, so it cannot be promoted to an official prize counterpacket.
+
+## 2. Formal statement — the exact thickening reduction
+
+Setup as in Role 05: `F_0 = F_{17^16}`, `H_0 = μ_256 = ⟨η⟩`, `η^{16}=ζ=3`, `K=⟨η^8⟩` (`|K|=32`), cosets `η^tK`, `t=0,…,7`. Base states `A_{i,a}=ζ^a A_i` (`i∈{1,2,3}`, `a∈ℤ/16`), with explicit monic degree-8 locators (from Role 05 §3.1)
+
+```text
+P_1(X)=X^8+4X^5+5X^4+10X^3+4X^2+4X+6
+P_2(X)=X^8+9X^5+5X^4+12X^3+14X^2+13X+14
+P_3(X)=X^8+11X^5     +5X^3+ X^2+12X+4
+```
+
+Lift `Ã={x∈K:x²∈A}` (`|Ã|=16`), packet supports `T={1}∪⋃_{t=1}^7 η^tÃ_t`.
+
+**Theorem (exact thickened factorization, bankable).** For every `β∉μ_512` and every packet support `T`,
+
+```text
+ρ_β(T) = ∏_{x∈T}(β−x) = (β−1)·∏_{t=1}^7 v_{t,A_t},
+```
+
+and each local factor has the closed form
+
+```text
+v_{t,A_{i,a}} = ∏_{x∈η^tÃ}(β−x) = (−1)^a · 3^t · P_i(β²·ζ^{−a}·η^{−2t}).
+```
+
+Consequently, writing `C=(β−1)·3^{12}` (nonzero constant) and `u_t(i,a)=(−1)^a P_i(β²ζ^{−a}η^{−2t})`,
+
+```text
+ρ_β(T) = C · ∏_{t=1}^7 u_t(i_t,a_t),
+```
+
+and the occupied-color count is
+
+```text
+Occ(b_0) = #{ ∏_{t=1}^7 u_t(i_t,a_t) : (i_t,a_t)∈{1,2,3}×ℤ/16,  ∑_{t=1}^7 r_t ≡ 4 (mod 16) },
+```
+
+where `r_t = s_{i_t} + 8·(a_t mod 2) mod 16`, `(s_1,s_2,s_3)=(15,9,12)`.
+
+## 3. Proof and edge cases
+
+**Factorization.** `T` is the disjoint union `{1}⊔⋃_t η^tÃ_t`, so `ρ_β` factors over the parts; `(β−1)` is the marker factor. For one block,
+`v_{t,A}=∏_{x∈Ã}(β−η^tx)=β^{16}E_{Ã}(η^t/β)` with `E_{Ã}(w)=∏_{x∈Ã}(1−xw)`. By the quadratic-lift identity `E_{Ã}(w)=E_A(w²)` (Role 05 §3.2), `=β^{16}E_A(η^{2t}/β²)`. With `A=ζ^aA_i`, `E_A(w)=E_{A_i}(ζ^aw)`, so `=β^{16}E_{A_i}(ζ^aη^{2t}/β²)`. Writing `w=η^{16a+2t}/β²` and using `E_{A_i}(w)=w^8P_i(1/w)`:
+`v=β^{16}·w^8·P_i(1/w)`. Now `β^{16}w^8=η^{8(16a+2t)}=η^{128a+16t}=(−1)^a 3^t` since `η^{128}=−1`, `η^{16}=3`; and `1/w=β²ζ^{−a}η^{−2t}`. This gives the boxed local form. Multiplying the seven blocks, `∏_t 3^t=3^{28}=3^{12}` (ord 3 = 16), absorbed into `C`; `∏_t(−1)^{a_t}` is folded into the `u_t`. ∎
+
+**Color constraint.** The `η^t`-block product is `η^{16t}ζ^{r_t}=ζ^{t+r_t}`; total `ζ^{28+∑r_t}=1` iff `∑r_t≡4 (mod 16)`, recovering Role 05 (3.7). ∎
+
+**No-collapse.** `ρ_β(T)=β^{113}E_T(1/β)` and `E_T(1/β)=1+e_1/β+…+e_{113}/β^{113}` uses every coefficient. The packet pins `e_1=1,e_2=…=e_5=0` and the product `e_{113}=1`, but `e_6,…,e_{112}` vary across `P_0` (this variation is exactly what the 48-state higher jets encode). So `ρ_β` is not a function of `(product, jet mod z^6)`; the Role 08 full-block collapse formulas do **not** apply — the packet is block-free by construction. ∎
+
+**Edge cases.** (i) Admissible `β`: `P_i(β²ζ^{−a}η^{−2t})=0 ⟺ β²∈η^{16a+2t}A_i⊆μ_256 ⟺ β∈μ_512`; hence all factors are nonzero exactly for `β∈F_0^×∖μ_512`, which includes all `β∉H_0` of order not dividing 512. (ii) `Occ` depends on `β` only through `ξ=β²`; in particular `Occ(β)=Occ(−β)`. (iii) `C` is a global nonzero scalar, so it never changes the cardinality (gauge/`L_*`-invariance, matching Role 08 §8). (iv) The construction needs `2∣|K|`, `char≠2`: satisfied (`p=17`).
+
+## 4. The reduced finite object (the new wall)
+
+```text
+W-MODEL-GJ-SEVENFOLD-POLY-PRODUCT-SET-OCCUPANCY
+```
+
+Inputs: the three fixed `P_i∈F_17[X]` above; a root `η∈F_{17^16}^×` of order 256 with `η^{16}=3`; `ξ=β²` with `β∉μ_512`. Define the `7×3×16` table `u_t(i,a)=(−1)^aP_i(ξζ^{−a}η^{−2t})∈F_{17^16}^×` (336 field evaluations). Output:
+
+```text
+Occ = #{ ∏_{t=1}^7 u_t(i_t,a_t) : ∑_t r_t ≡ 4 (mod 16) }.
+```
+
+This is a constrained sevenfold **multiplicative product-set image** in the cyclic group `F_{17^16}^× ≅ ℤ/(17^16−1)`. Under discrete log it is a constrained sevenfold **sumset distinct-count** in `ℤ/n`, `n=17^16−1`.
+
+Bounds that hold unconditionally:
+- Upper: `Occ ≤ |P_0| = 8^7·c_7(4) = 52,747,567,104` (each support gives one color).
+- Per-color-class lower envelope: for any fixed valid color sequence, `Occ ≥ |U_1···U_7|` where `U_t={u_t(i_t,a):a∈ parity class}` has `≤8` elements; so this single-class bound is `≤8^7≈2.1·10^6 < 2^32`. **Reaching `2^32` necessarily uses the `c_7(4)=25152` distinct color classes**, i.e. requires the union of their product-sets not to collapse below `~8%` of the maximum.
+
+There is **no `β`-independent positive lower bound beyond `1`**: a measure-zero set of `ξ` makes some `U_t` a singleton (when the 8 evaluation points are exactly the roots of `P_i−c`). This is precisely why the wall cannot be decided from the packet alone.
+
+## 5. Parameter ledger and finite relevance
+
+| Quantity | Value |
+|---|---|
+| Field / group | `F_{17^16}` / `μ_256=⟨η⟩`, `η^{16}=3` |
+| Local states / coset | 48 = `{1,2,3}×ℤ/16` |
+| Colors `S` | `{1,4,7,9,12,15}`, target `∑r_t≡4 (16)` |
+| Color sequences | `c_7(4)=25,152` |
+| Packet mass `|P_0|` | `52,747,567,104 = 393·2^27` (`>2^32`) |
+| `Occ` upper bound | `|P_0|` |
+| `Occ` single-class bound | `≤8^7≈2.1·10^6` |
+| Admissible `β` | `F_0^×∖μ_512` |
+| `Occ` dependence | through `ξ=β²` only |
+| Frontier placement | **not** established (`n=256,σ=6` sub-reserve) |
+
+Finite relevance is **unresolved**: as in Cycle 64, `(256,6,113)` is a model instance, not a placed official reserve. Even a certified large `Occ` is a model-level obstruction until the frontier checker places the stratum.
+
+## 6. What is bankable vs. conditional
+
+Bankable now (pending PRZ review):
+- `L-MODEL-GJ-THICKENED-FACTORIZATION`: the exact local form `v_{t,A_{i,a}}=(−1)^a3^tP_i(β²ζ^{−a}η^{−2t})` and the global `ρ_β(T)=(β−1)∏_tv_{t,A_t}`. Model-independent in the 48 local states (it only uses the quadratic lift and the explicit `P_i`).
+- The reduction `Occ(b_0)=` constrained sevenfold product-set count, with exact upper bound `|P_0|` and the single-color-class envelope `≤8^7`.
+- No-collapse: `ρ_β` is governed by the full locator, not the jet; the Role 08 block-collapse does not absorb the block-free packet.
+
+Conditional / open:
+- Whether `Occ(b_0) ≥ 2^32` for an admissible `β` (expected yes; uncertified).
+- The admissible-`β` set on which largeness holds.
+- Finite frontier placement (shared with Cycle 64).
+
+## 7. Failure point (why unresolved)
+
+The decision rests on a distinct-count of a constrained sevenfold product-set whose factors are explicit field elements `u_t(i,a)`. These cannot be evaluated symbolically: they require fixing an irreducible model of `F_{17^16}`, a generator `η` with `η^{16}=3`, and a thickening point `β`, then arithmetic in the field. The "generic-`β`" shortcut is unavailable (union bound exceeds field size). So the wall is reduced but not closed: the missing data are exactly `(F_{17^16}\text{-model}, η, β)`.
+
+## 8. Next exact lemma / construction — route to a full solve
+
+Yes, I see a route, and it is now a concrete finite computation rather than a structural question.
+
+Next exact deliverable, implementable by Codex/PRZ:
+
+```text
+V-CYCLE65-SEVENFOLD-PRODUCT-OCCUPANCY-VERIFIER
+```
+
+1. Fix `F_{17^16}=F_17[θ]/(f)` for an explicit irreducible `f` of degree 16; find `η` of order 256 with `η^{16}≡3`; pick `β` of order not dividing 512 (e.g. a primitive element).
+2. Build the `7×3×16` table `u_t(i,a)=(−1)^aP_i(β²ζ^{−a}η^{−2t})` (336 evaluations; the `P_i` are the explicit polynomials in §2).
+3. Count distinct constrained products by **meet-in-the-middle on color and value**: enumerate partial products for cosets `{1,2,3}` (`48^3≈1.1·10^5`) and `{4,5,6,7}` (`48^4≈5.3·10^6`), bucketed by color-sum mod 16; for each complementary color pair summing to `4`, count `|A·B|` of the two value-sets via discrete-log hashing in `ℤ/n`. Aggregate to `Occ`.
+4. Decision: if `Occ ≥ 2^32`, emit the **model-level `t=1` MCA color counterpacket** (the scalar-apolar→`t=1` spine is cut at these parameters); the tensor family multiplies occupancy across `R` independent `J`-blocks, so largeness self-amplifies as `Occ^R`. If `Occ` collapses below the line for the chosen `β`, sweep `β` over coset representatives of `F_0^×/μ_512` and either certify a large `β` or, if all collapse, prove the collapse identity as `L-MODEL-GJ-THICKENED-OCCUPANCY-COLLAPSE` (this would be the surprise `BANKABLE_LEMMA`).
+5. In parallel, regardless of step 4, advance `RS-PRIZE-FRONTIER-V1-REGISTRY-FIRST-RUN` to test whether the `(256,6,113)` stratum sits at the first official reserve; only then does large `Occ` threaten the prize.
+
+My expectation: step 3 returns `Occ ≈ |P_0| ≈ 5.3·10^10 > 2^32` for generic admissible `β`, because the higher jets that distinguish the 8 same-color states make the `u_t` multiplicatively unstructured and the product-set near-maximal. The honest blocker is that this is the expectation, not a theorem, until the verifier runs on a fixed `(η,β)`.

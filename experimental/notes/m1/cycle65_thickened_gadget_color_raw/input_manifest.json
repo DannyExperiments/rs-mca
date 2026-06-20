@@ -1,0 +1,55 @@
+{
+  "project": {
+    "id": "rs-mca-proximity-prize-research",
+    "name": "RS-MCA Proximity Prize Research",
+    "description": "Isolated RS-MCA / proximity prize research workspace. Keep separate from Erdos 361 and 346 theorem state.",
+    "sourceDir": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/source_files",
+    "startFiles": [
+      "README_FOR_FABLE.md",
+      "DIRECTOR_STATE.md",
+      "DIRECTOR_STATE.json",
+      "ROUTE_BOARD_CURRENT.md",
+      "ACTIVE_WALLS.md",
+      "BANKED_LEMMAS.md",
+      "CUTS_AND_FALSE_ROUTES.md",
+      "INSTANCE_REGISTRY.json",
+      "NEXT_PROMPT_QUEUE.md"
+    ],
+    "path": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research"
+  },
+  "runId": "2026-06-20T06-28-17-528Z-cycle65-thickened-gadget-color-occupancy-80b449fb",
+  "runMode": "artifact_stream",
+  "runDir": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-20T06-28-17-528Z-cycle65-thickened-gadget-color-occupancy-80b449fb",
+  "uploadDir": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-20T06-28-17-528Z-cycle65-thickened-gadget-color-occupancy-80b449fb/input_attachments",
+  "projectCopyDir": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-20T06-28-17-528Z-cycle65-thickened-gadget-color-occupancy-80b449fb/input_project",
+  "outputDir": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-20T06-28-17-528Z-cycle65-thickened-gadget-color-occupancy-80b449fb/output_files",
+  "includeProjectSource": true,
+  "allowOutputFiles": false,
+  "allowedTools": [
+    "Read",
+    "Glob",
+    "Grep"
+  ],
+  "embeddedTextAttachments": [],
+  "stagedFiles": [],
+  "extractedArchives": [],
+  "archiveWarnings": [],
+  "projectSource": {
+    "included": true,
+    "sourceDir": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/source_files",
+    "copyDir": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-20T06-28-17-528Z-cycle65-thickened-gadget-color-occupancy-80b449fb/input_project"
+  },
+  "fileIndex": {
+    "included": true,
+    "path": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-20T06-28-17-528Z-cycle65-thickened-gadget-color-occupancy-80b449fb/FILE_INDEX_FOR_MODEL.md",
+    "sections": [
+      {
+        "title": "Project source copy",
+        "root": "/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-20T06-28-17-528Z-cycle65-thickened-gadget-color-occupancy-80b449fb/input_project",
+        "fileCount": 1053
+      }
+    ],
+    "fileCount": 1053
+  },
+  "promptChars": 8812
+}

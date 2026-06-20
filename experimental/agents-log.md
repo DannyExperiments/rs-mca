@@ -29,6 +29,43 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 71 optimized ladder prompt staged
+
+- **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 70.
+- **Files added or changed:** `experimental/notes/m1/cycle71_optimized_ladder_run_packet/`
+  and `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / PLAN.
+- **What is being added:** A targeted prompt for
+  `V-CYCLE70-K3-K4-OPTIMIZED-LADDER-RUN`, explicitly forbidding the false
+  Cycle 70 t-independent collapse and requiring executable verifier progress,
+  structural proof, or a direct partial collision.
+- **How it is useful:** Keeps the finite model route honest after the Cycle 70
+  cut and points the next worker at the actual computational bottleneck.
+- **What to do next:** Refresh the Packy/Fable source snapshot, preview, launch
+  Cycle 71, and heartbeat the run.
+
+### 2026-06-20 - Cycle 70 K3/K4 ladder return banked
+
+- **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,
+  audited by Codex with a local checker.
+- **Files added or changed:** `experimental/notes/m1/cycle70_k3_k4_ladder_raw/`,
+  `experimental/notes/m1/m1_cycle70_k3_k4_ladder_audit.md`,
+  `experimental/scripts/cycle70_slot_normalization_checker.py`,
+  `experimental/notes/m1/cycle70_slot_normalization_certificate.json`, and
+  `experimental/agents-log.md`.
+- **Status:** ROUTE_CUT / BANKABLE_LEMMA / PLAN.
+- **What is being added:** Cycle 70 does not prove or falsify the `k=3/k=4`
+  ladder. Codex locally cuts the worker's strongest t-independent
+  normalization claim with an explicit counterexample, while rechecking the
+  surviving Cycle 68 t-dependent polynomial-evaluation identity on all 336
+  slot values.
+- **How it is useful:** Prevents a false simplification from contaminating the
+  route and refocuses the wall on an actual optimized/compiled ladder or
+  collision-energy run.
+- **What to do next:** Stage Cycle 71 against
+  `V-CYCLE70-K3-K4-OPTIMIZED-LADDER-RUN`, requiring an executable exact
+  verifier or explicit partial collision rather than a new unrun shortcut.
+
 ### 2026-06-20 - Cycle 70 K3/K4 ladder prompt staged
 
 - **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 69.

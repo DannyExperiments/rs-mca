@@ -29,6 +29,42 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 74 norm-bucket ladder prompt staged
+
+- **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 73.
+- **Files added or changed:** `experimental/notes/m1/cycle74_norm_bucket_ladder_packet/`
+  and `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / PLAN.
+- **What is being added:** A targeted execution/certificate prompt for
+  `V-CYCLE74-NORM-BUCKET-COMPILED-LADDER-RUN`, using the Cycle 73 prime-field
+  slot polynomial identity and sound norm buckets.
+- **How it is useful:** Pushes the route away from repeated unrun verifier
+  sketches and toward an actual product-only ladder certificate or explicit
+  collision.
+- **What to do next:** Refresh the Packy/Fable source snapshot, preview, launch
+  Cycle 74, and heartbeat the run.
+
+### 2026-06-20 - Cycle 73 compiled product ladder return banked
+
+- **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,
+  audited by Codex with a bounded local self-check.
+- **Files added or changed:** `experimental/notes/m1/cycle73_compiled_product_ladder_raw/`,
+  `experimental/notes/m1/m1_cycle73_compiled_product_ladder_audit.md`,
+  `experimental/scripts/cycle73_prime_slot_norm_check.py`,
+  `experimental/notes/m1/cycle73_prime_slot_norm_certificate.json`, and
+  `experimental/agents-log.md`.
+- **Status:** BANKABLE_LEMMA / PLAN.
+- **What is being added:** Cycle 73 does not execute the expensive ladder, but
+  banks the prime-field slot polynomial identity, sound norm bucket strategy,
+  and unconstrained-energy dominance. Codex locally checked all 336 slot
+  identities, `eta^16=3`, the Cycle 70 false-collapse failure, and bounded
+  norm homomorphism samples.
+- **How it is useful:** Gives the correct lossless bucketing mechanism for a
+  memory-bounded compiled verifier and strengthens independent arithmetic
+  self-checks.
+- **What to do next:** Stage Cycle 74 as an execution-focused norm-bucket
+  compiled run. Do not accept another unrun pass as evidence.
+
 ### 2026-06-20 - Cycle 73 compiled product ladder prompt staged
 
 - **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 72.

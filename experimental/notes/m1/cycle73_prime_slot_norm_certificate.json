@@ -1,0 +1,50 @@
+{
+  "decision": "CYCLE73_PRIME_SLOT_NORM_SELFCHECK_PASS",
+  "eta16_equals_3": true,
+  "false_collapse_fails_at": {
+    "a": 0,
+    "i": 1,
+    "t": 1
+  },
+  "false_collapse_mismatch_count": 336,
+  "model": {
+    "beta": [
+      2,
+      1
+    ],
+    "eta": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6
+    ],
+    "field_poly": [
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "norm17_homomorphism_adjacent_pair_checks": 288,
+  "prime_field_slot_identity_all_336": true,
+  "prime_identity_checked": 336
+}

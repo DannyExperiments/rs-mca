@@ -29,6 +29,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 66 sevenfold product occupancy return banked
+
+- **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,
+  audited by Codex with a bounded local self-check.
+- **Files added or changed:** `experimental/notes/m1/cycle66_sevenfold_product_occupancy_raw/`,
+  `experimental/notes/m1/m1_cycle66_sevenfold_product_occupancy_audit.md`,
+  `experimental/scripts/cycle66_occupancy_selfcheck.py`, and
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / BANKABLE_LEMMA / EXACT_NEW_WALL.
+- **What is being added:** The Cycle 66 worker corrects the admissibility
+  condition to `beta notin mu_256`, reformulates occupancy as distinct
+  locator evaluations `rho_beta(T)`, and specifies an implementation path for
+  the explicit sevenfold product count. Codex locally verified the finite-field
+  setup, constants, and 32 factorization spot checks.
+- **How it is useful:** Makes the Role 05 model obstruction executable and
+  sharpens the next live target to either cross-color injectivity or a compiled
+  occupancy/lower-bound verifier. It does not prove `Occ >= 2^32`.
+- **What to do next:** Attack
+  `L-CYCLE66-CROSS-COLOR-INJECTIVITY-LOWER-BOUND`; if that fails, build the
+  compiled/external-sort or projected-power lower-bound occupancy verifier,
+  while keeping finite frontier placement separate.
+
 ### 2026-06-20 - Cycle 66 sevenfold product occupancy prompt staged
 
 - **Agent/model:** Codex staging next Packy/Fable prompt.

@@ -1,0 +1,54 @@
+{
+  "N": 48661191875666868480,
+  "beta": [
+    2,
+    1
+  ],
+  "decision": "SELF_CHECK_ONLY",
+  "eta": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    6
+  ],
+  "field_poly": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+  ],
+  "mu512_equals_mu256": true,
+  "selfchecks": {
+    "P0": 52747567104,
+    "P_i_products": true,
+    "c7_4": 25152,
+    "colors": [
+      15,
+      9,
+      12
+    ],
+    "e1_e2_zero": true,
+    "factorization_oracle_spotchecks": 32
+  },
+  "threshold": 4294967296,
+  "v2_N": 8
+}

@@ -29,6 +29,25 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 83 MITM threshold plan banked
+
+- **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,
+  audited by Codex.
+- **Files added or changed:** `experimental/notes/m1/cycle83_mitm_mmax_threshold_raw/`,
+  `experimental/notes/m1/m1_cycle83_mitm_mmax_threshold_audit.md`, and
+  `experimental/agents-log.md`.
+- **Status:** EXACT_NEW_WALL / PLAN.
+- **What is being added:** Cycle 83 does not prove `m_max(beta)<=12` and does
+  not find a 13-fold packet. It sharpens the remaining wall to a color-filtered
+  MITM threshold census capped at `13`, with resource tiers for Bloom duplicate
+  detection, deterministic shard/reduce, or recompute sharding.
+- **How it is useful:** Confirms the injectivity ladder cannot by itself reach
+  the constant `12`; the remaining target is an actual no-13 threshold
+  certificate or explicit 13-fold packet.
+- **What to do next:** Resolve execution resources. The local Mac had only
+  about 118MiB free before preview-cache cleanup and remains far below the
+  `66GB` RAM / `0.5-0.85TB` scratch tiers proposed for the census.
+
 ### 2026-06-20 - Cycle 82 four-slot product certificate banked
 
 - **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,

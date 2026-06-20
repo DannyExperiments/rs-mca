@@ -1,0 +1,13 @@
+{
+  "decision": "CYCLE84_EXACT_MMAX2_CERTIFICATE_VERIFIED",
+  "exact_true_m_max": 2,
+  "exact_true_occupancy": 52747567092,
+  "exact_true_ordered_offdiagonal_energy": 24,
+  "projected_max_multiplicity": 2,
+  "projected_ordered_offdiagonal_energy": 120,
+  "slot_logs_sha256": "d4379b3ed97c4ae2a43511796e3bcb15514d3f5f989f15b6fb1bc9fc85c779d8",
+  "slot_value_log_checks": 336,
+  "true_collision_tau_orbits": 6,
+  "true_double_fibers": 12,
+  "codex_note": "Codex ran the lightweight verifier from cycle84_mmax2_certificate_bundle.zip locally. This verifies the emitted certificate chain and direct-field collision data; it is not a rerun of the 26.37B-entry projected census."
+}

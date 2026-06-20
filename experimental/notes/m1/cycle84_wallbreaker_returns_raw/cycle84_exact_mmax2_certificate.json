@@ -1,0 +1,171 @@
+{
+  "artifact_hashes": {
+    "README.md": {
+      "bytes": 2592,
+      "sha256": "1ff64f7994a308f4b1534168303049b11d07e938972bdcfaee852fa277156049"
+    },
+    "data/cycle84_log_tau_certificate.json": {
+      "bytes": 1567,
+      "sha256": "e9f64512c004dcb597f64071d2af2b06a342165a2874b796b0844042aa36f75f"
+    },
+    "data/cycle84_true_collision_pairs.json": {
+      "bytes": 3397,
+      "sha256": "d1196942d56bdd41e5b41295837d7d1c37ca18a3834ac95ccd42630e8051c604"
+    },
+    "data/slot_logs.json": {
+      "bytes": 74619,
+      "sha256": "d4379b3ed97c4ae2a43511796e3bcb15514d3f5f989f15b6fb1bc9fc85c779d8"
+    },
+    "model/__pycache__/cycle68_slot_factorization_checker.cpython-313.pyc": {
+      "bytes": 16027,
+      "sha256": "baf428267fa61f3be9e3e2d39915d8d2631bfb67fd17ca47596cc5c0a1ac1aa4"
+    },
+    "model/cycle68_slot_factorization_checker.py": {
+      "bytes": 8193,
+      "sha256": "7558ad5749bb2a4ecdd86a62030ba6290ff58de76ff9c2cad464344c728b9b31"
+    },
+    "output/light_verification.out": {
+      "bytes": 438,
+      "sha256": "93177a6892e3aaf362d2414010f173eaa0dbc7e78c1f1f680bfbb5290dd2cb8a"
+    },
+    "output/tau_full.err": {
+      "bytes": 868,
+      "sha256": "8d8330d9ed4668d631cbc2f30424b8d36fff8c9c269dff2a9d5414d34576b1e1"
+    },
+    "output/tau_full.out": {
+      "bytes": 771,
+      "sha256": "7fdfb2189340821fe23d055a09e9fa303e415b200ddde83919acdbfe79599feb"
+    },
+    "output/tau_lift.err": {
+      "bytes": 751,
+      "sha256": "2afaa8124ccb7cf417f4f7e5b8f022119995d23358a73431e39cdf1204f22ee3"
+    },
+    "output/tau_lift.out": {
+      "bytes": 13537,
+      "sha256": "bb07fd0a8bffb73989215fd1140706747c29dc2c7af1700d0e1af0bcb290af84"
+    },
+    "output/tau_opt.err": {
+      "bytes": 894,
+      "sha256": "cc3037d2c2db093678deb2ccfce7c1b8ff6f6f575562e3e0a0bb2234af7380ca"
+    },
+    "output/tau_opt.out": {
+      "bytes": 2525,
+      "sha256": "65bc5cf766497c9b31a1c71856a129023d72a314ab392ddf5509a72b40e96849"
+    },
+    "run_light_verification.sh": {
+      "bytes": 89,
+      "sha256": "3c01c280ff0df156cbd292f8693ae1f0f35d0f7df82203ced37657e79e741122"
+    },
+    "src/logsM.hpp": {
+      "bytes": 8820,
+      "sha256": "d9a549578922fa3e62f62e527899b29e9064db635e367a2060e835a2a3f8c46f"
+    },
+    "src/logsN.hpp": {
+      "bytes": 10611,
+      "sha256": "037cb2a4c001980bfadaa3af9c0c6e0df533b2493007f52f2d26009de8bb428e"
+    },
+    "src/tau_duplicate_lift.cpp": {
+      "bytes": 8940,
+      "sha256": "fe3953e2051b13ea937e4855e99a0cc6942a665c0833fb709ad48a9c1e1088db"
+    },
+    "src/tau_fold_full.cpp": {
+      "bytes": 8407,
+      "sha256": "6e39488ee0b92f4cd47efbbd0c623801949e834da414605b37a42335fd99774c"
+    },
+    "src/tau_fold_full_optimized.cpp": {
+      "bytes": 7514,
+      "sha256": "f058d2e91be5630ec6a8c6d2f595ba6ba3b8689d59c8bf5c463f99974db99614"
+    },
+    "verify_certificate.py": {
+      "bytes": 7855,
+      "sha256": "7cffe8e560e80a517ca56a8c71339382395c447c6b65424265121d514c61d9e7"
+    }
+  },
+  "confidence": "high",
+  "decision": "EXACT_CYCLE84_MMAX_EQUALS_2",
+  "exact_conclusion": {
+    "m_max_beta": 2,
+    "no_13_fold_packet": true,
+    "occupancy": 52747567092,
+    "occupancy_gt_2_pow_32": true,
+    "ordered_offdiagonal_energy_D": 24,
+    "target_m_max_le_12": true
+  },
+  "executed_runs": [
+    {
+      "exit_code": 0,
+      "name": "tau fold repartition A",
+      "output": "output/tau_full.out",
+      "shards": 4096,
+      "threads": 8
+    },
+    {
+      "exit_code": 0,
+      "name": "tau fold repartition B",
+      "output": "output/tau_opt.out",
+      "shards": 16384,
+      "threads": 16
+    },
+    {
+      "exit_code": 0,
+      "name": "kernel-3 duplicate lift",
+      "output": "output/tau_lift.out"
+    },
+    {
+      "exit_code": 0,
+      "name": "light direct-field verifier",
+      "output": "output/light_verification.out"
+    }
+  ],
+  "kernel_lift": {
+    "canonical_double_bins_checked": 30,
+    "selected_witnesses_recovered": 60,
+    "true_collision_tau_orbits": 6,
+    "true_double_fibers": 12
+  },
+  "log_group": {
+    "beta_primitive": true,
+    "factorization": {
+      "184417": 1,
+      "18913": 1,
+      "2": 8,
+      "29": 1,
+      "3": 2,
+      "41761": 1,
+      "5": 1
+    },
+    "order": 48661191875666868480,
+    "projection_kernel_order": 3,
+    "projection_modulus": 16220397291888956160,
+    "slot_logs_verified": 336
+  },
+  "model": {
+    "P0_size": 52747567104,
+    "beta": "X+2",
+    "color_shell_mod_16": 4,
+    "eta": "6 X^9",
+    "field": "F_17[X]/(X^16+X^8+3)"
+  },
+  "projected_census": {
+    "canonical_double_bins": 30,
+    "canonical_shards": 16384,
+    "counted": 26373783552,
+    "folded_ordered_energy": 60,
+    "projected_max_multiplicity": 2,
+    "projected_ordered_energy": 120,
+    "threads": 16
+  },
+  "scope": "explicit Cycle66-84 seven-slot finite model only; not a prize-level resolution",
+  "tau": {
+    "fixed_roots": [
+      7668598605862660454,
+      15778797251807138534
+    ],
+    "fixed_selected_counts": [
+      0,
+      0
+    ],
+    "kappa_mod_projection": 15337197211725320908,
+    "oriented_half_domain": 26373783552
+  }
+}

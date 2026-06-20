@@ -1,0 +1,14 @@
+{
+  "version": "cycle84-dlog-fp64-v1",
+  "decision": "MODEL_AND_DLOG_SELFTEST_PASS",
+  "field": {"p":17,"modulus_coeffs":[3,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1],"N":"48661191875666868480"},
+  "generator_coeffs": [1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  "eta_coeffs": [0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0],
+  "beta_coeffs": [2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  "state_table_sha256": "4cb6ea024522568419f1e5c51d18f38bde78ca14dfdce950411a907af982b497",
+  "L_table_sha256": "0fbb49337f20496968c07b9a62e49d1b92e304a0ec32e4d9da785181e28d2ffe",
+  "R_table_sha256": "27615bb17707290e43dd8d1f1496eb94889b8f66b917308a847ebb2a67466a89",
+  "L_count": 110592,
+  "R_count": 5308416,
+  "P0": 52747567104
+}

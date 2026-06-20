@@ -1,0 +1,130 @@
+{
+  "D_offdiagonal_ordered": 24,
+  "color_filter": "colorL + colorR == 4 mod 16",
+  "compatible_pairs": 52747567104,
+  "confidence": "high",
+  "decision": "CYCLE84_FINITE_WALL_PROVED",
+  "distinct_products": 52747567092,
+  "explicit_double_witness": {
+    "product_field_coefficients": [
+      3,
+      16,
+      6,
+      13,
+      15,
+      10,
+      10,
+      11,
+      8,
+      5,
+      12,
+      9,
+      13,
+      6,
+      4,
+      3
+    ],
+    "product_log": 814364899710808391,
+    "representations": 2
+  },
+  "fiber_histogram": {
+    "multiplicity_1": 52747567080,
+    "multiplicity_2": 12,
+    "multiplicity_ge_3": 0
+  },
+  "histogram_rigidity_identity": {
+    "formula": "D - 2(P-U) = sum_{occupied v}(m(v)-1)(m(v)-2)",
+    "value": 0
+  },
+  "m_max": 2,
+  "model": {
+    "beta": [
+      2,
+      1
+    ],
+    "eta": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6
+    ],
+    "field_poly": [
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "generator": [
+      1,
+      1
+    ],
+    "group_order": "48661191875666868480"
+  },
+  "occupancy_margin": 48452599796,
+  "occupancy_threshold": 4294967296,
+  "scope": "finite Cycle84 model only; not a prize-level resolution",
+  "sha256": {
+    "CYCLE84_MMAX2_PROOF.md": "8beafbaa373c4490d4090ef7fbb1cb3ed8fac5483be15cf4130455b553846018",
+    "REPRODUCE_CYCLE84_MMAX2.sh": "c254bd1f5770ee2fddbeceba3acaec4c47ff798fd6a2a709c2bec9e220700cc4",
+    "checker_constant_bridge_certificate.json": "b176e836fdb83875b32f668091a887d8ced0ea7fd43f521da04bfdcd035580ed",
+    "color_count_certificate.json": "5aab7d987f0ea292e72e322706474af5f04cbdbd8bb8c741db8666d4f7e2171f",
+    "cycle84_collision_shard_three_way_certificate.json": "443071e7441f4418b1a392acab8826e80d33f4f55a67b0639748640b24aa745c",
+    "cycle84_double_witness.json": "495de0b6c3f652b3a5ce200539b3fbe169206d674bd3113a85231fbc84705f1b",
+    "cycle84_double_witness_verification_certificate.json": "693ac7e8821d77b4d9ba011010fd09e3a2ed3013d6c45caf859dc9373473ac3d",
+    "cycle84_exact_mmax_checker.cpp": "1ed541cb5b60629d6864082a006b672ad5b6c9f100dcd6e41d537ef0809b6189",
+    "cycle84_mmax_exact_certificate.json": "a59a7349c82131315575fd01666e0b2fb01852a76925ffbcd31b17b107f8e3e4",
+    "cycle84_verify_discrete_logs_stdlib.py": "a6635da8dec37642a6a62dcdf3000b1c2440891c432232d48259896352d10529",
+    "fresh_build.sha256": "4f282fa06505cd91dcee26a330dd07ebcfc621c94dda88f1fcd2b8ca9f86de58",
+    "fresh_execution_manifest.json": "cd40a289b731448dc8e25aedee3cd9fee6bd74fc219ecf8b31d0c729cce63a02",
+    "fresh_full_acceptance_certificate.json": "7dcc3c6a7bf51799c54159d716fcbfd7f4b825b8697980a99db6bfc11785d869",
+    "fresh_full_certificate.json": "1ba4fe9cbdcd51e2c8e7ac7c2d13795a258e5b267e2d2c83e2335a6953b1c6d1",
+    "selfdual_fiber_certificate.json": "eb01d04e6bd0b6a6b34fcab20c2593eb5462f43607be6cacc2b14eae21af0eab",
+    "shard25_sort_audit_certificate.json": "89dcb3cb5318ce85992085ebb14e7fa8a72cafdf23d12ae17a4d89e2dee0cf3e",
+    "shard_sort_audit_certificate.json": "c72d61ba5fd8920e8321b18a479faff9aabb0b1fbe65eb2862356f5aba857f17",
+    "slot_logs_stdlib_verification_certificate.json": "a2fe7df30bd95a8d1cfa59bb57e7ec614a00acc63bed816071072e7acba1e9a7"
+  },
+  "split": {
+    "left_count": 110592,
+    "left_slots": [
+      1,
+      2,
+      3
+    ],
+    "right_count": 5308416,
+    "right_slots": [
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "theorem": "For the explicit Cycle84 seven-slot product/color model at beta=X+2, m_max(beta)=2.",
+  "verification_layers": [
+    "336 exact slot logarithms reconstructed and verified in the finite field",
+    "all 1536 log shards exactly enumerated",
+    "compatible-pair total equals the independent color count",
+    "independent sort reducer matches audit shard 0 and collision shard 25",
+    "collision shard 25 also matches an O0 single-thread hash run",
+    "tau self-dual fibers are empty and D is divisible by 4",
+    "explicit double fiber verified by direct field multiplication"
+  ]
+}

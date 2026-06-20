@@ -29,6 +29,29 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-21 - Cycle 84 wallbreaker returns banked
+
+- **Agent/model:** External Pro theorem-worker returns, audited by Codex with a
+  local lightweight certificate verifier.
+- **Files added or changed:** `experimental/notes/m1/cycle84_wallbreaker_returns_raw/`,
+  `experimental/notes/m1/m1_cycle84_wallbreaker_returns_audit.md`, and
+  `experimental/agents-log.md`.
+- **Status:** PROOF / BANKABLE_LEMMA.
+- **What is being added:** Multiple Cycle84 returns independently converge on
+  `m_max(beta)=2` for the explicit seven-slot color-filtered finite model.
+  Codex locally ran the strongest bundle's lightweight verifier and obtained
+  `CYCLE84_EXACT_MMAX2_CERTIFICATE_VERIFIED`, with occupancy
+  `52,747,567,092` and ordered off-diagonal energy `24`.
+- **How it is useful:** Closes the finite wall
+  `W-CYCLE84-MITM-DUPLICATE-DETECTOR-EXECUTION` far past the needed
+  `m_max(beta)<=12` threshold. There is no 13-fold colored packet in this
+  explicit model; indeed there is no 3-fold packet.
+- **What to do next:** Bank/promote
+  `L-CYCLE84-EXACT-COLOR-FILTERED-MMAX`, then execute
+  `L-CYCLE85-EXACT-ROLE05-OCCUPANCY-TRANSFER`: splice the exact spectrum and
+  `Occ(beta)>2^32` into the finite frontier ledger without claiming the full
+  prize theorem.
+
 ### 2026-06-21 - Cycle 84 MITM wallbreaker packet staged
 
 - **Agent/model:** Codex staging a nine-instance Pro wallbreaker round.

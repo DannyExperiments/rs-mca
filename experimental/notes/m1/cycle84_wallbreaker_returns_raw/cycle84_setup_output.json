@@ -1,0 +1,11 @@
+{
+  "decision": "SETUP_VERIFIED",
+  "field": {"p":17,"degree":16,"modulus":[3,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1],"eta":[0,0,0,0,0,0,0,0,0,6],"beta":[2,1]},
+  "group_order": "48661191875666868480",
+  "generator": [1,1],
+  "kappa": "28612129440766144972",
+  "delta": "14306064720383072486",
+  "left_records": 55296,
+  "right_records": 5308416,
+  "folded_compatible_records": 26373783552
+}

@@ -1,0 +1,15 @@
+{
+  "decision": "MMAX_CERTIFIED_LE_12",
+  "model": {"field_poly": [3,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1], "eta": [0,0,0,0,0,0,0,0,0,6], "beta": [2,1], "generator": [1,1], "group_order": "48661191875666868480"},
+  "split": {"left_slots": [1,2,3], "right_slots": [4,5,6,7], "left_count": 110592, "right_count": 5308416},
+  "color_filter": "colorL + colorR == 4 mod 16",
+  "shards": {"total": 1536, "start": 0, "requested": 1536, "completed": 1536, "threads": 4},
+  "compatible_pairs": 52747567104,
+  "distinct_products": 52747567092,
+  "D_offdiagonal_ordered": 24,
+  "m_max": 2,
+  "threshold": 12,
+  "hit_value_log": null,
+  "aggregate_checksums": {"xor64": "2814381487044271711", "sum64": "98931747835215201"},
+  "elapsed_seconds": 968.722
+}

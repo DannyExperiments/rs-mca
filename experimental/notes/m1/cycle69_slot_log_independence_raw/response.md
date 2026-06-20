@@ -1,0 +1,149 @@
+I'll start by reading the file index, then the required files in order.Let me find the specific files mentioned in the read order.Now let me read the checker script and the certificate.Now the cycle 67 and 66 audits.I have enough to give a decisive cycle-69 result. I verified the key algebra by hand (notably the C4 slot oracle: since η¹⁶ = 3 is primitive in F₁₇, {η^{16b}} = F₁₇\*, so ∏_{b∈Z/16}(β²−η^{2t+16b}) = ∏_{c∈F₁₇\*}(β²−η^{2t}c) = β³²−3^{2t}). The structural reductions hold. Here is my deliverable.
+
+---
+
+# BANKABLE_LEMMA (+ PLAN)
+
+I have only a file-reading tool in this harness (as in cycle 68), so I cannot run code or write files. The deliverables below are inline for Codex to save under `output_files/` and run. Every identity is checked by hand against `cycle68_slot_factorization_checker.py`.
+
+## 1. Executive verdict and confidence
+
+I did not produce a closed structural proof of `m_max(β) ≤ 12`, and I did not find a 13-fold collision. Consistent with cycles 66–68, the tight bound is a genuine finite relation-lattice computation, not hand-provable from the disjoint-coset picture alone (the coset structure controls the *roots* η^{2t+16b}, not the additive structure of the *logs* of β²−η^{...}).
+
+What is new and bankable this cycle:
+
+1. An exact **energy→multiplicity gate** that replaces "certify the max multiplicity" with "certify the *total* off-diagonal collision count ≤ 155." This is a much smaller, cleaner certified object and tells us precisely what a counterpacket must contain.
+2. An exact **injectivity ladder**: certifying k-slot product-injectivity (cheaply, for k ≤ 4) forces every collision to have slot-support ≥ k+1. Rung k=1 is already proven (C5). This prunes the search, gives strong self-checks, and is an early counterpacket detector.
+3. A new exact self-check oracle: the **slot-complement involution** `S_t(B)·S_t(Bᶜ) = β³²−3^{2t}`.
+
+Confidence: energy gate and injectivity-ladder implications are proven (1.00, elementary). `m_max ≤ 12` actually holding: ~0.9 (heuristic collision count D ≈ 2·(|P_0|²/2N) ≈ 58 ≪ 155), uncertified. Full solve via the ladder + bounded-collision run: high, modulo a compiled run that is now much better specified.
+
+## 2. The two new exact lemmas (bankable objects)
+
+Notation as banked: `ξ=β²`, η of order 256, η¹⁶=3, valid tuple ↔ `(B_1,…,B_7)`, slot value `u_t(B)=3^{-t}∏_{b∈B}(β²−η^{2t+16b})`, product `ρ_β(T)/(β−1)=∏_t u_t(B_t)`. Let `P:=|P_0|=52,747,567,104`. Let multiplicities `m_v=#{valid tuples : ∏_t u_t(B_t)=v}`, `m_max=max_v m_v`. Define the off-diagonal ordered collision count
+
+```
+D := E − P,   E := #{ (T,T') ∈ P_0² : ∏_t u_t(B_t)=∏_t u_t(B_t') }.
+```
+
+**L-CYCLE69-ENERGY-TO-MULTIPLICITY.**
+```
+m_max(m_max − 1) ≤ D,     so     m_max ≤ (1 + √(1+4D)) / 2.
+In particular:   D ≤ 155   ⟹   m_max ≤ 12   ⟹   Occ ≥ P/12 > 2³².
+```
+*Proof.* `D = Σ_v m_v(m_v−1) ≥ m_max(m_max−1)` (top term). If `D ≤ 155 < 156 = 13·12` then `m_max(m_max−1) < 13·12`, forcing `m_max ≤ 12`. ∎
+
+This is sharp at this scale: a 13-cluster forces `D ≥ 156`. So the **only** counterpacket is a single value hit ≥13 times, and the certified quantity is now the *total collision count*, which a single hashing/sorting pass produces directly. (`D` is even; `D ≤ 154`, i.e. ≤ 77 unordered colliding pairs, suffices.)
+
+**L-CYCLE69-INJECTIVITY-LADDER.** For a slot subset `J ⊆ {1,…,7}`, say J is *product-injective* if the `48^{|J|}` partial products `∏_{t∈J} u_t(B_t)` are pairwise distinct.
+```
+If every k-subset J is product-injective, then every collision (T≠T')
+has slot-support |{t : B_t ≠ B_t'}| ≥ k+1.
+```
+*Proof.* If a collision had support `S` with `|S| ≤ k`, the agreeing slots cancel, leaving `∏_{t∈S} u_t(B_t)=∏_{t∈S} u_t(B_t')` with `(B_t)_{t∈S}≠(B_t')_{t∈S}`; embed `S` in any k-subset `J⊇S` (agreeing slots in J\S cancel) to contradict J-injectivity. ∎
+
+Rung k=1 = single-slot injectivity = **C5, already certified** ⟹ every collision has support ≥ 2. Rungs k=2,3,4 are cheap (below) and push support ≥ 5.
+
+**L-CYCLE69-SLOT-COMPLEMENT-ORACLE.** For the complementary 8-set `Bᶜ = Z/16 \ B`,
+```
+S_t(B) · S_t(Bᶜ) = ∏_{b∈Z/16}(β²−η^{2t+16b}) = β³² − 3^{2t}    (= the C4 element).
+```
+*Proof.* immediate from C4 by splitting the full product. ∎ A new exact per-slot self-check (and a free correctness invariant inside the big run).
+
+## 3. Proof status of the wall
+
+`L-CYCLE68-SLOT-LOG-INDEPENDENCE` (bound the {−1,0,+1} slot-balanced relation lattice of the 112 logs) remains open and is, I assess, not hand-provable: the η^{2t}-twist makes the seven slots' value-difference sets behave as additively dissociated, generic sets in Z/N, but no symmetry *forces* a provable bound. The ladder converts "prove independence" into a sequence of finite, checkable injectivity facts; the residual (support ≥ k+1 collisions) is still a finite enumeration. This is the honest boundary, matching cycles 66–68.
+
+## 4. Verifier plan (refined) — CHECKER spec, complexity, certificate, failure format
+
+Two layers. Layer A is runnable on a normal workstation and yields real bankable certificates *now*. Layer B is the decisive compiled run, now gated by the cheaper Layer-A facts and the energy count.
+
+**Layer A — injectivity ladder + complement oracle (feasible, no big memory).**
+Reuse the validated field setup (`find_field_poly/find_eta/find_beta/build_u/S`) from `cycle68_slot_factorization_checker.py`. Add, with `u(t,k)`, `col(k)` as in that file:
+
+```python
+# --- append to cycle68 checker; LADDER + ENERGY GATE (Cycle 69) ---
+from itertools import combinations, product as iproduct
+
+def ladder_injectivity(U, f, kmax=4):
+    """Certify every k-subset of slots is product-injective, k=1..kmax.
+    Returns the largest k that holds; min collision support >= k+1."""
+    slots = range(1,8)
+    def uval(t,k):  # k in 0..47
+        i=k//16+1; a=k%16; return U[(t,i,a)]
+    good=0
+    for k in range(1,kmax+1):
+        ok=True
+        for J in combinations(slots,k):
+            seen=set()
+            for ks in iproduct(range(48),repeat=k):
+                p=ONE
+                for t,kk in zip(J,ks): p=fmul(p,uval(t,kk),f)
+                if p in seen:        # partial collision -> early counterpacket lead
+                    ok=False
+                    return good, ("PARTIAL_COLLISION", J, k)
+                seen.add(p)
+        if not ok: break
+        good=k
+    return good, None
+
+def complement_oracle(f, beta, eta_pows, S):
+    xi=fpow(beta,2,f); full={}
+    for t in range(1,8):
+        full[t]=psub(fpow(beta,32,f), emb(pow(3,(2*t)%16,17)))
+        # check S(t,B)*S(t,Bc) == full[t] on a few B
+        for B in [frozenset({0,1,2,3,4,5,6,7}), frozenset({0,2,4,6,8,10,12,14})]:
+            Bc=frozenset(set(range(16))-set(B))
+            assert fmul(S(t,B),S(t,Bc),f)==full[t]
+    return True
+```
+
+Complexity (field-mults): k=1: 336; k=2: 21·2304≈4.8e4; k=3: 35·110592≈3.9e6; k=4: 35·48⁴≈1.9e8. Through k=3 is minutes in Python / seconds in C; k=4 is minutes in C. **Outcome:** if all hold, every collision has support ≥ 5; any failure returns a `PARTIAL_COLLISION` lead.
+
+**Layer B — bounded-collision exact run (decisive, compiled).**
+MITM split L={1,2,3} (48³=110,592 products+colors) and R={4,5,6,7} (48⁴=5,308,416). Enumerate the `P=5.27e10` valid pairs (`col_L+col_R≡4 mod16`), one F-mult per pair to form the 16-byte field value `v`.
+
+Certified pass (sized to *count collisions*, not store the value set):
+- Pass 1: hash each `v` into a table of `2³⁶` 1-byte saturating counters (64 GB) — load factor ~0.77, so hash-collision heavy buckets are rare; record bucket ids reaching count ≥ 2.
+- Pass 2: re-enumerate; for `v` whose bucket was ≥2, accumulate exact `v→count` in a small open-addressed map (size = #collisions ≪ P). From it compute `D = Σ_v c_v(c_v−1)` and `m_max = max c_v`.
+- Decision: `OCC_GE_2^32` iff `m_max ≤ 12` (equivalently `D ≤ 155`); else `MULTIPLICITY_EXCEEDS_12` emitting the ≥13 colliding tuples; else `INCONCLUSIVE`.
+
+Self-checks folded in for free: per-pair complement-oracle invariant (Layer A), Σ counts = P, and `D` parity even. Time ≈ 2P F-mults (single-digit hours in C). Memory is the 64 GB Pass-1 table (drop to 32 GB at `2³⁵` with more recount), **independent of the 2³² value-set size** — the whole point.
+
+If 64 GB is unavailable, the exact fallback is external sort: stream `P·16 B ≈ 844 GB` to disk, sort, scan runs; `m_max` = max run length, `D` from run lengths. Pure disk, no RAM bound.
+
+**Certificate schema (decisive run):**
+```json
+{ "model":{"field_poly":[...],"eta":[...],"beta":[...],"slot_table_sha256":"..."},
+  "selfchecks":{"C1..C5":true,"C4_complement_oracle":true,
+                "ladder_max_k":4,"min_collision_support":5},
+  "P0":52747567104, "threshold":4294967296,
+  "D_offdiagonal_ordered":<int>, "m_max_observed":<int>, "m_max_bound":12,
+  "decision":"OCC_GE_2^32 | MULTIPLICITY_EXCEEDS_12 | INCONCLUSIVE",
+  "counterpacket": [ /* present iff MULTIPLICITY_EXCEEDS_12: >=13 tuples (B_1..B_7) */ ] }
+```
+Counterpacket / failure format: a single value `v` with its list of ≥13 distinct valid tuples `(B_1,…,B_7)` (or equivalently `(i_t,a_t)`), each independently re-evaluable via the validated slot table — exactly what L-CYCLE69-ENERGY-TO-MULTIPLICITY says is the *only* way `m_max` can exceed 12.
+
+## 5. Consequence for `m_max(β) ≤ 12` and `Occ(β) ≥ 2³²`
+
+Unchanged threshold, sharpened certification path. `m_max ≤ 12 ⟹ Occ ≥ P/12 = 4,395,630,592 > 2³²`; `P/13 = 4,057,505,162 < 2³²`. New: `Occ ≥ 2³²` is now implied by the *single scalar gate* `D ≤ 155`, and `D` is exactly the off-diagonal collision count the compiled run produces. The injectivity ladder guarantees (cheaply) that all collisions have support ≥ 5, which both prunes Layer B and makes any partial failure an immediate counterpacket lead. No claim of `Occ ≥ 2³²` is made yet — neither `D ≤ 155` nor `m_max ≤ 12` is certified.
+
+## 6. What should be banked
+
+- `L-CYCLE69-ENERGY-TO-MULTIPLICITY`: `m_max(m_max−1) ≤ D`; `D ≤ 155 ⟹ m_max ≤ 12 ⟹ Occ ≥ 2³²`. (Proven, elementary.)
+- `L-CYCLE69-INJECTIVITY-LADDER`: all k-subsets product-injective ⟹ collision support ≥ k+1; k=1 holds via C5. (Proven; k=2,3,4 cheaply checkable.)
+- `L-CYCLE69-SLOT-COMPLEMENT-ORACLE`: `S_t(B)·S_t(Bᶜ) = β³²−3^{2t}`. (Proven; new self-check.)
+- Independent re-derivation of C4 (`∏_{b}(β²−η^{2t+16b}) = β³²−3^{2t}` via `{η^{16b}}=F₁₇*`). 
+- Refined verifier: `D`-counting certificate, 32–64 GB collision-count pass (memory independent of 2³²) or 844 GB external-sort fallback; counterpacket = one value with ≥13 tuples.
+- Keep strictly model-level; not a prize counterpacket or MCA theorem.
+
+## 7. Route to a full solve and next exact step
+
+Yes — a concrete, decisive route, now in checkable rungs:
+
+1. **Runnable now:** execute Layer A (`ladder_injectivity` k≤4 + complement oracle). Expected result: `min_collision_support ≥ 5`, banked as exact lemmas, with all-pass self-checks for Layer B. A failure at any rung is a partial-collision counterpacket lead.
+2. **Decisive:** run Layer B, certify the scalar `D` and read `m_max`. By L-CYCLE69-ENERGY-TO-MULTIPLICITY, `D ≤ 155` closes `Occ ≥ 2³²`; otherwise the run emits the explicit 13-fold counterpacket.
+
+Next exact lemma to attempt before the big run: **`L-CYCLE69-SUPPORT-5-ENERGY-BOUND`** — using `min support ≥ 5` (from the ladder), bound the support-≥5 collision count `D` by a sum of certified 4-slot collision counts via the MITM split, aiming to shrink Layer B from a `2P` pass to a heavy-bucket-only enumeration (or to certify `D ≤ 155` directly from 4-slot energies, which are within compiled reach at k≤4 scale).
+
+A note for the loop: I could not write `output_files/RESULT.md`, `CHECKER.py`, `RESULTS.json`, or `NEXT_PROMPT.md` — this harness exposed only a file-reading tool. The Layer-A code and the two banked lemmas above are written to be saved and run as-is on top of the existing, already-validated cycle-68 checker.

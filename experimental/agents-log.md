@@ -29,6 +29,46 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 70 K3/K4 ladder prompt staged
+
+- **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 69.
+- **Files added or changed:** `experimental/notes/m1/cycle70_k3_k4_ladder_packet/`
+  and `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / PLAN.
+- **What is being added:** A targeted prompt for
+  `V-CYCLE69-K3-K4-INJECTIVITY-LADDER`, asking the next worker to prove or
+  kill product-injectivity for `k=3` and `k=4`, then push to the
+  collision-energy gate `D<=155` if the ladder passes.
+- **How it is useful:** Attacks the exact finite bottleneck left by Cycle 69
+  before attempting the full seven-slot collision-energy count.
+- **What to do next:** Refresh the Packy/Fable source snapshot, preview the
+  prompt context, launch Cycle 70 if the snapshot includes the Cycle 69 audit,
+  raw response, ladder probe, and Cycle 68 checker, then heartbeat the active
+  run.
+
+### 2026-06-20 - Cycle 69 slot-log independence return banked
+
+- **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,
+  audited by Codex with a bounded local ladder probe.
+- **Files added or changed:** `experimental/notes/m1/cycle69_slot_log_independence_raw/`,
+  `experimental/notes/m1/m1_cycle69_slot_log_independence_audit.md`,
+  `experimental/scripts/cycle69_ladder_probe.py`,
+  `experimental/notes/m1/cycle69_ladder_probe_certificate.json`, and
+  `experimental/agents-log.md`.
+- **Status:** BANKABLE_LEMMA / PLAN.
+- **What is being added:** Cycle 69 banks the energy-to-multiplicity gate
+  `D<=155 => m_max<=12`, the injectivity-ladder reduction, and the slot
+  complement oracle `S_t(B)S_t(B^c)=beta^32-3^(2t)`. Codex locally verified
+  the complement oracle and product-injectivity through `k=2`.
+- **How it is useful:** Turns the Cycle 68 seven-slot occupancy target into a
+  sharper finite decision problem: either prove the `k=3/k=4` ladder and then
+  a support-5 energy bound, count ordered collision energy `D`, or find an
+  explicit 13-fold collision.
+- **What to do next:** Stage Cycle 70 against
+  `V-CYCLE69-K3-K4-INJECTIVITY-LADDER`, preferably asking for an optimized
+  verifier or structural proof before attempting the full collision-energy
+  count.
+
 ### 2026-06-20 - Cycle 68 collision multiplicity return banked
 
 - **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,

@@ -1,0 +1,54 @@
+{
+  "complement_oracle_checks": 336,
+  "decision": "LADDER_PROBE_PASSED_TO_KMAX",
+  "first_collision": null,
+  "ladder": [
+    {
+      "k": 1,
+      "product_injective": true
+    },
+    {
+      "k": 2,
+      "product_injective": true
+    }
+  ],
+  "max_good_k": 2,
+  "min_collision_support_if_no_failure": 3,
+  "model": {
+    "beta": [
+      2,
+      1
+    ],
+    "eta": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6
+    ],
+    "field_poly": [
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  }
+}

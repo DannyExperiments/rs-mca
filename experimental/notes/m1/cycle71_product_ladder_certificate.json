@@ -1,0 +1,54 @@
+{
+  "decision": "PRODUCT_ONLY_LADDER_PASSED_TO_KMAX",
+  "first_collision": null,
+  "key": "packed_product_only",
+  "ladder": [
+    {
+      "k": 1,
+      "product_injective": true
+    },
+    {
+      "k": 2,
+      "product_injective": true
+    }
+  ],
+  "max_good_k": 2,
+  "min_collision_support_if_no_failure": 3,
+  "model": {
+    "beta": [
+      2,
+      1
+    ],
+    "eta": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6
+    ],
+    "field_poly": [
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  }
+}

@@ -29,6 +29,45 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 72 product-only ladder prompt staged
+
+- **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 71.
+- **Files added or changed:** `experimental/notes/m1/cycle72_product_only_ladder_packet/`
+  and `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / PLAN.
+- **What is being added:** A targeted prompt for
+  `V-CYCLE71-PRODUCT-ONLY-K3-K4-LADDER-RUN`, requiring product-only duplicate
+  detection, a proof that product equality forces color equality, or a direct
+  partial collision.
+- **How it is useful:** Forces the next worker to resolve the verifier
+  semantics left by Cycle 71 rather than relying on the unsafe color-key
+  shortcut.
+- **What to do next:** Refresh the Packy/Fable source snapshot, preview, launch
+  Cycle 72, and heartbeat the run.
+
+### 2026-06-20 - Cycle 71 optimized ladder return banked
+
+- **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,
+  audited by Codex with a corrected local product-only checker.
+- **Files added or changed:** `experimental/notes/m1/cycle71_optimized_ladder_run_raw/`,
+  `experimental/notes/m1/m1_cycle71_optimized_ladder_audit.md`,
+  `experimental/scripts/cycle71_product_ladder_checker.py`,
+  `experimental/notes/m1/cycle71_product_ladder_certificate.json`, and
+  `experimental/agents-log.md`.
+- **Status:** BANKABLE_LEMMA / PLAN / ROUTE_CUT.
+- **What is being added:** Cycle 71 banks the full-displacement lemma for
+  minimum-support slot collisions, but does not execute or close `k=3/k=4`.
+  Codex cuts the returned Python color-key verifier because `(color, product)`
+  is not a valid product-injectivity key unless color is already known to be
+  forced by product.
+- **How it is useful:** Refines the verifier target to product-only duplicate
+  detection and prevents a false color-filter pass from being mistaken for a
+  ladder proof.
+- **What to do next:** Stage Cycle 72 against
+  `V-CYCLE71-PRODUCT-ONLY-K3-K4-LADDER-RUN`, requiring either a real
+  product-only optimized run, explicit partial collision, or a proof that
+  product equality forces color equality.
+
 ### 2026-06-20 - Cycle 71 optimized ladder prompt staged
 
 - **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 70.

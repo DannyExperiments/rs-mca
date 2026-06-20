@@ -29,6 +29,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 64 prefix-collision gadget prompt launched
+
+- **Agent/model:** Codex launching `claude-opus-4-8` via Packy/Fable
+  `artifact_stream`.
+- **Files added or changed:** `experimental/notes/m1/cycle64_prefix_collision_gadget_packet/`
+  and `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / ACTIVE RUN.
+- **What is being added:** A targeted Cycle 64 worker prompt for
+  `L-MODEL-GJ-PREFIX-COLLISION-GADGET-PARTITION-AND-CHARGE`, the exact wall
+  exposed by Cycle 63 Role 05's block-free near-split collision-mass
+  counterpacket.
+- **How it is useful:** Keeps the overnight loop focused on the live scalar
+  apolar obstruction: either enlarge full-block trades to prefix-collision
+  gadget charges that absorb the characteristic-17 packet, or produce a
+  sharper route cut.
+- **What to do next:** Monitor the active run
+  `/Users/danielcabezas/packy-fable-ui/projects/rs-mca-proximity-prize-research/runs/2026-06-20T06-09-24-153Z-cycle64-prefix-collision-gadget-charge-78d0dd73`,
+  preserve raw artifacts on completion, audit conservatively, then bank and
+  continue with the next exact prompt.
+
 ### 2026-06-20 - Cycle 63 Round 2 returns banked and audited
 
 - **Agent/model:** External 5.5/5.6 Pro theorem-worker returns, banked and

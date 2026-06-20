@@ -29,6 +29,40 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 82 four-slot/MITM prompt staged
+
+- **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 81.
+- **Files added or changed:** `experimental/notes/m1/cycle82_four_slot_or_mitm_mmax_packet/`
+  and `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / PLAN.
+- **What is being added:** A targeted prompt for
+  `V-CYCLE82-FOUR-SLOT-OR-MITM-MMAX-CERTIFICATE`, asking for a compiled
+  four-slot product-injectivity certificate, explicit four-slot collision, or
+  direct color-filtered MITM `m_max` census.
+- **How it is useful:** Moves past the now-certified three-slot rung toward
+  the next finite certificate needed for the `m_max(beta)<=12` wall.
+- **What to do next:** Refresh the Packy/Fable source snapshot, preview,
+  launch Cycle 82, and heartbeat the run.
+
+### 2026-06-20 - Cycle 81 compiled three-slot certificate return banked
+
+- **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,
+  audited by Codex with a local vectorized NumPy verifier.
+- **Files added or changed:** `experimental/notes/m1/cycle81_compiled_three_slot_certificate_raw/`,
+  `experimental/notes/m1/m1_cycle81_compiled_three_slot_certificate_audit.md`,
+  `experimental/scripts/cycle81_vectorized_three_slot_checker.py`,
+  `experimental/notes/m1/cycle81_three_slot_injectivity_certificate.json`,
+  and `experimental/agents-log.md`.
+- **Status:** PROOF / BANKABLE_LEMMA / PLAN.
+- **What is being added:** Codex locally executed the vectorized exact checker
+  and certified all 35 three-slot product maps are injective. The certificate
+  decision is `ALL_3_SUBSETS_PRODUCT_INJECTIVE`, giving product-fiber minimum
+  distance at least `4`.
+- **How it is useful:** Closes the finite three-slot rung below the
+  coherent-ratio route and removes all product collisions through weight `3`.
+- **What to do next:** Attack all four-slot product maps or move directly to
+  the color-filtered L/R MITM `m_max` census.
+
 ### 2026-06-20 - Cycle 81 compiled three-slot certificate prompt staged
 
 - **Agent/model:** Codex staging next Packy/Fable prompt after Cycle 80.

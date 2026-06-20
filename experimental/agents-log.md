@@ -29,6 +29,23 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-20 - Cycle 66 sevenfold product occupancy prompt staged
+
+- **Agent/model:** Codex staging next Packy/Fable prompt.
+- **Files added or changed:** `experimental/notes/m1/cycle66_sevenfold_product_occupancy_packet/`
+  and `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / PLAN.
+- **What is being added:** A targeted prompt for
+  `V-CYCLE65-SEVENFOLD-PRODUCT-OCCUPANCY-VERIFIER`, asking the next worker to
+  prove, kill, or make executable the explicit sevenfold product occupancy
+  count exposed by Cycle 65.
+- **How it is useful:** Keeps the loop on the finite arithmetic decision that
+  now controls whether the Role 05 thickened color model gives a `t=1` MCA
+  obstruction above `2^32`.
+- **What to do next:** Refresh the Packy/Fable source snapshot, run a no-token
+  preview, launch Cycle 66 if the preview has the expected files, then let the
+  heartbeat monitor completion.
+
 ### 2026-06-20 - Cycle 65 thickened gadget color return banked
 
 - **Agent/model:** `claude-opus-4-8` via Packy/Fable `artifact_stream`,

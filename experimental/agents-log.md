@@ -29,6 +29,26 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-21 - Cycle 85 Role05 occupancy transfer prompt packet staged
+
+- **Agent/model:** Codex staging a nine-instance Pro transfer/audit round.
+- **Files added or changed:**
+  `experimental/notes/m1/cycle85_role05_occupancy_transfer_packet/` and
+  `experimental/agents-log.md`.
+- **Status:** PROMPT PACKET / PLAN.
+- **What is being added:** A targeted nine-role prompt packet for
+  `L-CYCLE85-EXACT-ROLE05-OCCUPANCY-TRANSFER`, the exact bridge from the
+  public Cycle84 finite certificate
+  `m_max(beta)=2`, `Occ(beta)=52,747,567,092` into the honest
+  Role05/frontier-ledger statement. The shared context zip is
+  `/Users/danielcabezas/20260621_cycle85_role05_occupancy_transfer_context.zip`.
+- **How it is useful:** Keeps the next Pro round off the already-closed MITM
+  multiplicity wall and onto the real remaining issue: transfer, field
+  normalization, transversality, tensor relevance, and official finite-frontier
+  placement.
+- **What to do next:** Upload the context zip, paste `COMMON_PROMPT.md`, then
+  append exactly one role prompt. Bank the raw answers before judging them.
+
 ### 2026-06-21 - Cycle 84 GitHub replay passed
 
 - **Agent/model:** Codex plus GitHub Actions public replay.

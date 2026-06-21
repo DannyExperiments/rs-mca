@@ -1,0 +1,99 @@
+name: Cycle84 certificate replay
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_full_replay:
+        description: "Recompile and rerun the projected census plus kernel lift"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+jobs:
+  light-certificate:
+    name: Light certificate chain
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+
+      - name: Verify raw artifact hashes and lightweight certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          raw="experimental/notes/m1/cycle84_wallbreaker_returns_raw"
+          cd "$raw"
+          sha256sum -c SHA256SUMS.txt
+          rm -rf /tmp/cycle84_mmax2_certificate_bundle
+          unzip -q cycle84_mmax2_certificate_bundle.zip -d /tmp
+          cd /tmp/cycle84_mmax2_certificate_bundle
+          python3 verify_certificate.py | tee /tmp/cycle84_light_verification.json
+          grep -q 'CYCLE84_EXACT_MMAX2_CERTIFICATE_VERIFIED' /tmp/cycle84_light_verification.json
+          grep -q '"exact_true_m_max": 2' /tmp/cycle84_light_verification.json
+          grep -q '"exact_true_occupancy": 52747567092' /tmp/cycle84_light_verification.json
+
+  full-replay:
+    name: Full projected census and kernel lift
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    if: ${{ github.event.inputs.run_full_replay == 'true' }}
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+
+      - name: Recompile and rerun optimized projected census
+        shell: bash
+        run: |
+          set -euo pipefail
+          raw="experimental/notes/m1/cycle84_wallbreaker_returns_raw"
+          rm -rf /tmp/cycle84_mmax2_certificate_bundle
+          unzip -q "$raw/cycle84_mmax2_certificate_bundle.zip" -d /tmp
+          cd /tmp/cycle84_mmax2_certificate_bundle
+          threads="$(nproc)"
+          echo "Using ${threads} threads"
+          g++ -O3 -march=native -fopenmp -D_GLIBCXX_PARALLEL \
+            src/tau_fold_full_optimized.cpp \
+            -o tau_fold_full_optimized
+          OMP_NUM_THREADS="$threads" ./tau_fold_full_optimized 16384 "$threads" \
+            | tee /tmp/cycle84_tau_opt_rerun.json
+          python3 - <<'PY'
+          import json
+          p = "/tmp/cycle84_tau_opt_rerun.json"
+          j = json.load(open(p))
+          assert j["decision"] == "TAU_FOLDED_PROJECTED_MMAX_LE_12", j
+          assert j["tau_half_domain_counted"] == 26373783552, j
+          assert j["fixed_selected_counts"] == [0, 0], j
+          assert j["folded_ordered_energy"] == 60, j
+          assert j["projected_ordered_energy"] == 120, j
+          assert j["max_canonical_projected_multiplicity"] == 2, j
+          assert j["full_projected_max_including_fixed"] == 2, j
+          assert len(j["duplicate_canonical_bins"]) == 30, j
+          assert all(x["count"] == 2 for x in j["duplicate_canonical_bins"]), j
+          print("Projected census replay verified")
+          PY
+
+      - name: Recompile and rerun kernel-3 duplicate lift
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/cycle84_mmax2_certificate_bundle
+          g++ -O3 -march=native src/tau_duplicate_lift.cpp -o tau_duplicate_lift
+          ./tau_duplicate_lift | tee /tmp/cycle84_tau_lift_rerun.json
+          python3 - <<'PY'
+          import json
+          p = "/tmp/cycle84_tau_lift_rerun.json"
+          j = json.load(open(p))
+          assert j["decision"] == "KERNEL_3_DUPLICATE_LIFT_COMPLETE", j
+          assert j["projection_duplicate_orbits_checked"] == 30, j
+          assert j["selected_witnesses_recovered"] == 60, j
+          assert j["true_collision_tau_orbits"] == 6, j
+          assert j["true_double_fibers"] == 12, j
+          assert j["exact_true_ordered_offdiagonal_energy"] == 24, j
+          assert j["exact_true_m_max"] == 2, j
+          assert j["exact_true_occupancy"] == 52747567092, j
+          print("Kernel lift replay verified")
+          PY

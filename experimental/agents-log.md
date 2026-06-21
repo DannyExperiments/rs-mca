@@ -29,6 +29,28 @@ Keep entries concise and link to the relevant files.
 
 ## Entries
 
+### 2026-06-21 - Cycle 84 GitHub replay workflow template staged
+
+- **Agent/model:** Codex.
+- **Files added or changed:**
+  `experimental/notes/m1/cycle84_github_replay_workflow/` and
+  `experimental/agents-log.md`.
+- **Status:** AUDIT / VERIFICATION.
+- **What is being added:** A manual-dispatch GitHub Actions workflow template
+  for the Cycle84 certificate. The live `.github/workflows/` push was blocked
+  because the available OAuth token lacks GitHub's `workflow` scope, so the
+  workflow is preserved under `experimental/` for a maintainer or authorized
+  token to install.
+- **How it is useful:** Provides a public, timestamped replay path for the
+  `m_max(beta)=2` finite-wall certificate, so reviewers can inspect a GitHub
+  runner receipt rather than relying only on local machine output.
+- **What to do next:** Copy
+  `experimental/notes/m1/cycle84_github_replay_workflow/cycle84-certificate-replay.yml`
+  into `.github/workflows/` using a credential with `workflow` scope, then
+  dispatch it on `cycle58-5p5-audit` with `run_full_replay=true`; if GitHub
+  runner limits block the full replay, keep the light receipt and move the
+  heavy replay to a larger VM.
+
 ### 2026-06-21 - Cycle 84 wallbreaker returns banked
 
 - **Agent/model:** External Pro theorem-worker returns, audited by Codex with a
